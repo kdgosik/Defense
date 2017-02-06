@@ -1,0 +1,580 @@
+BibTeX Entries for Publications of Bruce Maggs
+
+Back to list of publications
+@inproceedings{AielloLMN90,
+author = "W. Aiello and T. Leighton and B. Maggs and M. Newman",
+title = "Fast Algorithms for Bit-Serial Routing on a Hypercube",
+booktitle =  "Proceedings of the 2nd Annual {ACM} Symposium on
+   Parallel Algorithms and Architectures",
+month = jul,
+year = 1990,
+pages = "55--64"}
+
+@article{AielloLMN91,
+author = "W. A. Aiello and F. T. Leighton and B. M. Maggs and M. Newman",
+title = "Fast Algorithms for Bit-Serial Routing on a Hypercube",
+journal = "Mathematical Systems Theory",
+volume = 24,
+number = 4,
+year = 1991,
+pages = "253--271"}
+
+@inproceedings{AielloAMR93,
+author = "W. Aiello and B. Awerbuch and B. Maggs and S. Rao",
+title = "Approximate Load Balancing on Dynamic and Asynchronous
+   Networks",
+booktitle = "Proceedings of the 25th Annual {ACM} Symposium on
+   the Theory of Computing",
+month = may,
+year = 1993,
+pages = "632--641"}
+
+@inproceedings{AroraLM90,
+author = "S. Arora and T. Leighton and B. Maggs",
+title = "On-line Algorithms for Path Selection in a Non-blocking Network",
+booktitle =  "Proceedings of the 22nd Annual {ACM} Symposium on
+   Theory of Computing",
+month = may,
+year = 1990,
+pages = "149--158"}
+
+@article{AroraLM96,
+author = "S. Arora and F. T. Leighton and B. M. Maggs",
+title = "On-line Algorithms for Path Selection in a Non-blocking Network",
+journal = "{SIAM} Journal on Computing",
+volume = 25,
+number = 3,
+year = 1996,
+month = jun,
+pages = "600--625"}
+
+@techreport{BerthomeFMPP92,
+author = "P. Berthom\'e and A. Ferreira and B. M. Maggs and S.
+Perennes and C. G. Plaxton",
+title = "Sorting-Based Selection Algorithms for Hypercubic Networks",
+type = "Rapport",
+number = "{n$^{\circ}$} 92-36",
+institution = "Laboratoire de l'Informatique du Parall\'{e}lisme,
+		  Ecole Normale Sup\'{e}rieure de Lyon",
+address = "Lyon, France",
+month = jul,
+year = 1992}
+
+@inproceedings{BerthomeFMPP93,
+author = "P. Berthom\'e and A. Ferreira and B. M. Maggs and S.
+Perennes and C. G. Plaxton",
+title = "Sorting-Based Selection Algorithms for Hypercubic Networks",
+booktitle = "Proceedings of the 7th International Parallel Processing
+   Symposium",
+month = apr,
+year =1993,
+pages = "89--95"}
+
+@article{BerthomeFMPP97,
+ author = "P. Berthom\'e and A. Ferreira and B. M. Maggs and S.
+ Perennes and C. G. Plaxton",
+ title = "Sorting-Based Selection Algorithms for Hypercubic Networks",
+ journal = "Algorithmica",
+ note = "To appear"}
+
+@inproceedings{BlellochLMPSZ91,
+author = "G. E. Blelloch and C. E. Leiserson and B. M. Maggs and
+C. G. Plaxton and S. Smith and M. Zagha",
+title = "A Comparison of Sorting Algorithms for the Connection Machine
+   {CM-2}",
+booktitle = "Proceedings of the 3rd Annual {ACM} Symposium on
+   Parallel Algorithms and Architectures",
+year = 1991,
+month = jul,
+pages = "3--16"}
+
+@article{BlellochLMPSZ97,
+author = " G. E. Blelloch and C. E. Leiserson and B. M. Maggs and
+   C. G. Plaxton and S. Smith and M. Zagha",
+title = "An Experimental Analysis of Parallel Sorting Algorithms",
+journal = "Theory of Computing Systems",
+note = "To appear"}
+
+@article{BlellochM96,
+author = "G. E. Blelloch and B. M. Maggs",
+title = "Parallel Algorithms",
+journal = "{ACM} Computing Surveys",
+volume = 28,
+number = 1,
+month = mar,
+year = 1996,
+pages = "51--54"}
+
+
+@incollection{BlellochM97,
+author = "G. E. Blelloch and B. M. Maggs",
+title = "Parallel Algorithms",
+booktitle = "The Handbook of Computer Science and Engineering",
+editor = "A. B. {Tucker, Jr.}",
+publisher =  "{CRC} Press",
+address = "Boca Raton, FL",
+year = 1997,
+pages = "277--315"}
+
+@incollection{BlellochMM94,
+title = "The Hidden Cost of Low Bandwidth Communication",
+author = "G. E. Blelloch and B. M. Maggs and G. L. Miller",
+editor = "U. Vishkin",
+booktitle = "Developing a Computer Science Agenda for High-Performance
+  Computing",
+publisher = "{ACM} Press",
+year = 1994,
+pages = "22--25"}
+
+@techreport{BornsteinLMSY97,
+ author = "C. F. Bornstein and A. Litman and B. M. Maggs and R. K. Sitaraman
+and T. Yatzkar",
+ title = "On the Bisection Width and Expansion of
+Butterfly Networks",
+ type = "Technical Report",
+ number = "CMU--CS--97--132",
+ institution = "School of Computer Science, Carnegie Mellon University",
+ address = "Pittsburgh, PA",
+ month = may,
+ year = 1997,
+}
+
+@techreport{BornsteinMMR97,
+ author = "C. Bornstein and B. Maggs and G. Miller and R. Ravi",
+ title = "Parallel {Gaussian} Elimination with Linear
+Work and Fill",
+ type = "Technical Report",
+ number = "CMU--CS--97--133",
+ institution = "School of Computer Science, Carnegie Mellon University",
+ address = "Pittsburgh, PA",
+ month = may,
+ year = 1997,
+}
+
+@inproceedings{ColeMS93,
+author = "R. Cole and B. Maggs and R. Sitaraman",
+title = "Multi-Scale Self-Simulation:  A Technique for Reconfiguring
+   Arrays with Faults",
+booktitle = "Proceedings of the 25th Annual {ACM} Symposium on
+   the Theory of Computing",
+month = may,
+year = 1993,
+pages = "561--572"}
+
+@inproceedings{ColeMS95,
+author = "R. Cole and B. Maggs and R. Sitaraman",
+title = "Routing on Butterfly Networks with Random Faults",
+booktitle =  "Proceedings of the 36th Annual Symposium on
+   Foundations of Computer Science",
+year = 1995,
+month = oct,
+pages = "558--570"}
+
+@inproceedings{ColeMS96,
+author = "R. J. Cole and B. M. Maggs and R. K. Sitaraman",
+title = "On the Benefit of Supporting Virtual Channels in Wormhole  Routers",
+booktitle = "Proceedings of the 8th {ACM} Symposium on
+   Parallel Algorithms and Architectures",
+mon = jun,
+year = 1996,
+pages = "131--141"}
+
+@article{ColeMS97,
+author = "R. J. Cole and B. M. Maggs and R. K. Sitaraman",
+title = "Reconfiguring Arrays with Faults Part {I}: Worst-Case Faults",
+journal = "{SIAM} Journal on Computing",
+volume = 26,
+number = 6,
+month = dec,
+year = 1997,
+note = "To appear"}
+
+@inproceedings{CoxHMR92,
+author = "I. J. Cox and S. Hingorani and B. M. Maggs and S. B. Rao",
+title = "Stereo Without Disparity Gradient Smoothing: A {Bayesian} Sensor
+   Fusion Solution",
+booktitle = "Proceedings of the 1992 British Machine Vision Conference",
+month = sep,
+year = 1992,
+pages = "337-346"}
+
+@article{CoxHMR96,
+author = "I. J. Cox and S. L. Hingorani and B. M. Maggs and S. B. Rao",
+title = "A Maximum Likelihood Stereo Algorithm",
+journal = "Computer Vision and Image Understanding",
+volume = 63,
+number = 3,
+month = may,
+year = 1996,
+pages = "542--567"}
+
+@techreport{FeldmannMSST95,
+author = "A. Feldmann and B. M. Maggs and J. Sgall and D. D. Sleator
+   and A. Tomkins",
+title = "Competitive analysis of call admission algorithms that allow
+   delay",
+type = "Technical Report",
+number = "CMU--CS--95--102",
+institution = "School of Computer Science, Carnegie Mellon University",
+address = "Pittsburgh, PA",
+month = jan,
+year = 1995}
+
+@inproceedings{GhoshLMMPRRTZ95,
+author = "B. Ghosh and F. T. Leighton and B. M. Maggs and S. Muthukrishnan
+   and C. G. Plaxton and R. Rajaraman and A. W. Richa and
+   R. E. Tarjan and D. Zuckerman",
+title = "Tight Analyses of Two Local Load Balancing Algorithms",
+booktitle = "Proceedings of the 27th Annual {ACM} Symposium on
+   the Theory of Computing",
+month = may,
+year = 1995,
+pages = "548--558"}
+
+@article{GhoshLMMPRRTZ97,
+author = "B. Ghosh and F. T. Leighton and B. M. Maggs and S. Muthukrishnan
+   and C. G. Plaxton and R. Rajaraman and A. W. Richa and
+   R. E. Tarjan and D. Zuckerman",
+title = "Tight Analyses of Two Local Load Balancing Algorithms",
+journal = "{SIAM} Journal on Computing",
+note = "To appear"}
+
+@article{GoldbergMP94,
+author = "A. V. Goldberg and B. M. Maggs and S. A. Plotkin",
+title = "A Parallel Algorithm for Reconfiguring a Multibutterfly
+   Network with Faulty Switches",
+journal = "{IEEE} Transactions on Computers",
+volume = 43,
+number = 3,
+month = mar,
+year = 1994,
+pages = "321--326"}
+
+@inproceedings{KochLMRR89,
+author = "R. Koch and T. Leighton and B. Maggs and
+   S. Rao and A. Rosenberg",
+title = "Work-Preserving Emulations of Fixed-Connection
+   Networks",
+booktitle = "Proceedings of the 21st Annual {ACM} Symposium on
+   Theory of Computing",
+month = may,
+year = 1989,
+pages = "227--240"}
+
+@article{KochLMRRS97,
+author = "R. R. Koch and F. T. Leighton and B. M. Maggs and
+   S. B. Rao and A. L. Rosenberg and E. J. Schwabe",
+title = "Work-Preserving Emulations of Fixed-Connection Networks",
+journal = "Journal of the {ACM}",
+volume = 44,
+number = 1,
+month = jan,
+year = 1997,
+pages = "104--147"}
+
+@inproceedings{LeightonLM90,
+author = "T. Leighton and D. Lisinski and B. Maggs",
+title = "Empirical Evaluation of Randomly-Wired Multistage Networks",
+booktitle =  "Proceedings of the 1990 {IEEE} International Conference on
+   Computer Design: VLSI in Computers \& Processors",
+month = sep,
+year = 1990,
+pages = "380--385"}
+
+@inproceedings{LeightonM89,
+author =  "T. Leighton and B. Maggs",
+title = "Expanders Might be Practical:  Fast Algorithms
+   for Routing Around Faults in Multibutterflies",
+booktitle =  "Proceedings of the 30th Annual Symposium on
+   Foundations of Computer Science",
+month = oct,
+year = 1989,
+pages = "384--389"}
+
+@article{LeightonM92,
+author =  "F. T. Leighton and B. M. Maggs",
+title = "Fast Algorithms for Routing Around Faults in Multibutterflies
+   and Randomly-Wired Splitter Networks",
+journal = "{IEEE} Transactions on Computers",
+volume = 41,
+number = 5,
+month = may,
+year = 1992,
+pages = "578--587"}
+
+@inproceedings{LeightonMR88,
+author = "T. Leighton and B. Maggs and S. Rao",
+title = "Universal Packet Routing Algorithms",
+booktitle = "Proceedings of the 29th Annual Symposium on
+   Foundations of Computer Science",
+month = oct,
+year = 1988,
+pages = "256--271"}
+
+@article{LeightonMR94,
+author = "F. T. Leighton and B. M. Maggs and S. B. Rao",
+title = "Packet Routing and Job-Shop Scheduling
+   in {$O$}(Congestion + Dilation) Steps",
+journal = "Combinatorica",
+volume = 14,
+number = 2,
+year = 1994,
+pages = "167--180"}
+
+@inproceedings{LeightonM95,
+author = "T. Leighton and B. Maggs",
+title = "Fast Algorithms for Finding {$O$}(Congestion + Dilation)
+   Packet Routing Schedules",
+booktitle = "Proceedings of the 28th Hawaii International Conference
+   on System Sciences",
+month = jan,
+year = 1995,
+volume = 2,
+pages = "555--563"}
+
+@techreport{LeightonMR96,
+author = "F T. Leighton and B. M. Maggs and A. W. Richa",
+title = "Fast Algorithms for Finding {$O$}(Congestion + Dilation)
+   Packet Routing Schedules",
+type = "Technical Report",
+number = "CMU--CS--96--152",
+institution = "School of Computer Science, Carnegie Mellon University",
+address = "Pittsburgh, PA",
+month = jul,
+year = 1996,
+}
+
+@article{LeightonMR98,
+ author = "F. T. Leighton and B. M. Maggs and A. W. Richa",
+ title = "Fast Algorithms for Finding {$O$}(Congestion + Dilation)
+ Packet Routing Schedules",
+ journal = "Combinatorica",
+ note = "To appear"}
+
+@article{LeightonMRR94,
+author = "F. T. Leighton and B. M. Maggs and A. G. Ranade and S. B. Rao",
+title = "Randomized Routing and Sorting on Fixed-Connection Networks",
+journal = "Journal of Algorithms",
+volume = 17,
+number = 1,
+month = jul,
+year = 1994,
+pages = "157--205"}
+
+@inproceedings{LeightonMS92a,
+author = "T. Leighton and B. Maggs and R. Sitaraman",
+title = "On the Fault Tolerance of Some Popular Bounded-Degree
+   Networks",
+booktitle = "Proceedings of the 33rd Annual Symposium on
+   Foundations of Computer Science",
+month = oct,
+year = 1992,
+pages = "542--552"}
+
+@techreport{LeightonMS92b,
+author = "T. Leighton and B. Maggs and R. Sitaraman",
+title = "On the Fault Tolerance of Some Popular Bounded-Degree
+  Networks",
+type = "Technical Report",
+number = "CS--TR--385--92",
+institution = "Department of Computer Science, Princeton University",
+address = "Princeton, NJ",
+month = sep,
+year = 1992}
+
+@article{LeightonMS98,
+author = "F. T. Leighton and B. M. Maggs and R. K. Sitaraman",
+title = "On the fault tolerance of some popular bounded-degree
+   networks",
+journal = "{SIAM} Journal on Computing",
+note = "To appear"}
+
+@inproceedings{LeisersonM86a,
+author = "C. E. Leiserson and B. M. Maggs",
+title = "Communication-Efficient Parallel Graph Algorithms",
+booktitle = "Proceedings of the 1986 International Conference on
+   Parallel Processing",
+month = aug,
+year = 1986,
+pages = "861--868"}
+
+@techreport{LeisersonM86b,
+author = "C. E. Leiserson and B. M. Maggs",
+title = "Communication-Efficient Parallel Graph Algorithms",
+type = "Technical Memo",
+number = "MIT/LCS/TM-318",
+institution = "MIT Laboratory for Computer Science",
+address = "Cambridge, MA",
+month = dec,
+year = "1986"}
+
+@article{LeisersonM88,
+author = "C. E. Leiserson and B. M. Maggs",
+title ="Communication-Efficient Parallel Graph Algorithms for Distributed
+   Random-Access Machines",
+journal = "Algorithmica",
+volume = 3,
+number = 1,
+pages = "53--77",
+year = 1988}
+
+@bachelorsthesis{Maggs85,
+author = "B. M. Maggs",
+title = "{\it Computing Minimum Spanning Trees on a Fat-Tree Architecture.}
+   {Bachelor's thesis, Department of Electrical
+   Engineering and Computer Science, Massachusetts Institute of
+   Technology, Cambridge, MA}",
+month = may,
+year = 1985}
+
+@mastersthesis{Maggs86,
+author = "B. M. Maggs",
+title = "{\it Communication-Efficient Parallel Graph Algorithms}",
+school = "Department of Electrical Engineering and Computer Science,
+   Massachusetts Institute of Technology",
+address = "Cambridge, MA",
+month = may,
+year = 1986}
+
+@phdthesis{Maggs89a,
+author = "B. M. Maggs",
+title = "Locality in Parallel Computation",
+school = "Department of Electrical Engineering and Computer Science,
+   Massachusetts Institute of Technology",
+address = "Cambridge, MA",
+month = sep,
+year = 1989}
+
+@incollection{Maggs89b,
+author = "B. Maggs",
+title = "Beyond Parallel Random-Access Machines",
+booktitle = "Opportunities and Constraints of Parallel Computing", 
+editor = "J. L. C. Sanz",
+publisher = "Springer-Verlag",
+year = 1989,
+pages = "83--84"}
+
+@techreport{Maggs89c,
+ author = "B. M. Maggs",
+ title = "Locality in Parallel Computation",
+ type = "Technical Report",
+ number = "MIT/LCS/TR-469",
+ institution = "MIT Laboratory for Computer Science",
+ address = "Cambridge, MA",
+ month = sep,
+ year = 1989}
+
+@article{Maggs93,
+author = "B. M. Maggs",
+title = "Randomly Wired Multistage Networks",
+journal = "Statistical Science",
+volume = 8,
+number = 1,
+month = feb,
+year = 1993,
+pages = "70--75"}
+
+@inproceedings{Maggs96,
+author = "B. M. Maggs",
+title = "A Critical Look at Three of Parallel Computing's Maxims",
+booktitle = "Proceedings of the 1996 International Symposium on Parallel
+   Architectures, Algorithms, and Networks",
+month = jun,
+year = 1996,
+pages = "1--7"}
+
+@inproceedings{MaggsMT95,
+author = "B. M. Maggs and L. R. Matheson and R. E. Tarjan",
+title = "Models of Parallel Computation: A Survey and Synthesis",
+booktitle = "Proceedings of the 28th Hawaii International Conference
+   on System Sciences",
+vol = 2,
+month = jan,
+year = 1995,
+pages = "61--70"}
+
+@article{MaggsP88,
+author = "B. M. Maggs and S. A. Plotkin",
+title = "Minimum-Cost Spanning Tree as a Path-Finding Problem",
+journal = "Information Processing Letters",
+volume = 26,
+number = 6,
+month = jan,
+year = 1988,
+pages = "291--293"}
+
+@techreport{MaggsP92,
+author = "B. M. Maggs and C. G. Plaxton",
+title = "Sorting-Based Selection Algorithms for Hypercubic Networks",
+type = "Technical Report",
+number = "TR--92--22",
+institution = "Department of Computer Science, University of Texas",
+address = "Austin, TX",
+month = apr,
+year = 1992}
+
+@inproceedings{MaggsR93,
+author = "B. Maggs and M. Rauch",
+title = "An Algorithm for Finding Predecessors in Integer Sets",
+booktitle = "Proceedings of the 3rd Workshop on Algorithms and
+   Data Structures",
+volume = "709 of Lecture Notes in Computer Science",
+publisher = "Spring-Verlag",
+month = aug,
+year = 1993,
+pages = "483--493"}
+
+@inproceedings{MaggsS92,
+author = "B. M. Maggs and R. K. Sitaraman",
+title = "Simple Algorithms for Routing on Butterfly Networks with
+   Bounded Queues",
+booktitle = "Proceedings of the 24th Annual {ACM} Symposium on
+   Theory of Computing",
+month = may,
+year = 1992,
+pages = "150--161"}
+
+@article{MaggsS98,
+author = "B. M. Maggs and R. K. Sitaraman",
+title = "Simple Algorithms for Routing on Butterfly Networks with
+   Bounded Queues",
+journal = "{SIAM} Journal on Computing",
+note = "To appear"}
+
+@unpublished{MaggsS99,
+author = "B. M. Maggs and E. J. Schwabe",
+title = "Real-time emulations of bounded-degree networks",
+month = aug,
+year = 1997,
+note = "Unpublished manuscript"}
+
+@techreport{MaggsV96,
+author = "B. M. Maggs and B. {V\"{o}cking}",
+title = "Improved Routing and Sorting on Multibutterflies",
+type = "Technical Report",
+number = "CMU--CS--96--192",
+institution = "School of Computer Science, Carnegie Mellon University",
+address = "Pittsburgh, PA",
+month = nov,
+year = 1996}
+
+@inproceedings{MaggsV97,
+author = "B. M. Maggs and B. {V\"{o}cking}",
+title = "Improved Routing and Sorting on Multibutterflies",
+booktitle = "Proceedings of the 29th Annual {ACM} Symposium on
+ the Theory of Computing",
+month = may,
+year = 1997,
+pages = "517--530"}
+}
+
+@unpublished{MaggsMVW97,
+author = "B. M. Maggs and F. Meyer auf der
+Heide and B. {V\"{o}cking} and M. Westermann",
+title = "Exploiting Locality for Data Management
+in Systems of Limited Bandwidth",
+month = apr,
+year = 1997,
+note = "Unpublished manuscript"}
+
+anonymous logging image
