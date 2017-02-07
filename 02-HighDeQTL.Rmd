@@ -14,6 +14,10 @@ By modeling all markers jointly at one time under an organizing framework, the m
 
 
 
+Add a paragraph to motivation section
+  Continue on about the rest of the chapter as  an overview
+
+
 ## Methods
 
 ### Experimental design

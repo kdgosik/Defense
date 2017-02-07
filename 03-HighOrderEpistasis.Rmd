@@ -11,6 +11,12 @@ The theoretical models of high-order epistasis have well been established by mat
 
 In this article, we deploy a variable selection procedure within a genetic mapping or association setting to characterize the genetic architecture of complex traits composed of main effects of individual genes, pairwise epistasis between two genes, and three-way epistasis among three genes. The model was built on greedy interaction screening forward selection developed under the marginality principle (named iFORM) by Hao and Zhang (2014). These approaches, proved to possess sure screening property for ultrahigh-dimensional modeling, have been implemented to model the genetic architecture of main effects and pairwise epistasis due to eQTLs for gene transcripts (Gosik et al. 2016). Here, we extend the implementation of iFORM to systematically capture three-way interactions that are expressed among all possible markers studied. To show the statistical power of the extended model, we performed computer simulation studies. The model was further validated through analyzing a real data of genetic mapping for shoot growth in a woody plant, mei (Prunus mume). The model should be used in any other mapping or association studies of quantitative traits.
 
+
+
+Add a paragraph to motivation section
+  Continue on about the rest of the chapter as  an overview
+
+
 ## Methods
 
 ### Mapping and association studies
