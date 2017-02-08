@@ -3,9 +3,15 @@
 
 ## Motivation
 
+  **Shoot-Root Paper**
   (The genetic architecture of shoot-root covariation during seedling emergence of a dessert tree, Populus euphratica)
   
  Since most traits associated with growth and development can be better described by a dynamic process (\cite{hernandez2015understanding}, \cite{muraya2017genetic}), it is more biologically meaningful to map these traits as growth curves (Sun and Wu, 2015). Several approaches have integrated growth equations into the likelihood of genetic mapping, leading to the birth of a so-called functional mapping model (Ma et al., 2002; Wu and Lin, 2006; Li and Sillanpaa, 2015; Muraya et al., 2016). Functional mapping allows the developmental change of genetic control to be characterized across time and space (He et al., 2010; Li and Wu, 2010). By modeling the longitudinal mean-covariance structures using a set of parsimonious parameters, functional mapping has proven of great statistical power in gene identification and the utilization of sparse phenotypic data (Hou et al., 2005, 2006). An alternative to functional mapping is to map growth QTLs by estimating growth parameters for each genotype based on growth equations and associating these parameters with markers (Wu et al., 2002). 
+ 
+ 
+ 
+ From fundamental principles of biophysical and biochemical processes, logistic equations that capture different stages of organ development have been derived, which show robust biological relevance (West et al., 2001). Sun et al. (2014) dissect logistic growth curves into several key landmarks of development using the concept of heterochrony, defined as the asymptotic growth, relative growth rate, the timing of inflection and the duration of linear growth. 
+ 
 
   **from research statement**
 
@@ -71,7 +77,7 @@ Add a third paragraph to motivation section
 
 ### Functional Mapping
 
-#### Update
+**Update**
   (This is from Han Hao's proposal, update for yours)
   
 Functional mapping is a group of methods used for mapping QTLs related to
@@ -94,6 +100,22 @@ the best function, either parametric or non-parametric. The covariance structure
 usually modeled by parsimonious and flexible approaches such as autoregressive, antedependence, or nonparametric structures. The functional means and covariance
 structures can be integrated into a likelihood function, then hypothesis testing can
 be performed with a likelihood ratio testing approach.
+
+
+
+**Shoot-Root Paper**
+ (pages 13 - 14)
+fitted by a three-parameter growth equation, through a nonlinear least-square approach, which is expressed as
+                                   (1)
+where g(t) is the trait value at time t, and three parameters a, b and r have different biological meanings: a is the limit value of g when t→∞, r is the relative growth rate, and a/ (1 + b) denotes the initial value of g when t = 0. After the three growth parameters were estimated for each progeny, we further determined heterochronic parameters, i.e., the timing of inflection point (tI), the timing of maximum acceleration (ta), the timing of maximum deceleration (td), and the duration of linear growth (L) (Sun et al., 2014).
+
+
+
+QTL mapping: For each progeny, we estimated a series of heterochronic parameters using equation (1) and then treated these estimates as phenotypic values to perform QTL mapping. There are two statistical approaches for QTL mapping, mixture model for sparse molecular markers and multiplicative model for dense markers. Because the linkage map constructed is quite dense, we employed the multiplicative model that assumes QTLs are located at the positions of markers. For the same heterochronic parameter expressed in shoot length and taproot length, the multiplicative likelihood model is expressed as
+                         (2)
+where  is the unknown parameters; yi = (y1i, y2i) is the growth parameter vector of progeny i for shoot length (coded by 1) and taproot length (coded by 2); nj is the number of progeny with SNP genotype j; and fj(yi) is a bivariate normal distribution for progeny i with the expected mean vector for genotype j (1j, 2j) and the variance-covariance matrix  containing the variances (12, 22) and correlation between the two traits (). Statistical methods based on the likelihood (2) have been established to estimate the model parameters  = (1j, 2j, 12, 22, ).
+
+
 
 
 ### Legendre Polynomials
