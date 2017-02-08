@@ -3,6 +3,12 @@
 
 ## Motivation
 
+  (The genetic architecture of shoot-root covariation during seedling emergence of a dessert tree, Populus euphratica)
+  
+ Since most traits associated with growth and development can be better described by a dynamic process (\cite{hernandez2015understanding}, \cite{muraya2017genetic}), it is more biologically meaningful to map these traits as growth curves (Sun and Wu, 2015). Several approaches have integrated growth equations into the likelihood of genetic mapping, leading to the birth of a so-called functional mapping model (Ma et al., 2002; Wu and Lin, 2006; Li and Sillanpaa, 2015; Muraya et al., 2016). Functional mapping allows the developmental change of genetic control to be characterized across time and space (He et al., 2010; Li and Wu, 2010). By modeling the longitudinal mean-covariance structures using a set of parsimonious parameters, functional mapping has proven of great statistical power in gene identification and the utilization of sparse phenotypic data (Hou et al., 2005, 2006). An alternative to functional mapping is to map growth QTLs by estimating growth parameters for each genotype based on growth equations and associating these parameters with markers (Wu et al., 2002). 
+
+  **from research statement**
+
 Treating the molecular biology of an organisim as a complex trait, it would be likely that the expression profiles of certain genes, proteins or other metabolites would follow a more functional or dynamic phenotype. This information could be lost or greatly limited by treating the response as a single static predictor. In an attempt to capture all relevant information available I am currently extending the procedure further to include the entire growth function as a phenotype. The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. I anticipate submitting a third manuscript in late spring around this topic. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.
 
 

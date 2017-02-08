@@ -1,5 +1,7 @@
 \documentclass[]{book}
 \usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{2}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -124,7 +126,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-02-06}
+  \date{2017-02-07}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -172,16 +174,26 @@ elegans, gaining new discoveries on the genetic origin of gene
 expression differentiation, which could not be detected by a traditional
 one-locus/one-transcript analysis approach.
 
+\textbf{Update} (This is from Han Hao's proposal, update for yours)
+
+In this proposal, we focus on developing computational frameworks for
+QTL mapping in different types of functional valued traits. In Chapter
+2, we deal with the situation where the trait values follow a parametric
+trend. A Richard curve is used to model plant height growth, and QTLs
+are examined for their association with the onset, offset and duration
+of the developmentaol process. In Chapter 3, the trait values do not
+have a specific mathematical form. The shape of leaf is modelled in a
+nonparametric way, and QTLs are examined for their association with
+shape development. In Chapter 4, we study the interaction between two
+functional valued traits. The growth of two interacting traits is
+modelled with a differential equation system, and QTLs are examined for
+their association with the type and intensity of such interaction.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{devtools::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"rstudio/bookdown"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter
-is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need to install XeLaTeX.
 
 \chapter{Introduction}\label{intro}
 
@@ -360,6 +372,9 @@ in a mapping population of C. elegans (Rockman et al. 2010), the new
 model has validated previous results by the marginal approach, meanwhile
 obtained new discoveries on the genetic origin of gene expression
 differentiation, which could not be detected in a traditional way.
+
+Add a paragraph to motivation section Continue on about the rest of the
+chapter as an overview
 
 \section{Methods}\label{methods}
 
@@ -877,6 +892,9 @@ through analyzing a real data of genetic mapping for shoot growth in a
 woody plant, mei (Prunus mume). The model should be used in any other
 mapping or association studies of quantitative traits.
 
+Add a paragraph to motivation section Continue on about the rest of the
+chapter as an overview
+
 \section{Methods}\label{methods-1}
 
 \subsection{Mapping and association
@@ -1077,15 +1095,157 @@ are jointly and marginally normal with independent normally distributed
 error. Next we would need the eigenvalues of the covariance matrix to be
 positive and bounded by two constants 0
 
-\chapter{iForm Functional Mapping}\label{iform-functional-mapping}
+\chapter{iForm Functional Mapping (A computational
+method)}\label{iform-functional-mapping-a-computational-method}
 
 \section{Motivation}\label{motivation-2}
+
+(The genetic architecture of shoot-root covariation during seedling
+emergence of a dessert tree, Populus euphratica)
+
+Since most traits associated with growth and development can be better
+described by a dynamic process (\cite{hernandez2015understanding},
+\cite{muraya2017genetic}), it is more biologically meaningful to map
+these traits as growth curves (Sun and Wu, 2015). Several approaches
+have integrated growth equations into the likelihood of genetic mapping,
+leading to the birth of a so-called functional mapping model (Ma et al.,
+2002; Wu and Lin, 2006; Li and Sillanpaa, 2015; Muraya et al., 2016).
+Functional mapping allows the developmental change of genetic control to
+be characterized across time and space (He et al., 2010; Li and Wu,
+2010). By modeling the longitudinal mean-covariance structures using a
+set of parsimonious parameters, functional mapping has proven of great
+statistical power in gene identification and the utilization of sparse
+phenotypic data (Hou et al., 2005, 2006). An alternative to functional
+mapping is to map growth QTLs by estimating growth parameters for each
+genotype based on growth equations and associating these parameters with
+markers (Wu et al., 2002).
+
+\textbf{from research statement}
+
+Treating the molecular biology of an organisim as a complex trait, it
+would be likely that the expression profiles of certain genes, proteins
+or other metabolites would follow a more functional or dynamic
+phenotype. This information could be lost or greatly limited by treating
+the response as a single static predictor. In an attempt to capture all
+relevant information available I am currently extending the procedure
+further to include the entire growth function as a phenotype. The mean
+growth curve is estimated for the sample and then orthogonal polynomials
+are used to assist in fitting the genetic effects for each marker or
+interaction between the markers. This would allow the genetic effect
+some flexibility over time and give a more representative fit. I
+anticipate submitting a third manuscript in late spring around this
+topic. This could also be used with other semi parametric functions to
+model dynamics or other types of non-linear functions that characterizes
+the biological systems being evaluated.
+
+\subsection{Update}\label{update}
+
+(This is from Han Hao's proposal, update for yours)
+
+Changes in developmental timing and rate, named as heterochrony, have
+long been believed to be a major force in the evolution of phenotype
+(Gould, 1977; Wilson et al., 1988). It has been observed that relatively
+few genetic changes in heterochrony through the endocrine regulation of
+metamorphosis can cause profound morphological consequences (Moss,
+2007). For example, although humans and chimpanzees are closely related,
+their skull shape and brain growth are different dramatically during
+early development (Rice, 2002; Mitteroecker et al., 2004; King, 2004). A
+recent phylogenic investigation revealed that changes in developmental
+timing are a crucial step for birds to evolve from dinosaurs (Bhullar,
+2012). The consequence of these changes leads birds to take months to
+reach sexual maturity, allowing them to retain the physical
+characteristics of baby stages characterized by dinosaurs that take
+years to mature. One question that naturally arises from these
+evolutionary divergences is what mechanisms are implicated for
+heterochrony and the change of biological clock.
+
+Many studies have pursued to identify the molecular control of
+developmental timing; mostly using Caenorhabditis elegans as an example,
+these studies have identified heterochronic genes that orchestrate the
+timing of cell divisions and fates during development regulated by
+microRNAs and their targets (Ambros, 2000; Rougvie, 2001; Pasquinelli
+and Ruvkun, 2002; Banerjee and Slack, 2002; Moss, 2007). Focusing on
+particular pathways causing heterochonic changes, none of these studies
+has provided an entire picture of the genetic control of heterochrnoy.
+Furthermore, the effects of heterochronic genes on the evolution of
+complex phenotypes have not been quantified, limiting the inference and
+prediction of evolutionary changes.
+
+In this chapter, we develop a general framework for characterizing the
+genetic architecture of heterochrony based on widely used genetic
+mapping approaches. Genetic mapping has been proved to be powerful for
+mapping and studying quantitative trait loci (QTLs) involved in complex
+traits (Lander and Botstein, 1986), and has been increasingly integrated
+with network biology to better elucidate the mechanisms of the way QTL
+acts and interacts with other factors (Wang et al., 2012b). In the
+decade, genetic mapping has developed to a point at which this approach
+can characterize QTLs that control the process of development, leading
+to the birth of functional mapping (Ma et al., 2002; Wu and Lin, 2006;
+Li and Wu, 2010). Functional mapping implements mathematical aspects of
+developmental principles into a mapping framework, equipped with a
+capacity to study the interplay between QTLs and development. Here, we
+extend functional mapping to characterize QTLs controlling heterochrony
+(named hQTLs), specified by three parameters (i) the onset of a
+particular process, (ii) its offset, and (iii) the rate at which the
+process proceeds. By using growth equation as an example, we exemplify
+the procedure of model derivations as well as the practical use of the
+model in hQTL detection. In the end, we discuss an issue of how hQTLs
+can be integrated with developmental evolutionary biology (evo-devo), a
+fast-growing discipline of biology in the recent years.
+
+Add a third paragraph to motivation section Continue on about the rest
+of the chapter as an overview
 
 \section{Methods}\label{methods-2}
 
 \subsection{Functional Mapping}\label{functional-mapping}
 
+\subsubsection{Update}\label{update-1}
+
+(This is from Han Hao's proposal, update for yours)
+
+Functional mapping is a group of methods used for mapping QTLs related
+to functional valued traits that are measured over a certain time
+period. These function-valued traits are widely seen in growth analysis,
+shape analysis, network analysis, and clinical trials. By integrating
+functional features with genetic analysis, functional mapping methods
+often help to increase the statistical power and the biological
+relevance between the detected QTLs and biological traits. Functional
+mapping methods were first developed using parametric curves to describe
+the functional valued traits, such as growth curves or pharmacodynamic
+models (Ma et al., 2002; Lin et al., 2005). Later, semi-parametric and
+non-parametric models were introduced for complex traits that do not
+have specific mathematical forms (Das et al., 2011, 2013).
+
+The key of functional mapping methods is the modelling of both
+functional means and the covariance structure across measurements from
+the same individual. When modelling the functional means, biological
+background is first examined to select the best function, either
+parametric or non-parametric. The covariance structure is usually
+modeled by parsimonious and flexible approaches such as autoregressive,
+antedependence, or nonparametric structures. The functional means and
+covariance structures can be integrated into a likelihood function, then
+hypothesis testing can be performed with a likelihood ratio testing
+approach.
+
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
+
+\subsection{Model}\label{model}
+
+\subsubsection{BIC}\label{bic}
+
+From the book BibTex \citet{book}\{wu2006nonparametric,
+title=\{Nonparametric regression methods for longitudinal data analysis:
+mixed-effects modeling approaches\}, author=\{Wu, Hulin and Zhang,
+Jin-Ting\}, volume=\{515\}, year=\{2006\}, publisher=\{John Wiley \&
+Sons\} \}
+
+Similarly, following the classical BIC rule (Swartz 1978), we can define
+the BIC rule for the cubic MESS model as
+
+\[BIC(\lambda, \lambda_v ) = -2*LogLik + log(n)*(df + df_v)\] n is the
+number of subjects \[\lambda = smoothing paramter\]
+\[\lambda_v = smoothing paramter, number of knots in the cubic spline\]
 
 \section{Application}\label{application-1}
 
@@ -1100,6 +1260,12 @@ positive and bounded by two constants 0
 \section{Conclusions}\label{conclusions-1}
 
 \section{Future Steps}\label{future-steps}
+
+\subsection{Aim 1}\label{aim-1}
+
+\subsection{Aim 2}\label{aim-2}
+
+\subsection{Aim 3}\label{aim-3}
 
 We have finished a nice book.
 

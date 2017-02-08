@@ -2,6 +2,8 @@
 title: "Dissertation Defense"
 author: "Kirk Gosik"
 date: "`r Sys.Date()`"
+setspace: doublespacing
+linestretch: 2
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -16,7 +18,7 @@ description: "This is a minimal example of using the bookdown package to write a
 
 Knowledge about how changes in gene expression are encoded by expression quantitative trait loci (eQTLs) is a key to construct the genotype-phenotype map for complex traits or diseases. Traditional eQTL mapping is to associate one transcript with a single marker at a time, thereby limiting our inference about a complete picture of the genetic architecture of gene expression. Here, I present an innovative application of variable selection approaches to systematically detect main effects and interaction effects among all possible loci on differentiation and function of gene expression. Forward-selection-based procedures were particularly implemented to tackle complex covariance structures of gene-gene interactions. We reanalyzed a published genetic and genomic dataset collected in a mapping population of Caenorhabditis elegans, gaining new discoveries on the genetic origin of gene expression differentiation, which could not be detected by a traditional one-locus/one-transcript analysis approach.
 
-## Update
+**Update**
   (This is from Han Hao's proposal, update for yours)
   
 In this proposal, we focus on developing computational frameworks for QTL
