@@ -126,7 +126,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-02-07}
+  \date{2017-02-08}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -281,21 +281,23 @@ was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
 Since activation or inhibition of gene expression causes change in
 phenotypic formation, the identification of expression quantitative
 trait loci (eQTLs) that regulate the pattern of gene expression is
-essential for constructing a precise genotype-phenotype map (Emilsson et
-al. 2008; Cookson et al. 2009; Nica and Dermitzakis 2013). With the
-advent and development of various biotechnologies, it has become
-possible that genome-scale marker and expression data can be generated,
-providing an important fuel to systematically study the biological
-function of any types of cellular components in an organism (Kim et al.
-2014; Fairfax et al. 2014; Lee et al. 2014). Several genome-wide
-association studies (GWAS) have been initiated to map a complete set of
-eQTLs for the abundance of genome-wide transcripts whose expression
-levels are related to biological or clinical traits (Nica and
-Dermitzakis 2013; Li et al. 2013; Koopmann et al. 2014). Statistical
-analysis and modeling are playing an increasing role in mapping and
-identifying the underlying eQTLs from massive amounts of observed data
-(Kendziorski et al. 2006; Chun and Keles 2009; Sun 2012; Flutre et al.
-2013).
+essential for constructing a precise genotype-phenotype map
+(\cite{emilsson2008genetics}; \cite{cookson2009mapping};
+\cite{nica2013expression}). With the advent and development of various
+biotechnologies, it has become possible that genome-scale marker and
+expression data can be generated, providing an important fuel to
+systematically study the biological function of any types of cellular
+components in an organism (\cite{kim2014meta}; \cite{fairfax2014innate};
+\cite{lee2014common}). Several genome-wide association studies (GWAS)
+have been initiated to map a complete set of eQTLs for the abundance of
+genome-wide transcripts whose expression levels are related to
+biological or clinical traits
+(\cite{nica2013expression};\cite{li2013using};
+\cite{koopmann2014genome}). Statistical analysis and modeling are
+playing an increasing role in mapping and identifying the underlying
+eQTLs from massive amounts of observed data
+(\cite{kendziorski2006statistical}; \cite{chun2009expression};
+\cite{sun2012statistical}; \cite{flutre2013statistical}).
 
 A typical eQTL mapping approach is to associate a gene transcript with a
 single marker such as single nucleotide polymorphism (SNP). By analzying
@@ -303,19 +305,20 @@ the significance of all these markers one by one adjusted for multiple
 testing, one can count significant loci that contribute to variation of
 expression by the gene. This marginal approach based on a simple
 regression model has been instrumental for the identifcation of eQTLs in
-a variety of organisms (Rockman et al. 2010; Kim et al. 2014). However,
-there are two major limitations for the results by such a marginal
-analysis: First, it does not take into account the dependence of
-different markers, thus a significant association detected by one marker
-may be due to the other markers that are linked with it. The marginal
-marker analysis cannot separate the confounding effect of eQTLs due to
-marker-marker dependence or linkage (Wu et al. 2007). Second, an eQTL
-may act through its interaction with other eQTLs and environmental
-factors. Because of their paramount importance in affecting complex
-diseases and traits, gene-gene interactions, or epistatic effects, and
-gene-environment interactions have been studied intensively in modern
-biological and medical research (Cheverud and Routman 1995; Moore 2003;
-van Eeuwijk et al. 2010; Mackay 2014)
+a variety of organisms (\cite{rockman2010selection};
+\cite{kim2014meta}). However, there are two major limitations for the
+results by such a marginal analysis: First, it does not take into
+account the dependence of different markers, thus a significant
+association detected by one marker may be due to the other markers that
+are linked with it. The marginal marker analysis cannot separate the
+confounding effect of eQTLs due to marker-marker dependence or linkage
+(\cite{wu2007statistical}). Second, an eQTL may act through its
+interaction with other eQTLs and environmental factors. Because of their
+paramount importance in affecting complex diseases and traits, gene-gene
+interactions, or epistatic effects, and gene-environment interactions
+have been studied intensively in modern biological and medical research
+(\cite{cheverud1995epistasis}; \cite{moore2003ubiquitous};
+\cite{van2010detection}; \cite{mackay2014epistasis})
 
 These two limitations can be overcome by analyzing all markers and their
 pairwise interactions simultaneously through formulating a
@@ -324,26 +327,28 @@ picture of the genetic architecture of gene expression, this endeavor is
 highly challenged by the curse of dimensionality, i.e., the number of
 predictors far exceeds the number of observations. The past decade has
 witnessed the tremendous development of variable selection models for
-high-dimensional data analysis, such as LASSO (Tibshirani 1996), SCAD
-(Fan and Li 2001), Dantzig selector (Candes and Tao 2007), elastic net
-(Zou and Hastie 2005), minimax concave penalty (MCP) (Zhang 2010) among
-others. Many methods possess favorable theoretical properties such as
-model selection consistency (Zhao and Yu 2006) and oracle properties
-(Fan and Lv 2011). When the number of predictors is much larger than the
-number of observation, sure screening is a more realistic goal to
-achieve than oracle properties or selection consistency (Fan and Lv
-2008; Wang 2009). Sure screening assures that all important variables
-are identified with a probability tending to one, hence achieving
-effective dimension reduction without information loss and providing a
-reasonable starting point for low-dimensional methods to be applied.
+high-dimensional data analysis, such as LASSO
+(\cite{tibshirani1996regression}), SCAD (\cite{fan2001variable}),
+Dantzig selector (\cite{candes2007dantzig}), elastic net
+(\cite{zhao2006model}), minimax concave penalty (MCP)
+(\cite{zhang2010nearly}) among others. Many methods possess favorable
+theoretical properties such as model selection consistency
+(\cite{zhao2006model}) and oracle properties (Fan and Lv 2011). When the
+number of predictors is much larger than the number of observation, sure
+screening is a more realistic goal to achieve than oracle properties or
+selection consistency (\cite{fan2008sure}; \cite{wang2009forward}). Sure
+screening assures that all important variables are identified with a
+probability tending to one, hence achieving effective dimension
+reduction without information loss and providing a reasonable starting
+point for low-dimensional methods to be applied.
 
-More recently, Hao and Zhang (2014) extended variable selection
-approaches to jointly model main and interaction effects from
-high-dimensional data. Based on a greedy forward approach, their model
-can identify all possible interaction effects through two algorithms
-iFORT and iFORM which have been proved to possess sure screening
-property in an ultrahigh-dimensional setting. In this article, we
-implement and reform Hao and Zhang's model to map the genetic
+More recently, Hao and Zhang (\cite{hao2014interaction}) extended
+variable selection approaches to jointly model main and interaction
+effects from high-dimensional data. Based on a greedy forward approach,
+their model can identify all possible interaction effects through two
+algorithms iFORT and iFORM which have been proved to possess sure
+screening property in an ultrahigh-dimensional setting. In this article,
+we implement and reform Hao and Zhang's model to map the genetic
 architecture of eQTL actions and interactions for gene expression
 profiles. This model is modified to accommodate to the feature of a
 genetic mapping or GWAS design in which molecular markers as genetic
@@ -354,12 +359,12 @@ with three genotypes at each locus, we need to estimate a total of eight
 genetic effects for a pair of markers, which are additive and dominant
 effects at each locus, and additive  additive, additive  dominant,
 dominant  additive and dominant  dominant effects between the two loci
-(Fisher 1918). Thus, if the number of markers is p, a total number of
-predictors including all main and two-way interaction terms is 2p2. For
-a typical moderate-sized mapping study, in which several thousands of
-markers are genotyped on a few hundred individuals, consideration of
-pair-wise genetic interactions will quickly make the dimension of
-predictors an ultrahigh one.
+(\cite{kempthorne1968correlation}). Thus, if the number of markers is p,
+a total number of predictors including all main and two-way interaction
+terms is \(2p^2\). For a typical moderate-sized mapping study, in which
+several thousands of markers are genotyped on a few hundred individuals,
+consideration of pair-wise genetic interactions will quickly make the
+dimension of predictors an ultrahigh one.
 
 By modeling all markers jointly at one time under an organizing
 framework, the modified model can detect all possible significant eQTLs
@@ -368,10 +373,11 @@ same physical location as the gene expression, or a trans-QTL, coming
 from other areas of the genome. Our model can more precisely discern
 these two different types of eQTLs and their interactions than
 traditional marginal analysis. By reanalyzing a published data collected
-in a mapping population of C. elegans (Rockman et al. 2010), the new
-model has validated previous results by the marginal approach, meanwhile
-obtained new discoveries on the genetic origin of gene expression
-differentiation, which could not be detected in a traditional way.
+in a mapping population of C. elegans (\cite{rockman2010selection}), the
+new model has validated previous results by the marginal approach,
+meanwhile obtained new discoveries on the genetic origin of gene
+expression differentiation, which could not be detected in a traditional
+way.
 
 Add a paragraph to motivation section Continue on about the rest of the
 chapter as an overview
@@ -396,8 +402,8 @@ over different chromosomes. The number of SNPs p should be large enough
 to completely cover the entire genome at an adequate depth so that we
 can possibly capture all possible genetic variants. An increasing body
 of evidence suggests that significant SNPs associated with complex
-traits or diseases are more likely to be eQTLs (Li et al. 2013). Hence
-the identification of eQTLs is an important first step toward the
+traits or diseases are more likely to be eQTLs (\cite{li2013using}).
+Hence the identification of eQTLs is an important first step toward the
 genetic dissection of end-point phenotypes. For this reason, we assume
 that genome-wide gene transcripts have been available for the assumed
 study population. Assume that all progeny are recorded for the same
@@ -409,10 +415,12 @@ to each gene transcript.
 \subsection{Adaptation of iFORM
 procedure}\label{adaptation-of-iform-procedure}
 
-The marker and gene transcript data of the study population can be
-denoted as (xi,yi) (i = 1, \ldots{}, n) which are independent and
-identically distributed copies of (X,Y), where X=(X\_1,..,X\_p )\^{}T is
-a p-dimensional predictor vector and Y is the response, expressed by a
+Hao and Zhang \cite{hao2014interaction} formulated an interaction
+forward selecting procedure under the marginality principle (iFORM). The
+marker and gene transcript data of the study population can be denoted
+as \((X_i,Y_i) (i = 1, …, n)\) which are independent and identically
+distributed copies of (X,Y), where X=(X\_1,..,X\_p )\^{}T is a
+p-dimensional predictor vector and Y is the response, expressed by a
 linear regression model:\\
 Y=β\_0+β\_1 X\_1+⋯+β\_p X\_p+ϵ (1) The 's are the coefficients for the
 genetic effects of each marker. Like most genome-wide datasets, the
@@ -433,10 +441,10 @@ j=1,\ldots{},p. Also, the quadratic and two-way interaction effects will
 be centered which we will write as Z\_i=(\ldots{},X\_ik X\_il-E(X\_ik
 X\_il ),\ldots{})\^{}T. By doing so we would eliminate the need for an
 intercept in regression model (2). This would reduce the model to the
-form, Y=X\^{}T β+Z\^{}T γ (3)
+form, \(Y=X^T β+Z^T γ (3)\)
 
-Some notations that will be used to define the elements of Han and
-Zhang's (2014) iFORM procedure are as follows.\\
+Some notations that will be used to define the elements of
+\cite{hao2014interaction} iFORM procedure are as follows.\\
 P\_1=\{1,2,\ldots{},p\} P\_2=\{(k,l):1≤k≤l≤p\}. which are the index sets
 for the linear and two-way interactions terms, respectively. The
 significant main effects for the markers and their interaction effects
@@ -460,22 +468,21 @@ marginal by the inclusion of the interaction effect. The second
 principle important to the procedure is the heredity principle. The
 strong case of the principle states that an interaction effect should
 not be considered unless both the contributing main effects are in the
-model (Zhao et al. 2009; Yuan et al. 2009; Choi et al. 2010). This would
-translate to γ\_jk≠0 only if β\_j 〖,β〗\_k≠0 ∀ 1≤j,k≤p for model (2).
-By including both principles during the selection process it allows for
-dynamically including both main effects and interactions effects. The
-interaction effects can only be considered between the main effects
-currently selected into the solution set of the model according the
-discussed principles. A more formal description of the procedure is
-given below.
+model (\cite{zhao2006model}). This would translate to
+\(γ_jk≠0 only if β_j 〖,β〗_k≠0 ∀ 1≤j,k≤p\) for model (2). By including
+both principles during the selection process it allows for dynamically
+including both main effects and interactions effects. The interaction
+effects can only be considered between the main effects currently
+selected into the solution set of the model according the discussed
+principles. A more formal description of the procedure is given below.
 
 \subsection{iFORM}\label{iform}
 
-Hao and Zhang (2014) formulated an interaction forward selecting
+\cite{hao2014interaction} formulated an interaction forward selecting
 procedure under the marginality principle (iFORM). The procedure's
 initial step starts with the empty set for both the solution set and the
-model set, S\_0=∅ and M\_0=∅. The candidate set contains all main
-effects at the beginning, C\_0=P\_1, for each of the markers as a
+model set, \(S_0=∅\) and \(M_0=∅\). The candidate set contains all main
+effects at the beginning, \(C_0=P_1\), for each of the markers as a
 possible eQTL. Typical forward selection procedures are carried out to
 start the selection. Each marker is tested individually using a marker
 regression. The marker that results in the lowest residual sum of
@@ -492,41 +499,43 @@ creation of all possible two-way interactions of the main effects that
 are currently in the solution set. This is continued until a designated
 stopping value, say d. For the number of predictors placed into the
 model set from the solution set the Bayesian information Criterion was
-used, BIC\_2 (M ̂ )=loga(σ ̂\_M ̂\^{}2 )+n\^{}(-1) \textbar{}M ̂
-\textbar{}\emph{(loga(n)+2}loga(d\^{}* ) ), where σ ̂\_M ̂\^{}2 is the
-sample variance for the given model, \textbar{}M ̂ \textbar{} is the size
-of the model or the number of predictors selected into the given model,
-and n is the sample size. The d\^{}* term is the number of predictors in
-the full model. This was proposed as BIC\_2 by Chen and Chen (2008)
-which they derived to help control the false discovery rate in high
-dimensional data situations. They also showed that it was selection
-consistent if d\^{}\emph{=O(n\^{}ξ ) for some ξ\textgreater{}0. The only
-difference between the traditional BIC calculation and the BIC\_2 is the
-additional term involving 2log(d}). Ignoring the BIC, the most the
-number of steps in the solution path is of size n. The parameter d
-controls the overall length of the solution path. In practice, the exact
-number of predictors to include, say d\_0, in the true model is unknown.
-We want to make d large enough to include d\_0 but not so large as to
-fit the model to the point where it becomes oversaturated. Using the
-BIC\_2 should help avoid such a matter as well. It is reasonable to
-assume that d\_0 is much smaller than n in high dimensional sparse
-regression problems (Fan and Lv 2008). Since this is the case, for the
-purposes of our model, d was set to be no larger than n/loga(n).
-Generally, the BIC\_2 should reach minimum, indicating the optimal
-stopping point, before the designated stopping value, is reached.\\
-\#\#\# Some considerations There were some considerations and
-pre-processing steps taken before the iFORM procedure was implemented.
-The first consideration was to see if there were any exact duplicate
-markers in the dataset. One drawback that could arise with marker
-datasets when attempting to run multiple linear regression is the
-possibility of duplicate markers in the dataset. If two different
-markers would happen to have exactly the same genotypes for each subject
-it would show up as an exact linear combination of each other if both
-markers were to be placed in the linear model. Including redundant
-markers in a linear model would not add any additional information and
-therefore should not be included in the candidate set during the
-selection procedure. This also reduces the dimension slightly when there
-are duplicate markers in the dataset.
+used, \(BIC_2 (M ̂ )=loga(σ ̂_M ̂^2 )+n^(-1) |M ̂ |*(loga(n)+2*loga(d^*\) )
+), where \(σ ̂_M ̂^2\) is the sample variance for the given model,
+\textbar{}M ̂ \textbar{} is the size of the model or the number of
+predictors selected into the given model, and n is the sample size. The
+\(d^*\) term is the number of predictors in the full model. This was
+proposed as \(BIC_2\) by \cite{chen2008extended} which they derived to
+help control the false discovery rate in high dimensional data
+situations. They also showed that it was selection consistent if
+\(d^*=O(n^ξ )\) for some \(ξ>0\). The only difference between the
+traditional \(BIC\) calculation and the \(BIC_2\) is the additional term
+involving \(2log(d*)\). Ignoring the \(BIC\), the most the number of
+steps in the solution path is of size n. The parameter d controls the
+overall length of the solution path. In practice, the exact number of
+predictors to include, say d\_0, in the true model is unknown. We want
+to make d large enough to include d\_0 but not so large as to fit the
+model to the point where it becomes oversaturated. Using the \(BIC_2\)
+should help avoid such a matter as well. It is reasonable to assume that
+d\_0 is much smaller than n in high dimensional sparse regression
+problems (\cite{fan2008sure}). Since this is the case, for the purposes
+of our model, d was set to be no larger than \(n/loga(n)\). Generally,
+the \(BIC_2\) should reach minimum, indicating the optimal stopping
+point, before the designated stopping value, is reached.
+
+\subsection{Some considerations}\label{some-considerations}
+
+There were some considerations and pre-processing steps taken before the
+iFORM procedure was implemented. The first consideration was to see if
+there were any exact duplicate markers in the dataset. One drawback that
+could arise with marker datasets when attempting to run multiple linear
+regression is the possibility of duplicate markers in the dataset. If
+two different markers would happen to have exactly the same genotypes
+for each subject it would show up as an exact linear combination of each
+other if both markers were to be placed in the linear model. Including
+redundant markers in a linear model would not add any additional
+information and therefore should not be included in the candidate set
+during the selection procedure. This also reduces the dimension slightly
+when there are duplicate markers in the dataset.
 
 Another consideration made is the type of coding used for the genotypes.
 At any given eQTL, the jth eQTL, say, there are two possible genotypes:
@@ -537,63 +546,63 @@ parameters, such that these parameters are interpretable in terms of
 main and epistatic effects of the m eQTL. A genetic model is to use
 orthogonal contrast scales because it is consistent in the sense that
 the effect of a eQTL is consistently defined whether the genetic model
-includes one, two, three, or more eQTL (Kao and Zeng 2002; Zeng et al.
-2005). The orthogonal contrasts for the genetic model can be expressed
-by x\_ij=■(1/2 if homozygote Q\_j
-\href{mailto:Q_j@-1/2}{\nolinkurl{Q\_j@-1/2}} if heterozygote Q\_j q\_j
-) Typically in an inbred line backcross population a given genotype is
-coded with a 0 and 1. However there are two draws backs to this coding
-when considering the selection procedures discussed above. The first
-issue comes with not including an intercept in model (2). If this is the
-case each of the predictors would need to be centered making the coding
-to -1/2 and 1/2 instead of 0 and 1. Besides meeting the assumptions of
-the model that the predictors are centered, it is also beneficial for
-the interaction effects as well. If the coding would remain at 0's and
-1's, the interaction coding would also consist of 0's and 1's. This
-could propose a problem because three out of the four scenarios of
-epistasis between markers would result in a coding of 0 for the level in
-the interaction effect. This has the potential to falsely skew the data
-of no additive effect for interactions terms because of the sparseness
-of coding. By centering the coding to (-1/2,1/2), it would result in an
-interaction effect being coded as (-1/4,1/4). This coding would happen
-for different scenarios for each of the levels. The -1/4 could arise
-when the interaction is made up of a homozygote interacting with a
-heterozygote genotype. A coding of 1/4 would arise by either a
-homozygote interacting with another homozygote genotype, or when a
-heterozygote interacts with another heterozygote genotype.
+includes one, two, three, or more eQTL (\cite{kao2002modeling}). The
+orthogonal contrasts for the genetic model can be expressed by
+\(x_ij=■(1/2\) if homozygote \(Q_j Q_j@-1/2\) if heterozygote
+\(Q_j q_j\) ) Typically in an inbred line backcross population a given
+genotype is coded with a 0 and 1. However there are two draws backs to
+this coding when considering the selection procedures discussed above.
+The first issue comes with not including an intercept in model (2). If
+this is the case each of the predictors would need to be centered making
+the coding to -1/2 and 1/2 instead of 0 and 1. Besides meeting the
+assumptions of the model that the predictors are centered, it is also
+beneficial for the interaction effects as well. If the coding would
+remain at 0's and 1's, the interaction coding would also consist of 0's
+and 1's. This could propose a problem because three out of the four
+scenarios of epistasis between markers would result in a coding of 0 for
+the level in the interaction effect. This has the potential to falsely
+skew the data of no additive effect for interactions terms because of
+the sparseness of coding. By centering the coding to \((-1/2,1/2)\), it
+would result in an interaction effect being coded as (-1/4,1/4). This
+coding would happen for different scenarios for each of the levels. The
+-1/4 could arise when the interaction is made up of a homozygote
+interacting with a heterozygote genotype. A coding of 1/4 would arise by
+either a homozygote interacting with another homozygote genotype, or
+when a heterozygote interacts with another heterozygote genotype.
 
 \section{Application}\label{application}
 
 \subsection{Simulation Results}\label{simulation-results}
 
 Simulations studies were conducted to test the theoretical properties of
-the selection procedures and the results (Tables 1 -3). The results were
-compared to several other commonly used methods for eQTL mapping. In
-each of the examples the response was generated from model (2) with
-σ=1,2,and 3 for the random error with a sample size of n=200. The X\_i's
-were all independently and identically distributed realizations
-generated from Binomial(0.5) and then orthogonal contrasts were made
-making each x\_ij∈(-1/2,1/2). The true β=(〖3,0,0,3,0,3,3,0〗\emph{493),
-therefore making T\_1=\{1,4,6,7\} and p\_0=4. The relevant interactions
-were set to the pairs T\_2=\{(1,6),(1,7),(4,7),(4,7)\} and q\_0=4 all
-with γ\_jk=3 where (j,k)∈T\_2. There were several methods compared
-during each of the simulations (Tables 1 -3). The methods that were used
-to model the data were single marker analysis, forward selection
-involving only main effects (FS), forward selection involving all main
-effects and interaction (FS2) and the iFORM procedure. Several outcomes
-were evaluated to compare across each of the models. The outcomes are
-separated into three parts. The first part focuses on the selection of
-main effects, the second part focuses on the selection of interaction
-effects and the third part is the overall model performance. Simulations
-of M=100 replicates were run and the outcomes considered include
-Convergence Probability (Cov) ∑}(m=1)\^{}M▒〖I(T⊂T ̂ )/M〗 Percentage of
-correct zeros (Cor0)
-∑\emph{(m=1)\textsuperscript{M▒∑\emph{(j=1)\^{}p▒〖I((β\_j )
-̂=0,β\_j=0)/{[}M(p-p\_0){]}〗 Percentage of incorrect zeros (Inc0)
-∑}(m=1)}M▒∑}(j=1)\^{}p▒〖I((β\_j ) ̂=0,β\_j≠0)/{[}M(p\_0){]}〗 Exact
-Selection probability (Exact) ∑\_(m=1)\^{}M▒〖I(T=T ̂ )/M〗 The average
-model size Mean Square Error (MSE) Adjusted R-square Computation Time in
-seconds
+the selection procedures and the results \textbf{(Tables 1
+-3)\ref{tab:nice-tab}}. The results were compared to several other
+commonly used methods for eQTL mapping. In each of the examples the
+response was generated from model (2) with σ=1,2,and 3 for the random
+error with a sample size of \(n=200\). The \(X_i\)'s were all
+independently and identically distributed realizations generated from
+\(Binomial(0.5)\) and then orthogonal contrasts were made making each
+\(x_ij∈(-1/2,1/2)\). The true \(β=(〖3,0,0,3,0,3,3,0〗_493)\), therefore
+making \(T_1={1,4,6,7}\) and \(p_0=4\). The relevant interactions were
+set to the pairs \(T_2={(1,6),(1,7),(4,7),(4,7)}\) and \(q_0=4\) all
+with \(γ_jk=3\) where \((j,k)∈T_2\). There were several methods compared
+during each of the simulations \textbf{(Tables 1 -3)\ref{tab:nice-tab}}.
+The methods that were used to model the data were single marker
+analysis, forward selection involving only main effects (FS), forward
+selection involving all main effects and interaction (FS2) and the iFORM
+procedure. Several outcomes were evaluated to compare across each of the
+models. The outcomes are separated into three parts. The first part
+focuses on the selection of main effects, the second part focuses on the
+selection of interaction effects and the third part is the overall model
+performance. Simulations of M=100 replicates were run and the outcomes
+considered include \emph{Convergence Probability (Cov)
+\(∑_(m=1)^M▒〖I(T⊂T ̂ )/M〗\) }Percentage of correct zeros (Cor0)
+\(∑_(m=1)^M▒∑_(j=1)^p▒〖I((β_j ) ̂=0,β_j=0)/[M(p-p_0)]〗\)
+\emph{Percentage of incorrect zeros (Inc0)
+\(∑_(m=1)^M▒∑_(j=1)^p▒〖I((β_j ) ̂=0,β_j≠0)/[M(p_0)]〗\) }Exact Selection
+probability (Exact) \(∑_(m=1)^M▒〖I(T=T ̂ )/M 〗\) \emph{The average
+model size }Mean Square Error (MSE) \emph{Adjusted R-square }Computation
+Time in seconds
 
 In each instance of the simulation, the iFORM procedure was closest to
 the simulated data, indicated as Oracle. Single marker analysis was
@@ -623,16 +632,16 @@ drawback to implementing forward selection on such a large set seemed to
 come with over fitting the model. The selection included the maximum
 number of predictors allowed by the designated stopping value and did
 not use the BIC criteria for final model selection. This resulted in 19
-additional predictors selected (Tables 1 -3). This increased the
-adjusted R-square value of the final model, however this is suspected
-because of over fitting the data and not to be a true prediction of the
-response.
+additional predictors selected \textbf{(Tables 1 -3)\ref{tab:nice-tab}}.
+This increased the adjusted R-square value of the final model, however
+this is suspected because of over fitting the data and not to be a true
+prediction of the response.
 
 \subsection{Real Data Analysis}\label{real-data-analysis}
 
-Rockman et al. (2010) reported an eQTL mapping study of C. elegans using
-208 recombinant inbred advanced intercross lines (RIAIL) from a cross
-between the laboratory strain, N2, and a wild isolate from Hawaii,
+\cite{rockman2010selection} reported an eQTL mapping study of C. elegans
+using 208 recombinant inbred advanced intercross lines (RIAIL) from a
+cross between the laboratory strain, N2, and a wild isolate from Hawaii,
 CB4856. Abundances of 20,000 gene transcripts were measured by
 microarray in developmentally synchronized young adult hermaphrodites of
 these lines, providing a genome-wide coverage of C. elegans from
@@ -646,9 +655,9 @@ ordered single-nucleotide polymorphism (SNP) markers that cover the
 whole genome of C. elegans including five autosomes (denoted as I -- V)
 and one sex chromosome (denoted as X).
 
-Rockman et al. (2010) used a classic interval mapping approach to detect
-2309 eQTLs by testing and scanning associations of each SNP with each
-gene transcript over the entire genome. Rockman et al.'s analysis
+\cite{rockman2010selection} used a classic interval mapping approach to
+detect 2309 eQTLs by testing and scanning associations of each SNP with
+each gene transcript over the entire genome. Rockman et al.'s analysis
 allowed a rectangular map of eQTL positions  gene positions to be
 constructed (Fig. 1), from which one can identify cis-eQTLs on the
 diagonal and trans-eQTLs off the diagonal. However, because their
@@ -710,9 +719,9 @@ A\_12\_P103290 (i.e., the sum of individual heritabilities explained by
 each predictor), but also chart a detailed picture of how each genetic
 variant contributes to transcript variation. In particular, iFORM can
 characterize epistasis and its role in trait control, thus equipped with
-a capacity to retrieve so-called missing heritabilities (Manolio et al.
-2009), a significant issue arising from current genome-wide association
-studies.
+a capacity to retrieve so-called missing heritabilities
+(\cite{manolio2009finding}), a significant issue arising from current
+genome-wide association studies.
 
 Through analyzing associations between all markers and each transcript
 by iFORM, we can identify the difference of cis- and trans-eQTLs for a
@@ -739,25 +748,27 @@ in a variety of organisms, but its bottleneck has emerged quickly due to
 its limitation in precisely and comprehensively charting genetic control
 landscapes. Many GWAS studies published are bothered by missing
 heritabilities because of their incapacity to detect genome-wide
-epistasis and genotype  environment interactions (Manolio et al. 2009).
+epistasis and genotype  environment interactions
+(\cite{manolio2009finding}).
 
 Epistasis is a phenomenon by which the influence of a gene on the
 phenotype depends critically upon the context provided by other genes
-(Cheverud and Routman 1995). It has been increasingly recognized that
-epistasis is an important source for trait variation (Moore 2003;
-Carlborg and Haley 2004; Cordell 2009), thus inclusion of epistasis
-would enhance the prediction accuracy of phenotypic performance and shed
-more light on the global genetic architecture of trait control (Mackay
-2014). However, epistasis is extremely hard to detect as an interaction
-term, whose inclusion may complicate the inference of the predictive
-model (Carlborg and Haley 2004; Mackay 2014). Thanks to recent
-progresses in high-dimensional data modeling, we have been able to
-implement several cutting-edge statistical models for systematical
+(\cite{cheverud1995epistasis}). It has been increasingly recognized that
+epistasis is an important source for trait variation
+(\cite{moore2003ubiquitous}; \cite{carlborg2004epistasis};
+\cite{cordell2009detecting}), thus inclusion of epistasis would enhance
+the prediction accuracy of phenotypic performance and shed more light on
+the global genetic architecture of trait control (Mackay 2014). However,
+epistasis is extremely hard to detect as an interaction term, whose
+inclusion may complicate the inference of the predictive model
+(\cite{carlborg2004epistasis}; \cite{mackay2014epistasis}). Thanks to
+recent progresses in high-dimensional data modeling, we have been able
+to implement several cutting-edge statistical models for systematical
 detection and characterization of genome-wide epistasis.
 
-Hao and Zhang (2014) proposed a new high-dimensional model, iFORM, that
-can tackle an issue of interaction selection simultaneously from a large
-pool of continuous predictors. This model is based on
+\cite{hao2014interaction} proposed a new high-dimensional model, iFORM,
+that can tackle an issue of interaction selection simultaneously from a
+large pool of continuous predictors. This model is based on
 forward-selection-based procedures, characteristic of computational
 feasibility and efficiency. The authors further proved that the
 detection of interactions by iFORM is consistent, even if the dimension
@@ -771,32 +782,34 @@ interactions which may not be detected by traditional single marker
 analysis.
 
 We applied iFORM to re-analyze gene expression data in an eQTL mapping
-study (Rockman et al. 2010). While our results confirmed those by the
-traditional approach, the new model provides some new findings including
-new eQTLs and epistasis, thus allowing a complete set of genetic
-variants to be characterized. As an important tool to understand the
-genetic mechanisms underlying both complex traits and diseases, eQTL
+study (\cite{rockman2010selection}). While our results confirmed those
+by the traditional approach, the new model provides some new findings
+including new eQTLs and epistasis, thus allowing a complete set of
+genetic variants to be characterized. As an important tool to understand
+the genetic mechanisms underlying both complex traits and diseases, eQTL
 mapping has been widely used to identify key regulatory pathways toward
-endophenotype and end-point phenotypes (Schadt et al. 2005; Emilsson et
-al. 2008; Cookson et al. 2009; Pickrell et al. 2010; Nica and
-Dermitzakis 2013). A typical eQTL study may not only include a large
-number of molecular markers as like in a GWAS, but also record tens of
-thousands of gene transcripts throughout the entire genome. Our current
-version of iFORM can only take into account one gene transcript as a
-response at a time, thus having a limitation to model the correlation
-and dependence among different genes. It is our next step to formulate a
-multivariate multiple regression model by which to test how an
-individual predictor, main effect or epistatic effect, pleiotropically
-affects correlated expression profiles of different genes.
+endophenotype and end-point phenotypes (\cite{schadt2005integrative};
+\cite{emilsson2008genetics}; \cite{cookson2009mapping};
+\cite{pickrell2010understanding}; \cite{nica2013expression}). A typical
+eQTL study may not only include a large number of molecular markers as
+like in a GWAS, but also record tens of thousands of gene transcripts
+throughout the entire genome. Our current version of iFORM can only take
+into account one gene transcript as a response at a time, thus having a
+limitation to model the correlation and dependence among different
+genes. It is our next step to formulate a multivariate multiple
+regression model by which to test how an individual predictor, main
+effect or epistatic effect, pleiotropically affects correlated
+expression profiles of different genes.
 
 Given the complexity of biological phenomena, pair-wise epistasis may be
-insufficient to explain phenotypic variation. Imielinski and Belta
-(2008) argued that high-order interactions among more than two genes may
-provide a key pathway toward complex traits. Three-way interactions have
-been detected in trait control (McMullen et al. 1998; Stich et al.
-2007). A model for modeling three-way interactions has been developed in
-a case-control GWAS design (Wang et al. 2010) and a genetic mapping
-setting (Pang et al. 2012). It is crucial to extend iFORM to map main
+insufficient to explain phenotypic variation.
+\cite{imielinski2008exploiting} argued that high-order interactions
+among more than two genes may provide a key pathway toward complex
+traits. Three-way interactions have been detected in trait control
+(\cite{mcmullen1998quantitative}; \cite{stich2007power}). A model for
+modeling three-way interactions has been developed in a case-control
+GWAS design (\cite{wang2010general}) and a genetic mapping setting
+(\cite{pang2013statistical}). It is crucial to extend iFORM to map main
 effect, two-way epistasis and three-way epistasis in an eQTL mapping
 study although no substantial change is needed in the computational
 algorithm, except for an enlarged test set and extra computing time. Our
@@ -809,42 +822,52 @@ species such as humans. A more general model of iFORM should consider
 three genotypes at each locus, which provides estimates of additive and
 dominant effects at each locus and four types of epistasis, i.e.,
 additive  additive, additive  dominant, dominant  additive and
-dominant  dominant, between each pair of loci (Fisher 1918). Each of
-these epistatic types may affect a phenotype through a different
-pathway.
+dominant  dominant, between each pair of loci
+(\cite{kempthorne1968correlation}). Each of these epistatic types may
+affect a phenotype through a different pathway.
 
 With continuous falling of sequencing price, we will have desirable
 opportunities to study the dynamic behavior and pattern of gene
-expression profiles across time and space scales (Viñuela et al. 2010;
-Ackermann et al. 2013). Many previous studies suggest that gene
-expression during cell and organ development may follow a particular
-form, which can be quantified by mathematical equations (Kim et al.
-2008). For example, abundance of gene expression may change periodically
-in human's brain during circadian clock. Many researchers used Fourier's
-series approximation to model the periodic changes of gene expression by
-estimating the period and amplitude of the cycles (Li et al. 2010). By
-integrating Fourier series into iFORM, we will be able to map dynamic
-eQTLs for gene expression and make a quantitative prediction of temporal
-and spatial patterns of genetic control by eQTLs.
+expression profiles across time and space scales
+(\cite{vinuela2010genome}; \cite{ackermann2013impact}). Many previous
+studies suggest that gene expression during cell and organ development
+may follow a particular form, which can be quantified by mathematical
+equations (\cite{kim2010wavelet}). For example, abundance of gene
+expression may change periodically in human's brain during circadian
+clock. Many researchers used Fourier's series approximation to model the
+periodic changes of gene expression by estimating the period and
+amplitude of the cycles (\cite{li2013using}). By integrating Fourier
+series into iFORM, we will be able to map dynamic eQTLs for gene
+expression and make a quantitative prediction of temporal and spatial
+patterns of genetic control by eQTLs.
 
 \chapter{High-order Epistatic
 Networks}\label{high-order-epistatic-networks}
 
 \section{Motivation}\label{motivation-1}
 
-Quantitative traits are very difficult to study because these traits are
-controlled by many genes that interact in a complicated way (Nelson et
-al. 2013; Mackay 2014). Genome-wide mapping and association studies
-increasingly available due to next-generation high-throughput genotyping
-techniques have proven to be useful for characterizing gene-gene
-interactions, coined epistasis, that contribute to phenotypic variation
-(Cordell 2009; Van Steen 2012; Wei et al. 2014). Powerful statistical
-methods have been developed to analyze all possible markers
-simultaneously, from which to search for a complete set of epistasis for
-quantitative traits (Li et al. 2015: Gosik et al. 2016). The joint
-analysis of all markers is particularly needed to chart an overall
-picture of genetic interactions, in comparison with computationally less
-expensive marginal analysis.
+\textbf{Shoot-Root Manuscript} Following Sun et al.'s
+\cite{sun2014model} developmental model, we calculated and chose four
+key heterochronic parameters, asymptotic growth (a), relative growth
+rate (r), the timing of inflection point (TI), and the duration of
+linear growth (L), as phenotypic values to perform QTL mapping. A great
+variability was observed for growth curve parameters of both phenotypic
+traits (Table 1). Compared with taproot length, shoot length has a
+greater rate of growth and reaches the maximum growth rate at an earlier
+
+\textbf{Start of My Paper} Quantitative traits are very difficult to
+study because these traits are controlled by many genes that interact in
+a complicated way (Nelson et al. 2013; Mackay 2014). Genome-wide mapping
+and association studies increasingly available due to next-generation
+high-throughput genotyping techniques have proven to be useful for
+characterizing gene-gene interactions, coined epistasis, that contribute
+to phenotypic variation (Cordell 2009; Van Steen 2012; Wei et al. 2014).
+Powerful statistical methods have been developed to analyze all possible
+markers simultaneously, from which to search for a complete set of
+epistasis for quantitative traits (Li et al. 2015: Gosik et al. 2016).
+The joint analysis of all markers is particularly needed to chart an
+overall picture of genetic interactions, in comparison with
+computationally less expensive marginal analysis.
 
 Epistasis reported in the current literature is mostly due to
 interactions between two genes. However, a growing body of evidence
@@ -1100,8 +1123,9 @@ method)}\label{iform-functional-mapping-a-computational-method}
 
 \section{Motivation}\label{motivation-2}
 
-(The genetic architecture of shoot-root covariation during seedling
-emergence of a dessert tree, Populus euphratica)
+\textbf{Shoot-Root Paper} (The genetic architecture of shoot-root
+covariation during seedling emergence of a dessert tree, Populus
+euphratica)
 
 Since most traits associated with growth and development can be better
 described by a dynamic process (\cite{hernandez2015understanding},
@@ -1119,6 +1143,14 @@ phenotypic data (Hou et al., 2005, 2006). An alternative to functional
 mapping is to map growth QTLs by estimating growth parameters for each
 genotype based on growth equations and associating these parameters with
 markers (Wu et al., 2002).
+
+From fundamental principles of biophysical and biochemical processes,
+logistic equations that capture different stages of organ development
+have been derived, which show robust biological relevance (West et al.,
+2001). Sun et al. (2014) dissect logistic growth curves into several key
+landmarks of development using the concept of heterochrony, defined as
+the asymptotic growth, relative growth rate, the timing of inflection
+and the duration of linear growth.
 
 \textbf{from research statement}
 
@@ -1200,9 +1232,7 @@ of the chapter as an overview
 
 \subsection{Functional Mapping}\label{functional-mapping}
 
-\subsubsection{Update}\label{update-1}
-
-(This is from Han Hao's proposal, update for yours)
+\textbf{Update} (This is from Han Hao's proposal, update for yours)
 
 Functional mapping is a group of methods used for mapping QTLs related
 to functional valued traits that are measured over a certain time
@@ -1227,6 +1257,36 @@ antedependence, or nonparametric structures. The functional means and
 covariance structures can be integrated into a likelihood function, then
 hypothesis testing can be performed with a likelihood ratio testing
 approach.
+
+\textbf{Shoot-Root Paper} (pages 13 - 14) fitted by a three-parameter
+growth equation, through a nonlinear least-square approach, which is
+expressed as (1) where g(t) is the trait value at time t, and three
+parameters a, b and r have different biological meanings: a is the limit
+value of g when t→∞, r is the relative growth rate, and a/ (1 + b)
+denotes the initial value of g when t = 0. After the three growth
+parameters were estimated for each progeny, we further determined
+heterochronic parameters, i.e., the timing of inflection point (tI), the
+timing of maximum acceleration (ta), the timing of maximum deceleration
+(td), and the duration of linear growth (L) (Sun et al., 2014).
+
+QTL mapping: For each progeny, we estimated a series of heterochronic
+parameters using equation (1) and then treated these estimates as
+phenotypic values to perform QTL mapping. There are two statistical
+approaches for QTL mapping, mixture model for sparse molecular markers
+and multiplicative model for dense markers. Because the linkage map
+constructed is quite dense, we employed the multiplicative model that
+assumes QTLs are located at the positions of markers. For the same
+heterochronic parameter expressed in shoot length and taproot length,
+the multiplicative likelihood model is expressed as (2) where  is the
+unknown parameters; yi = (y1i, y2i) is the growth parameter vector of
+progeny i for shoot length (coded by 1) and taproot length (coded by 2);
+nj is the number of progeny with SNP genotype j; and fj(yi) is a
+bivariate normal distribution for progeny i with the expected mean
+vector for genotype j (1j, 2j) and the variance-covariance matrix 
+containing the variances (12, 22) and correlation between the two
+traits (). Statistical methods based on the likelihood (2) have been
+established to estimate the model parameters  = (1j, 2j, 12, 22,
+).
 
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
 
@@ -1257,7 +1317,10 @@ number of subjects \[\lambda = smoothing paramter\]
 
 \section{Summary}\label{summary}
 
-\section{Conclusions}\label{conclusions-1}
+\section{Discussion}\label{discussion-1}
+
+Further investigations are needed to confirm or modify our findings by
+QTL mapping in natural populations.
 
 \section{Future Steps}\label{future-steps}
 
@@ -1269,7 +1332,7 @@ number of subjects \[\lambda = smoothing paramter\]
 
 We have finished a nice book.
 
-\chapter*{Conclusions}\label{conclusions-2}
+\chapter*{Conclusions}\label{conclusions-1}
 \addcontentsline{toc}{chapter}{Conclusions}
 
 \bibliography{packages,book}
