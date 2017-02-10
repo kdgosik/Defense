@@ -18,7 +18,7 @@
 Treating the molecular biology of an organisim as a complex trait, it would be likely that the expression profiles of certain genes, proteins or other metabolites would follow a more functional or dynamic phenotype. This information could be lost or greatly limited by treating the response as a single static predictor. In an attempt to capture all relevant information available I am currently extending the procedure further to include the entire growth function as a phenotype. The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. I anticipate submitting a third manuscript in late spring around this topic. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.
 
 
-### Update
+**Update**
   (This is from Han Hao's proposal, update for yours) 
 
 Changes in developmental timing and rate, named as heterochrony, have long
@@ -66,7 +66,16 @@ biology in the recent years.
 
 
 
+**Update**
 
+GENERALIZED ADDITIVE MODEL SELECTION \cite{chouldechova2015generalized}
+
+In many applications it may be too restrictive to suppose that the effect
+of all of the predictors is captured by a simple linear fit of the form, $η(x_i) =  \sum_{j=1}^p \beta_jx_{ij}$.
+Generalized additive models, introduced in \cite{hastie1990generalized}, allow for greater
+flexibility by modeling the linear predictor of a generalized linear model as a sum of more
+general functions of each variable: $$η(x_i) = \sum_{j=1}^p f_j(x_{ij}),$$
+where the $f_j$ are unknown functions, assumed to be smooth or otherwise low-complexity.
 
 
 Add a third paragraph to motivation section
@@ -103,7 +112,7 @@ be performed with a likelihood ratio testing approach.
 
 
 
-**Shoot-Root Paper**
+**Update: Shoot-Root Paper**
  (pages 13 - 14)
 fitted by a three-parameter growth equation, through a nonlinear least-square approach, which is expressed as
                                    (1)
@@ -120,24 +129,18 @@ where  is the unknown parameters; yi = (y1i, y2i) is the growth parameter vec
 
 ### Legendre Polynomials
 
+**update**
+
+2HIGWAS \cite{jiang20152higwas}
 
 ### Model 
 
 #### BIC
-From the book 
-BibTex
-@book{wu2006nonparametric,
-  title={Nonparametric regression methods for longitudinal data analysis: mixed-effects modeling approaches},
-  author={Wu, Hulin and Zhang, Jin-Ting},
-  volume={515},
-  year={2006},
-  publisher={John Wiley \& Sons}
-}
 
 Similarly, following the classical BIC rule (Swartz 1978), we can define the BIC rule for the cubic MESS model as
 
 $$BIC(\lambda, \lambda_v ) = -2*LogLik + log(n)*(df + df_v)$$
-n is the number of subjects
+n is the number of subjects \cite{wu2006nonparametric}
 $$\lambda = smoothing paramter$$
 $$\lambda_v = smoothing paramter, number of knots in the cubic spline$$
 
