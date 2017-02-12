@@ -126,7 +126,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-02-11}
+  \date{2017-02-12}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -1640,14 +1640,43 @@ traits (). Statistical methods based on the likelihood (2) have been
 established to estimate the model parameters  = (1j, 2j, 12, 22,
 ).
 
-\subsection{Logistic Growth Curve}\label{logistic-growth-curve}
+\subsection{Regression by linear combination of basis
+functions}\label{regression-by-linear-combination-of-basis-functions}
 
-\[\mu(t) = \frac{a}{(1+b*exp(-r*t))}}\] a is the asymptotic growth of
-the phenotype.
+** GAM Selection paper**
+
+Our proposed estimator selects between fitting each fj as zero, linear,
+or nonlinear, as determined by the data. In so doing it retains the
+interpretability advantages of linear fits when appropriate, while
+capturing strong non-linear relationships when they are present. Our
+method, which we call GAMSEL (Generalized Additive Model Selection), is
+based on optimizing a penalized (negative) log-likelihood criterion of
+the form
+
+\textbf{Regression by linear combination of basis functions. by Risi
+Kondor}
+
+Solving for the θ's To find the optimal value for
+\(θ_0, θ_1, . . . , θ_P\) we 1. define a loss function L; 2. using the
+loss function define the empirical risk \(Remp(θ)\) quantifying the loss
+over all the training data for particular values of
+\(θ0, θ1, . . . , θP\) ; 3. solve for the particular setting of the
+parameters (denoted \(θ_0, θ_1, . . . , θ_P\)) that minimizes the
+empirical risk.
+
+We shall use the squared error loss function
+\[L(y, f(x)) =\frac{1}{2}(y − f(x))^2\]
 
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
 
-\includegraphics{Defense_files/figure-latex/Legendre_plot-1.pdf}
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{Defense_files/figure-latex/Legendre-fig-1} 
+
+}
+
+\caption{First 10 Legendre Polynomials}\label{fig:Legendre-fig}
+\end{figure}
 
 \textbf{From Wikipedia} An important property of the Legendre
 polynomials is that they are orthogonal with respect to the L2-norm on
@@ -1710,12 +1739,24 @@ to follow the first-order structured antedependence {[}SAD(1){]} process
 growth modeling studies (\cite{li2010functional},
 \cite{ahn2010functional}, \cite{das2011dynamic}).
 
+\textbf{free write}
+
+Because the non-parametic nature of the legendre orthogonal polynomials,
+it was advantages for both dimension reduction and also handling
+unevenly spaced, missing or non-uniform time measurements from different
+subjects in the dataset.
+
+The search performed by the procedure checks and uses the legendre
+polynomials of different orders to find the best fitting form of the
+genetic variation from the mean curve for each of the genotypes or
+epistasis between genotypes considered in the model.
+
 \subsection{Model}\label{model}
 
-Because interaction effects are considered, the coverage probability P
-is redefined as three quantities: PA, the coverage rate of all true
-predictors; PM, the coverage rate of all main effects; and PI, the
-coverage rate of all interaction effects.
+\textbf{2HIGWAS} Because interaction effects are considered, the
+coverage probability P is redefined as three quantities: PA, the
+coverage rate of all true predictors; PM, the coverage rate of all main
+effects; and PI, the coverage rate of all interaction effects.
 
 \textbf{BIC}
 
@@ -1727,17 +1768,96 @@ number of subjects \cite{wu2006nonparametric}
 \[\lambda = smoothing paramter\]
 \[\lambda_v = smoothing paramter, number of knots in the cubic spline\]
 
+Considering a comprehensive gentotyping for n progeny each measure
+across different time points.
+
 \section{Application}\label{application-2}
 
 \subsection{Simulation Studies}\label{simulation-studies-1}
 
+extensive simulation studies were performed to ascertain the validity of
+the model. Computational verified by cross validation, bootstrapping.
+Having a training and a testing set to help provide some insight on
+false positive rates, selecting the correct fit of the polynomial for
+the genetic and epsitatic effects.
+
+\begin{itemize}
+\tightlist
+\item
+  rates at which correct markers/epistasis was selected?
+\item
+  rates at which the correct order polynomial was fit for the correct
+  marker/epistasis
+\end{itemize}
+
 \subsection{Worked Example}\label{worked-example-1}
+
+Same mei tree dataset used in previous chapter to see if any new
+discoveries can be made by incorporating the time component and fitting
+the growth parameters simulatneously throughout the procedure.
+
+if it doesn't take too much time (maybe by the time defense comes
+around) cross validate the selection proceudre by leaving out samples
+and running model again. How many times do you get the same results?
+LOOCV tables
+
+Also consider with holding predictors from the dataset to see if the
+selection is changed at all. Start with random ones and then maybe
+strategically select important predictors to remove to see how it
+affects the fit
+
+\section{Discussion}\label{discussion-2}
+
+\begin{itemize}
+\tightlist
+\item
+  Downfalls or areas of concern for fitting the genetic effects to the
+  polynomials?
+\item
+  How do we know there is epistasis?
+\item
+  how do you keep it from over selecting
+\item
+  what if it doesn't follow the heredity or hierarchy principles?
+\end{itemize}
 
 \chapter{Conclusions}\label{conclusions}
 
+** research statement ** Continuing on, my aim would be to work with
+datasets of this scale and incorporate the types of statistical methods
+mentioned and machine learning techniques to aid in analysis. The
+results could help gain larger insights into the genomic/epigenetic
+architecture of biological systems. On top of the importance of a
+functional component to the phenotype, considering other types of
+multivariate responses would be interesting to study in context of such
+a system. Integrating different level of omics data and the challenges
+that arise with such complicated and large datasets has interested me
+throughout my PhD work. Translating such a complex system into usable
+information that can be shared in order to prevent and fight disease
+would be ideal research for me. This type of research would need both
+methodological development as well as application of existing
+statistical and machine/deep learning techniques to handle the magnitude
+of the problem.
+
 \section{Summary}\label{summary}
 
-\section{Discussion}\label{discussion-2}
+applied, adapted and extended the forward selection procedure under the
+marginality assumption first proposed by \cite{hao2014interaction}
+
+able to reduce search space substantially by making some reasonable
+assumptions about the data. These assumptions can be relaxed a little to
+broaden the scope of the space.
+
+\section{Discussion}\label{discussion-3}
+
+complex and many moving parts to the selection procedure. Very flexible
+but this could have it be prone to over fitting at times if not well
+controlled.
+
+Used as a screening tool for initial findings and exploratory data
+analysis to aid and guide future research. Needs to be then be lab
+validated. Especially with something as intricate as epistatic effects
+between gene markers.
 
 Further investigations are needed to confirm or modify our findings by
 QTL mapping in natural populations.
@@ -1746,7 +1866,15 @@ QTL mapping in natural populations.
 
 \subsection{Aim 1}\label{aim-1}
 
+incorporate other mean curves for intercept term Other types of
+orthogonal polynomials general additive models components
+
 \subsection{Aim 2}\label{aim-2}
+
+extend to include multivariate reponses to the system how to extend
+selection criteria in this fashion search space grows even larger what
+is defined as the `best' predictor for 1 reponse might not be for the
+others
 
 \subsection{Aim 3}\label{aim-3}
 

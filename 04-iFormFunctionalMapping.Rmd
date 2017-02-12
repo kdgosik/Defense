@@ -3,10 +3,13 @@
 
 ## Motivation
 
-  **Shoot-Root Paper**
+ Growth and developmental traits can mostly be better described by a functional process (\cite{hernandez2015understanding}, \cite{muraya2017genetic}), it is more biologically meaningful to map these traits as growth curves (\cite{sun2015mapping}). There have been a few different approaches that have integrated growth equations into genetic mapping via the likelihood function, leading to the birth of a so-called functional mapping models (\cite{ma2002functional}; \cite{wu2006functional}; \cite{li2015dynamic}; \cite{muraya2017genetic}). These style appoaches can allow for the developmental change of genetic control to be characterized across both time and as well as space (\cite{he2010mapping}; \cite{li2010functional}). 
+
+
+ **Shoot-Root Paper**
   (The genetic architecture of shoot-root covariation during seedling emergence of a dessert tree, Populus euphratica)
-  
- Since most traits associated with growth and development can be better described by a dynamic process (\cite{hernandez2015understanding}, \cite{muraya2017genetic}), it is more biologically meaningful to map these traits as growth curves (Sun and Wu, 2015). Several approaches have integrated growth equations into the likelihood of genetic mapping, leading to the birth of a so-called functional mapping model (Ma et al., 2002; Wu and Lin, 2006; Li and Sillanpaa, 2015; Muraya et al., 2016). Functional mapping allows the developmental change of genetic control to be characterized across time and space (He et al., 2010; Li and Wu, 2010). By modeling the longitudinal mean-covariance structures using a set of parsimonious parameters, functional mapping has proven of great statistical power in gene identification and the utilization of sparse phenotypic data (Hou et al., 2005, 2006). An alternative to functional mapping is to map growth QTLs by estimating growth parameters for each genotype based on growth equations and associating these parameters with markers (Wu et al., 2002). 
+ 
+ By modeling the longitudinal mean-covariance structures using a set of parsimonious parameters, functional mapping has proven of great statistical power in gene identification and the utilization of sparse phenotypic data (Hou et al., 2005, 2006). An alternative to functional mapping is to map growth QTLs by estimating growth parameters for each genotype based on growth equations and associating these parameters with markers (Wu et al., 2002). 
  
  
  
@@ -22,8 +25,7 @@ Treating the molecular biology of an organism as a complex trait, it would be li
   (This is from Han Hao's proposal, update for yours) 
 
 Changes in developmental timing and rate, named as heterochrony, have long
-been believed to be a major force in the evolution of phenotype (Gould, 1977;
-Wilson et al., 1988). It has been observed that relatively few genetic changes
+been believed to be a major force in the evolution of phenotype (\cite{gould1977ontogeny}; \cite{wilson1988heterochrony}). It has been observed that relatively few genetic changes
 in heterochrony through the endocrine regulation of metamorphosis can cause
 profound morphological consequences (Moss, 2007). For example, although humans
 and chimpanzees are closely related, their skull shape and brain growth are different
@@ -80,6 +82,21 @@ where the $f_j$ are unknown functions, assumed to be smooth or otherwise low-com
 
 Add a third paragraph to motivation section
   Continue on about the rest of the chapter as  an overview
+  
+  **2HIGWAS**
+  
+  In this study, we develop a high-dimensional varyingcoefficient
+model to chart a complete picture of the genetic
+architecture of complex traits that are dynamically expressed
+on a time–space scale.
+
+
+
+However, integrating all SNPs and functional mapping to systematically search for loci for developmental processes has not been explored thus far. This integration can not only construct a precise developmental genotype–phenotype map that cannot be produced separately by each approach, but also contains sophistication and challenges in technical development. First, such integration needs the resolution of how significant predictors can be chosen from a high-dimensional pool of SNPs under the sparsity assumption. Many statisticians have made tremendous effort to improve computational expediency, statistical accuracy and algorithmic stability in high dimensionality [22–28]. Second, given that phenotypic data are observed in a longitudinal time series, a step of embedding the multiple response structure in a biologically meaningful way is essential.
+
+
+
+
 
 
 ## Methods
@@ -95,6 +112,10 @@ Functional mapping is a group of methods used for mapping QTLs related to functi
 The key of functional mapping methods is the modelling of both functional means and the covariance structure across measurements from the same individual. When modelling the functional means, biological background is first examined to select the best function, either parametric or non-parametric. The covariance structure is usually modeled by parsimonious and flexible approaches such as autoregressive, antedependence, or nonparametric structures. The functional means and covariance structures can be integrated into a likelihood function, then hypothesis testing can be performed with a likelihood ratio testing approach.
 
 
+
+
+
+
 **Update: Shoot-Root Paper**
  (pages 13 - 14)
 fitted by a three-parameter growth equation, through a nonlinear least-square approach, which is expressed as
@@ -108,16 +129,43 @@ QTL mapping: For each progeny, we estimated a series of heterochronic parameters
 where  is the unknown parameters;$ yi = (y1i, y2i)$ is the growth parameter vector of progeny i for shoot length (coded by 1) and taproot length (coded by 2); nj is the number of progeny with SNP genotype j; and $fj(yi)$ is a bivariate normal distribution for progeny i with the expected mean vector for genotype j (1j, 2j) and the variance-covariance matrix  containing the variances (12, 22) and correlation between the two traits (). Statistical methods based on the likelihood (2) have been established to estimate the model parameters  = (1j, 2j, 12, 22, ).
 
 
-### Logistic Growth Curve
 
-$$\mu(t) = \frac{a}{(1+b*exp(-r*t))}}$$
-a is the asymptotic growth of the phenotype. 
+
+
+### Regression by linear combination of  basis functions
+
+By focusing on linear regression as a linear combination of basis functions
+
+** GAM Selection paper**
+
+Our proposed estimator selects between fitting each fj as zero, linear, or nonlinear, as
+determined by the data. In so doing it retains the interpretability advantages of linear fits
+when appropriate, while capturing strong non-linear relationships when they are present.
+Our method, which we call GAMSEL (Generalized Additive Model Selection), is based on
+optimizing a penalized (negative) log-likelihood criterion of the form
+
+
+**Regression by linear combination of basis functions.  by Risi Kondor**
+
+Solving for the θ’s
+To find the optimal value for $θ_0, θ_1, . . . , θ_P$ we
+1. define a loss function L;
+2. using the loss function define the empirical risk $Remp(θ)$ quantifying the loss over all the training data for particular values of $θ0, θ1, . . . , θP$ ;
+3. solve for the particular setting of the parameters (denoted $θ_0, θ_1, . . . , θ_P$)
+that minimizes the empirical risk.
+
+We shall use the squared error loss function
+$$L(y, f(x)) =\frac{1}{2}(y − f(x))^2$$
+
+
+
+
 
 
 
 ### Legendre Polynomials
 
-```{r Legendre_plot, echo = FALSE}
+```{r Legendre-fig, fig.cap='First 10 Legendre Polynomials', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
 library(ggplot2)
 library(data.table)
 library(RColorBrewer)
@@ -237,14 +285,22 @@ $$\lambda_v = smoothing paramter, number of knots in the cubic spline$$
 Considering a comprehensive gentotyping for n progeny each measure across different time points.  
 
 
+
+
+
+
+
+
+
 ## Application
-
-
 
 
 ### Simulation Studies
 
-extensive simulation studies were performed to ascertain the validity of the model.  Computational verified by cross validation, bootstrapping.  Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.  
+As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures.  
+
+
+Extensive simulation studies were performed to ascertain the validity of the model.  Computational verified by cross validation, bootstrapping.  Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.  
 
 
 * rates at which correct markers/epistasis was selected?
@@ -268,6 +324,7 @@ Also consider with holding predictors from the dataset to see if the selection i
 * How do we know there is epistasis?
 * how do you keep it from over selecting
 * what if it doesn't follow the heredity or hierarchy principles?
+* other types of functional/growth equations to represent biologically meaningful scenarios
 
 
 

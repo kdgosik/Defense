@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dissertation Defense</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
 
   <meta property="og:title" content="Dissertation Defense" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2017-02-11">
+<meta name="date" content="2017-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="high-order-epistatic-networks.html">
 <link rel="next" href="conclusions.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -138,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#motivation-2"><i class="fa fa-check"></i><b>4.1</b> Motivation</a></li>
 <li class="chapter" data-level="4.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#methods-2"><i class="fa fa-check"></i><b>4.2</b> Methods</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#functional-mapping"><i class="fa fa-check"></i><b>4.2.1</b> Functional Mapping</a></li>
-<li class="chapter" data-level="4.2.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#logistic-growth-curve"><i class="fa fa-check"></i><b>4.2.2</b> Logistic Growth Curve</a></li>
+<li class="chapter" data-level="4.2.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#regression-by-linear-combination-of-basis-functions"><i class="fa fa-check"></i><b>4.2.2</b> Regression by linear combination of basis functions</a></li>
 <li class="chapter" data-level="4.2.3" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#legendre-polynomials"><i class="fa fa-check"></i><b>4.2.3</b> Legendre Polynomials</a></li>
 <li class="chapter" data-level="4.2.4" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#model"><i class="fa fa-check"></i><b>4.2.4</b> Model</a></li>
 </ul></li>
@@ -146,10 +147,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.1" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#simulation-studies-1"><i class="fa fa-check"></i><b>4.3.1</b> Simulation Studies</a></li>
 <li class="chapter" data-level="4.3.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#worked-example-1"><i class="fa fa-check"></i><b>4.3.2</b> Worked Example</a></li>
 </ul></li>
+<li class="chapter" data-level="4.4" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#discussion-2"><i class="fa fa-check"></i><b>4.4</b> Discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>5</b> Conclusions</a><ul>
 <li class="chapter" data-level="5.1" data-path="conclusions.html"><a href="conclusions.html#summary"><i class="fa fa-check"></i><b>5.1</b> Summary</a></li>
-<li class="chapter" data-level="5.2" data-path="conclusions.html"><a href="conclusions.html#discussion-2"><i class="fa fa-check"></i><b>5.2</b> Discussion</a></li>
+<li class="chapter" data-level="5.2" data-path="conclusions.html"><a href="conclusions.html#discussion-3"><i class="fa fa-check"></i><b>5.2</b> Discussion</a></li>
 <li class="chapter" data-level="5.3" data-path="conclusions.html"><a href="conclusions.html#future-steps"><i class="fa fa-check"></i><b>5.3</b> Future Steps</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="conclusions.html"><a href="conclusions.html#aim-1"><i class="fa fa-check"></i><b>5.3.1</b> Aim 1</a></li>
 <li class="chapter" data-level="5.3.2" data-path="conclusions.html"><a href="conclusions.html#aim-2"><i class="fa fa-check"></i><b>5.3.2</b> Aim 2</a></li>
@@ -204,13 +206,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>Update: Shoot-Root Paper</strong> (pages 13 - 14) fitted by a three-parameter growth equation, through a nonlinear least-square approach, which is expressed as (1) where g(t) is the trait value at time t, and three parameters a, b and r have different biological meanings: a is the limit value of g when t→∞, r is the relative growth rate, and a/ (1 + b) denotes the initial value of g when t = 0. After the three growth parameters were estimated for each progeny, we further determined heterochronic parameters, i.e., the timing of inflection point (tI), the timing of maximum acceleration (ta), the timing of maximum deceleration (td), and the duration of linear growth (L) (Sun et al., 2014).</p>
 <p>QTL mapping: For each progeny, we estimated a series of heterochronic parameters using equation (1) and then treated these estimates as phenotypic values to perform QTL mapping. There are two statistical approaches for QTL mapping, mixture model for sparse molecular markers and multiplicative model for dense markers. Because the linkage map constructed is quite dense, we employed the multiplicative model that assumes QTLs are located at the positions of markers. For the same heterochronic parameter expressed in shoot length and taproot length, the multiplicative likelihood model is expressed as (2) where  is the unknown parameters;$ yi = (y1i, y2i)$ is the growth parameter vector of progeny i for shoot length (coded by 1) and taproot length (coded by 2); nj is the number of progeny with SNP genotype j; and <span class="math inline">\(fj(yi)\)</span> is a bivariate normal distribution for progeny i with the expected mean vector for genotype j (1j, 2j) and the variance-covariance matrix  containing the variances (12, 22) and correlation between the two traits (). Statistical methods based on the likelihood (2) have been established to estimate the model parameters  = (1j, 2j, 12, 22, ).</p>
 </div>
-<div id="logistic-growth-curve" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Logistic Growth Curve</h3>
-<p><span class="math display">\[\mu(t) = \frac{a}{(1+b*exp(-r*t))}}\]</span> a is the asymptotic growth of the phenotype.</p>
+<div id="regression-by-linear-combination-of-basis-functions" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Regression by linear combination of basis functions</h3>
+<p>** GAM Selection paper**</p>
+<p>Our proposed estimator selects between fitting each fj as zero, linear, or nonlinear, as determined by the data. In so doing it retains the interpretability advantages of linear fits when appropriate, while capturing strong non-linear relationships when they are present. Our method, which we call GAMSEL (Generalized Additive Model Selection), is based on optimizing a penalized (negative) log-likelihood criterion of the form</p>
+<p><strong>Regression by linear combination of basis functions. by Risi Kondor</strong></p>
+<p>Solving for the θ’s To find the optimal value for <span class="math inline">\(θ_0, θ_1, . . . , θ_P\)</span> we 1. define a loss function L; 2. using the loss function define the empirical risk <span class="math inline">\(Remp(θ)\)</span> quantifying the loss over all the training data for particular values of <span class="math inline">\(θ0, θ1, . . . , θP\)</span> ; 3. solve for the particular setting of the parameters (denoted <span class="math inline">\(θ_0, θ_1, . . . , θ_P\)</span>) that minimizes the empirical risk.</p>
+<p>We shall use the squared error loss function <span class="math display">\[L(y, f(x)) =\frac{1}{2}(y − f(x))^2\]</span></p>
 </div>
 <div id="legendre-polynomials" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Legendre Polynomials</h3>
-<p><img src="Defense_files/figure-html/Legendre_plot-1.png" width="672" /></p>
+<div class="figure" style="text-align: center"><span id="fig:Legendre-fig"></span>
+<img src="Defense_files/figure-html/Legendre-fig-1.png" alt="First 10 Legendre Polynomials" width="80%" />
+<p class="caption">
+FIGURE 4.1: First 10 Legendre Polynomials
+</p>
+</div>
 <p><strong>From Wikipedia</strong> An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:</p>
 <span class="math display" id="eq:var-beta">\[\begin{equation} 
 \begin{split}
@@ -237,24 +248,45 @@ P_n(x) &amp; = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 <p>where a, b and r are growth parameters each of biological interpretation, with a being the asymptotic growth, b being the initial amount of growth and r being the relative growth rate. Timevarying additive and dominant effects of significant SNPs are modeled by a nonparametric approach, such as Legendre orthogonal polynomial used in quantitative genetic studies (,], expressed as</p>
 <p><span class="math display">\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]</span> <span class="math display">\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s&#39;}(t))*(v_{j0}, v_{j1},...,v_{js&#39;})^T \]</span></p>
 <p>where <span class="math inline">\(L_0(t), L_1(t), ... , L_s(t)\)</span> and <span class="math inline">\(L_0(t), L_1(t), ... , L_{s&#39;}(t)\)</span> are the LOP of orders <span class="math inline">\(s\)</span> and <span class="math inline">\(s&#39;\)</span>, respectively; and <span class="math inline">\(u_{j0}, u_{j1},...,u_{js}\)</span> and <span class="math inline">\(v_{j0}, v_{j1},...,v_{js&#39;}\)</span> are the vectors of time-invariant additive and dominant effects, respectively. Orders <span class="math inline">\(s\)</span> and <span class="math inline">\(s&#39;\)</span>, selected from information criteria, such as Akaike information criterion (AIC) and Bayesian information criterion (BIC), are usually much smaller than M so that the dimension of response phenotypic data is reduced through LOP modeling. The variance maxtrix of residual errors is assumed to follow the first-order structured antedependence [SAD(1)] process (). The SAD(1) model has been used in previous growth modeling studies (, , ).</p>
+<p><strong>free write</strong></p>
+<p>Because the non-parametic nature of the legendre orthogonal polynomials, it was advantages for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset.</p>
+<p>The search performed by the procedure checks and uses the legendre polynomials of different orders to find the best fitting form of the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.</p>
 </div>
 <div id="model" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Model</h3>
-<p>Because interaction effects are considered, the coverage probability P is redefined as three quantities: PA, the coverage rate of all true predictors; PM, the coverage rate of all main effects; and PI, the coverage rate of all interaction effects.</p>
+<p><strong>2HIGWAS</strong> Because interaction effects are considered, the coverage probability P is redefined as three quantities: PA, the coverage rate of all true predictors; PM, the coverage rate of all main effects; and PI, the coverage rate of all interaction effects.</p>
 <p><strong>BIC</strong></p>
 <p>Similarly, following the classical BIC rule (Swartz 1978), we can define the BIC rule for the cubic MESS model as</p>
 <p><span class="math display">\[BIC(\lambda, \lambda_v ) = -2*LogLik + log(n)*(df + df_v)\]</span> n is the number of subjects  <span class="math display">\[\lambda = smoothing paramter\]</span> <span class="math display">\[\lambda_v = smoothing paramter, number of knots in the cubic spline\]</span></p>
+<p>Considering a comprehensive gentotyping for n progeny each measure across different time points.</p>
 </div>
 </div>
 <div id="application-2" class="section level2">
 <h2><span class="header-section-number">4.3</span> Application</h2>
 <div id="simulation-studies-1" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Simulation Studies</h3>
+<p>extensive simulation studies were performed to ascertain the validity of the model. Computational verified by cross validation, bootstrapping. Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.</p>
+<ul>
+<li>rates at which correct markers/epistasis was selected?</li>
+<li>rates at which the correct order polynomial was fit for the correct marker/epistasis</li>
+</ul>
 </div>
 <div id="worked-example-1" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Worked Example</h3>
-
+<p>Same mei tree dataset used in previous chapter to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simulatneously throughout the procedure.</p>
+<p>if it doesn’t take too much time (maybe by the time defense comes around) cross validate the selection proceudre by leaving out samples and running model again. How many times do you get the same results? LOOCV tables</p>
+<p>Also consider with holding predictors from the dataset to see if the selection is changed at all. Start with random ones and then maybe strategically select important predictors to remove to see how it affects the fit</p>
 </div>
+</div>
+<div id="discussion-2" class="section level2">
+<h2><span class="header-section-number">4.4</span> Discussion</h2>
+<ul>
+<li>Downfalls or areas of concern for fitting the genetic effects to the polynomials?</li>
+<li>How do we know there is epistasis?</li>
+<li>how do you keep it from over selecting</li>
+<li>what if it doesn’t follow the heredity or hierarchy principles?</li>
+</ul>
+
 </div>
 </div>
             </section>

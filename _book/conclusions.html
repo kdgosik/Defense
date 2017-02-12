@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dissertation Defense</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
 
   <meta property="og:title" content="Dissertation Defense" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2017-02-11">
+<meta name="date" content="2017-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,6 +33,7 @@
   
   
 <link rel="prev" href="iform-functional-mapping-a-computational-method.html">
+
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#motivation-2"><i class="fa fa-check"></i><b>4.1</b> Motivation</a></li>
 <li class="chapter" data-level="4.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#methods-2"><i class="fa fa-check"></i><b>4.2</b> Methods</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#functional-mapping"><i class="fa fa-check"></i><b>4.2.1</b> Functional Mapping</a></li>
-<li class="chapter" data-level="4.2.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#logistic-growth-curve"><i class="fa fa-check"></i><b>4.2.2</b> Logistic Growth Curve</a></li>
+<li class="chapter" data-level="4.2.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#regression-by-linear-combination-of-basis-functions"><i class="fa fa-check"></i><b>4.2.2</b> Regression by linear combination of basis functions</a></li>
 <li class="chapter" data-level="4.2.3" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#legendre-polynomials"><i class="fa fa-check"></i><b>4.2.3</b> Legendre Polynomials</a></li>
 <li class="chapter" data-level="4.2.4" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#model"><i class="fa fa-check"></i><b>4.2.4</b> Model</a></li>
 </ul></li>
@@ -146,10 +147,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.1" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#simulation-studies-1"><i class="fa fa-check"></i><b>4.3.1</b> Simulation Studies</a></li>
 <li class="chapter" data-level="4.3.2" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#worked-example-1"><i class="fa fa-check"></i><b>4.3.2</b> Worked Example</a></li>
 </ul></li>
+<li class="chapter" data-level="4.4" data-path="iform-functional-mapping-a-computational-method.html"><a href="iform-functional-mapping-a-computational-method.html#discussion-2"><i class="fa fa-check"></i><b>4.4</b> Discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>5</b> Conclusions</a><ul>
 <li class="chapter" data-level="5.1" data-path="conclusions.html"><a href="conclusions.html#summary"><i class="fa fa-check"></i><b>5.1</b> Summary</a></li>
-<li class="chapter" data-level="5.2" data-path="conclusions.html"><a href="conclusions.html#discussion-2"><i class="fa fa-check"></i><b>5.2</b> Discussion</a></li>
+<li class="chapter" data-level="5.2" data-path="conclusions.html"><a href="conclusions.html#discussion-3"><i class="fa fa-check"></i><b>5.2</b> Discussion</a></li>
 <li class="chapter" data-level="5.3" data-path="conclusions.html"><a href="conclusions.html#future-steps"><i class="fa fa-check"></i><b>5.3</b> Future Steps</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="conclusions.html"><a href="conclusions.html#aim-1"><i class="fa fa-check"></i><b>5.3.1</b> Aim 1</a></li>
 <li class="chapter" data-level="5.3.2" data-path="conclusions.html"><a href="conclusions.html#aim-2"><i class="fa fa-check"></i><b>5.3.2</b> Aim 2</a></li>
@@ -178,20 +180,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="conclusions" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Conclusions</h1>
+<p>** research statement ** Continuing on, my aim would be to work with datasets of this scale and incorporate the types of statistical methods mentioned and machine learning techniques to aid in analysis. The results could help gain larger insights into the genomic/epigenetic architecture of biological systems. On top of the importance of a functional component to the phenotype, considering other types of multivariate responses would be interesting to study in context of such a system. Integrating different level of omics data and the challenges that arise with such complicated and large datasets has interested me throughout my PhD work. Translating such a complex system into usable information that can be shared in order to prevent and fight disease would be ideal research for me. This type of research would need both methodological development as well as application of existing statistical and machine/deep learning techniques to handle the magnitude of the problem.</p>
 <div id="summary" class="section level2">
 <h2><span class="header-section-number">5.1</span> Summary</h2>
+<p>applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by </p>
+<p>able to reduce search space substantially by making some reasonable assumptions about the data. These assumptions can be relaxed a little to broaden the scope of the space.</p>
 </div>
-<div id="discussion-2" class="section level2">
+<div id="discussion-3" class="section level2">
 <h2><span class="header-section-number">5.2</span> Discussion</h2>
+<p>complex and many moving parts to the selection procedure. Very flexible but this could have it be prone to over fitting at times if not well controlled.</p>
+<p>Used as a screening tool for initial findings and exploratory data analysis to aid and guide future research. Needs to be then be lab validated. Especially with something as intricate as epistatic effects between gene markers.</p>
 <p>Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.</p>
 </div>
 <div id="future-steps" class="section level2">
 <h2><span class="header-section-number">5.3</span> Future Steps</h2>
 <div id="aim-1" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Aim 1</h3>
+<p>incorporate other mean curves for intercept term Other types of orthogonal polynomials general additive models components</p>
 </div>
 <div id="aim-2" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> Aim 2</h3>
+<p>extend to include multivariate reponses to the system how to extend selection criteria in this fashion search space grows even larger what is defined as the ‘best’ predictor for 1 reponse might not be for the others</p>
 </div>
 <div id="aim-3" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Aim 3</h3>
