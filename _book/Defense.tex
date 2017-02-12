@@ -126,7 +126,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-02-09}
+  \date{2017-02-11}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -148,6 +148,7 @@
 \newtheorem{example}{Example}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
 
@@ -155,6 +156,9 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\listoffigures
+Where does this text go if i put it before
+
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
@@ -213,7 +217,35 @@ their association with the type and intensity of such interaction.
 
 \includegraphics[width=6.35in]{images/SNP_Picture}
 
-\ref{fig:nice-fig}
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-4}{}{\label{thm:unnamed-chunk-4}}Here
+is my theorem.
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{lemma}
+\protect\hypertarget{lem:unnamed-chunk-5}{}{\label{lem:unnamed-chunk-5}}Here
+is my lemma.
+\EndKnitrBlock{lemma}
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6}}Here
+is my definition.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{corollary}
+\protect\hypertarget{cor:unnamed-chunk-7}{}{\label{cor:unnamed-chunk-7}}Here
+is my corollary
+\EndKnitrBlock{corollary}
+
+\BeginKnitrBlock{proposition}
+\protect\hypertarget{prp:unnamed-chunk-8}{}{\label{prp:unnamed-chunk-8}}Here
+is my proposition.
+\EndKnitrBlock{proposition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{ex:unnamed-chunk-9}{}{\label{ex:unnamed-chunk-9}}Here
+is my example
+\EndKnitrBlock{example}
 
 You can label chapter and section titles using \texttt{\{\#label\}}
 after them, e.g., we can reference Chapter \ref{intro}. If you do not

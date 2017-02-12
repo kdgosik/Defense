@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dissertation Defense</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
 
   <meta property="og:title" content="Dissertation Defense" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2017-02-09">
+<meta name="date" content="2017-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="index.html">
 <link rel="next" href="high-dimensional-eqtl.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -101,6 +102,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li><a href="./">A Minimal Book Example</a></li>
+<li><a href="...">The thesis proposal of Kirk Gosik reviewed by the following</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
@@ -180,7 +182,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="images/SystemsMapping.png" width="732" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="st">&quot;images/SNP_Picture.png&quot;</span>)</code></pre></div>
 <p><img src="images/SNP_Picture.png" width="228" /></p>
-<p><a href="intro.html#fig:nice-fig">1.1</a></p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-4" class="theorem"><strong>Theorem 1.1 </strong></span>Here is my theorem.
+</div>
+<p></p>
+
+<div class="lemma">
+<span id="lem:unnamed-chunk-5" class="lemma"><strong>Lemma 1.1 </strong></span>Here is my lemma.
+</div>
+<p></p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.1 </strong></span>Here is my definition.
+</div>
+<p></p>
+
+<div class="corollary">
+<span id="cor:unnamed-chunk-7" class="corollary"><strong>Corollary 1.1 </strong></span>Here is my corollary
+</div>
+<p></p>
+
+<div class="proposition">
+<span id="prp:unnamed-chunk-8" class="proposition"><strong>Proposition 1.1 </strong></span>Here is my proposition.
+</div>
+<p></p>
+
+<div class="example">
+<span id="ex:unnamed-chunk-9" class="example"><strong>Example 1.1 </strong></span>Here is my example
+</div>
+<p></p>
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="high-dimensional-eqtl.html#methods">2.2</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
@@ -188,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
 <img src="Defense_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
-Figure 1.1: Here is a nice figure!
+FIGURE 1.1: Here is a nice figure!
 </p>
 </div>
 <p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
@@ -197,7 +228,7 @@ Figure 1.1: Here is a nice figure!
   <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
 )</code></pre></div>
 <table>
-<caption><span id="tab:nice-tab">Table 1.1: </span>Here is a nice table!</caption>
+<caption><span id="tab:nice-tab">TABLE 1.1: </span>Here is a nice table!</caption>
 <thead>
 <tr class="header">
 <th align="right">Sepal.Length</th>

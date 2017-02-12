@@ -4,6 +4,8 @@ author: "Kirk Gosik"
 date: "`r Sys.Date()`"
 setspace: doublespacing
 linestretch: 2
+lof: yes
+lot: yes
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -13,6 +15,9 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
+
+
+Where does this text go if i put it before
 
 # Abstract {-}
 

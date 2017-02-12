@@ -129,9 +129,64 @@ where  is the unknown parameters; yi = (y1i, y2i) is the growth parameter vec
 
 ### Legendre Polynomials
 
-**update**
+```{r Legendre_plot, echo = FALSE}
+library(ggplot2)
+Legendre<-function( t, np.order=1,tmin=NULL, tmax=NULL )
+{
+  u <- -1
+  v <- 1
+  if (is.null(tmin)) tmin<-min(t)
+  if (is.null(tmax)) tmax<-max(t)
+  nt <- length(t)
+  ti    <- u + ((v-u)*(t-tmin))/(tmax - tmin)
+  np.order.mat <- matrix(rep(0,nt*np.order),nrow=nt)
+  if(np.order >=1)
+    np.order.mat[,1] <- rep(1,nt)
+  if (np.order>=2)
+    np.order.mat[,2] <- ti
+  if (np.order>=3)
+    np.order.mat[,3] <- 0.5*(3*ti*ti-1)
+  if (np.order>=4)
+    np.order.mat[,4] <- 0.5*(5*ti^3-3*ti)
+  if (np.order>=5)
+    np.order.mat[,5] <- 0.125*(35*ti^4-30*ti^2+3)
+  if (np.order>=6)
+    np.order.mat[,6] <- 0.125*(63*ti^5-70*ti^3+15*ti)
+  if (np.order>=7)
+    np.order.mat[,7] <- (1/16)*(231*ti^6-315*ti^4+105*ti^2-5)
+  if (np.order>=8)
+    np.order.mat[,8] <- (1/16)*(429*ti^7-693*ti^5+315*ti^3-35*ti)
+  if (np.order>=9)
+    np.order.mat[,9] <- (1/128)*(6435*ti^8-12012*ti^6+6930*ti^4-1260*ti^2+35)
+  if (np.order>=10)
+    np.order.mat[,10] <- (1/128)*(12155*ti^9-25740*ti^7+18018*ti^5-4620*ti^3+315*ti)
+  if (np.order>=11)
+    np.order.mat[,11] <- (1/256)*(46189*ti^10-109395*ti^8+90090*ti^6-30030*ti^4+3465*ti^2-63)
+  return(np.order.mat)
+}
 
-2HIGWAS \cite{jiang20152higwas}
+L <- data.frame(t = seq(-1,1, by = 0.01), Legendre(seq(-1,1, by = 0.01), 5))
+
+ggplot(L, aes(x = seq(-1,1, by = 0.01), y = V1)) + geom_line("green")
+
+
+```
+
+$$P_n(x) = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k$$
+
+**update** 2HIGWAS \cite{jiang20152higwas}
+
+We consider the complex trait as a growth trait. Thus, it is biologically meaningful to implement a growth equation, like a logistic curve, to describe growth trajectory \cite{west2001general}. We describe the population mean growth curve by the growth equation 
+$$ \mu(t) = a/(1 + b * exp(-r*t)) $$
+
+where a, b and r are growth parameters each of biological interpretation, with a being the asymptotic growth, b being the initial amount of growth and r being the relative growth rate. Timevarying additive and dominant effects of significant SNPs are modeled by a nonparametric approach, such as Legendre orthogonal polynomial used in quantitative genetic studies (\cite{olori1999estimating},\cite{li2010functional}], expressed as
+
+$$ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T $$
+$$ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T $$
+
+where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, such as Akaike information criterion (AIC) and Bayesian information criterion (BIC), are usually much smaller than M so that the dimension of response phenotypic data is reduced through LOP modeling. The variance maxtrix of residual errors is assumed to follow the first-order structured antedependence [SAD(1)] process (\cite{li2010functional}). The SAD(1) model has been used in previous growth modeling studies (\cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).
+
+
 
 ### Model 
 

@@ -1,4 +1,7 @@
 book_filename: "Defense"
 language:
+  label:
+    fig: "FIGURE "
+    tab: "TABLE "
   ui:
     chapter_name: "Chapter "
