@@ -1,10 +1,22 @@
 # Conclusions
 
+** research statement **
+Continuing on, my aim would be to work with datasets of this scale and incorporate the types of statistical methods mentioned and machine learning techniques to aid in analysis. The results could help gain larger insights into the genomic/epigenetic architecture of biological systems. On top of the importance of a functional component to the phenotype, considering other types of multivariate responses would be interesting to study in context of such a system. Integrating different level of omics data and the challenges that arise with such complicated and large datasets has interested me throughout my PhD work. Translating such a complex system into usable information that can be shared in order to prevent and fight disease would be ideal research for me. This type of research would need both methodological development as well as application of existing statistical and machine/deep learning techniques to handle the magnitude of the problem.
+
 
 ## Summary
 
+applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by \cite{hao2014interaction}
+
+able to reduce search space substantially by making some reasonable assumptions about the data.  These assumptions can be relaxed a little to broaden the scope of the space.
+
+
 
 ## Discussion
+
+complex and many moving parts to the selection procedure.  Very flexible but this could have it be prone to over fitting at times if not well controlled.
+
+Used as a screening tool for initial findings and exploratory data analysis to aid and guide future research.  Needs to be then be lab validated.  Especially with something as intricate as epistatic effects between gene markers.
 
 Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.
 
@@ -12,7 +24,16 @@ Further investigations are needed to confirm or modify our findings by QTL mappi
 
 ### Aim 1
 
+incorporate other mean curves for intercept term
+Other types of orthogonal polynomials
+general additive models components
+
 ### Aim 2
+
+extend to include multivariate reponses to the system
+how to extend selection criteria in this fashion
+search space grows even larger
+what is defined as the 'best' predictor for 1 reponse might not be for the others
 
 ### Aim 3
 We have finished a nice book.

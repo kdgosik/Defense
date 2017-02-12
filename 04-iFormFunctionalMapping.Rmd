@@ -15,7 +15,7 @@
 
   **from research statement**
 
-Treating the molecular biology of an organisim as a complex trait, it would be likely that the expression profiles of certain genes, proteins or other metabolites would follow a more functional or dynamic phenotype. This information could be lost or greatly limited by treating the response as a single static predictor. In an attempt to capture all relevant information available I am currently extending the procedure further to include the entire growth function as a phenotype. The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. I anticipate submitting a third manuscript in late spring around this topic. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.
+Treating the molecular biology of an organism as a complex trait, it would be likely that the expression profiles of certain genes, proteins or other metabolites would follow a more functional or dynamic phenotype. This information could be lost or greatly limited by treating the response as a single static predictor. In an attempt to capture all relevant information available I am currently extending the procedure further to include the entire growth function as a phenotype. The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. I anticipate submitting a third manuscript in late spring around this topic. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.
 
 
 **Update**
@@ -89,27 +89,10 @@ Add a third paragraph to motivation section
 **Update**
   (This is from Han Hao's proposal, update for yours)
   
-Functional mapping is a group of methods used for mapping QTLs related to
-functional valued traits that are measured over a certain time period. These
-function-valued traits are widely seen in growth analysis, shape analysis, network
-analysis, and clinical trials. By integrating functional features with genetic analysis,
-functional mapping methods often help to increase the statistical power and the
-biological relevance between the detected QTLs and biological traits. Functional
-mapping methods were first developed using parametric curves to describe the
-functional valued traits, such as growth curves or pharmacodynamic models (Ma
-et al., 2002; Lin et al., 2005). Later, semi-parametric and non-parametric models
-were introduced for complex traits that do not have specific mathematical forms
-(Das et al., 2011, 2013).
+Functional mapping is a group of methods used for mapping QTLs related to functional valued traits that are measured over a certain time period. These function-valued traits are widely seen in growth analysis, shape analysis, network analysis, and clinical trials. By integrating functional features with genetic analysis, functional mapping methods often help to increase the statistical power and the biological relevance between the detected QTLs and biological traits. Functional mapping methods were first developed using parametric curves to describe the functional valued traits, such as growth curves or pharmacodynamic models (Ma et al., 2002; Lin et al., 2005). Later, semi-parametric and non-parametric models were introduced for complex traits that do not have specific mathematical forms (Das et al., 2011, 2013).
 
 
-The key of functional mapping methods is the modelling of both functional means
-and the covariance structure across measurements from the same individual. When
-modelling the functional means, biological background is first examined to select
-the best function, either parametric or non-parametric. The covariance structure is
-usually modeled by parsimonious and flexible approaches such as autoregressive, antedependence, or nonparametric structures. The functional means and covariance
-structures can be integrated into a likelihood function, then hypothesis testing can
-be performed with a likelihood ratio testing approach.
-
+The key of functional mapping methods is the modelling of both functional means and the covariance structure across measurements from the same individual. When modelling the functional means, biological background is first examined to select the best function, either parametric or non-parametric. The covariance structure is usually modeled by parsimonious and flexible approaches such as autoregressive, antedependence, or nonparametric structures. The functional means and covariance structures can be integrated into a likelihood function, then hypothesis testing can be performed with a likelihood ratio testing approach.
 
 
 **Update: Shoot-Root Paper**
@@ -122,8 +105,13 @@ where g(t) is the trait value at time t, and three parameters a, b and r have di
 
 QTL mapping: For each progeny, we estimated a series of heterochronic parameters using equation (1) and then treated these estimates as phenotypic values to perform QTL mapping. There are two statistical approaches for QTL mapping, mixture model for sparse molecular markers and multiplicative model for dense markers. Because the linkage map constructed is quite dense, we employed the multiplicative model that assumes QTLs are located at the positions of markers. For the same heterochronic parameter expressed in shoot length and taproot length, the multiplicative likelihood model is expressed as
                          (2)
-where  is the unknown parameters; yi = (y1i, y2i) is the growth parameter vector of progeny i for shoot length (coded by 1) and taproot length (coded by 2); nj is the number of progeny with SNP genotype j; and fj(yi) is a bivariate normal distribution for progeny i with the expected mean vector for genotype j (1j, 2j) and the variance-covariance matrix  containing the variances (12, 22) and correlation between the two traits (). Statistical methods based on the likelihood (2) have been established to estimate the model parameters  = (1j, 2j, 12, 22, ).
+where  is the unknown parameters;$ yi = (y1i, y2i)$ is the growth parameter vector of progeny i for shoot length (coded by 1) and taproot length (coded by 2); nj is the number of progeny with SNP genotype j; and $fj(yi)$ is a bivariate normal distribution for progeny i with the expected mean vector for genotype j (1j, 2j) and the variance-covariance matrix  containing the variances (12, 22) and correlation between the two traits (). Statistical methods based on the likelihood (2) have been established to estimate the model parameters  = (1j, 2j, 12, 22, ).
 
+
+### Logistic Growth Curve
+
+$$\mu(t) = \frac{a}{(1+b*exp(-r*t))}}$$
+a is the asymptotic growth of the phenotype. 
 
 
 
@@ -131,6 +119,9 @@ where  is the unknown parameters; yi = (y1i, y2i) is the growth parameter vec
 
 ```{r Legendre_plot, echo = FALSE}
 library(ggplot2)
+library(data.table)
+library(RColorBrewer)
+
 Legendre<-function( t, np.order=1,tmin=NULL, tmax=NULL )
 {
   u <- -1
@@ -165,14 +156,41 @@ Legendre<-function( t, np.order=1,tmin=NULL, tmax=NULL )
   return(np.order.mat)
 }
 
-L <- data.frame(t = seq(-1,1, by = 0.01), Legendre(seq(-1,1, by = 0.01), 5))
+L <- data.frame(t = seq(0, 1, by = 0.01), Legendre(seq(0, 1, by = 0.01), 10))
+L_melt <- melt(L, id = "t")
 
-ggplot(L, aes(x = seq(-1,1, by = 0.01), y = V1)) + geom_line("green")
+ggplot(L_melt, aes(x = t, y = value, group = variable, color = brewer.pal(10, "Set3")[variable])) + 
+  geom_line() + theme(legend.position="none")
 
 
 ```
 
+**From Wikipedia**
+An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:
+
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-beta)
+\end{equation} 
+
+
 $$P_n(x) = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k$$
+
+$$\sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k$$
+\begin{equation}
+\begin{split}
+P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
+& = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
+& = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
+\end{split}
+(\#eq:leg-eq)
+\end{equation}
 
 **update** 2HIGWAS \cite{jiang20152higwas}
 
@@ -184,13 +202,29 @@ where a, b and r are growth parameters each of biological interpretation, with a
 $$ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T $$
 $$ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T $$
 
-where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, such as Akaike information criterion (AIC) and Bayesian information criterion (BIC), are usually much smaller than M so that the dimension of response phenotypic data is reduced through LOP modeling. The variance maxtrix of residual errors is assumed to follow the first-order structured antedependence [SAD(1)] process (\cite{li2010functional}). The SAD(1) model has been used in previous growth modeling studies (\cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).
+where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, such as Akaike information criterion (AIC) and Bayesian information criterion (BIC), are usually much smaller than M so that the dimension of response phenotypic data is reduced through LOP modeling. The variance maxtrix of residual errors is assumed to follow the first-order structured antedependence [SAD(1)] process (\cite{li2010functional}). The SAD(1) model has been used in previous growth modeling studies (\cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).
+
+
+
+
+**free write**
+
+Because the non-parametic nature of the legendre orthogonal polynomials, it was advantages for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset.  
+
+The search performed by the procedure checks and uses the legendre polynomials of different orders to find the best fitting form of the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.  
 
 
 
 ### Model 
 
-#### BIC
+**2HIGWAS**
+Because interaction effects are considered,
+the coverage probability P is redefined as three quantities:
+PA, the coverage rate of all true predictors; PM, the coverage
+rate of all main effects; and PI, the coverage rate of all interaction
+effects.
+
+__BIC__
 
 Similarly, following the classical BIC rule (Swartz 1978), we can define the BIC rule for the cubic MESS model as
 
@@ -199,8 +233,41 @@ n is the number of subjects \cite{wu2006nonparametric}
 $$\lambda = smoothing paramter$$
 $$\lambda_v = smoothing paramter, number of knots in the cubic spline$$
 
+
+Considering a comprehensive gentotyping for n progeny each measure across different time points.  
+
+
 ## Application
+
+
+
 
 ### Simulation Studies
 
+extensive simulation studies were performed to ascertain the validity of the model.  Computational verified by cross validation, bootstrapping.  Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.  
+
+
+* rates at which correct markers/epistasis was selected?
+* rates at which the correct order polynomial was fit for the correct marker/epistasis
+
+
+
 ### Worked Example
+
+Same mei tree dataset used in previous chapter to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simulatneously throughout the procedure.  
+
+
+if it doesn't take too much time (maybe by the time defense comes around) cross validate the selection proceudre by leaving out samples and running model again.  How many times do you get the same results?  LOOCV tables
+
+Also consider with holding predictors from the dataset to see if the selection is changed at all.  Start with random ones and then maybe strategically select important predictors to remove to see how it affects the fit
+
+
+## Discussion
+
+* Downfalls or areas of concern for fitting the genetic effects to the polynomials?
+* How do we know there is epistasis?
+* how do you keep it from over selecting
+* what if it doesn't follow the heredity or hierarchy principles?
+
+
+

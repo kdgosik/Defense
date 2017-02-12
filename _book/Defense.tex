@@ -156,6 +156,7 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\listoftables
 \listoffigures
 Where does this text go if i put it before
 
@@ -1493,7 +1494,7 @@ and the duration of linear growth.
 
 \textbf{from research statement}
 
-Treating the molecular biology of an organisim as a complex trait, it
+Treating the molecular biology of an organism as a complex trait, it
 would be likely that the expression profiles of certain genes, proteins
 or other metabolites would follow a more functional or dynamic
 phenotype. This information could be lost or greatly limited by treating
@@ -1629,9 +1630,9 @@ constructed is quite dense, we employed the multiplicative model that
 assumes QTLs are located at the positions of markers. For the same
 heterochronic parameter expressed in shoot length and taproot length,
 the multiplicative likelihood model is expressed as (2) where  is the
-unknown parameters; yi = (y1i, y2i) is the growth parameter vector of
-progeny i for shoot length (coded by 1) and taproot length (coded by 2);
-nj is the number of progeny with SNP genotype j; and fj(yi) is a
+unknown parameters;\$ yi = (y1i, y2i)\$ is the growth parameter vector
+of progeny i for shoot length (coded by 1) and taproot length (coded by
+2); nj is the number of progeny with SNP genotype j; and \(fj(yi)\) is a
 bivariate normal distribution for progeny i with the expected mean
 vector for genotype j (1j, 2j) and the variance-covariance matrix 
 containing the variances (12, 22) and correlation between the two
@@ -1639,15 +1640,84 @@ traits (). Statistical methods based on the likelihood (2) have been
 established to estimate the model parameters  = (1j, 2j, 12, 22,
 ).
 
+\subsection{Logistic Growth Curve}\label{logistic-growth-curve}
+
+\[\mu(t) = \frac{a}{(1+b*exp(-r*t))}}\] a is the asymptotic growth of
+the phenotype.
+
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
 
-\textbf{update}
+\includegraphics{Defense_files/figure-latex/Legendre_plot-1.pdf}
 
-2HIGWAS \cite{jiang20152higwas}
+\textbf{From Wikipedia} An important property of the Legendre
+polynomials is that they are orthogonal with respect to the L2-norm on
+the interval −1 ≤ x ≤ 1:
+
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+\label{eq:var-beta}
+\end{equation}
+
+\[P_n(x) = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k\]
+
+\[\sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k\]
+
+\begin{equation}
+\begin{split}
+P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
+& = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
+& = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
+\end{split}
+\label{eq:leg-eq}
+\end{equation}
+
+\textbf{update} 2HIGWAS \cite{jiang20152higwas}
+
+We consider the complex trait as a growth trait. Thus, it is
+biologically meaningful to implement a growth equation, like a logistic
+curve, to describe growth trajectory \cite{west2001general}. We describe
+the population mean growth curve by the growth equation
+\[ \mu(t) = a/(1 + b * exp(-r*t)) \]
+
+where a, b and r are growth parameters each of biological
+interpretation, with a being the asymptotic growth, b being the initial
+amount of growth and r being the relative growth rate. Timevarying
+additive and dominant effects of significant SNPs are modeled by a
+nonparametric approach, such as Legendre orthogonal polynomial used in
+quantitative genetic studies
+(\cite{olori1999estimating},\cite{li2010functional}{]}, expressed as
+
+\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]
+\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T \]
+
+where \(L_0(t), L_1(t), ... , L_s(t)\) and
+\(L_0(t), L_1(t), ... , L_{s'}(t)\) are the LOP of orders \(s\) and
+\(s'\), respectively; and \(u_{j0}, u_{j1},...,u_{js}\) and
+\(v_{j0}, v_{j1},...,v_{js'}\) are the vectors of time-invariant
+additive and dominant effects, respectively. Orders \(s\) and \(s'\),
+selected from information criteria, such as Akaike information criterion
+(AIC) and Bayesian information criterion (BIC), are usually much smaller
+than M so that the dimension of response phenotypic data is reduced
+through LOP modeling. The variance maxtrix of residual errors is assumed
+to follow the first-order structured antedependence {[}SAD(1){]} process
+(\cite{li2010functional}). The SAD(1) model has been used in previous
+growth modeling studies (\cite{li2010functional},
+\cite{ahn2010functional}, \cite{das2011dynamic}).
 
 \subsection{Model}\label{model}
 
-\subsubsection{BIC}\label{bic}
+Because interaction effects are considered, the coverage probability P
+is redefined as three quantities: PA, the coverage rate of all true
+predictors; PM, the coverage rate of all main effects; and PI, the
+coverage rate of all interaction effects.
+
+\textbf{BIC}
 
 Similarly, following the classical BIC rule (Swartz 1978), we can define
 the BIC rule for the cubic MESS model as
