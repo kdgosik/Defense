@@ -126,7 +126,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-02-12}
+  \date{2017-02-13}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -148,7 +148,6 @@
 \newtheorem{example}{Example}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
-\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
 
@@ -194,59 +193,118 @@ functional valued traits. The growth of two interacting traits is
 modelled with a differential equation system, and QTLs are examined for
 their association with the type and intensity of such interaction.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{devtools::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"rstudio/bookdown"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \chapter{Introduction}\label{intro}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"images/SystemsMapping.png"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+There are several techniques used for studying genetics and mapping the
+results. Some of the more populor techniques include cross-breeding
+experiments or, in the case of humans, the examination of family
+histories, known as pedigrees. More recently, CRISPR/Cas9 can be used to
+mimic mitotic recombination to help map out genes as well.
+(\cite{sadhu2016crispr})
 
-\includegraphics[width=20.32in]{images/SystemsMapping}
+Construction of genetic maps are a variety of techniques used to show
+relative positions between genes or other sequence features of the
+genome and the phenotype that is controlled by such sequences. Genes are
+very useful markers but they are by no means ideal. One problem,
+especially with larger genomes such as those of vertebrates and
+flowering plants, is that a map based entirely on genes is not very
+detailed.(\cite{brown2006genomes}) Genes have long areas of non-coding
+regions between them and therefore result in large gaps from gene to
+gene. This is further complicated because not every gene has allelic
+forms that can be easily or conventiently distinguished. With these
+considerations in mind gene maps may not be comprehensive enough and
+other markers may be needed.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"images/SNP_Picture.png"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+Mapped features that are not genes are called DNA markers. As with gene
+markers, a DNA marker must have at least two alleles to be useful. There
+are three types of DNA sequence feature that satisfy this requirement:
+restriction fragment length polymorphisms (RFLPs), simple sequence
+length polymorphisms (SSLPs), and single nucleotide polymorphisms
+(SNPs).
 
-\includegraphics[width=6.35in]{images/SNP_Picture}
+** Varational Linear Model Paper ** \cite{dong2015accurate}
 
-\BeginKnitrBlock{theorem}
-\protect\hypertarget{thm:unnamed-chunk-4}{}{\label{thm:unnamed-chunk-4}}Here
-is my theorem.
-\EndKnitrBlock{theorem}
+The goal of quantitative trait loci (QTLs) mapping and association
+studies is to identify certain regions of the genome that contain genes
+involved in specifying a quantitative trait, and to estimate the genetic
+effects of these loci. The relationship between the genetic effects of
+QTLs and the phenotypic value of quantitative traits can be described by
+a linear model {[}1, 2{]}. There are usually a large number of markers
+across the whole genome, and most of the markers have very little or
+even no effect on the phenotypes. So the model is sparse, and in most
+cases, the number of markers or variables is bigger than the sample
+size, especially when interactions among markers are considered.
+Therefore, the model is oversaturated and usually solved by shrinkage or
+variable selection methods. The variable selection procedure for QTLs
+mapping can be seen as one of deciding which subset of variables have
+effects on phenotypes, and identifying out all possible effects of those
+markers. There are many ways of variable selection. For instance, the
+indicator selection uses a spike (probability distribution of variables
+not included in model) and slab (probability distribution of variables
+included in model) prior to indicate whether each variable is included
+in one model. Such methods usually adopt Gibbs sampling or importance
+sampling to calculate the weighted average as the inferred results
+{[}3-5{]}. Shrinkage methods do not use indicators to induce the
+sparseness of variables, but instead specify a priori directly on
+variables to approximate the ``slab'' and ``spike'' shapes and use a
+penalty function to shrink most variables toward zeros. Early Bayesian
+shrinkage methods employed Markov chain Monte Carlo (MCMC) techniques to
+infer the models {[}6{]}, which were computationally intensive. Xu et
+al. proposed an empirical Bayes method that used a carefully chosen
+prior distribution for the variables, which required much less
 
-\BeginKnitrBlock{lemma}
-\protect\hypertarget{lem:unnamed-chunk-5}{}{\label{lem:unnamed-chunk-5}}Here
-is my lemma.
-\EndKnitrBlock{lemma}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Conclusions and discussion The main goal of this paper is to propose
+  an improved variational linear regression approach for high scale
+  variable selection problems such as the ones arising in epistatic
+  analysis. Variational approximation is a classic method to solve
+  linear model, but its accuracy is limited in the case of there are
+  many more variables than samples. Several improved methods were
+  proposed for the variational approximation, such as hierarchical
+  shrinkage, importance sampling and so on. But these methods still lack
+  of efficiency or accuracy. We proposed a simple but effective method
+  to improve the performance of VLR by dynamically deleting some
+  specific variables, which can greatly improve the accuracy of VLR. The
+  reason that RCVLR is more accurate than VB-EBL, VB-BAS, VB-BL may lie
+  in that it can derive the approximate marginal distributions of all
+  variables in a single process, while hierarchical shrinkage infers
+  each variable separately, therefore some correlation information among
+  variables is lost. The VI-IMP considers the correlation among
+  variables, but it uses important sampling and a weighted average
+  method to improve the accuracy; therefore the computational cost is
+  higher than other variational approaches. RCVLR can obtain good
+  performance in general, and is not sensitive to the choice of hyper
+  parameters, while some other variational approaches, such as VB-EBL,
+  rely heavily on selecting appropriate parameters to get good
+  performance {[}18{]}. VI-IMP averages the inferred results under
+  different prior combinations. But how to determine the prior ranges is
+  a problem unsolved {[}4{]}. If an inappropriate range is inputted, the
+  performance may be poor. But if a very wide range is set to cover the
+  exact parameters, the algorithm will need many more samples and thus
+  need much more computational time.
+\end{enumerate}
 
-\BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6}}Here
-is my definition.
-\EndKnitrBlock{definition}
+\begin{figure}
 
-\BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-7}{}{\label{cor:unnamed-chunk-7}}Here
-is my corollary
-\EndKnitrBlock{corollary}
+{\centering \includegraphics[width=0.8\linewidth]{images/SystemsMapping} 
 
-\BeginKnitrBlock{proposition}
-\protect\hypertarget{prp:unnamed-chunk-8}{}{\label{prp:unnamed-chunk-8}}Here
-is my proposition.
-\EndKnitrBlock{proposition}
+}
 
-\BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-9}{}{\label{ex:unnamed-chunk-9}}Here
-is my example
-\EndKnitrBlock{example}
+\caption{Systems Map}\label{fig:system-map}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/SNP_Picture} 
+
+}
+
+\caption{SNP Picture}\label{fig:Snp-Pic}
+\end{figure}
 
 You can label chapter and section titles using \texttt{\{\#label\}}
 after them, e.g., we can reference Chapter \ref{intro}. If you do not
@@ -1020,20 +1078,26 @@ each other. These main and interaction effects of markers, i.e., the
 predictors of the model, need to be estimated. Let \(Y = (y1, …, yn)^T\)
 denote the phenotypic value of n samples from a mapping or association
 population. When considering pairwise and three-way interactions, the
-linear model is expressed as \(Y=〖α+X〗^T β+Z^T γ+W^T η+ϵ\) (1) where
-\(X=(X_1,…,X_p )^T\) is the design matrix that specifies the genetic
-effects of each \(marker  = (1, …, p) , Z=(X_j X_k )^T (1≤j≤k≤p)\) is
-the design matrix that specifies the epistatic effects between two
-markers, expressed in \(γ, W=(X_j X_k X_l )^T (1≤j≤k≤l≤p)\) is the
-design matrix that specifies the epistatic effects among three markers,
-expressed in \(η\), and \(ϵ~N(0,σ^2 )\) is the residual error normally
-distributed with mean zero and variance σ\^{}2. We denote the index sets
-for the linear, order-2 and order-3 effects in equation (1),
-respectively, as \(P_1={1,2,…,p}\) \(P_2={(j,k):1≤j≤k≤p}\)
-\(P_3={(j,k,l):1≤j≤k≤l≤p}\) With the significant main, order-2
-interaction and order-3 interaction effect sets being,
-\(T_1={j:β_j≠0,j∈P_1 }\) \(T_2={(j,k):γ_jk≠0,(j,k)∈P_2 }\)
-\(T_3={(j,k,l):η_jkl≠0,(j,k,l)∈P_3 }\)
+linear model is expressed as
+
+\begin{equation}
+Y = \alpha + X^T\beta + Z^T\gamma + W^T\eta + \epsilon
+\label{eq:lin-mod}
+\end{equation}
+
+where \(X=(X_1,…,X_p )^T\) is the design matrix that specifies the
+genetic effects of each
+\(marker  = (1, …, p) , Z=(X_j X_k )^T (1≤j≤k≤p)\) is the design
+matrix that specifies the epistatic effects between two markers,
+expressed in \(γ, W=(X_j X_k X_l )^T (1≤j≤k≤l≤p)\) is the design matrix
+that specifies the epistatic effects among three markers, expressed in
+\(η\), and \(ϵ~N(0,σ^2 )\) is the residual error normally distributed
+with mean zero and variance σ\^{}2. We denote the index sets for the
+linear, order-2 and order-3 effects in equation (1), respectively, as
+\(P_1={1,2,…,p}\) \(P_2={(j,k):1≤j≤k≤p}\) \(P_3={(j,k,l):1≤j≤k≤l≤p}\)
+With the significant main, order-2 interaction and order-3 interaction
+effect sets being, \(T_1={j:β_j≠0,j∈P_1 }\)
+\(T_2={(j,k):γ_jk≠0,(j,k)∈P_2 }\) \(T_3={(j,k,l):η_jkl≠0,(j,k,l)∈P_3 }\)
 
 The true size of \(T_1\), will be \(p_1\) and similarly for \(T_2\) and
 \(T_3\) will have sizes \(p_2\) and \(p_3\) respectively. There will be
@@ -1085,7 +1149,10 @@ proposed by \cite{chen2008extended} denoted as the \(BIC_2\). This was
 derived by them to control the false discovery rate in high dimensional
 model selections.
 
-\(BIC_2 (M ̂ )=loga(σ ̂_M ̂^2 )+n^(-1) |M ̂ |*(loga(n)+2*loga(d^* ) ) (2)\)
+\begin{equation}
+BIC_2(\hat{M}) = log(\hat{σ_M}^2) + n^{-1} |\hat{M}| * (log(n) + 2*loga(d^*))
+\label{eq:bic2}
+\end{equation}
 
 Once the selection procedure is done and there are d predictors in the
 selection set the BIC is used to determine the cutoff value for the
@@ -1297,7 +1364,10 @@ every two weeks during an entire growth season from March to October. It
 was found that both shoot length and diameter growth was well fitted to
 the three-parameter growth equation expressed as
 
-\[g(t) = a/[1+b*exp(-rt)],                                                (3)\]
+\begin{equation}
+g(t) = a/[1+b*exp(-rt)]
+\label{eq:growth-curve}
+\end{equation}
 
 where \(g(t)\) is the amount of shoot growth at time t, a is the
 asymptotic value of growth when time tends to be infinite, b is a
@@ -1374,34 +1444,64 @@ affect shoot growth. The three markers form eight genotypes AABBCC,
 AABBCc, AABbCC, AABbCc, AaBBCC, AaBBCc, AaBbCC and AaBbCc whose
 genotypic means at time t are partitioned into different components,
 respectively, expressed as
-\(µ_111(t) = µ(t) + \alpha_1(t) + \alpha_2(t) + \alpha_3(t) + i_12(t) + i_13(t) + i_23(t) + i_123(t)\)
-\(µ_112(t) = µ(t) + \alpha_1(t) + \alpha_2(t) – \alpha_3(t) + i_12(t) – i_13(t) – i_23(t) – i_123(t)\)
-\(µ_121(t) = µ(t) + \alpha_1(t) – \alpha_2(t) + \alpha_3(t) – i_12(t) + i_13(t) – i_23(t) – i_123(t)\)
-\(µ_122(t) = µ(t) + \alpha_1(t) – \alpha_2(t) – \alpha_3(t) – i_12(t) – i_13(t) + i_23(t) + i_123(t)\)
-\(µ_211(t) = µ(t) – \alpha_1(t) + \alpha_2(t) + \alpha_3(t) – i_12(t) – i_13(t) + i_23(t) – i_123(t)\)
-\(µ_212(t) = µ(t) – \alpha_1(t) + \alpha_2(t) – \alpha_3(t) – i_12(t) + i_13(t) – i_23(t) + i_123(t)\)
-\(µ_221(t) = µ(t) – \alpha_1(t) – \alpha_2(t) + \alpha_3(t) + i_12(t) – i_13(t) – i_23(t) + i_123(t)\)
-\(µ_222(t) = µ(t) – \alpha_1(t) – \alpha_2(t) – \alpha_3(t) + i_12(t) + i_13(t) + i_23(t) – i_123(t)\)
-(4) where µ(t) is the population mean at time t; 1(t), 2(t) and 3(t)
-are the genetic effects of markers A, B and C at time t, respectively;
-i12(t), i13(t) and i23(t) are the pairwise epistatic effects between
-markers A and B, A and C and B and C at time t, respectively; and
-i123(t) is the three-way epistatic effect among three the markers at
-time t. From the above equations, we solve the pairwise and three-way
-epistatic effects as
-\(i_12(t) = [(µ_111(t) + µ_112(t) + µ_221(t) + µ_222(t)) – (µ_121(t) + µ_122(t) + µ_211(t) + µ_212(t))]\)
-\(i_13(t) = [(µ_111(t) + µ_121(t) + µ_212(t) + µ_222(t)) – (µ_112(t) + µ_122(t) + µ_211(t) + µ_221(t))]\)
-\(i_23(t) = [(µ_111(t) + µ_122(t) + µ_211(t) + µ_222(t)) – (µ_112(t) + µ_121(t) + µ_212(t) + µ_221(t))]\)
-\(i_123(t) = [(µ_111(t) + µ_122(t) + µ_212(t) + µ_122(t)) – (µ_112(t) + µ_121(t) + µ_211(t) + µ_222(t))]\)
-(5) Each genotype can draw a growth curve using its growth parameters
-(a, b, r) estimated from raw data, from which we can chart the curves of
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/GrowthCurveComparison} 
+
+}
+
+\caption{Growth Curve Comparison}\label{fig:growth-compare}
+\end{figure}
+
+\begin{align}
+\mu_{111}(t) &= \mu(t) + \alpha_1(t) + \alpha_2(t) + \alpha_3(t) + i_{12}(t) + i_{13}(t) + i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{112}(t) &= \mu(t) + \alpha_1(t) + \alpha_2(t) – \alpha_3(t) + i_{12}(t) – i_{13}(t) – i_{23}(t) – i_{123}(t)  \notag \\
+\mu_{121}(t) &= \mu(t) + \alpha_1(t) – \alpha_2(t) + \alpha_3(t) – i_{12}(t) + i_{13}(t) – i_{23}(t) – i_{123}(t)  \notag \\
+\mu_{122}(t) &= \mu(t) + \alpha_1(t) – \alpha_2(t) – \alpha_3(t) – i_{12}(t) – i_{13}(t) + i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{211}(t) &= \mu(t) – \alpha_1(t) + \alpha_2(t) + \alpha_3(t) – i_{12}(t) – i_{13}(t) + i_{23}(t) – i_{123}(t)  \notag \\
+\mu_{212}(t) &= \mu(t) – \alpha_1(t) + \alpha_2(t) – \alpha_3(t) – i_{12}(t) + i_{13}(t) – i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{221}(t) &= \mu(t) – \alpha_1(t) – \alpha_2(t) + \alpha_3(t) + i_{12}(t) – i_{13}(t) – i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{222}(t) &= \mu(t) – \alpha_1(t) – \alpha_2(t) – \alpha_3(t) + i_{12}(t) + i_{13}(t) + i_{23}(t) – i_{123}(t)
+\label{eq:genetic-effects}
+\end{align}
+
+where \(\mu(t)\) is the population mean at time t; \(\alpha_1(t)\),
+\(\alpha_2(t)\), and \(\alpha_3(t)\) are the genetic effects of markers
+A, B and C at time t, respectively; \(i_{12}(t)\), \(i_{13}(t)\), and
+\(i_{23}(t)\) are the pairwise epistatic effects between markers A and
+B, A and C and B and C at time t, respectively; and \(i_{123}(t)\) is
+the three-way epistatic effect among three the markers at time t. From
+the above equations, we solve the pairwise and three-way epistatic
+effects as
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/EpistasisComparison} 
+
+}
+
+\caption{Epistasis Comparison}\label{fig:epistasis-compare}
+\end{figure}
+
+\begin{align}
+i_{12}(t) &=  [(\mu_{111}(t) + \mu_{112}(t) + \mu_{221}(t) + \mu_{222}(t)) – (\mu_{121}(t) + \mu_{122}(t) + \mu_{211}(t) + \mu_{212}(t))] \notag \\
+i_{13}(t) &=  [(\mu_{111}(t) + \mu_{121}(t) + \mu_{212}(t) + \mu_{222}(t)) – (\mu_{112}(t) + \mu_{122}(t) + \mu_{211}(t) + \mu_{221}(t))] \notag \\
+i_{23}(t) &=  [(\mu_{111}(t) + \mu_{122}(t) + \mu_{211}(t) + \mu_{222}(t)) – (\mu_{112}(t) + \mu_{121}(t) + \mu_{212}(t) + \mu_{221}(t))] \notag \\
+i_{123}(t) &=  [(\mu_{111}(t) + \mu_{122}(t) + \mu_{212}(t) + \mu_{122}(t)) – (\mu_{112}(t) + \mu_{121}(t) + \mu_{211}(t) + \mu_{222}(t))]
+\label{eq:epi-effects}
+\end{align}
+
+Each genotype can draw a growth curve using its growth parameters (a, b,
+r) estimated from raw data, from which we can chart the curves of
 pairwise and three-way epistatic effects using equation (4). Three
 markers AATTC\_nn\_np\_2815, AATTC\_lm\_ll\_3034 and AATTC\_nn\_np\_1615
 that produce a significant three-way interaction for parameter x of
-shoot length display pronounced differences in growth curve (Fig. 1).
-The epistasis of low- and high-order performs differently to affect
-growth form, with three-way interactions playing a more remarkable role
-than pairwise epistasis (Fig. 2).
+shoot length display pronounced differences in growth curve
+(\ref{fig:growth-compare}). The epistasis of low- and high-order
+performs differently to affect growth form, with three-way interactions
+playing a more remarkable role than pairwise epistasis
+(\ref{fig:epistasis-compare}).
 
 \section{Discussion}\label{discussion-1}
 
@@ -1463,21 +1563,25 @@ method)}\label{iform-functional-mapping-a-computational-method}
 
 \section{Motivation}\label{motivation-2}
 
+Growth and developmental traits can mostly be better described by a
+functional process (\cite{hernandez2015understanding},
+\cite{muraya2017genetic}), it is more biologically meaningful to map
+these traits as growth curves (\cite{sun2015mapping}). There have been a
+few different approaches that have integrated growth equations into
+genetic mapping via the likelihood function, leading to the birth of a
+so-called functional mapping models (\cite{ma2002functional};
+\cite{wu2006functional}; \cite{li2015dynamic};
+\cite{muraya2017genetic}). These style appoaches can allow for the
+developmental change of genetic control to be characterized across both
+time and as well as space (\cite{he2010mapping};
+\cite{li2010functional}).
+
 \textbf{Shoot-Root Paper} (The genetic architecture of shoot-root
 covariation during seedling emergence of a dessert tree, Populus
 euphratica)
 
-Since most traits associated with growth and development can be better
-described by a dynamic process (\cite{hernandez2015understanding},
-\cite{muraya2017genetic}), it is more biologically meaningful to map
-these traits as growth curves (Sun and Wu, 2015). Several approaches
-have integrated growth equations into the likelihood of genetic mapping,
-leading to the birth of a so-called functional mapping model (Ma et al.,
-2002; Wu and Lin, 2006; Li and Sillanpaa, 2015; Muraya et al., 2016).
-Functional mapping allows the developmental change of genetic control to
-be characterized across time and space (He et al., 2010; Li and Wu,
-2010). By modeling the longitudinal mean-covariance structures using a
-set of parsimonious parameters, functional mapping has proven of great
+By modeling the longitudinal mean-covariance structures using a set of
+parsimonious parameters, functional mapping has proven of great
 statistical power in gene identification and the utilization of sparse
 phenotypic data (Hou et al., 2005, 2006). An alternative to functional
 mapping is to map growth QTLs by estimating growth parameters for each
@@ -1514,18 +1618,18 @@ the biological systems being evaluated.
 
 Changes in developmental timing and rate, named as heterochrony, have
 long been believed to be a major force in the evolution of phenotype
-(Gould, 1977; Wilson et al., 1988). It has been observed that relatively
-few genetic changes in heterochrony through the endocrine regulation of
-metamorphosis can cause profound morphological consequences (Moss,
-2007). For example, although humans and chimpanzees are closely related,
-their skull shape and brain growth are different dramatically during
-early development (Rice, 2002; Mitteroecker et al., 2004; King, 2004). A
-recent phylogenic investigation revealed that changes in developmental
-timing are a crucial step for birds to evolve from dinosaurs (Bhullar,
-2012). The consequence of these changes leads birds to take months to
-reach sexual maturity, allowing them to retain the physical
-characteristics of baby stages characterized by dinosaurs that take
-years to mature. One question that naturally arises from these
+(\cite{gould1977ontogeny}; \cite{wilson1988heterochrony}). It has been
+observed that relatively few genetic changes in heterochrony through the
+endocrine regulation of metamorphosis can cause profound morphological
+consequences (Moss, 2007). For example, although humans and chimpanzees
+are closely related, their skull shape and brain growth are different
+dramatically during early development (Rice, 2002; Mitteroecker et al.,
+2004; King, 2004). A recent phylogenic investigation revealed that
+changes in developmental timing are a crucial step for birds to evolve
+from dinosaurs (Bhullar, 2012). The consequence of these changes leads
+birds to take months to reach sexual maturity, allowing them to retain
+the physical characteristics of baby stages characterized by dinosaurs
+that take years to mature. One question that naturally arises from these
 evolutionary divergences is what mechanisms are implicated for
 heterochrony and the change of biological clock.
 
@@ -1578,6 +1682,26 @@ functions, assumed to be smooth or otherwise low-complexity.
 
 Add a third paragraph to motivation section Continue on about the rest
 of the chapter as an overview
+
+\textbf{2HIGWAS}
+
+In this study, we develop a high-dimensional varyingcoefficient model to
+chart a complete picture of the genetic architecture of complex traits
+that are dynamically expressed on a time--space scale.
+
+However, integrating all SNPs and functional mapping to systematically
+search for loci for developmental processes has not been explored thus
+far. This integration can not only construct a precise developmental
+genotype--phenotype map that cannot be produced separately by each
+approach, but also contains sophistication and challenges in technical
+development. First, such integration needs the resolution of how
+significant predictors can be chosen from a high-dimensional pool of
+SNPs under the sparsity assumption. Many statisticians have made
+tremendous effort to improve computational expediency, statistical
+accuracy and algorithmic stability in high dimensionality {[}22--28{]}.
+Second, given that phenotypic data are observed in a longitudinal time
+series, a step of embedding the multiple response structure in a
+biologically meaningful way is essential.
 
 \section{Methods}\label{methods-2}
 
@@ -1642,6 +1766,9 @@ established to estimate the model parameters  = (1j, 2j, 12, 22,
 
 \subsection{Regression by linear combination of basis
 functions}\label{regression-by-linear-combination-of-basis-functions}
+
+By focusing on linear regression as a linear combination of basis
+functions
 
 ** GAM Selection paper**
 
@@ -1775,7 +1902,11 @@ across different time points.
 
 \subsection{Simulation Studies}\label{simulation-studies-1}
 
-extensive simulation studies were performed to ascertain the validity of
+As statistical issues become more complex they are going to be more
+analytically intractable and computational methods will need to close
+that gap to show the effectiveness of new models and procedures.
+
+Extensive simulation studies were performed to ascertain the validity of
 the model. Computational verified by cross validation, bootstrapping.
 Having a training and a testing set to help provide some insight on
 false positive rates, selecting the correct fit of the polynomial for
@@ -1819,6 +1950,9 @@ affects the fit
   how do you keep it from over selecting
 \item
   what if it doesn't follow the heredity or hierarchy principles?
+\item
+  other types of functional/growth equations to represent biologically
+  meaningful scenarios
 \end{itemize}
 
 \chapter{Conclusions}\label{conclusions}
@@ -1861,6 +1995,13 @@ between gene markers.
 
 Further investigations are needed to confirm or modify our findings by
 QTL mapping in natural populations.
+
+\textbf{BIC Limitations (wikipedia)} the above approximation is only
+valid for sample size \{\displaystyle n\}n much larger than the number
+\{\displaystyle k\}k of parameters in the model.
+
+the BIC cannot handle complex collections of models as in the variable
+selection (or feature selection) problem in high-dimension.{[}3{]}
 
 \section{Future Steps}\label{future-steps}
 

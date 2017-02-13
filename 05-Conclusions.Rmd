@@ -20,6 +20,12 @@ Used as a screening tool for initial findings and exploratory data analysis to a
 
 Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.
 
+
+__BIC Limitations (wikipedia)__
+the above approximation is only valid for sample size {\displaystyle n}n much larger than the number {\displaystyle k}k of parameters in the model.
+
+the BIC cannot handle complex collections of models as in the variable selection (or feature selection) problem in high-dimension.[3]
+
 ## Future Steps
 
 ### Aim 1

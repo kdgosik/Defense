@@ -29,7 +29,12 @@ Genetic mapping and association studies are two types of designs used to dissect
 ### Epistatic model
 
 Consider a linear model that underlies the true genotype-phenotype relationship.  Assume that the phenotype, as the response of the model, is controlled by a set of p SNPs that act singly and/or interact with each other. These main and interaction effects of markers, i.e., the predictors of the model, need to be estimated. Let $Y = (y1, …, yn)^T$ denote the phenotypic value of n samples from a mapping or association population. When considering pairwise and three-way interactions, the linear model is expressed as
-$Y=〖α+X〗^T β+Z^T γ+W^T η+ϵ$                                             (1)
+
+\begin{equation}
+Y = \alpha + X^T\beta + Z^T\gamma + W^T\eta + \epsilon
+(\#eq:lin-mod)
+\end{equation}
+
 where $X=(X_1,…,X_p )^T$ is the design matrix that specifies the genetic effects of each $marker  = (1, …, p) , Z=(X_j X_k )^T   (1≤j≤k≤p)$ is the design matrix that specifies the epistatic effects between two markers, expressed in  $γ, W=(X_j X_k X_l )^T  (1≤j≤k≤l≤p)$ is the design matrix that specifies the epistatic effects among three markers, expressed in  $η$, and $ϵ~N(0,σ^2 )$ is the residual error normally distributed with mean zero and variance σ^2.
 We denote the index sets for the linear, order-2 and order-3 effects in equation (1), respectively, as
 $P_1={1,2,…,p}$
@@ -48,7 +53,10 @@ The iForm procedure is a forward selecting procedure.  In traditional forward se
 
 The iForm procedure for high-order epistatic detection parallels the forward selection procedure, but C will grow dynamically with the creation of order-2 and order-3 interaction effects between main effects that were included from previous iterations of the procedure.  There are three steps to the model selection.  The first step is to initialize the 3 sets mentioned above.  The sets, $S$ and $M$ are set to the empty set while the candidate set, $C$, is first set to $P_1$, all the main effects.  The next step starts the forward selection procedure selecting predictors from $C$.  The selected predictor will be a main effect at the first step. At subsequent steps, after interaction effects are included, selected predictors could be either be a main effect, order-two or order-three interaction effect.  The final step involves repeating the second step until a designated stopping criterion is met.  This can be a certain amount of predictors to be considered in the final model, or it can be based off of other factors such as the sample size. The designated stopping criterion will be denoted as d.  For our purposes we use d as a function of the sample size, $d = n/lo g_2a(n)$. The procedure will run up until d iterations, and the optimal model will then be constructed from the selection set. This is done by an information criterion. Here we used the Bayesian Information Criterion proposed by \cite{chen2008extended} denoted as the $BIC_2$. This was derived by them to control the false discovery rate in high dimensional model selections. 
 
-$BIC_2 (M ̂ )=loga(σ ̂_M ̂^2 )+n^(-1) |M ̂ |*(loga(n)+2*loga(d^* ) )                                (2)$
+\begin{equation}
+BIC_2(\hat{M}) = log(\hat{σ_M}^2) + n^{-1} |\hat{M}| * (log(n) + 2*loga(d^*))
+(\#eq:bic2)
+\end{equation}
 
 Once the selection procedure is done and there are d predictors in the selection set the BIC is used to determine the cutoff value for the optimum number of predictors in the model set.  Then linear regression is performed on the model set.
 
@@ -85,7 +93,10 @@ We validated the biological usefulness of the model by analyzing a mapping data 
 
 To test genotypic differences in growth performance, each of these hybrids was grafted on an established root stock using multiple budding scions. Next spring, buds on the scions sprouted into shoots. The lengths and diameters of 10 randomly selected shoots were measured once every two weeks during an entire growth season from March to October. It was found that both shoot length and diameter growth was well fitted to the three-parameter growth equation expressed as
 
-$$g(t) = a/[1+b*exp(-rt)],                                                (3)$$
+\begin{equation}
+g(t) = a/[1+b*exp(-rt)]
+(\#eq:growth-curve)
+\end{equation}
 
 where $g(t)$ is the amount of shoot growth at time t, a is the asymptotic value of growth when time tends to be infinite, b is a parameter that reflects the amount of growth at time 0, and r is the relative growth rate. These three parameters determine the overall form of growth curve jointly, although they function differently. Thus, by estimating these parameters for individual hybrids using a nonlinear least squares approach, we can draw the growth curve of each hybrid. Differences in growth curve among hybrids may be controlled by specific genes or quantitative trait loci (QTLs). Although tremendous efforts have been made to map growth QTLs and their epistasis (\cite{ma2002response};\cite{wu2006functional}; \cite{li2012estimation}), none has characterized the contribution of high-order epistasis although it has been thought to regulate growth processes. 
 
@@ -95,21 +106,39 @@ To demonstrate the possible importance of high-order epistasis, we analyze the d
 
 When opening up the iForm procedure to the possibility to creating higher order interactions to be placed into the candidate set, a more complete picture of the phenotypical variation was revealed.  The amount of predictors included in the final model grew to 12, with one of them being three-way interactions among markers AATTC_nn_np_2815, AATTC_lm_ll_3034 and AATTC_nn_np_1615.The adjusted R2 jumped up to over 70% (Table 4). This astonishing jump in predictive power is an exemplar case as to the importance of higher-order interactions in genetic models. Not only did higher-order interactions become one of the most significant predictors in the model selected, it also allowed for other order-two interactions and main effects to be kept in the model that were previously left out. At the next step of every iteration, the new candidate effect was conditioned on everything previously selected. With the conditional effect of the higher-order interaction it enabled for other lost effects to be modeled as well. 
 
-The purpose of the mei genetic project is to study the genetic control of shoot growth form. Here, we further analyze how three-way interactions detected by our model affect growth form. Assume that there are three testcross markers, A (with two alleles A, a), B (with two alleles B, b),   and C (with two alleles C, c), which interact jointly to affect shoot growth. The three markers form eight genotypes AABBCC, AABBCc, AABbCC, AABbCc, AaBBCC, AaBBCc, AaBbCC and AaBbCc whose genotypic means at time t are partitioned into different components, respectively, expressed as
-$µ_111(t) = µ(t) + \alpha_1(t) + \alpha_2(t) + \alpha_3(t) + i_12(t) + i_13(t) + i_23(t) + i_123(t)$
-$µ_112(t) = µ(t) + \alpha_1(t) + \alpha_2(t) – \alpha_3(t) + i_12(t) – i_13(t) – i_23(t) – i_123(t)$
-$µ_121(t) = µ(t) + \alpha_1(t) – \alpha_2(t) + \alpha_3(t) – i_12(t) + i_13(t) – i_23(t) – i_123(t)$
-$µ_122(t) = µ(t) + \alpha_1(t) – \alpha_2(t) – \alpha_3(t) – i_12(t) – i_13(t) + i_23(t) + i_123(t)$
-$µ_211(t) = µ(t) – \alpha_1(t) + \alpha_2(t) + \alpha_3(t) – i_12(t) – i_13(t) + i_23(t) – i_123(t)$
-$µ_212(t) = µ(t) – \alpha_1(t) + \alpha_2(t) – \alpha_3(t) – i_12(t) + i_13(t) – i_23(t) + i_123(t)$
-$µ_221(t) = µ(t) – \alpha_1(t) – \alpha_2(t) + \alpha_3(t) + i_12(t) – i_13(t) – i_23(t) + i_123(t)$
-$µ_222(t) = µ(t) – \alpha_1(t) – \alpha_2(t) – \alpha_3(t) + i_12(t) + i_13(t) + i_23(t) – i_123(t)$        (4)
-where µ(t) is the population mean at time t; 1(t), 2(t) and 3(t) are the genetic effects of markers A, B and C at time t, respectively; i12(t), i13(t) and i23(t) are the pairwise epistatic effects between markers A and B, A and C and B and C at time t, respectively; and i123(t) is the three-way epistatic effect among three the markers at time t. From the above equations, we solve the pairwise and three-way epistatic effects as
-$i_12(t) =  [(µ_111(t) + µ_112(t) + µ_221(t) + µ_222(t)) – (µ_121(t) + µ_122(t) + µ_211(t) + µ_212(t))]$
-$i_13(t) =  [(µ_111(t) + µ_121(t) + µ_212(t) + µ_222(t)) – (µ_112(t) + µ_122(t) + µ_211(t) + µ_221(t))]$
-$i_23(t) =  [(µ_111(t) + µ_122(t) + µ_211(t) + µ_222(t)) – (µ_112(t) + µ_121(t) + µ_212(t) + µ_221(t))]$
-$i_123(t) =  [(µ_111(t) + µ_122(t) + µ_212(t) + µ_122(t)) – (µ_112(t) + µ_121(t) + µ_211(t) + µ_222(t))]$      (5)
-Each genotype can draw a growth curve using its growth parameters (a, b, r) estimated from raw data, from which we can chart the curves of pairwise and three-way epistatic effects using equation (4). Three markers AATTC_nn_np_2815, AATTC_lm_ll_3034 and AATTC_nn_np_1615 that produce a significant three-way interaction for parameter x of shoot length display pronounced differences in growth curve (Fig. 1). The epistasis of low- and high-order performs differently to affect growth form, with three-way interactions playing a more remarkable role than pairwise epistasis (Fig. 2).
+The purpose of the mei genetic project is to study the genetic control of shoot growth form. Here, we further analyze how three-way interactions detected by our model affect growth form. Assume that there are three testcross markers, A (with two alleles A, a), B (with two alleles B, b), and C (with two alleles C, c), which interact jointly to affect shoot growth. The three markers form eight genotypes AABBCC, AABBCc, AABbCC, AABbCc, AaBBCC, AaBBCc, AaBbCC and AaBbCc whose genotypic means at time t are partitioned into different components, respectively, expressed as
+
+```{r growth-compare, fig.cap='Growth Curve Comparison', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+knitr::include_graphics("images/GrowthCurveComparison.png")
+```
+
+\begin{align}
+\mu_{111}(t) &= \mu(t) + \alpha_1(t) + \alpha_2(t) + \alpha_3(t) + i_{12}(t) + i_{13}(t) + i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{112}(t) &= \mu(t) + \alpha_1(t) + \alpha_2(t) – \alpha_3(t) + i_{12}(t) – i_{13}(t) – i_{23}(t) – i_{123}(t)  \notag \\
+\mu_{121}(t) &= \mu(t) + \alpha_1(t) – \alpha_2(t) + \alpha_3(t) – i_{12}(t) + i_{13}(t) – i_{23}(t) – i_{123}(t)  \notag \\
+\mu_{122}(t) &= \mu(t) + \alpha_1(t) – \alpha_2(t) – \alpha_3(t) – i_{12}(t) – i_{13}(t) + i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{211}(t) &= \mu(t) – \alpha_1(t) + \alpha_2(t) + \alpha_3(t) – i_{12}(t) – i_{13}(t) + i_{23}(t) – i_{123}(t)  \notag \\
+\mu_{212}(t) &= \mu(t) – \alpha_1(t) + \alpha_2(t) – \alpha_3(t) – i_{12}(t) + i_{13}(t) – i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{221}(t) &= \mu(t) – \alpha_1(t) – \alpha_2(t) + \alpha_3(t) + i_{12}(t) – i_{13}(t) – i_{23}(t) + i_{123}(t)  \notag \\
+\mu_{222}(t) &= \mu(t) – \alpha_1(t) – \alpha_2(t) – \alpha_3(t) + i_{12}(t) + i_{13}(t) + i_{23}(t) – i_{123}(t)
+(\#eq:genetic-effects)
+\end{align}
+
+where $\mu(t)$ is the population mean at time t; $\alpha_1(t)$, $\alpha_2(t)$, and $\alpha_3(t)$ are the genetic effects of markers A, B and C at time t, respectively; $i_{12}(t)$, $i_{13}(t)$, and $i_{23}(t)$ are the pairwise epistatic effects between markers A and B, A and C and B and C at time t, respectively; and $i_{123}(t)$ is the three-way epistatic effect among three the markers at time t. From the above equations, we solve the pairwise and three-way epistatic effects as
+
+```{r epistasis-compare, fig.cap='Epistasis Comparison', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+knitr::include_graphics("images/EpistasisComparison.png")
+```
+
+\begin{align}
+i_{12}(t) &=  [(\mu_{111}(t) + \mu_{112}(t) + \mu_{221}(t) + \mu_{222}(t)) – (\mu_{121}(t) + \mu_{122}(t) + \mu_{211}(t) + \mu_{212}(t))] \notag \\
+i_{13}(t) &=  [(\mu_{111}(t) + \mu_{121}(t) + \mu_{212}(t) + \mu_{222}(t)) – (\mu_{112}(t) + \mu_{122}(t) + \mu_{211}(t) + \mu_{221}(t))] \notag \\
+i_{23}(t) &=  [(\mu_{111}(t) + \mu_{122}(t) + \mu_{211}(t) + \mu_{222}(t)) – (\mu_{112}(t) + \mu_{121}(t) + \mu_{212}(t) + \mu_{221}(t))] \notag \\
+i_{123}(t) &=  [(\mu_{111}(t) + \mu_{122}(t) + \mu_{212}(t) + \mu_{122}(t)) – (\mu_{112}(t) + \mu_{121}(t) + \mu_{211}(t) + \mu_{222}(t))]
+(\#eq:epi-effects)
+\end{align}
+
+Each genotype can draw a growth curve using its growth parameters (a, b, r) estimated from raw data, from which we can chart the curves of pairwise and three-way epistatic effects using equation (4). Three markers AATTC_nn_np_2815, AATTC_lm_ll_3034 and AATTC_nn_np_1615 that produce a significant three-way interaction for parameter x of shoot length display pronounced differences in growth curve (\@ref(fig:growth-compare)). The epistasis of low- and high-order performs differently to affect growth form, with three-way interactions playing a more remarkable role than pairwise epistasis (\@ref(fig:epistasis-compare)).
 
 
 ## Discussion
@@ -118,5 +147,6 @@ Genetic interactions have been thought to contribute to a significant portion of
 
 Our model extends Hao and Zhang’s (2014) forward selection-based algorithm iFORM that has proven to be robust and efficient for computing and detecting two-way interactions between predictors (including continuous predictors). A favorable property of iFORM is its capacity to detect interactions even if the dimension of predictors is extremely high relative to a sample size used. The fundamental assumption used by iFORM is the heredity principle, i.e., the existence of interactions between a pair of variables that each has at least weak main effects. After extending it to characterize three-way interactions, this assumption can be relaxed for the third variable; i.e., even if there is no detectable main effect for the third marker, then extended iFORM can still detect the three-way interaction. This property may explain the reason why high-order epistatic model outperforms low-order epistatic model, as demonstrated from the detection of significant genetic interactions in a real data of a woody plant, mei (Prunus mume). It was found from a recent study that loci participating in high-order genetic interactions may not individually have measurable effects (Bloom et al. 2013). As a result, our model can be used as a general tool to detect genetic interactions of various orders and, therefore, elucidate the overall picture of genetic architecture by capturing the so-called missing heritability.
 
-The model was investigated by simulation studies whose result help users to determine an optimal design of mapping or association studies in terms of sample size, phenotyping precision and the number of markers. Its application to P. mume genetic mapping leads to the detection of key loci and their interactions expressed at the low- and high-order levels for the growth form of shoots. …. the R packages was created and made available through CRAN (Comprehensive R Archive Network). We packed iFORM/eQTL in R with the source code is available at http://statgen.psu.edu/software/ (this part has not been completed yet).
+
+**The model was investigated by simulation studies whose result help users to determine an optimal design of mapping or association studies in terms of sample size, phenotyping precision and the number of markers. Its application to P. mume genetic mapping leads to the detection of key loci and their interactions expressed at the low- and high-order levels for the growth form of shoots. …. the R packages was created and made available through CRAN (Comprehensive R Archive Network). We packed iFORM/eQTL in R with the source code is available at http://statgen.psu.edu/software/ (this part has not been completed yet).**
 

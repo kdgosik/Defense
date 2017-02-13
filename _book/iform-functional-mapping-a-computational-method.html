@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dissertation Defense</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
 
   <meta property="og:title" content="Dissertation Defense" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2017-02-12">
+<meta name="date" content="2017-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,6 @@
   
 <link rel="prev" href="high-order-epistatic-networks.html">
 <link rel="next" href="conclusions.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -182,19 +181,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 4</span> iForm Functional Mapping (A computational method)</h1>
 <div id="motivation-2" class="section level2">
 <h2><span class="header-section-number">4.1</span> Motivation</h2>
+<p>Growth and developmental traits can mostly be better described by a functional process (, ), it is more biologically meaningful to map these traits as growth curves (). There have been a few different approaches that have integrated growth equations into genetic mapping via the likelihood function, leading to the birth of a so-called functional mapping models (; ; ; ). These style appoaches can allow for the developmental change of genetic control to be characterized across both time and as well as space (; ).</p>
 <p><strong>Shoot-Root Paper</strong> (The genetic architecture of shoot-root covariation during seedling emergence of a dessert tree, Populus euphratica)</p>
-<p>Since most traits associated with growth and development can be better described by a dynamic process (, ), it is more biologically meaningful to map these traits as growth curves (Sun and Wu, 2015). Several approaches have integrated growth equations into the likelihood of genetic mapping, leading to the birth of a so-called functional mapping model (Ma et al., 2002; Wu and Lin, 2006; Li and Sillanpaa, 2015; Muraya et al., 2016). Functional mapping allows the developmental change of genetic control to be characterized across time and space (He et al., 2010; Li and Wu, 2010). By modeling the longitudinal mean-covariance structures using a set of parsimonious parameters, functional mapping has proven of great statistical power in gene identification and the utilization of sparse phenotypic data (Hou et al., 2005, 2006). An alternative to functional mapping is to map growth QTLs by estimating growth parameters for each genotype based on growth equations and associating these parameters with markers (Wu et al., 2002).</p>
+<p>By modeling the longitudinal mean-covariance structures using a set of parsimonious parameters, functional mapping has proven of great statistical power in gene identification and the utilization of sparse phenotypic data (Hou et al., 2005, 2006). An alternative to functional mapping is to map growth QTLs by estimating growth parameters for each genotype based on growth equations and associating these parameters with markers (Wu et al., 2002).</p>
 <p>From fundamental principles of biophysical and biochemical processes, logistic equations that capture different stages of organ development have been derived, which show robust biological relevance (West et al., 2001). Sun et al. (2014) dissect logistic growth curves into several key landmarks of development using the concept of heterochrony, defined as the asymptotic growth, relative growth rate, the timing of inflection and the duration of linear growth.</p>
 <p><strong>from research statement</strong></p>
 <p>Treating the molecular biology of an organism as a complex trait, it would be likely that the expression profiles of certain genes, proteins or other metabolites would follow a more functional or dynamic phenotype. This information could be lost or greatly limited by treating the response as a single static predictor. In an attempt to capture all relevant information available I am currently extending the procedure further to include the entire growth function as a phenotype. The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. I anticipate submitting a third manuscript in late spring around this topic. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.</p>
 <p><strong>Update</strong> (This is from Han Hao’s proposal, update for yours)</p>
-<p>Changes in developmental timing and rate, named as heterochrony, have long been believed to be a major force in the evolution of phenotype (Gould, 1977; Wilson et al., 1988). It has been observed that relatively few genetic changes in heterochrony through the endocrine regulation of metamorphosis can cause profound morphological consequences (Moss, 2007). For example, although humans and chimpanzees are closely related, their skull shape and brain growth are different dramatically during early development (Rice, 2002; Mitteroecker et al., 2004; King, 2004). A recent phylogenic investigation revealed that changes in developmental timing are a crucial step for birds to evolve from dinosaurs (Bhullar, 2012). The consequence of these changes leads birds to take months to reach sexual maturity, allowing them to retain the physical characteristics of baby stages characterized by dinosaurs that take years to mature. One question that naturally arises from these evolutionary divergences is what mechanisms are implicated for heterochrony and the change of biological clock.</p>
+<p>Changes in developmental timing and rate, named as heterochrony, have long been believed to be a major force in the evolution of phenotype (; ). It has been observed that relatively few genetic changes in heterochrony through the endocrine regulation of metamorphosis can cause profound morphological consequences (Moss, 2007). For example, although humans and chimpanzees are closely related, their skull shape and brain growth are different dramatically during early development (Rice, 2002; Mitteroecker et al., 2004; King, 2004). A recent phylogenic investigation revealed that changes in developmental timing are a crucial step for birds to evolve from dinosaurs (Bhullar, 2012). The consequence of these changes leads birds to take months to reach sexual maturity, allowing them to retain the physical characteristics of baby stages characterized by dinosaurs that take years to mature. One question that naturally arises from these evolutionary divergences is what mechanisms are implicated for heterochrony and the change of biological clock.</p>
 <p>Many studies have pursued to identify the molecular control of developmental timing; mostly using Caenorhabditis elegans as an example, these studies have identified heterochronic genes that orchestrate the timing of cell divisions and fates during development regulated by microRNAs and their targets (Ambros, 2000; Rougvie, 2001; Pasquinelli and Ruvkun, 2002; Banerjee and Slack, 2002; Moss, 2007). Focusing on particular pathways causing heterochonic changes, none of these studies has provided an entire picture of the genetic control of heterochrnoy. Furthermore, the effects of heterochronic genes on the evolution of complex phenotypes have not been quantified, limiting the inference and prediction of evolutionary changes.</p>
 <p>In this chapter, we develop a general framework for characterizing the genetic architecture of heterochrony based on widely used genetic mapping approaches. Genetic mapping has been proved to be powerful for mapping and studying quantitative trait loci (QTLs) involved in complex traits (Lander and Botstein, 1986), and has been increasingly integrated with network biology to better elucidate the mechanisms of the way QTL acts and interacts with other factors (Wang et al., 2012b). In the decade, genetic mapping has developed to a point at which this approach can characterize QTLs that control the process of development, leading to the birth of functional mapping (Ma et al., 2002; Wu and Lin, 2006; Li and Wu, 2010). Functional mapping implements mathematical aspects of developmental principles into a mapping framework, equipped with a capacity to study the interplay between QTLs and development. Here, we extend functional mapping to characterize QTLs controlling heterochrony (named hQTLs), specified by three parameters (i) the onset of a particular process, (ii) its offset, and (iii) the rate at which the process proceeds. By using growth equation as an example, we exemplify the procedure of model derivations as well as the practical use of the model in hQTL detection. In the end, we discuss an issue of how hQTLs can be integrated with developmental evolutionary biology (evo-devo), a fast-growing discipline of biology in the recent years.</p>
 <p><strong>Update</strong></p>
 <p>GENERALIZED ADDITIVE MODEL SELECTION </p>
 <p>In many applications it may be too restrictive to suppose that the effect of all of the predictors is captured by a simple linear fit of the form, <span class="math inline">\(η(x_i) = \sum_{j=1}^p \beta_jx_{ij}\)</span>. Generalized additive models, introduced in , allow for greater flexibility by modeling the linear predictor of a generalized linear model as a sum of more general functions of each variable: <span class="math display">\[η(x_i) = \sum_{j=1}^p f_j(x_{ij}),\]</span> where the <span class="math inline">\(f_j\)</span> are unknown functions, assumed to be smooth or otherwise low-complexity.</p>
 <p>Add a third paragraph to motivation section Continue on about the rest of the chapter as an overview</p>
+<p><strong>2HIGWAS</strong></p>
+<p>In this study, we develop a high-dimensional varyingcoefficient model to chart a complete picture of the genetic architecture of complex traits that are dynamically expressed on a time–space scale.</p>
+<p>However, integrating all SNPs and functional mapping to systematically search for loci for developmental processes has not been explored thus far. This integration can not only construct a precise developmental genotype–phenotype map that cannot be produced separately by each approach, but also contains sophistication and challenges in technical development. First, such integration needs the resolution of how significant predictors can be chosen from a high-dimensional pool of SNPs under the sparsity assumption. Many statisticians have made tremendous effort to improve computational expediency, statistical accuracy and algorithmic stability in high dimensionality [22–28]. Second, given that phenotypic data are observed in a longitudinal time series, a step of embedding the multiple response structure in a biologically meaningful way is essential.</p>
 </div>
 <div id="methods-2" class="section level2">
 <h2><span class="header-section-number">4.2</span> Methods</h2>
@@ -208,6 +211,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="regression-by-linear-combination-of-basis-functions" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Regression by linear combination of basis functions</h3>
+<p>By focusing on linear regression as a linear combination of basis functions</p>
 <p>** GAM Selection paper**</p>
 <p>Our proposed estimator selects between fitting each fj as zero, linear, or nonlinear, as determined by the data. In so doing it retains the interpretability advantages of linear fits when appropriate, while capturing strong non-linear relationships when they are present. Our method, which we call GAMSEL (Generalized Additive Model Selection), is based on optimizing a penalized (negative) log-likelihood criterion of the form</p>
 <p><strong>Regression by linear combination of basis functions. by Risi Kondor</strong></p>
@@ -265,7 +269,8 @@ P_n(x) &amp; = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 <h2><span class="header-section-number">4.3</span> Application</h2>
 <div id="simulation-studies-1" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Simulation Studies</h3>
-<p>extensive simulation studies were performed to ascertain the validity of the model. Computational verified by cross validation, bootstrapping. Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.</p>
+<p>As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures.</p>
+<p>Extensive simulation studies were performed to ascertain the validity of the model. Computational verified by cross validation, bootstrapping. Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.</p>
 <ul>
 <li>rates at which correct markers/epistasis was selected?</li>
 <li>rates at which the correct order polynomial was fit for the correct marker/epistasis</li>
@@ -285,6 +290,7 @@ P_n(x) &amp; = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 <li>How do we know there is epistasis?</li>
 <li>how do you keep it from over selecting</li>
 <li>what if it doesn’t follow the heredity or hierarchy principles?</li>
+<li>other types of functional/growth equations to represent biologically meaningful scenarios</li>
 </ul>
 
 </div>

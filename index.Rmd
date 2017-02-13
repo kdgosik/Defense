@@ -38,14 +38,10 @@ traits. The growth of two interacting traits is modelled with a differential equ
 system, and QTLs are examined for their association with the type and intensity
 of such interaction.
 
-```{r eval=FALSE}
-devtools::install_github("rstudio/bookdown")
-```
-
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'ggplot2'
 ), 'packages.bib')
 ```

@@ -216,18 +216,6 @@ ggplot(L_melt, aes(x = t, y = value, group = variable, color = brewer.pal(10, "S
 **From Wikipedia**
 An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:
 
-\begin{equation} 
-\begin{split}
-\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
- & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
- & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
- & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
- & =(X'X)^{-1}\sigma^{2}
-\end{split}
-(\#eq:var-beta)
-\end{equation} 
-
-
 $$P_n(x) = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k$$
 
 $$\sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k$$

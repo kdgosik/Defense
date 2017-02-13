@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dissertation Defense</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
 
   <meta property="og:title" content="Dissertation Defense" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2017-02-12">
+<meta name="date" content="2017-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,6 @@
   
 <link rel="prev" href="index.html">
 <link rel="next" href="high-dimensional-eqtl.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -180,40 +179,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="st">&quot;images/SystemsMapping.png&quot;</span>)</code></pre></div>
-<p><img src="images/SystemsMapping.png" width="732" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="st">&quot;images/SNP_Picture.png&quot;</span>)</code></pre></div>
-<p><img src="images/SNP_Picture.png" width="228" /></p>
-
-<div class="theorem">
-<span id="thm:unnamed-chunk-4" class="theorem"><strong>Theorem 1.1 </strong></span>Here is my theorem.
+<p>
+There are several techniques used for studying genetics and mapping the results. Some of the more populor techniques include cross-breeding experiments or, in the case of humans, the examination of family histories, known as pedigrees. More recently, CRISPR/Cas9 can be used to mimic mitotic recombination to help map out genes as well. ()
+</p>
+<p>
+Construction of genetic maps are a variety of techniques used to show relative positions between genes or other sequence features of the genome and the phenotype that is controlled by such sequences. Genes are very useful markers but they are by no means ideal. One problem, especially with larger genomes such as those of vertebrates and flowering plants, is that a map based entirely on genes is not very detailed.() Genes have long areas of non-coding regions between them and therefore result in large gaps from gene to gene. This is further complicated because not every gene has allelic forms that can be easily or conventiently distinguished. With these considerations in mind gene maps may not be comprehensive enough and other markers may be needed.
+</p>
+<p>Mapped features that are not genes are called DNA markers. As with gene markers, a DNA marker must have at least two alleles to be useful. There are three types of DNA sequence feature that satisfy this requirement: restriction fragment length polymorphisms (RFLPs), simple sequence length polymorphisms (SSLPs), and single nucleotide polymorphisms (SNPs).</p>
+<p>** Varational Linear Model Paper ** </p>
+<p>The goal of quantitative trait loci (QTLs) mapping and association studies is to identify certain regions of the genome that contain genes involved in specifying a quantitative trait, and to estimate the genetic effects of these loci. The relationship between the genetic effects of QTLs and the phenotypic value of quantitative traits can be described by a linear model [1, 2]. There are usually a large number of markers across the whole genome, and most of the markers have very little or even no effect on the phenotypes. So the model is sparse, and in most cases, the number of markers or variables is bigger than the sample size, especially when interactions among markers are considered. Therefore, the model is oversaturated and usually solved by shrinkage or variable selection methods. The variable selection procedure for QTLs mapping can be seen as one of deciding which subset of variables have effects on phenotypes, and identifying out all possible effects of those markers. There are many ways of variable selection. For instance, the indicator selection uses a spike (probability distribution of variables not included in model) and slab (probability distribution of variables included in model) prior to indicate whether each variable is included in one model. Such methods usually adopt Gibbs sampling or importance sampling to calculate the weighted average as the inferred results [3-5]. Shrinkage methods do not use indicators to induce the sparseness of variables, but instead specify a priori directly on variables to approximate the “slab” and “spike” shapes and use a penalty function to shrink most variables toward zeros. Early Bayesian shrinkage methods employed Markov chain Monte Carlo (MCMC) techniques to infer the models [6], which were computationally intensive. Xu et al. proposed an empirical Bayes method that used a carefully chosen prior distribution for the variables, which required much less</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Conclusions and discussion The main goal of this paper is to propose an improved variational linear regression approach for high scale variable selection problems such as the ones arising in epistatic analysis. Variational approximation is a classic method to solve linear model, but its accuracy is limited in the case of there are many more variables than samples. Several improved methods were proposed for the variational approximation, such as hierarchical shrinkage, importance sampling and so on. But these methods still lack of efficiency or accuracy. We proposed a simple but effective method to improve the performance of VLR by dynamically deleting some specific variables, which can greatly improve the accuracy of VLR. The reason that RCVLR is more accurate than VB-EBL, VB-BAS, VB-BL may lie in that it can derive the approximate marginal distributions of all variables in a single process, while hierarchical shrinkage infers each variable separately, therefore some correlation information among variables is lost. The VI-IMP considers the correlation among variables, but it uses important sampling and a weighted average method to improve the accuracy; therefore the computational cost is higher than other variational approaches. RCVLR can obtain good performance in general, and is not sensitive to the choice of hyper parameters, while some other variational approaches, such as VB-EBL, rely heavily on selecting appropriate parameters to get good performance [18]. VI-IMP averages the inferred results under different prior combinations. But how to determine the prior ranges is a problem unsolved [4]. If an inappropriate range is inputted, the performance may be poor. But if a very wide range is set to cover the exact parameters, the algorithm will need many more samples and thus need much more computational time.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:system-map"></span>
+<img src="images/SystemsMapping.png" alt="Systems Map" width="80%" />
+<p class="caption">
+FIGURE 1.1: Systems Map
+</p>
 </div>
-<p></p>
-
-<div class="lemma">
-<span id="lem:unnamed-chunk-5" class="lemma"><strong>Lemma 1.1 </strong></span>Here is my lemma.
+<div class="figure" style="text-align: center"><span id="fig:Snp-Pic"></span>
+<img src="images/SNP_Picture.png" alt="SNP Picture" width="80%" />
+<p class="caption">
+FIGURE 1.2: SNP Picture
+</p>
 </div>
-<p></p>
-
-<div class="definition">
-<span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.1 </strong></span>Here is my definition.
-</div>
-<p></p>
-
-<div class="corollary">
-<span id="cor:unnamed-chunk-7" class="corollary"><strong>Corollary 1.1 </strong></span>Here is my corollary
-</div>
-<p></p>
-
-<div class="proposition">
-<span id="prp:unnamed-chunk-8" class="proposition"><strong>Proposition 1.1 </strong></span>Here is my proposition.
-</div>
-<p></p>
-
-<div class="example">
-<span id="ex:unnamed-chunk-9" class="example"><strong>Example 1.1 </strong></span>Here is my example
-</div>
-<p></p>
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="high-dimensional-eqtl.html#methods">2.2</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
@@ -221,10 +210,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
 <img src="Defense_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
-FIGURE 1.1: Here is a nice figure!
+FIGURE 1.3: Here is a nice figure!
 </p>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.3</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
   <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
   <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
