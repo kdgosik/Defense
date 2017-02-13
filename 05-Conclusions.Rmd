@@ -16,13 +16,13 @@ able to reduce search space substantially by making some reasonable assumptions 
 
 complex and many moving parts to the selection procedure.  Very flexible but this could have it be prone to over fitting at times if not well controlled.
 
-Used as a screening tool for initial findings and exploratory data analysis to aid and guide future research.  Needs to be then be lab validated.  Especially with something as intricate as epistatic effects between gene markers.
+With the complexity and expense that comes with genetic mapping, espically with a functional trait that needs repeated measuresUsed as a screening tool for initial findings and exploratory data analysis to aid and guide future research.  Needs to be then be lab validated.  Especially with something as intricate as epistatic effects between gene markers.
 
 Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.
 
 
 __BIC Limitations (wikipedia)__
-the above approximation is only valid for sample size {\displaystyle n}n much larger than the number {\displaystyle k}k of parameters in the model.
+the above approximation is only valid for sample size n much larger than the number k of parameters in the model.
 
 the BIC cannot handle complex collections of models as in the variable selection (or feature selection) problem in high-dimension.[3]
 

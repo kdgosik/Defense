@@ -6,55 +6,32 @@
 
 <p> Construction of genetic maps are a variety of techniques used to show relative positions between genes or other sequence features of the genome and the phenotype that is controlled by such sequences. Genes are very useful markers but they are by no means ideal. One problem, especially with larger genomes such as those of vertebrates and flowering plants, is that a map based entirely on genes is not very detailed.(\cite{brown2006genomes}) Genes have long areas of non-coding regions between them and therefore result in large gaps from gene to gene.  This is further complicated because not every gene has allelic forms that can be easily or conventiently distinguished.  With these considerations in mind gene maps may not be comprehensive enough and other markers may be needed. </p>
 
-
-
-**NIH webiste**
-**Mapped features that are not genes are called DNA markers. As with gene markers, a DNA marker must have at least two alleles to be useful. There are three types of DNA sequence feature that satisfy this requirement: restriction fragment length polymorphisms (RFLPs), simple sequence length polymorphisms (SSLPs), and single nucleotide polymorphisms (SNPs).**
+<p> According to brown, mapped features that are not genes are called DNA markers. As with gene markers, a DNA marker must have at least two alleles to be useful. There are three types of DNA sequence feature that satisfy this requirement: restriction fragment length polymorphisms (RFLPs), simple sequence length polymorphisms (SSLPs), and single nucleotide polymorphisms (SNPs). (\cite{brown2006genomes})  The genetic markers that have been emphaised in this work are single nucleotide polymorphisms.  Attempting to be at the highest levels of resolution for identifying quantitative traits, using SNPs are the most specific case.  This will give exact location of the nucletid that may be impacting the genetic control over the phenotype. </p>
 
 
 ```{r Snp-Pic, fig.cap='SNP Picture', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
 knitr::include_graphics("images/SNP_Picture.png")
 ```
 
+<p> There are several goals to genetic mapping and association studies that identify certain regions of the genome that contain genes involved in specifying a quantitative trait, refered to as quantitative trait loci (QTLs).  One main goal is to estimate the genetic effects of these loci. The relationship between the genetic effects of QTLs and the phenotypic value of quantitative traits can be described by a linear model (\cite{collard2005introduction}, \cite{xu2007empirical}). Typically, because of the high throughput nature of the data there are a large number of markers across the whole genome, and most of the markers may have very little or next no effect on the phenotype under study. The models can be very sparse, with most cases, the number of genetic markers or variables is bigger than the sample size, especially when interactions among markers are considered. This makes a model is oversaturated and furher model selection techniques may be required to capture the necessary information. \cite{dong2015accurate} </p>
 
 
-## First written for proposal
 
-Numerous methods exist and are being developed to measure and find quantitative trait loci (QTL) effects.  These methods can broadly fall into three main categories.  These categories are Least-Square methods, maximum likelihood and Bayesian approaches.  (Statistical Genetics of Quantitative Traits, Wu et al.)  Each method has advantages and considerations that you would need to be aware before conducting analyses to find QTL effects.  Brief discussions on a few of the methods are given to highlight some areas of consideration and how the methods proposed can handle such considerations.  
+## Some Exisiting Methods
+
+Numerous methods exist and are being developed to measure and find quantitative trait loci (QTL) effects.  These methods can broadly fall into three main categories.  These categories are Least-Square methods, maximum likelihood and Bayesian approaches.  (\cite{wu2007statistical})  Each method has advantages and considerations that you would need to be aware before conducting analyses to find QTL effects from the given markers.  A brief discussions on a few of the methods are given to highlight some areas of consideration and how the methods proposed can handle such considerations.  
 
 Marker Regression would fall in the category of Least Squares approaches.  If looking at one marker analysis general t-test and ANOVA procedures can be used to analyze the relationship.  It is not recommended however for use in general practice because you do not know how dense the markers are measured.  QTL interval mapping would be preferred in such an analysis because the methods take account for missing genotype data that may not have been measured.  When estimating a QTL position through maximum likelihood methods, like interval mapping, positions of other possible QTLs could affect the detection of the true position.  Neighboring QTLs could possibly flatten the likelihood in instances where there are multiple QTLs on the same chromosome. This would make an effect look less significant at a given location than it actually is.  Another possibility is that in the search over the interval you may find an area where the likelihood could reach a peak but could be a “ghost” QTL.  This is where an effect is observed because a neighboring QTL is skewing the results at the particular position you are looking in and the result is a false discovery of the position.  Marker Regression has been shown to improve interval mapping, which is call Composite Interval Mapping.  This is where the QTL position found is also combined in a linear regression where the covariates are the other markers in the dataset.  By including the markers as covariates the other position in the chromosome are accounted for in the analysis and false discovery is reduced.  
 
-The analysis of interval mapping and single marker analyses has shown to be effective but it limits our inference to one marker at a time as a possible loci that controls a trait.   Using Marker Regression however you can incorporate multiple markers in a single analysis to test for possible QTL for a given trait.  It is cautioned that running such an analysis is only an approximate test because the null hypothesis is there is no difference between the marker levels and therefore a non-mixture distribution but the alternative is a mixture of distributions.  The assumption regression would make of the errors within the marker type to be normally distributed may not be entirely met if the QTL’s fall between the marker regions.  However Whittaker et al. (1996) have shown that a direct regression of phenotypes on marker types, provides the same information about location of QTL-effects without having to step to all positions on the interval.  With this information using the entire marker set in a regression analysis would provide a nice, computationally efficient way to map out the genetic architecture of a trait.  This is stifled by financial cost of fully genotyping subjects to have an adequate sample size to properly create such a map.  
-
-
-
-
-
-
-
-
-###	Stepwise forward selection
-
-Forward Selection Algorithm
-	Let M_0  denote the null model,which contains no predictors
-	For k=0,…,p-1:
-	Consider all p-k models that augment the predictors in M_k  with on 
- additional predictor
-	Choose the best among these p-k models,and call it M_(k+1). 
-(Here is best defined as having the samllest RSS or highest R^2 )
-	Select a single best model from M_0,…,M_p  using cross-validation prediction error, 
- C_p  (AIC),BIC,or adjusted R^2
-
-
-
-
-
-
-
-
+<p> The analysis of interval mapping and single marker analyses has shown to be effective but it limits our inference to one marker at a time as a possible loci that controls a trait.   Using Marker Regression however you can incorporate multiple markers in a single analysis to test for possible QTL for a given trait.  It is cautioned that running such an analysis is only an approximate test because the null hypothesis is there is no difference between the marker levels and therefore a non-mixture distribution but the alternative is a mixture of distributions.  The assumptions regression would make of the errors within the marker type to be normally distributed may not be entirely met if the QTL’s fall between the marker regions.  However \cite{whittaker1996mapping} have shown that a direct regression of phenotypes on marker types, provides the same information about location of QTL-effects without having to step to all positions on the interval.  With this information using the entire marker set in a regression analysis would provide a nice, computationally efficient way to map out the genetic architecture of a trait.</p>
 
 
 ##	Chapter Overview
+
+The main goal of this paper is to propose an improved variational linear regression approach for high scale variable selection problems such as the ones arising in epistatic analysis
+
+The variable selection procedure for QTLs mapping can be seen as one of deciding which subset of variables have effects on phenotypes, and identifying out all possible effects of those markers.
+
 
 ### iForm (change chapter names)
 
@@ -68,12 +45,7 @@ Forward Selection Algorithm
 
 
 
-** Varational Linear Model Paper ** \cite{dong2015accurate}
 
-**The goal of quantitative trait loci (QTLs) mapping and association studies is to identify certain regions of the genome that contain genes involved in specifying a quantitative trait, and to estimate the genetic effects of these loci. The relationship between the genetic effects of QTLs and the phenotypic value of quantitative traits can be described by a linear model [1, 2]. There are usually a large number of markers across the whole genome, and most of the markers have very little or even no effect on the phenotypes. So the model is sparse, and in most cases, the number of markers or variables is bigger than the sample size, especially when interactions among markers are considered. Therefore, the model is oversaturated and usually solved by shrinkage or variable selection methods. The variable selection procedure for QTLs mapping can be seen as one of deciding which subset of variables have effects on phenotypes, and identifying out all possible effects of those markers. There are many ways of variable selection. For instance, the indicator selection uses a spike (probability distribution of variables not included in model) and slab (probability distribution of variables included in model) prior to indicate whether each variable is included in one model. Such methods usually adopt Gibbs sampling or importance sampling to calculate the weighted average as the inferred results [3-5]. Shrinkage methods do not use indicators to induce the sparseness of variables, but instead specify a priori directly on variables to approximate the “slab” and “spike” shapes and use a penalty function to shrink most variables toward zeros. Early Bayesian shrinkage methods employed Markov chain Monte Carlo (MCMC) techniques to infer the models [6], which were computationally intensive. Xu et al. proposed an empirical Bayes method that used a carefully chosen prior distribution for the variables, which required much less**
-
-
-**4. Conclusions and discussion The main goal of this paper is to propose an improved variational linear regression approach for high scale variable selection problems such as the ones arising in epistatic analysis. Variational approximation is a classic method to solve linear model, but its accuracy is limited in the case of there are many more variables than samples. Several improved methods were proposed for the variational approximation, such as hierarchical shrinkage, importance sampling and so on. But these methods still lack of efficiency or accuracy. We proposed a simple but effective method to improve the performance of VLR by dynamically deleting some specific variables, which can greatly improve the accuracy of VLR. The reason that RCVLR is more accurate than VB-EBL, VB-BAS, VB-BL may lie in that it can derive the approximate marginal distributions of all variables in a single process, while hierarchical shrinkage infers each variable separately, therefore some correlation information among variables is lost. The VI-IMP considers the correlation among variables, but it uses important sampling and a weighted average method to improve the accuracy; therefore the computational cost is higher than other variational approaches. RCVLR can obtain good performance in general, and is not sensitive to the choice of hyper parameters, while some other variational approaches, such as VB-EBL, rely heavily on selecting appropriate parameters to get good performance [18]. VI-IMP averages the inferred results under different prior combinations. But how to determine the prior ranges is a problem unsolved [4]. If an inappropriate range is inputted, the performance may be poor. But if a very wide range is set to cover the exact parameters, the algorithm will need many more samples and thus need much more computational time.**
 
 
 ```{r system-map, fig.cap='Systems Map', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}

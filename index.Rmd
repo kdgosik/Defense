@@ -4,6 +4,8 @@ author: "Kirk Gosik"
 date: "`r Sys.Date()`"
 setspace: doublespacing
 linestretch: 2
+fontsize: 11pt
+geometry: margin=1in
 lof: yes
 lot: yes
 site: bookdown::bookdown_site
@@ -13,11 +15,10 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "My Dissertation Written in Bookdown."
 ---
 
 
-Where does this text go if i put it before
 
 # Abstract {-}
 
@@ -42,6 +43,6 @@ of such interaction.
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'data.table', 'ggplot2'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```

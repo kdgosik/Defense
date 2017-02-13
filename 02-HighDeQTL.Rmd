@@ -31,12 +31,26 @@
 
 ### Adaptation of iFORM procedure
 
-<p> Hao and Zhang \cite{hao2014interaction} formulated an interaction forward selecting procedure under the marginality principle (iFORM).  The marker and gene transcript data of the study population can be denoted as $(X_i,Y_i) (i = 1, …, n)$ which are independent and identically distributed copies of (X,Y), where X=(X_1,..,X_p )^T is a p-dimensional predictor vector and Y is the response, expressed by a linear regression model:  
-Y=β_0+β_1 X_1+⋯+β_p X_p+ϵ	                      			(1)
+<p> Hao and Zhang \cite{hao2014interaction} formulated an interaction forward selecting procedure under the marginality principle (iFORM).  The marker and gene transcript data of the study population can be denoted as $(X_i,Y_i) (i = 1, …, n)$ which are independent and identically distributed copies of (X,Y), where $X = (X_1,..,X_p )^T$ is a p-dimensional predictor vector and Y is the response, expressed by a linear regression model:  
+
+\begin{equation}
+Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
+(\#eq: lin-mod)
+\end{equation}
+
 The ’s are the coefficients for the genetic effects of each marker. Like most genome-wide datasets, the number of markers here grossly outnumbers the number of observations, p >> n.  Therefore, selection procedures would need to be implemented in order to fit a linear regression model such as (1).  We are already at the point of high-dimensional data but if we want to include epistatic effects between different markers as predictors as well it would increase the amount of predictors by (p^2+p)/2 .  The resulting linear model would grow to be,
-Y=β_0+β_1 X_1+⋯+β_p X_p+γ_11 X_1^2+〖〖γ_12 X〗_1〗_(X_2 )+⋯+γ_pp X_p^2+ϵ	,                   	(2)
+
+\begin{equation}
+Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \gamma_{11} X_1^2 +\gamma_{12} {X_1}{X_2} + ⋯ + \gamma_{pp} X_p^2 + \epsilon
+(\#eq: lin-mod2)
+\end{equation}
+
 where ’s are the coefficients for the epistatic effects for all the quadratic and two-way interactions between the markers.  For convenience we will assume that the markers and the transcripts are standardized before running the selection procedure. Therefore, E(X_ij )=0,Var(X_ij )=1,E(Y_i )=0 and Var(Y_i )=1 for i=1,...,n; j=1,…,p.  Also, the quadratic and two-way interaction effects will be centered which we will write as Z_i=(…,X_ik X_il-E(X_ik X_il ),…)^T.  By doing so we would eliminate the need for an intercept in regression model (2). This would reduce the model to the form,
-$Y=X^T β+Z^T γ                                                            (3)$
+
+\begin{equation}
+Y = X^T \beta + Z^T \gamma
+(\#eq: lin-mod3)
+\end{equation}
 
 Some notations that will be used to define the elements of \cite{hao2014interaction} iFORM procedure are as follows.  
 P_1={1,2,…,p}       P_2={(k,l):1≤k≤l≤p}.

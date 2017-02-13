@@ -1,0 +1,7 @@
+# Appendix
+
+This needs more work.  Only includes first part of the appendix pdf
+
+\begin{center} 
+\includegraphics[width=8in]{appendix.pdf} 
+\end{center}
