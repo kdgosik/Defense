@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2017.1.24)  13 FEB 2017 13:39
+This is XeTeX, Version 3.14159265-2.6-0.99992 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2017.1.24)  13 FEB 2017 15:53
 entering extended mode
 **./Defense.tex
 (Defense.tex
@@ -887,9 +887,7 @@ LaTeX Info: Redefining \nameref on input line 151.
 [1
 
 
-] [2
-
-] (Defense.toc
+] [2] (Defense.toc
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -930,7 +928,9 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 Underfull \vbox (badness 2512) has occurred while \output is active []
 
-[3])
+[3
+
+])
 \tf@toc=\write5
 \openout5 = `Defense.toc'.
 
@@ -948,25 +948,19 @@ Underfull \vbox (badness 2512) has occurred while \output is active []
 
 [7] [8
 
-]
-Underfull \vbox (badness 3849) has occurred while \output is active []
+] [9] [10
 
-[9] [10]
+]
 Chapter 1.
-[11
-
-]
+[11]
 File: images/SNP_Picture.png Graphic file (type QTm)
 <use  "images/SNP_Picture.png" >
 Underfull \vbox (badness 1881) has occurred while \output is active []
 
-[12] [13]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[14]
+[12] [13] [14]
 File: images/SystemsMapping.png Graphic file (type QTm)
 <use  "images/SystemsMapping.png" >
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 337
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 354
 .
 ("C:\Program Files\MiKTeX 2.9\tex\latex\euenc\eu1lmtt.fd"
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -975,7 +969,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [15]
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 347.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 364.
 File: Defense_files/figure-latex/nice-fig-1.pdf Graphic file (type QTm)
 <use  "Defense_files/figure-latex/nice-fig-1.pdf" >
 Underfull \vbox (badness 1817) has occurred while \output is active []
@@ -992,7 +986,10 @@ Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
-[21] [22]
+[21]
+Underfull \vbox (badness 1173) has occurred while \output is active []
+
+[22]
 Missing character: There is no … in font rm-lmr10!
 Missing character: There is no ⋯ in font rm-lmr10!
 Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
@@ -1079,9 +1076,9 @@ Missing character: There is no 〗 in font rm-lmr10!
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[29]
+[29] [30]
 Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
-[30]
+
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
 [31]
@@ -1131,7 +1128,7 @@ Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no η in font lmmi10!
 
-LaTeX Warning: Command \nobreakspace invalid in math mode on input line 1137.
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 1154.
 
 Missing character: There is no ϵ in font lmmi10!
 Missing character: There is no σ in font lmmi10!
@@ -1153,12 +1150,12 @@ Missing character: There is no ∈ in font rm-lmr10!
 Missing character: There is no η in font lmmi10!
 Missing character: There is no ≠ in font rm-lmr10!
 Missing character: There is no ∈ in font rm-lmr10!
-
-Underfull \vbox (badness 1281) has occurred while \output is active []
-
 [41] [42]
 Missing character: There is no σ in font lmmi10!
 Missing character: There is no σ in font lmmi10!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [43] [44]
 Missing character: There is no … in font rm-lmr10!
 Missing character: There is no τ in font lmmi10!
@@ -1208,13 +1205,7 @@ Underfull \vbox (badness 4120) has occurred while \output is active []
 [45] [46]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[47]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[48]
-Underfull \vbox (badness 1281) has occurred while \output is active []
-
-[49]
+[47] [48] [49]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
 [50]
@@ -1293,14 +1284,14 @@ Missing character: There is no – in font rm-lmr10!
 Missing character: There is no – in font rm-lmr10!
 Missing character: There is no – in font rm-lmr10!
 Missing character: There is no – in font rm-lmr10!
-[53]
-Underfull \vbox (badness 3646) has occurred while \output is active []
 
-[54] [55] [56
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[53] [54] [55] [56]
+Chapter 4.
+[57
 
 ]
-Chapter 4.
-[57]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
 [58] [59]
@@ -1336,9 +1327,6 @@ Missing character: There is no θ in font lmmi10!
 Missing character: There is no θ in font lmmi10!
 Missing character: There is no θ in font lmmi10!
 Missing character: There is no − in font rm-lmr10!
-
-Underfull \vbox (badness 6825) has occurred while \output is active []
-
 [64]
 File: Defense_files/figure-latex/Legendre-fig-1.pdf Graphic file (type QTm)
 <use  "Defense_files/figure-latex/Legendre-fig-1.pdf" >
@@ -1347,12 +1335,21 @@ Missing character: There is no ≤ in font [lmroman10-regular]:mapping=tex-text!
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1879.
+(amsmath)                 on input line 1896.
 
 
+Underfull \vbox (badness 2351) has occurred while \output is active []
+
+[65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[65] [66] [67] [68] [69] [70]
+[66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[67]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[68] [69] [70]
 Chapter 5.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1365,7 +1362,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Chapter 6.
 File: appendix.pdf Graphic file (type QTm)
 <use  "appendix.pdf" >
-Overfull \hbox (33.2598pt too wide) in paragraph at lines 2086--2087
+Overfull \hbox (33.2598pt too wide) in paragraph at lines 2103--2104
  [] 
  []
 
@@ -1378,12 +1375,12 @@ Overfull \vbox (12.04843pt too high) has occurred while \output is active []
 [76] (Defense.bbl [77
 
 ] [78] [79] [80] [81] [82] [83] [84] [85] [86])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2092.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2109.
 [87]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2092.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2109.
 (Defense.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2092.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2092.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2109.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2109.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -1391,10 +1388,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  25658 strings out of 428696
  447413 string characters out of 3163733
- 509845 words of memory out of 3000000
+ 508845 words of memory out of 3000000
  28782 multiletter control sequences out of 15000+200000
  16692 words of font info for 49 fonts, out of 3000000 for 9000
  1096 hyphenation exceptions out of 8191
- 54i,17n,68p,10407b,607s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 54i,17n,68p,10407b,610s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on Defense.pdf (87 pages).
