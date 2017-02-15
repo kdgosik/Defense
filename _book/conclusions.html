@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <meta name="description" content="My Dissertation Written in Bookdown.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
 
   <meta property="og:title" content="" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="iform-functional-mapping-a-computational-method.html">
 <link rel="next" href="appendix.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -116,37 +117,35 @@ true
             <section class="normal" id="section-">
 <div id="conclusions" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Conclusions</h1>
-<p>** research statement ** Continuing on, my aim would be to work with datasets of this scale and incorporate the types of statistical methods mentioned and machine learning techniques to aid in analysis. The results could help gain larger insights into the genomic/epigenetic architecture of biological systems. On top of the importance of a functional component to the phenotype, considering other types of multivariate responses would be interesting to study in context of such a system. Integrating different level of omics data and the challenges that arise with such complicated and large datasets has interested me throughout my PhD work. Translating such a complex system into usable information that can be shared in order to prevent and fight disease would be ideal research for me. This type of research would need both methodological development as well as application of existing statistical and machine/deep learning techniques to handle the magnitude of the problem.</p>
 <div id="summary" class="section level2">
 <h2><span class="header-section-number">5.1</span> Summary</h2>
-<p>applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by </p>
-<p>able to reduce search space substantially by making some reasonable assumptions about the data. These assumptions can be relaxed a little to broaden the scope of the space.</p>
-<p>advantages</p>
-<p>computationally efficient way for high dimensional data situations that arise from high throughput data, especially when considering epstasis between gene markers or other type of interaction effects in the model. Guided search space based off of commonly used principles in model selection that are relevant in real world situations. Able to perform a GWAS with included epistatic interactions a fairly quick manner. Able to relax assumptions to widen the search space. This may decrease the speed of the algorithm but makes the search more comprehensive. Able to screen for complex scenarios that would be hard to find in a lab setting otherwise. Having said that with the flexiblity of the initial model, false posiive rates could be a concern and need to be taken into consideration. Adjustement to the significance level and the model selection criteria have been made to account for this. This would still need to be followed up on independtly by checking with other datasets and/or lab verification.</p>
+<p>In my disseration I have applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by  that is able to reduce search space substantially by making some reasonable assumptions about the data. These assumptions can be relaxed a little to broaden the scope of the space. The procedure ahs been applied in both simulated and real datasets in all areas of study. There are many advantages to using such a procedure with some being it is a computationally efficient way for high dimensional data situations that arise from high throughput data, especially when considering epistasis between gene markers or other type of interaction effects in the model. Guided search space based off of commonly used principles in model selection that are relevant in real world situations. It is able to perform a GWAS with included epistatic interactions a fairly quick manner. Able to relax assumptions to widen the search space. This may decrease the speed of the algorithm but makes the search more comprehensive. Also it is able to screen for complex scenarios that would be hard to find in a lab setting otherwise. Having said that with the flexiblity of the initial model, false posiive rates could be a concern and need to be taken into consideration. Adjustement to the significance level and the model selection criteria have been made to account for this. This would still need to be followed up on independtly by checking with other datasets and/or lab verification.</p>
 <p>Functional componenets were also considered to such a selection procedure. This also increases the computational complexity of the model and therefore decreases some efficeiency gains previously seen. Use biologically relevant information to guide the fitting of the model. Initially considers well established growth equations as a baseline for the underlying structure. It then performs a GWAS level analysis with considering epstatic interactions throughout the process.</p>
 </div>
 <div id="discussion-3" class="section level2">
 <h2><span class="header-section-number">5.2</span> Discussion</h2>
-<p>complex and many moving parts to the selection procedure. Very flexible but this could have it be prone to over fitting at times if not well controlled. Need to heavily consider this as part of interpretating the model. Mainly used a screening to guide future research.</p>
-<p>With the complexity and expense that comes with genetic mapping, espically with a functional trait that needs repeated measuresUsed as a screening tool for initial findings and exploratory data analysis to aid and guide future research. Needs to be then be lab validated. Especially with something as intricate as epistatic effects between gene markers.</p>
+<p>The selection procedures proposed attempt to address problems that are complex and have many moving parts to the procedure. Using a flexible model is very helpful to fulfill such requirements but this could have it be prone to over fitting at times if not well controlled. Need to heavily consider this as part of interpretating the model. Using stricter selection criteria and corrections to multuple testing for significance is extremely important. The main purpose is to use a screening to guide future research, use for exploratory data analysis and hypothesis genration.</p>
+<p>With the complexity and expense that comes with genetic mapping, especially with a functional traits that needs repeatedly measured over time. Correlation structures are inherent in this data that need be addressed and usually done so at a heavy computational cost. Framing the problem as a regression problem and beingn able to use OLS calculations help to reduce the cost. Verification steps are important steps especially with something as intricate as epistatic effects between gene markers.</p>
 <p>Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.</p>
-<p><strong>BIC Limitations (wikipedia)</strong> the above approximation is only valid for sample size n much larger than the number k of parameters in the model.</p>
-<p>the BIC cannot handle complex collections of models as in the variable selection (or feature selection) problem in high-dimension.[3]</p>
 </div>
 <div id="future-steps" class="section level2">
 <h2><span class="header-section-number">5.3</span> Future Steps</h2>
+<p>More extensive explaination of future aims will be necessary for the final write up.</p>
 <div id="aim-1" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Aim 1</h3>
-<p>incorporate other mean curves for intercept term Other types of orthogonal polynomials general additive models components</p>
-<p>consider different level of interactions and omics data. gene-environment methylation</p>
+<p>Incorporating other mean curves for the intercept term could help extend and relate to other areas of biology that follow a functional trait. There are also other types of orthogonal polynomials that could be explored as well. Using others polynomials would allow for other fits to the data that may be more applicable in other scenarios. Also using other basis functions in general could open up opportunties for other areas of application.</p>
 </div>
-<div id="aim-2" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Aim 2</h3>
-<p>extend to include multivariate reponses to the system how to extend selection criteria in this fashion search space grows even larger what is defined as the ‘best’ predictor for 1 reponse might not be for the others</p>
 </div>
+<div id="aim-2" class="section level2">
+<h2><span class="header-section-number">5.4</span> Aim 2</h2>
+<p>Other interesting areas would be to consider different levels of interactions with other omics data. Gene-gene interactions considered are only a portion of the picture and this type of modeling could also handle more levels of interactions that occur in a biological system. One area that I am particularly interested in applying would be in methylation studies of the gene expression. This level of interaction is very important and a selection procedure like the one proposed could help screen and generate of possible effects and hypothesis to continue to look into. It would also apply in gene-environment interactions. This does not have to be restricted to just within the biological system under study. Environmental factors are important areas that could vastly impact the development of a phenotype.</p>
 <div id="aim-3" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Aim 3</h3>
-<p>We have finished a nice book.</p>
+<h3><span class="header-section-number">5.4.1</span> Aim 3</h3>
+<p>Statistical areas that could as be considered to extend the model would be to include multivariate reponses to the system. For example having gene and protein expression being a bivariate reponse and to see how genetic markers and epistasis between the markers would better predict this by taking the correlation between those two response variables into account. Other statistical considerations would be to extend selection criteria to help further reduce the possibility of false positves being selected given a growing dataset like the one that occurs while dynamically including interaction effects throughout the selection. Making the model even more computational efficient would always be benefical as well. The faster a model can accurately run the more likely a researcher will use it. It will also help process all the high throughput data that is being constantly developed.</p>
+</div>
+<div id="closing-remarks" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Closing Remarks</h3>
+<p>Continuing on, my aim would be to work with datasets of this scale and incorporate the types of statistical methods mentioned and machine learning techniques to aid in analysis. The results could help gain larger insights into the genomic/epigenetic architecture of biological systems. On top of the importance of a functional component to the phenotype, considering other types of multivariate responses would be interesting to study in context of such a system. Integrating different level of omics data and the challenges that arise with such complicated and large datasets has interested me throughout my PhD work. Translating such a complex system into usable information that can be shared in order to prevent and fight disease would be ideal research for me. This type of research would need both methodological development as well as application of existing statistical and machine/deep learning techniques to handle the magnitude of the problem.</p>
 
 </div>
 </div>

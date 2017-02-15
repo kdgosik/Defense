@@ -30,23 +30,18 @@ Marker Regression would fall in the category of Least Squares approaches.  If lo
 
 ##	Chapter Overview
 
-The main goal of this paper is to propose an improved variational linear regression approach for high scale variable selection problems such as the ones arising in epistatic analysis
+The main goal of this paper is to propose an improved selection procedures which use regression techniques to approach high scale variable selection problems such as the ones arising in epistatic analysis
 
 The variable selection procedure for QTLs mapping can be seen as one of deciding which subset of variables have effects on phenotypes, and identifying out all possible effects of those markers.
 
 
-### iForm (change chapter names)
-
-### iForm Higher Order (change chapter names)
- 
-### iForm Funcional Mapping (change chapter names)
+### HighDeQTL
 
 
+### Higher Order Epistasis
 
 
-
-
-
+### iForm Funcional Mapping
 
 
 

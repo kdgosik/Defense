@@ -18,7 +18,7 @@ of all of the predictors is captured by a simple linear fit.  Reframing the regr
 
 ### Regression by linear combination of  basis functions
 
-One common approach to regression problems is to frame the model as a linear combination of basis functions.  In typical multiple regression the design matrix would be the values of the observed predictors and these would be used to fit the model, usually with a least squares approach.  The goal then being to fit the expected value of the phenotype of interest in terms of the values of the predictors.  This would result in a linear model of the form,
+<p> One common approach to regression problems is to frame the model as a linear combination of basis functions.  In typical multiple regression the design matrix would be the values of the observed predictors and these would be used to fit the model, usually with a least squares approach.  The goal then being to fit the expected value of the phenotype of interest in terms of the values of the predictors.  This would result in a linear model of the form,
 
 \begin{equation}
 Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
@@ -32,9 +32,9 @@ f(x) = \sum_{i=0}^P \theta_i \phi_i(x)
 (\#eq:gen-form)
 \end{equation}
 
-where the $\phi$ are the basis functions of the researchers choosing.  Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area.  A common choice is to use polynomial regression, where $/phi$ would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model.  This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger.  Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor.  With the predictor set being at a high dimensional level already, this may not be something feasible to do.  The other area of concern is that it would give a way for higher correlation between effects in the model.  This would violate the intial assumptions of the model.  
+where the $\phi$ are the basis functions of the researchers choosing.  Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area.  A common choice is to use polynomial regression, where $/phi$ would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model.  This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger.  Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor.  With the predictor set being at a high dimensional level already, this may not be something feasible to do.  The other area of concern is that it would give a way for higher correlation between effects in the model.  This would violate the intial assumptions of the model.</p>
 
-Standard polynomial regression is just one case of using basis functions in linear regression.  There are many transformations that are able to be performed to invoke nicer properities to the data.  The basis functions that are going to be focused on in this work are orthogonal polynomials.  This would be a special case of polynomial regression that would alleviate some of the drawbacks mentioned above.  Orthogonal polynomials by definition are othogonal to each other and therefore would not have any correlation between predictors when used as basis functions.  Also as an advantage, polynomial regression can be used to make similar types of interest as other types of multiple regression analysis.  It does this while modeling a non-linear relationship between the phenotype and genetic markers without having to use complex optimization methods.  Ordinary leasat squares would still apply in this framework, making it more computational effecient as well.  One specific class of othogonal polynomials that will be used are the Legendre polynomials because of the nice properites they posses.  
+<p> Standard polynomial regression is just one case of using basis functions in linear regression.  There are many transformations that are able to be performed to invoke nicer properities to the data.  The basis functions that are going to be focused on in this work are orthogonal polynomials.  This would be a special case of polynomial regression that would alleviate some of the drawbacks mentioned above.  Orthogonal polynomials by definition are othogonal to each other and therefore would not have any correlation between predictors when used as basis functions.  Also as an advantage, polynomial regression can be used to make similar types of interest as other types of multiple regression analysis.  It does this while modeling a non-linear relationship between the phenotype and genetic markers without having to use complex optimization methods.  Ordinary leasat squares would still apply in this framework, making it more computational effecient as well.  One specific class of othogonal polynomials that will be used are the Legendre polynomials because of the nice properites they posses. </p>
 
 
 ### Legendre Polynomials
@@ -101,7 +101,7 @@ An important property of the Legendre polynomials is that they are orthogonal wi
 (\#eq:orthg-leg)
 \end{equation}
 
-$\delta_{mn}$ denotes teh Kronecker delta equalt to 1 if m = n and 0 otherwise
+$\delta_{mn}$ denotes the Kronecker delta equalt to 1 if m = n and 0 otherwise.  These polynomials can be generated by using the following recursively.  Each Legendre polynomial would be the next order n in the expression below.  
 
 
 \begin{equation}
@@ -113,119 +113,83 @@ P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 (\#eq:leg-eq)
 \end{equation}
 
-
-
-
-
-
-
-
-**free write**
-
-Because the non-parametic nature of the legendre orthogonal polynomials, it was advantages for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset.  
-
-The search performed by the procedure checks and uses the legendre polynomials of different orders to find the best fitting form of the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.  
+With nature of the Legendre orthogonal polynomials, it was advantages for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset. By seeing which polynomial curve fits the given phenotype, it removes some of the challenges when fitting the model. Different orders of the polynomial are tried throughout the procedure to allow for flexibility in the fitting the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.  
 
 
 
 ### Model 
 
-**2HIGWAS**
-Because interaction effects are considered,
-the coverage probability P is redefined as three quantities:
-PA, the coverage rate of all true predictors; PM, the coverage
-rate of all main effects; and PI, the coverage rate of all interaction
-effects.
+The layout of the underlying model is first fit to an asymptotic growth model described by a logistic curve of the form,
 
-
-
-**update** 
-2HIGWAS \cite{jiang20152higwas}
-
-We consider the complex trait as a growth trait. Thus, it is biologically meaningful to implement a growth equation, like a logistic curve, to describe growth trajectory \cite{west2001general}. We describe the population mean growth curve by the growth equation 
 $$\mu(t) = a/(1 + b * exp(-r*t))$$
 
-where a, b and r are growth parameters each of biological interpretation, with a being the asymptotic growth, b being the initial amount of growth and r being the relative growth rate. Timevarying additive and dominant effects of significant SNPs are modeled by a nonparametric approach, such as Legendre orthogonal polynomial used in quantitative genetic studies (\cite{olori1999estimating},\cite{li2010functional}], expressed as
+It is biologically meaningful to implement a growth equation, like a logistic curve, to describe growth trajectory \cite{west2001general}. Here the population is described by a mean growth curve by this growth equation where a, b and r are growth parameters each provide a biological interpretation, with a being the asymptotic growth, b being the initial amount of growth and r being the relative growth rate. Timevarying additive and dominant effects of significant SNPs are modeled by the Legendre orthogonal polynomial used in quantitative genetic studies, mentioned above.   (\cite{jiang20152higwas}, \cite{olori1999estimating}, \cite{li2010functional}).  This representation can be expressed as
 
 $$ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T $$
 $$ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T $$
 
-where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, such as Akaike information criterion (AIC) and Bayesian information criterion (BIC), are usually much smaller than M so that the dimension of response phenotypic data is reduced through LOP modeling. The variance maxtrix of residual errors is assumed to follow the first-order structured antedependence [SAD(1)] process (\cite{li2010functional}). The SAD(1) model has been used in previous growth modeling studies (\cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).
-
-
+where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, for the purposes of this procedure the Bayesian information criterion ($BIC_2$), orignally developed by \cite{chen2008extended} was implemented.  A nice feature that comes from modeling the fit in this manner is that the dimension of response phenotypic data is reduced through LOP modeling. (\cite{li2010functional}, \cite{jiang20152higwas}, \cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).  Writing the model out more explicitly we would have,
 
 \begin{equation}
 \begin{split}
-y(t) = \mu(t) &+
-\sum_{j=1}^{J}\alpha_j(t)\xi_j &+
-\sum_{k=1}^{K}\beta_k(t)\zeta_k &+ \sum_{I_1<I_2=1}^{I}\gamma_I^{aa}(t)\xi_I_1\xi_I_2 &+ \sum_{I_1<I_2=1}^{I}\gamma_I^{ad}(t) \xi_I_1\zeta_I_2 &+ \sum_{I_1<I_2=1}^{I} \gamma_I^{da}(t) \zeta_I_1\xi_I_2 &+ \sum_{I_1<I_2=1}^{I} \gamma_I^{dd}(t) \zeta_I_1\zeta_I_2 &+ \epsilon(t)
+y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k \\ 
+&+ \sum_{I_1<I_2=1}^{I}\gamma_I^{aa}(t) \xi_{I_1}\xi_{I_2} \\ 
+&+ \sum_{I_1<I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} \\
+&+ \sum_{I_1<I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} \\
+&+ \sum_{I_1<I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} \\ 
+&+ \epsilon(t)
 \end{split}
-(\#eq: epi-legendre)
+(\#eq:epi-legendre)
 \end{equation}
 
-**me**
-The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.
+
+### Applying the iForm Procedure
+
+<p> An outline of the selection procedure used following the model described is as follows.  At first the mean growth curve is estimated for the presented data following the logist growth curve.  This could be adjusted depending on the funcitonal process the researcher is studying.  Once the mean curve is fit the selection procedure is intialized in a similar fashion as mentioned in previous chapters \@ref{highdeqtl}.  Both the solution set and the model set are assigned to the empty set, $S_0=\emptyset$ and $M_0=\emptyset$. The candidate set starts off containing all main effects for the additive and dominant effects of each SNP.  The selection procedure then begins and each SNP is assessed and the best fitting candidate is then placed in the selection set.  While assessing each candidate SNP, an additional search is performed for the best fitting polynomial fit up to a pre-specified order that is determined at the begining of the procedure.  The orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other functional models or other types of non-linear functions that characterizes the biological systems being evaluated. We are treating the polynomials as a basis function for the regression problem and therefore the Residual Sum of Squares is calculated similar to multiple regression but replacing the design matrix with the necessary basis functions.  This continues until a designated stopping value is reached.  The $BIC_2$ is then used to find the optimal fit given the selection procedure performed.  The following graphics show how the process works at each step </p>
 
 
 
+```{r growth-example, fig.cap='Example Growth Curve', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+knitr::include_graphics("images/GrowthCurveExample.png")
+```
 
-__BIC__
+```{r growth-exampledata, fig.cap='Example Data with Growth Cruve', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+knitr::include_graphics("images/ExampleDataGrowthCurve.png")
+```
 
-Similarly, following the classical BIC rule (Swartz 1978), we can define the BIC rule for the cubic MESS model as
-
-$$BIC(\lambda, \lambda_v ) = -2*LogLik + log(n)*(df + df_v)$$
-n is the number of subjects \cite{wu2006nonparametric}
-$$\lambda = smoothing paramter$$
-$$\lambda_v = smoothing paramter, number of knots in the cubic spline$$
-
-
-Considering a comprehensive gentotyping for n progeny each measure across different time points.  
-
-
-
-
-
-
-
+```{r legendre-fit, fig.cap='Additional Legendre Fit to Data', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+knitr::include_graphics("images/LegendreFit.png")
+```
 
 
 ## Application
 
-
 ### Simulation Studies
 
-As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures.  
-
-
-Extensive simulation studies were performed to ascertain the validity of the model.  Computational verified by cross validation, bootstrapping.  Having a training and a testing set to help provide some insight on false positive rates, selecting the correct fit of the polynomial for the genetic and epsitatic effects.  
-
-
-* rates at which correct markers/epistasis was selected?
-* rates at which the correct order polynomial was fit for the correct marker/epistasis
-
-
-
+As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures.Simulation studies were performed to ascertain the validity of the model.  Rates at which correct markers/epistasis were selected and overall model true model size was assessed. Data was original generated from a mean curve following the growth equation described above. It was then sampled from a multivariate normal distribution with the mean vector following the generated and with correlated errors over time. Significant effects were also included in the model to simulate different marker levels.  These effects could be main effects of SNPs, or epistatic effects of interaction between SNPs.  There were a total of 4 main effects and three interaction effects simulated.  This simulation was replicated 100 times and then the selection procedure was ran.  It performed well with 93% of the replicates selecting all main and interaction effects and the other 7% of the models select a majority of the effects.  The model size simulated was of size 7.  The average model size of the replicates fit was around 13.5.  This would indicate some slight over-fitting but all important effects were included in the model.  Some considerations for this need to be looked into further for future work.  
 
 
 ### Worked Example
 
-Same mei tree dataset used in previous chapter to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simulatneously throughout the procedure.  
+As a comparison to what was done before in \@ref(highorder) the same mei tree dataset used in this chapter was studyied again.  This serves as a comparison to previous performance and also to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simulatneously throughout the procedure.  The previous model only fit one parameter of the growth equation as a time and assessed the genetic markers that had a significant impact of this parameter.  The parameter focused on was the rate parameter,r for the shoot height of the progeny.  The initial results running the analysis with a single predictor and using the selection procedure are,
 
+<!-- \begin{center}  -->
+<!-- \includegraphics[width=8in]{EpistasisDetection_HTGrowthRate.pdf}  -->
+<!-- \end{center} -->
 
-if it doesn't take too much time (maybe by the time defense comes around) cross validate the selection proceudre by leaving out samples and running model again.  How many times do you get the same results?  LOOCV tables
+As a comparison here are the results for simulatneaously fitting the growth curve and allowing for a more flexible genetic effect to be fit to the data.  As you can see there are overlapping markers identified in the models.  This shows the robustness of the new selection technique to be consistent with previous models.  You can also see that the fit of the overall model has also increased.  By including all effects at once, you gain more statistical power and it boost the adjusted R square value from 0.71 to above 0.9.  This boost in model performance could be partially due to some over-fitting like we observed in the simulation studies and therefore a very strict bonferroni correction was implmented to assess whether individual markers were truly significant.  Even with a strict cut-off we stil observed 3 epistatic predictors to be highly significant.  This shows the importance of inlcuding such terms while performing such a GWAS.  The other area to note is the highly significant intercept term, which in our case is the result of the growth curve fit before implementing the selection procedure.  This inidicates also the importance of including biologically relevant information in the model to help better understand the genetic architecture being studied of the phenotype.  
 
-Also consider with holding predictors from the dataset to see if the selection is changed at all.  Start with random ones and then maybe strategically select important predictors to remove to see how it affects the fit
-
-
+<!-- \begin{center}  -->
+<!-- \includegraphics[width=8in]{HT_ResultsTable.pdf}  -->
+<!-- \end{center} -->
 
 
 ## Discussion
 
-* Downfalls or areas of concern for fitting the genetic effects to the polynomials?
-* How do we know there is epistasis?
-* how do you keep it from over selecting
-* what if it doesn't follow the heredity or hierarchy principles?
-* other types of functional/growth equations to represent biologically meaningful scenarios
+The new model proposed has some very nice features and seems to perform well in the given application.  Considering the complexity of working high dimensional data coupled with including epsitatic effects as well as a functional component to the phenotype, it performs relatively efficiently.  Using OLS type calculations aided in this efficiecy.  This was enabled by the framing of the regression problem as a linear combination of basis functions. The agreeable properties of orthogonal polynomials helped ensure model assumptions are being met as closely as possible in order to use the calcuations.  Also by including the biologically meaningful logistic growth equations it helps fit a baseline fit to the data and would better allow for individual genetic effects to be found throughout the selection. These would of course have to be lab verified in order to assess the true biological mechanisms at play for the genetic control of the phenotype.  
+
+Some possible areas of concern for fitting the genetic effects to the polynomials could be that the effect does not conform to the polynomial curve under consideration.  This can be alleviated by using other types of basis functions such as splines, but this would also cost a huge amount in computational efficiency with such a high dimensional data set.  You need to be as efficient as possible when implementing a GWAS style study with the inclusion of possible epistasis.  False positives could be of concern as well throughout the selection.  The flexibility of the model and the wide range of polynomial fits that are considered could result in artifacts in the data to be picked up on.  This is partially alleviated by using improved selection criteria like the $BIC_2$ and also having stricter than conventional cut-off values for significance testing.  However these would still need to be assessed further through computational techniques such as cross-validation and bootstrapping.  The selection procedure is effective as a screening tool for exploratory data analysis and hypothesis generation.  Lab verification would be another area that would help validate the findings even futher.  The comparison to previously run models is promising step in assesing the validity of the model at hand.  
+
 
 
 

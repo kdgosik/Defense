@@ -2,9 +2,6 @@
 
 ## Motivation
 
-**Shoot-Root Manuscript**
-Following Sun et al.’s \cite{sun2014model} developmental model, we calculated and chose four key heterochronic parameters, asymptotic growth (a), relative growth rate (r), the timing of inflection point (TI), and the duration of linear growth (L), as phenotypic values to perform QTL mapping. A great variability was observed for growth curve parameters of both phenotypic traits (Table 1). Compared with taproot length, shoot length has a greater rate of growth and reaches the maximum growth rate at an earlier 
-
 **Start of My Paper**
 <p> Quantitative traits are very difficult to study because these traits are controlled by many genes that interact in a complicated way (\cite{nelson2013century}; \cite{mackay2014epistasis}). Genome-wide mapping and association studies increasingly available due to next-generation high-throughput genotyping techniques have proven to be useful for characterizing gene-gene interactions, coined epistasis, that contribute to phenotypic variation (\cite{cordell2009detecting}; \cite{van2011travelling}; \cite{wei2014detecting}). Powerful statistical methods have been developed to analyze all possible markers simultaneously, from which to search for a complete set of epistasis for quantitative traits (\cite{li2014fast}; \cite{gosik2016iform}). The joint analysis of all markers is particularly needed to chart an overall picture of genetic interactions, in comparison with computationally less expensive marginal analysis. </p>
 
@@ -13,11 +10,6 @@ Following Sun et al.’s \cite{sun2014model} developmental model, we calculated 
 <p> The theoretical models of high-order epistasis have well been established by mathematical biologists (\cite{hansen2001epistasis}; \cite{beerenwinkel2007analysis}). These models provided a foundation to interpret high-order epistasis from a biological standpoint. A few statistical models have been derived to estimate and test high-order epistasis in case-control designs (\cite{wang2015bayesian}) and population-based mapping settings (\cite{pang2013statistical}). \cite{wang2015bayesian} developed a Bayesian version of detecting high-order interactions for both continuous and discrete phenotypes. However, these models were based on a marginal analysis, thus less powerful to illustrate a global view of genetic control mechanisms due to high-order epistasis. </p>
 
 <p> In this article, we deploy a variable selection procedure within a genetic mapping or association setting to characterize the genetic architecture of complex traits composed of main effects of individual genes, pairwise epistasis between two genes, and three-way epistasis among three genes. The model was built on greedy interaction screening forward selection developed under the marginality principle (named iFORM) by \cite{hao2014interaction}. These approaches, proved to possess sure screening property for ultrahigh-dimensional modeling, have been implemented to model the genetic architecture of main effects and pairwise epistasis due to eQTLs for gene transcripts (\cite{gosik2016iform}). Here, we extend the implementation of iFORM to systematically capture three-way interactions that are expressed among all possible markers studied. To show the statistical power of the extended model, we performed computer simulation studies. The model was further validated through analyzing a real data of genetic mapping for shoot growth in a woody plant, mei (Prunus mume). The model should be used in any other mapping or association studies of quantitative traits. </p>
-
-
-
-**Add a paragraph to motivation section**
-  Continue on about the rest of the chapter as  an overview
 
 
 ## Methods
