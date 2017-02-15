@@ -12,9 +12,18 @@ able to reduce search space substantially by making some reasonable assumptions 
 
 
 
+advantages
+
+computationally efficient way for high dimensional data situations that arise from high throughput data, especially when considering epstasis between gene markers or other type of interaction effects in the model.  Guided search space based off of commonly used principles in model selection that are relevant in real world situations.  Able to perform a GWAS with included epistatic interactions a fairly quick manner.  Able to relax assumptions to widen the search space.  This may decrease the speed of the algorithm but makes the search more comprehensive.  Able to screen for complex scenarios that would be hard to find in a lab setting otherwise.  Having said that with the flexiblity of the initial model, false posiive rates could be a concern and need to be taken into consideration.  Adjustement to the significance level and the model selection criteria have been made to account for this.  This would still need to be followed up on independtly by checking with other datasets and/or lab verification.  
+
+Functional componenets were also considered to such a selection procedure.  This also increases the computational complexity of the model and therefore decreases some efficeiency gains previously seen.  Use biologically relevant information to guide the fitting of the model.  Initially considers well established growth equations as a baseline for the underlying structure.  It then performs a GWAS level analysis with considering epstatic interactions throughout the process.  
+
+
+
+
 ## Discussion
 
-complex and many moving parts to the selection procedure.  Very flexible but this could have it be prone to over fitting at times if not well controlled.
+complex and many moving parts to the selection procedure.  Very flexible but this could have it be prone to over fitting at times if not well controlled.  Need to heavily consider this as part of interpretating the model.  Mainly used a screening to guide future research.  
 
 With the complexity and expense that comes with genetic mapping, espically with a functional trait that needs repeated measuresUsed as a screening tool for initial findings and exploratory data analysis to aid and guide future research.  Needs to be then be lab validated.  Especially with something as intricate as epistatic effects between gene markers.
 
@@ -26,6 +35,10 @@ the above approximation is only valid for sample size n much larger than the num
 
 the BIC cannot handle complex collections of models as in the variable selection (or feature selection) problem in high-dimension.[3]
 
+
+
+
+
 ## Future Steps
 
 ### Aim 1
@@ -33,6 +46,11 @@ the BIC cannot handle complex collections of models as in the variable selection
 incorporate other mean curves for intercept term
 Other types of orthogonal polynomials
 general additive models components
+
+consider different level of interactions and omics data.
+gene-environment
+methylation
+
 
 ### Aim 2
 
@@ -42,4 +60,7 @@ search space grows even larger
 what is defined as the 'best' predictor for 1 reponse might not be for the others
 
 ### Aim 3
+
+
+
 We have finished a nice book.

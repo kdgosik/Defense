@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2017.1.24)  13 FEB 2017 21:42
+This is XeTeX, Version 3.14159265-2.6-0.99992 (MiKTeX 2.9 64-bit) (preloaded format=xelatex 2017.1.24)  15 FEB 2017 01:29
 entering extended mode
 **./Defense.tex
 (Defense.tex
@@ -815,41 +815,41 @@ File: babel.def 2016/02/09 3.9q Babel common definitions
 (Defense.aux)
 \openout1 = `Defense.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 152.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 152.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 150.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 150.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tipa\t3cmr.fd"
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 152.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 150.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
 *** you should *not* be loading the inputenc package
 *** XeTeX expects the source to be in UTF8 encoding
 *** some features of other encodings may conflict, resulting in poor output.
-LaTeX Info: Redefining \microtypecontext on input line 152.
+LaTeX Info: Redefining \microtypecontext on input line 150.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -893,7 +893,7 @@ ern Roman (RS)
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring OFF on input line 152.
+Package hyperref Info: Link coloring OFF on input line 150.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
@@ -901,9 +901,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count176
 )
-LaTeX Info: Redefining \ref on input line 152.
-LaTeX Info: Redefining \pageref on input line 152.
-LaTeX Info: Redefining \nameref on input line 152.
+LaTeX Info: Redefining \ref on input line 150.
+LaTeX Info: Redefining \pageref on input line 150.
+LaTeX Info: Redefining \nameref on input line 150.
 (Defense.out) (Defense.out)
 \@outlinefile=\write4
 \openout4 = `Defense.out'.
@@ -911,9 +911,9 @@ LaTeX Info: Redefining \nameref on input line 152.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\se-ascii-print.def"
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
-) [-9
+) [1
 
-] [-8] [-7] [-6
+] [2] [3] [4
 
 ] (Defense.toc
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
@@ -956,124 +956,91 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 Underfull \vbox (badness 2512) has occurred while \output is active []
 
-[-5])
+[5])
 \tf@toc=\write5
 \openout5 = `Defense.toc'.
 
-[-4] (Defense.lot)
+[6] (Defense.lot)
 \tf@lot=\write6
 \openout6 = `Defense.lot'.
 
-[-3
+[7
 
-] [-2
+] [8
 
 ] (Defense.lof)
 \tf@lof=\write7
 \openout7 = `Defense.lof'.
 
-[-1] [0
+[9] [10
 
 ]
 Chapter 1.
 [1]
 File: images/SNP_Picture.png Graphic file (type QTm)
 <use  "images/SNP_Picture.png" >
+Underfull \vbox (badness 1881) has occurred while \output is active []
+
+[2] [3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[2]
-Underfull \vbox (badness 3199) has occurred while \output is active []
-
-[3] [4]
+[4]
 File: images/SystemsMapping.png Graphic file (type QTm)
 <use  "images/SystemsMapping.png" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[5]
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 347
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 348
 .
 ("C:\Program Files\MiKTeX 2.9\tex\latex\euenc\eu1lmtt.fd"
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[5]
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 347.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 358.
 File: Defense_files/figure-latex/nice-fig-1.pdf Graphic file (type QTm)
-<use  "Defense_files/figure-latex/nice-fig-1.pdf" > [6] [7] [8]
-Chapter 2.
-[9
+<use  "Defense_files/figure-latex/nice-fig-1.pdf" >
+Underfull \vbox (badness 1817) has occurred while \output is active []
+
+[6] [7] [8
 
 ]
+Chapter 2.
+[9]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
 [10]
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-[11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[12]
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+[11] [12]
 Missing character: There is no … in font rm-lmr10!
+Missing character: There is no ⋯ in font rm-lmr10!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
 [13]
 Missing character: There is no ⋯ in font rm-lmr10!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
 Missing character: There is no ⋯ in font rm-lmr10!
-Missing character: There is no ⋯ in font rm-lmr10!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no … in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
 [14]
-Missing character: There is no ≤ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ≤ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ≤ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no β in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ≠ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ∈ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no β in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ≠ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ∈ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no γ in font lmmi10!
 Missing character: There is no ≠ in font rm-lmr10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no 〖 in font rm-lmr10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no 〗 in font rm-lmr10!
-Missing character: There is no ≠ in font rm-lmr10!
-Missing character: There is no ∀ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 [15]
-Missing character: There is no ∅ in font rm-lmr10!
-Missing character: There is no ∅ in font rm-lmr10!
-Missing character: There is no ̂ in font lmmi10!
-Missing character: There is no σ in font lmmi10!
-Missing character: There is no ̂ in font lmmi10!
-Missing character: There is no ̂ in font lmmi10!
-Missing character: There is no ̂ in font lmmi10!
-Missing character: There is no σ in font lmmi10!
-Missing character: There is no ̂ in font lmmi10!
-Missing character: There is no ̂ in font lmmi10!
-Missing character: There is no ξ in font lmmi8!
-Missing character: There is no ξ in font lmmi10!
-[16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17]
-Missing character: There is no ■ in font rm-lmr10!
-[18]
-Missing character: There is no σ in font [lmroman10-bold]:mapping=tex-text!
+[16] [17]
+Missing character: There is no σ in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no ∈ in font rm-lmr10!
 Missing character: There is no β in font lmmi10!
 Missing character: There is no 〖 in font rm-lmr10!
 Missing character: There is no 〗 in font rm-lmr10!
 Missing character: There is no γ in font lmmi10!
 Missing character: There is no ∈ in font rm-lmr10!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[19]
+[18]
 Missing character: There is no ∑ in font rm-lmr10!
 Missing character: There is no ▒ in font rm-lmr10!
 Missing character: There is no 〖 in font rm-lmr10!
@@ -1104,33 +1071,46 @@ Missing character: There is no ▒ in font rm-lmr10!
 Missing character: There is no 〖 in font rm-lmr10!
 Missing character: There is no ̂ in font lmmi10!
 Missing character: There is no 〗 in font rm-lmr10!
-[20] [21]
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
+
+Underfull \vbox (badness 4120) has occurred while \output is active []
+
+[19]
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+[20]
+Underfull \vbox (badness 4120) has occurred while \output is active []
+
+[21]
+Underfull \vbox (badness 4120) has occurred while \output is active []
+
 [22]
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+[23]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[23] [24]
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-[25]
-Underfull \vbox (badness 4120) has occurred while \output is active []
-
-[26]
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
+[24]
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no  in font [lmroman10-regular]:mapping=tex-text!
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[27] [28] [29] [30
+[25] [26]
+Chapter 3.
+[27
 
 ]
-Chapter 3.
-[31]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[32] [33] [34]
+[28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[29]
 Missing character: There is no … in font rm-lmr10!
+
+Underfull \vbox (badness 5417) has occurred while \output is active []
+
+[30]
 Missing character: There is no … in font rm-lmr10!
 Missing character: There is no  in font rm-lmr10!
 Missing character: There is no  in font rm-lmr10!
@@ -1139,15 +1119,12 @@ Missing character: There is no  in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
-Missing character: There is no γ in font lmmi10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no η in font lmmi10!
-Missing character: There is no ϵ in font lmmi10!
-Missing character: There is no σ in font lmmi10!
-Missing character: There is no σ in font [lmroman10-bold]:mapping=tex-text!
+Missing character: There is no σ in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no … in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
 Missing character: There is no ≤ in font rm-lmr10!
@@ -1165,65 +1142,41 @@ Missing character: There is no ∈ in font rm-lmr10!
 Missing character: There is no η in font lmmi10!
 Missing character: There is no ≠ in font rm-lmr10!
 Missing character: There is no ∈ in font rm-lmr10!
-[35] [36]
-Missing character: There is no σ in font lmmi10!
-Missing character: There is no σ in font lmmi10!
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1281) has occurred while \output is active []
+
+[31] [32]
+Missing character: There is no σ in font lmmi10!
+Missing character: There is no σ in font lmmi10!
+[33] [34]
+Missing character: There is no … in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
+Missing character: There is no ≥ in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
+Missing character: There is no ≤ in font rm-lmr10!
+Missing character: There is no ξ in font lmmi10!
+Missing character: There is no ξ in font lmmi10!
+Missing character: There is no ξ in font lmmi10!
+
+Underfull \vbox (badness 4120) has occurred while \output is active []
+
+[35] [36]
+Underfull \vbox (badness 4120) has occurred while \output is active []
 
 [37]
-Underfull \vbox (badness 4120) has occurred while \output is active []
-
-[38] [39]
-Missing character: There is no … in font rm-lmr10!
-Missing character: There is no τ in font lmmi10!
-Missing character: There is no τ in font lmmi10!
-Missing character: There is no ∞ in font rm-lmr10!
-Missing character: There is no 〖 in font rm-lmr10!
-Missing character: There is no √ in font rm-lmr10!
-Missing character: There is no τ in font lmmi10!
-Missing character: There is no 〗 in font rm-lmr10!
-Missing character: There is no λ in font lmmi10!
-Missing character: There is no Σ in font lmmi10!
-Missing character: There is no ≤ in font rm-lmr10!
-Missing character: There is no λ in font lmmi10!
-Missing character: There is no Σ in font lmmi10!
-Missing character: There is no 〖 in font rm-lmr10!
-Missing character: There is no √ in font rm-lmr10!
-Missing character: There is no τ in font lmmi10!
-Missing character: There is no 〗 in font rm-lmr10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no ≤ in font rm-lmr10!
-Missing character: There is no β in font lmmi8!
-Missing character: There is no β in font lmmi8!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no ≥ in font rm-lmr10!
-Missing character: There is no ν in font lmmi10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no η in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no β in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-Missing character: There is no ν in font lmmi10!
-Missing character: There is no ≤ in font rm-lmr10!
-Missing character: There is no ν in font lmmi10!
-Missing character: There is no ξ in font lmmi8!
-Missing character: There is no ≤ in font rm-lmr10!
-Missing character: There is no ν in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-Missing character: There is no ξ in font lmmi10!
-
-Underfull \vbox (badness 4120) has occurred while \output is active []
-
-[40] [41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[42] [43] [44] [45] [46]
+[38]
+Underfull \vbox (badness 1281) has occurred while \output is active []
+
+[39]
+Underfull \vbox (badness 4120) has occurred while \output is active []
+
+[40]
+Underfull \vbox (badness 4120) has occurred while \output is active []
+
+[41]
 File: images/GrowthCurveComparison.png Graphic file (type QTm)
 <use  "images/GrowthCurveComparison.png" >
 Missing character: There is no – in font rm-lmr10!
@@ -1285,7 +1238,7 @@ Missing character: There is no – in font rm-lmr10!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47] [48]
+[42]
 File: images/EpistasisComparison.png Graphic file (type QTm)
 <use  "images/EpistasisComparison.png" >
 Missing character: There is no – in font rm-lmr10!
@@ -1296,118 +1249,84 @@ Missing character: There is no – in font rm-lmr10!
 Missing character: There is no – in font rm-lmr10!
 Missing character: There is no – in font rm-lmr10!
 Missing character: There is no – in font rm-lmr10!
-[49] [50]
-Underfull \vbox (badness 4120) has occurred while \output is active []
+[43]
+Underfull \vbox (badness 3646) has occurred while \output is active []
 
-[51] [52]
+[44] [45] [46
+
+]
 Chapter 4.
-[53
-
-] [54]
-Underfull \vbox (badness 2057) has occurred while \output is active []
-
-[55]
+[47]
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[56]
-Missing character: There is no η in font lmmi10!
-[57]
-Missing character: There is no η in font lmmi10!
+[48]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \vbox (badness 2772) has occurred while \output is active []
-
-[58] [59]
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no  in font [lmroman10-bold]:mapping=tex-text!
-
-Underfull \vbox (badness 4120) has occurred while \output is active []
-
-[60]
-Missing character: There is no θ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-Missing character: There is no θ in font lmmi10!
-[61]
-Missing character: There is no − in font rm-lmr10!
+[49]
+Missing character: There is no ⋯ in font rm-lmr10!
+[50]
 File: Defense_files/figure-latex/Legendre-fig-1.pdf Graphic file (type QTm)
-<use  "Defense_files/figure-latex/Legendre-fig-1.pdf" >
-Missing character: There is no ≤ in font [lmroman10-bold]:mapping=tex-text!
-Missing character: There is no ≤ in font [lmroman10-bold]:mapping=tex-text!
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1889.
-
+<use  "Defense_files/figure-latex/Legendre-fig-1.pdf" > [51]
+Missing character: There is no ≤ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ≤ in font [lmroman10-regular]:mapping=tex-text!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[62] [63] [64] [65]
-Overfull \hbox (1.57674pt too wide) in paragraph at lines 1986--1988
-[]\EU1/lmr/bx/n/10.95 rates at which the correct order polynomial was fit for t
-he correct marker/epistasis 
- []
+[52]
 
-[66] [67] [68
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 1811.
+
+[53] [54]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[55] [56] [57] [58
 
 ]
 Chapter 5.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[69] [70] [71] [72
+[59] [60]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+[61] [62]
 Chapter 6.
 File: appendix.pdf Graphic file (type QTm)
 <use  "appendix.pdf" >
-Overfull \hbox (33.2598pt too wide) in paragraph at lines 2096--2097
+Overfull \hbox (33.2598pt too wide) in paragraph at lines 2047--2048
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[73]
+[63
+
+]
 Overfull \vbox (12.04843pt too high) has occurred while \output is active []
 
-[74] (Defense.bbl [75
+[64] (Defense.bbl [65
 
-] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2103.
-[86]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2103.
+] [66] [67] [68] [69] [70] [71] [72] [73] [74])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2054.
+[75]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2054.
 (Defense.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2103.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2103.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2054.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2054.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 26050 strings out of 428696
- 452423 string characters out of 3163733
- 520403 words of memory out of 3000000
- 29158 multiletter control sequences out of 15000+200000
+ 26041 strings out of 428696
+ 452066 string characters out of 3163733
+ 521191 words of memory out of 3000000
+ 29149 multiletter control sequences out of 15000+200000
  16684 words of font info for 48 fonts, out of 3000000 for 9000
  1096 hyphenation exceptions out of 8191
- 54i,17n,68p,10407b,626s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 54i,17n,68p,10407b,623s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Defense.pdf (96 pages).
+Output written on Defense.pdf (85 pages).

@@ -1,4 +1,6 @@
 # Introduction {#intro}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 ## Background
 
