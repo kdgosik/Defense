@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <meta name="description" content="My Dissertation Written in Bookdown.">
-  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
 
   <meta property="og:title" content="" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="highorder.html">
 <link rel="next" href="conclusions.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -126,7 +125,7 @@ As we have seen and also has been noted by several researchers while conducting 
 Growth and developmental traits are mostly better described by a functional process (, ), it is more biologically meaningful to map these traits as growth curves (). There have been a few different approaches that have integrated growth equations into genetic mapping via the likelihood function, leading to the birth of a so-called functional mapping models (; ; ; ). These style of appoaches can allow for the developmental change of genetic control to be characterized across both time and as well as space (; ). Treating the phenotype as a complex trait it would be likely it would follow a more functional or dynamic process. This information could be lost or greatly limited by treating the response as a single static predictor. Modeling the longitudinal structures in this fashion, functional mapping has proven to be of great statistical power in gene identification and the utilization of sparse phenotypic data (). In an attempt to capture all relevant information and be as parsimonuous as possible principles from biophysical and biochemical processes were considered. The logistic growth equations are both biologically relevant (; ) and have few parameters that can be mapped to growth QTLs by estimating these parameters for each genotype and interactions between genotypes.
 </p>
 <p>
-There are many approaches for gene mapping with genome-wide association studies (GWAS) being one of the most popular one, achieving a considerable success since their first publication in 2005 (\cite{klein2005complement). Analytical approaches are constantly being developed to perform GWAS studies. There are a few areas of challenges in statistical modeling and analysis of genetic data that account for the complexity of phenotypic information. Generally GWAS studies associate genetic markers with static, single valued phenotypes. As we have discussed, most analysis revolve around pointwise estimates and do not always take the entirety of the system during the analysis. Incorporating selecitons are starting to become more common but further work is this area still needs to be explored. Extending the forward selecting procedure previously state in {#highdeqtl} and {#highorder} in order to handle a functional phenotype would be very beneficial with GWAS level studies. A few challenges do arise while considering to conduct a genome-wide association study (GWAS) on interacting traits measured at a sequence of time points. The model needs to be flexible enough to fit different situations, independence of the error structure needs to be maintained or accounted for with the time dependencies and finally computational efficiency needs to be good enough to fit such complex models. All of these issues combined make it a difficult exertion to take on but with computational power increasing, it is becoming more feasible to handle.
+There are many approaches for gene mapping with genome-wide association studies (GWAS) being one of the most popular one, achieving a considerable success since their first publication in 2005 (\cite{klein2005complement). Analytical approaches are constantly being developed to perform GWAS studies. There are a few areas of challenges in statistical modeling and analysis of genetic data that account for the complexity of phenotypic information. Generally GWAS studies associate genetic markers with static, single valued phenotypes. As we have discussed, most analysis revolve around pointwise estimates and do not always take the entirety of the system during the analysis. Incorporating selecitons are starting to become more common but further work is this area still needs to be explored. Extending the forward selecting procedure previously state in <a href="highdeqtl.html#highdeqtl">2</a> and <a href="highorder.html#highorder">3</a> in order to handle a functional phenotype would be very beneficial with GWAS level studies. A few challenges do arise while considering to conduct a genome-wide association study (GWAS) on interacting traits measured at a sequence of time points. The model needs to be flexible enough to fit different situations, independence of the error structure needs to be maintained or accounted for with the time dependencies and finally computational efficiency needs to be good enough to fit such complex models. All of these issues combined make it a difficult exertion to take on but with computational power increasing, it is becoming more feasible to handle.
 </p>
 <p>
 In applications like the scenario described where we have a functional value phenotype and a high dimensional predictor space with dynamically considering interaciton effects it may be too restrictive to suppose that the effect of all of the predictors is captured by a simple linear fit. Reframing the regression problem to help code in the longitudinal data into the structure of the data in a biologically meaningful manner and making some sparsity assumptions about the number of significant genetic and epistatic effects that affect the phenotype will help in the developement of such a model to tackle such a task.
@@ -151,6 +150,49 @@ f(x) = \sum_{i=0}^P \theta_i \phi_i(x)
 </div>
 <div id="legendre-polynomials" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Legendre Polynomials</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(data.table)
+<span class="kw">library</span>(RColorBrewer)
+
+Legendre&lt;-function( t, <span class="dt">np.order=</span><span class="dv">1</span>,<span class="dt">tmin=</span><span class="ot">NULL</span>, <span class="dt">tmax=</span><span class="ot">NULL</span> )
+{
+  u &lt;-<span class="st"> </span>-<span class="dv">1</span>
+  v &lt;-<span class="st"> </span><span class="dv">1</span>
+  if (<span class="kw">is.null</span>(tmin)) tmin&lt;-<span class="kw">min</span>(t)
+  if (<span class="kw">is.null</span>(tmax)) tmax&lt;-<span class="kw">max</span>(t)
+  nt &lt;-<span class="st"> </span><span class="kw">length</span>(t)
+  ti    &lt;-<span class="st"> </span>u +<span class="st"> </span>((v-u)*(t-tmin))/(tmax -<span class="st"> </span>tmin)
+  np.order.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">0</span>,nt*np.order),<span class="dt">nrow=</span>nt)
+  if(np.order &gt;=<span class="dv">1</span>)
+    np.order.mat[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,nt)
+  if (np.order&gt;=<span class="dv">2</span>)
+    np.order.mat[,<span class="dv">2</span>] &lt;-<span class="st"> </span>ti
+  if (np.order&gt;=<span class="dv">3</span>)
+    np.order.mat[,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="fl">0.5</span>*(<span class="dv">3</span>*ti*ti<span class="dv">-1</span>)
+  if (np.order&gt;=<span class="dv">4</span>)
+    np.order.mat[,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="fl">0.5</span>*(<span class="dv">5</span>*ti^<span class="dv">3-3</span>*ti)
+  if (np.order&gt;=<span class="dv">5</span>)
+    np.order.mat[,<span class="dv">5</span>] &lt;-<span class="st"> </span><span class="fl">0.125</span>*(<span class="dv">35</span>*ti^<span class="dv">4-30</span>*ti^<span class="dv">2+3</span>)
+  if (np.order&gt;=<span class="dv">6</span>)
+    np.order.mat[,<span class="dv">6</span>] &lt;-<span class="st"> </span><span class="fl">0.125</span>*(<span class="dv">63</span>*ti^<span class="dv">5-70</span>*ti^<span class="dv">3+15</span>*ti)
+  if (np.order&gt;=<span class="dv">7</span>)
+    np.order.mat[,<span class="dv">7</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">16</span>)*(<span class="dv">231</span>*ti^<span class="dv">6-315</span>*ti^<span class="dv">4+105</span>*ti^<span class="dv">2-5</span>)
+  if (np.order&gt;=<span class="dv">8</span>)
+    np.order.mat[,<span class="dv">8</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">16</span>)*(<span class="dv">429</span>*ti^<span class="dv">7-693</span>*ti^<span class="dv">5+315</span>*ti^<span class="dv">3-35</span>*ti)
+  if (np.order&gt;=<span class="dv">9</span>)
+    np.order.mat[,<span class="dv">9</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">128</span>)*(<span class="dv">6435</span>*ti^<span class="dv">8-12012</span>*ti^<span class="dv">6+6930</span>*ti^<span class="dv">4-1260</span>*ti^<span class="dv">2+35</span>)
+  if (np.order&gt;=<span class="dv">10</span>)
+    np.order.mat[,<span class="dv">10</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">128</span>)*(<span class="dv">12155</span>*ti^<span class="dv">9-25740</span>*ti^<span class="dv">7+18018</span>*ti^<span class="dv">5-4620</span>*ti^<span class="dv">3+315</span>*ti)
+  if (np.order&gt;=<span class="dv">11</span>)
+    np.order.mat[,<span class="dv">11</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">256</span>)*(<span class="dv">46189</span>*ti^<span class="dv">10-109395</span>*ti^<span class="dv">8+90090</span>*ti^<span class="dv">6-30030</span>*ti^<span class="dv">4+3465</span>*ti^<span class="dv">2-63</span>)
+  <span class="kw">return</span>(np.order.mat)
+}
+
+L &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.01</span>), <span class="kw">Legendre</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.01</span>), <span class="dv">10</span>))
+L_melt &lt;-<span class="st"> </span><span class="kw">melt</span>(L, <span class="dt">id =</span> <span class="st">&quot;t&quot;</span>)
+
+<span class="kw">ggplot</span>(L_melt, <span class="kw">aes</span>(<span class="dt">x =</span> t, <span class="dt">y =</span> value, <span class="dt">group =</span> variable, <span class="dt">color =</span> <span class="kw">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;Set3&quot;</span>)[variable])) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:Legendre-fig"></span>
 <img src="Defense_files/figure-html/Legendre-fig-1.png" alt="First 10 Legendre Polynomials" width="80%" />
 <p class="caption">
@@ -189,6 +231,14 @@ P_n(x) &amp; = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 <p>where a, b and r are growth parameters each of biological interpretation, with a being the asymptotic growth, b being the initial amount of growth and r being the relative growth rate. Timevarying additive and dominant effects of significant SNPs are modeled by a nonparametric approach, such as Legendre orthogonal polynomial used in quantitative genetic studies (,], expressed as</p>
 <p><span class="math display">\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]</span> <span class="math display">\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s&#39;}(t))*(v_{j0}, v_{j1},...,v_{js&#39;})^T \]</span></p>
 <p>where <span class="math inline">\(L_0(t), L_1(t), ... , L_s(t)\)</span> and <span class="math inline">\(L_0(t), L_1(t), ... , L_{s&#39;}(t)\)</span> are the LOP of orders <span class="math inline">\(s\)</span> and <span class="math inline">\(s&#39;\)</span>, respectively; and <span class="math inline">\(u_{j0}, u_{j1},...,u_{js}\)</span> and <span class="math inline">\(v_{j0}, v_{j1},...,v_{js&#39;}\)</span> are the vectors of time-invariant additive and dominant effects, respectively. Orders <span class="math inline">\(s\)</span> and <span class="math inline">\(s&#39;\)</span>, selected from information criteria, such as Akaike information criterion (AIC) and Bayesian information criterion (BIC), are usually much smaller than M so that the dimension of response phenotypic data is reduced through LOP modeling. The variance maxtrix of residual errors is assumed to follow the first-order structured antedependence [SAD(1)] process (). The SAD(1) model has been used in previous growth modeling studies (, , ).</p>
+<!-- \begin{equation} -->
+<!-- \begin{split} -->
+<!-- y(t) = \mu(t) &+  -->
+<!-- \sum_{j=1}^{J}\alpha_j(t)\xi_j &+  -->
+<!-- \sum_{k=1}^{K}\beta_k(t)\zeta_k &+ \sum_{I_1<I_2=1}^{I}\gamma_I^{aa}(t)\xi_I_1\xi_I_2 &+ \sum_{I_1<I_2=1}^{I}\gamma_I^{ad}(t) \xi_I_1\zeta_I_2 &+ \sum_{I_1<I_2=1}^{I} \gamma_I^{da}(t) \zeta_I_1\xi_I_2 &+ \sum_{I_1<I_2=1}^{I} \gamma_I^{dd}(t) \zeta_I_1\zeta_I_2 &+ \epsilon(t) -->
+<!-- \end{split} -->
+<!-- (\#eq: epi-legendre) -->
+<!-- \end{equation} -->
 <p><strong>me</strong> The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.</p>
 <p><strong>BIC</strong></p>
 <p>Similarly, following the classical BIC rule (Swartz 1978), we can define the BIC rule for the cubic MESS model as</p>

@@ -1683,8 +1683,8 @@ phenotypes. As we have discussed, most analysis revolve around pointwise
 estimates and do not always take the entirety of the system during the
 analysis. Incorporating selecitons are starting to become more common
 but further work is this area still needs to be explored. Extending the
-forward selecting procedure previously state in \{\#highdeqtl\} and
-\{\#highorder\} in order to handle a functional phenotype would be very
+forward selecting procedure previously state in \ref{highdeqtl} and
+\ref{highorder} in order to handle a functional phenotype would be very
 beneficial with GWAS level studies. A few challenges do arise while
 considering to conduct a genome-wide association study (GWAS) on
 interacting traits measured at a sequence of time points. The model
@@ -1770,6 +1770,54 @@ polynomials that will be used are the Legendre polynomials because of
 the nice properites they posses.
 
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(data.table)}
+\KeywordTok{library}\NormalTok{(RColorBrewer)}
+
+\NormalTok{Legendre<-function( t, }\DataTypeTok{np.order=}\DecValTok{1}\NormalTok{,}\DataTypeTok{tmin=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{tmax=}\OtherTok{NULL} \NormalTok{)}
+\NormalTok{\{}
+  \NormalTok{u <-}\StringTok{ }\NormalTok{-}\DecValTok{1}
+  \NormalTok{v <-}\StringTok{ }\DecValTok{1}
+  \NormalTok{if (}\KeywordTok{is.null}\NormalTok{(tmin)) tmin<-}\KeywordTok{min}\NormalTok{(t)}
+  \NormalTok{if (}\KeywordTok{is.null}\NormalTok{(tmax)) tmax<-}\KeywordTok{max}\NormalTok{(t)}
+  \NormalTok{nt <-}\StringTok{ }\KeywordTok{length}\NormalTok{(t)}
+  \NormalTok{ti    <-}\StringTok{ }\NormalTok{u +}\StringTok{ }\NormalTok{((v-u)*(t-tmin))/(tmax -}\StringTok{ }\NormalTok{tmin)}
+  \NormalTok{np.order.mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,nt*np.order),}\DataTypeTok{nrow=}\NormalTok{nt)}
+  \NormalTok{if(np.order >=}\DecValTok{1}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{1}\NormalTok{] <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,nt)}
+  \NormalTok{if (np.order>=}\DecValTok{2}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{2}\NormalTok{] <-}\StringTok{ }\NormalTok{ti}
+  \NormalTok{if (np.order>=}\DecValTok{3}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{3}\NormalTok{] <-}\StringTok{ }\FloatTok{0.5}\NormalTok{*(}\DecValTok{3}\NormalTok{*ti*ti}\DecValTok{-1}\NormalTok{)}
+  \NormalTok{if (np.order>=}\DecValTok{4}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{4}\NormalTok{] <-}\StringTok{ }\FloatTok{0.5}\NormalTok{*(}\DecValTok{5}\NormalTok{*ti^}\DecValTok{3-3}\NormalTok{*ti)}
+  \NormalTok{if (np.order>=}\DecValTok{5}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{5}\NormalTok{] <-}\StringTok{ }\FloatTok{0.125}\NormalTok{*(}\DecValTok{35}\NormalTok{*ti^}\DecValTok{4-30}\NormalTok{*ti^}\DecValTok{2+3}\NormalTok{)}
+  \NormalTok{if (np.order>=}\DecValTok{6}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{6}\NormalTok{] <-}\StringTok{ }\FloatTok{0.125}\NormalTok{*(}\DecValTok{63}\NormalTok{*ti^}\DecValTok{5-70}\NormalTok{*ti^}\DecValTok{3+15}\NormalTok{*ti)}
+  \NormalTok{if (np.order>=}\DecValTok{7}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{7}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{16}\NormalTok{)*(}\DecValTok{231}\NormalTok{*ti^}\DecValTok{6-315}\NormalTok{*ti^}\DecValTok{4+105}\NormalTok{*ti^}\DecValTok{2-5}\NormalTok{)}
+  \NormalTok{if (np.order>=}\DecValTok{8}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{8}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{16}\NormalTok{)*(}\DecValTok{429}\NormalTok{*ti^}\DecValTok{7-693}\NormalTok{*ti^}\DecValTok{5+315}\NormalTok{*ti^}\DecValTok{3-35}\NormalTok{*ti)}
+  \NormalTok{if (np.order>=}\DecValTok{9}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{9}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{128}\NormalTok{)*(}\DecValTok{6435}\NormalTok{*ti^}\DecValTok{8-12012}\NormalTok{*ti^}\DecValTok{6+6930}\NormalTok{*ti^}\DecValTok{4-1260}\NormalTok{*ti^}\DecValTok{2+35}\NormalTok{)}
+  \NormalTok{if (np.order>=}\DecValTok{10}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{10}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{128}\NormalTok{)*(}\DecValTok{12155}\NormalTok{*ti^}\DecValTok{9-25740}\NormalTok{*ti^}\DecValTok{7+18018}\NormalTok{*ti^}\DecValTok{5-4620}\NormalTok{*ti^}\DecValTok{3+315}\NormalTok{*ti)}
+  \NormalTok{if (np.order>=}\DecValTok{11}\NormalTok{)}
+    \NormalTok{np.order.mat[,}\DecValTok{11}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{256}\NormalTok{)*(}\DecValTok{46189}\NormalTok{*ti^}\DecValTok{10-109395}\NormalTok{*ti^}\DecValTok{8+90090}\NormalTok{*ti^}\DecValTok{6-30030}\NormalTok{*ti^}\DecValTok{4+3465}\NormalTok{*ti^}\DecValTok{2-63}\NormalTok{)}
+  \KeywordTok{return}\NormalTok{(np.order.mat)}
+\NormalTok{\}}
+
+\NormalTok{L <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{t =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.01}\NormalTok{), }\KeywordTok{Legendre}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.01}\NormalTok{), }\DecValTok{10}\NormalTok{))}
+\NormalTok{L_melt <-}\StringTok{ }\KeywordTok{melt}\NormalTok{(L, }\DataTypeTok{id =} \StringTok{"t"}\NormalTok{)}
+
+\KeywordTok{ggplot}\NormalTok{(L_melt, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{t, }\DataTypeTok{y =} \NormalTok{value, }\DataTypeTok{group =} \NormalTok{variable, }\DataTypeTok{color =} \KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{10}\NormalTok{, }\StringTok{"Set3"}\NormalTok{)[variable])) +}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() +}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 

@@ -7,7 +7,7 @@
 
 <p> Growth and developmental traits are mostly better described by a functional process (\cite{hernandez2015understanding}, \cite{muraya2017genetic}), it is more biologically meaningful to map these traits as growth curves (\cite{sun2015mapping}). There have been a few different approaches that have integrated growth equations into genetic mapping via the likelihood function, leading to the birth of a so-called functional mapping models (\cite{ma2002functional}; \cite{wu2006functional}; \cite{li2015dynamic}; \cite{muraya2017genetic}). These style of appoaches can allow for the developmental change of genetic control to be characterized across both time and as well as space (\cite{he2010mapping}; \cite{li2010functional}). Treating the phenotype as a complex trait it would be likely it would follow a more functional or dynamic process.  This information could be lost or greatly limited by treating the response as a single static predictor. Modeling the longitudinal structures in this fashion, functional mapping has proven to be of great statistical power in gene identification and the utilization of sparse phenotypic data (\cite{hou2006framework}). In an attempt to capture all relevant information and be as parsimonuous as possible principles from biophysical and biochemical processes were considered.  The logistic growth equations are both biologically relevant (\cite{west2001general}; \cite{sun2014model}) and have few parameters that can be mapped to growth QTLs by estimating these parameters for each genotype and interactions between genotypes. </p>
 
-<p> There are many approaches for gene mapping with genome-wide association studies (GWAS) being one of the most popular one, achieving a considerable success since their first publication in 2005 (\cite{klein2005complement). Analytical approaches are constantly being developed to perform GWAS studies.  There are a few areas of challenges in statistical modeling and analysis of genetic data that account for the complexity of phenotypic information.  Generally GWAS studies associate genetic markers with static, single valued phenotypes.  As we have discussed, most analysis revolve around pointwise estimates and do not always take the entirety of the system during the analysis.  Incorporating selecitons are starting to become more common but further work is this area still needs to be explored.  Extending the forward selecting procedure previously state in {#highdeqtl} and {#highorder} in order to handle a functional phenotype would be very beneficial with GWAS level studies.  A few challenges do arise while considering to conduct a genome-wide association study (GWAS) on interacting traits measured at a sequence of time points. The model needs to be flexible enough to fit different situations, independence of the error structure needs to be maintained or accounted for with the time dependencies and finally computational efficiency needs to be good enough to fit such complex models.  All of these issues combined make it a difficult exertion to take on but with computational power increasing, it is becoming more feasible to handle. </p>
+<p> There are many approaches for gene mapping with genome-wide association studies (GWAS) being one of the most popular one, achieving a considerable success since their first publication in 2005 (\cite{klein2005complement). Analytical approaches are constantly being developed to perform GWAS studies.  There are a few areas of challenges in statistical modeling and analysis of genetic data that account for the complexity of phenotypic information.  Generally GWAS studies associate genetic markers with static, single valued phenotypes.  As we have discussed, most analysis revolve around pointwise estimates and do not always take the entirety of the system during the analysis.  Incorporating selecitons are starting to become more common but further work is this area still needs to be explored.  Extending the forward selecting procedure previously state in \@ref(highdeqtl) and \@ref(highorder) in order to handle a functional phenotype would be very beneficial with GWAS level studies.  A few challenges do arise while considering to conduct a genome-wide association study (GWAS) on interacting traits measured at a sequence of time points. The model needs to be flexible enough to fit different situations, independence of the error structure needs to be maintained or accounted for with the time dependencies and finally computational efficiency needs to be good enough to fit such complex models.  All of these issues combined make it a difficult exertion to take on but with computational power increasing, it is becoming more feasible to handle. </p>
 
 <p> In applications like the scenario described where we have a functional value phenotype and a high dimensional predictor space with dynamically considering interaciton effects it may be too restrictive to suppose that the effect
 of all of the predictors is captured by a simple linear fit.  Reframing the regression problem to help code in the longitudinal data into the structure of the data in a biologically meaningful manner and making some sparsity assumptions about the number of significant genetic and epistatic effects that affect the phenotype will help in the developement of such a model to tackle such a task. </p>
@@ -39,7 +39,7 @@ Standard polynomial regression is just one case of using basis functions in line
 
 ### Legendre Polynomials
 
-```{r Legendre-fig, fig.cap='First 10 Legendre Polynomials', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+```{r Legendre-fig, fig.cap='First 10 Legendre Polynomials', out.width='80%', fig.asp=.75, fig.align='center', echo = TRUE}
 library(ggplot2)
 library(data.table)
 library(RColorBrewer)
@@ -87,10 +87,7 @@ ggplot(L_melt, aes(x = t, y = value, group = variable, color = brewer.pal(10, "S
 
 ```
 
-**From Wikipedia**
-
-These solutions for n = 0, 1, 2, ... (with the normalization Pn(1) = 1) form a polynomial sequence of orthogonal polynomials called the Legendre polynomials. Each Legendre polynomial Pn(x) is an nth-degree polynomial. It may be expressed using Rodrigues' formula:
-
+The definition of the Legendre polynomials are the solutions for n = 0, 1, 2, ... (with the normalization Pn(1) = 1) form a polynomial sequence of orthogonal polynomials called the Legendre polynomials. Each Legendre polynomial Pn(x) is an nth-degree polynomial. It may be expressed using Rodrigues' formula:
 
 \begin{equation}
 P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
@@ -157,6 +154,14 @@ where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are 
 
 
 
+\begin{equation}
+\begin{split}
+y(t) = \mu(t) &+
+\sum_{j=1}^{J}\alpha_j(t)\xi_j &+
+\sum_{k=1}^{K}\beta_k(t)\zeta_k &+ \sum_{I_1<I_2=1}^{I}\gamma_I^{aa}(t)\xi_I_1\xi_I_2 &+ \sum_{I_1<I_2=1}^{I}\gamma_I^{ad}(t) \xi_I_1\zeta_I_2 &+ \sum_{I_1<I_2=1}^{I} \gamma_I^{da}(t) \zeta_I_1\xi_I_2 &+ \sum_{I_1<I_2=1}^{I} \gamma_I^{dd}(t) \zeta_I_1\zeta_I_2 &+ \epsilon(t)
+\end{split}
+(\#eq: epi-legendre)
+\end{equation}
 
 **me**
 The mean growth curve is estimated for the sample and then orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other semi parametric functions to model dynamics or other types of non-linear functions that characterizes the biological systems being evaluated.
