@@ -18,6 +18,15 @@ With the complexity and expense that comes with genetic mapping, especially with
 Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.
 
 
+
+**Also included in iFormFunctional Mapping Part**
+
+Monitoring the change in expression patterns over time provides the distinct possibility of unraveling the mechanistic drivers characterizing cellular responses. Gene arrays measuring the level of mRNA expression of thousands of genes simultaneously provide a method of high-throughput data collection necessary for obtaining the scope of data required for understanding the complexities of living organisms. Unraveling the coherent complex structures of transcriptional dynamics is the goal of a large family of computational methods aiming at upgrading the information content of time-course gene expression data. In this review, we summarize the qualitative characteristics of these approaches, discuss the main challenges that this type of complex data present, and, finally, explore the opportunities in the context of developing mechanistic models of cellular response. \cite{androulakis2007analysis}
+
+
+
+
+
 ## Future Steps
 
 More extensive explaination of future aims will be necessary for the final write up.  
