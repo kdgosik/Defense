@@ -134,7 +134,9 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
-\pagenumbering{roman}
+
+\addcontentsline{toc}{chapter}{\listtablename}{\pagenumbering{roman}{\setcounter{page}{5}}}
+\addcontentsline{toc}{chapter}{\listfigurename}{\pagenumbering{roman}{\setcounter{page}{9}}}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -150,11 +152,12 @@
 \begin{document}
 
 \begin{center}
+\begin{titlepage}
 \bf{The Pennsylvania State University} \\
 The Graduate School \\
 College of Medicine Public Health Sciences \\
 
-STATISITCAL MODELS FOR HIGH DIMENSIONAL SCREENING OF GENETIC AND EPIGENETIC EFFECTS
+STATISTICAL MODELS FOR HIGH DIMENSIONAL SCREENING OF GENETIC AND EPIGENETIC EFFECTS
 
 A Dissertation in \\
 Biostatistics \\
@@ -165,8 +168,10 @@ Kirk Gosik \\
 Doctor of Philosophy \\
 February 2017 \\
 
+\end{titlepage}
 \newpage
-
+\pagenumbering{roman}
+\setcounter{page}{2}
 The dissertation of Kirk Gosik was reviewed and approved* by the following:
 
 Rongling Wu \\
@@ -1006,8 +1011,6 @@ patterns of genetic control by eQTLs.
 
 \section{Motivation}\label{motivation-1}
 
-\textbf{Start of My Paper}
-
 Quantitative traits are very difficult to study because these traits are
 controlled by many genes that interact in a complicated way
 (\cite{nelson2013century}; \cite{mackay2014epistasis}). Genome-wide
@@ -1326,7 +1329,7 @@ calculated for comparison. The models being compared in the simulation
 studies are Forward Selection, Forward Selection with all order-2
 interactions (FS2), Forward Selection with all order-2 interactions
 (FS3), iForm strong heredity order-2, iForm weak heredity order-2, iForm
-stong heredity order-3, iForm weak heredity order-3, Glinternet
+strong heredity order-3, iForm weak heredity order-3, Glinternet
 (\cite{bien2013lasso}), and finally hierNet (\cite{lim2015learning})
 
 Covering a variety of settings the following scenarios were evaluated
@@ -1614,7 +1617,7 @@ interaction effects. (\cite{cheverud1995epistasis};
 \cite{moore2003ubiquitous}; \cite{van2010detection};
 \cite{mackay2014epistasis}) Higher order interactions of complex traits
 are not well studied because of their difficulty to detect in mapping
-studies as well. The lack of data shoud not be construed as proof that
+studies as well. The lack of data should not be construed as proof that
 this order of interaction does not exist. (\cite{taylor2015higher}). The
 difficulty in detection leads a way for new computational methods to be
 developed and approaches to describe how to distinguish such effects. As
@@ -1635,7 +1638,7 @@ few different approaches that have integrated growth equations into
 genetic mapping via the likelihood function, leading to the birth of a
 so-called functional mapping models (\cite{ma2002functional};
 \cite{wu2006functional}; \cite{li2015dynamic};
-\cite{muraya2017genetic}). These style of appoaches can allow for the
+\cite{muraya2017genetic}). These style of approaches can allow for the
 developmental change of genetic control to be characterized across both
 time and as well as space (\cite{he2010mapping};
 \cite{li2010functional}). Treating the phenotype as a complex trait it
@@ -1645,7 +1648,7 @@ response as a single static predictor. Modeling the longitudinal
 structures in this fashion, functional mapping has proven to be of great
 statistical power in gene identification and the utilization of sparse
 phenotypic data (\cite{hou2006framework}). In an attempt to capture all
-relevant information and be as parsimonuous as possible principles from
+relevant information and be as parsimonious as possible principles from
 biophysical and biochemical processes were considered. The logistic
 growth equations are both biologically relevant (\cite{west2001general};
 \cite{sun2014model}) and have few parameters that can be mapped to
@@ -1660,31 +1663,48 @@ constantly being developed to perform GWAS studies. There are a few
 areas of challenges in statistical modeling and analysis of genetic data
 that account for the complexity of phenotypic information. Generally
 GWAS studies associate genetic markers with static, single valued
-phenotypes. As we have discussed, most analysis revolve around pointwise
-estimates and do not always take the entirety of the system during the
-analysis. Incorporating selecitons are starting to become more common
-but further work is this area still needs to be explored. Extending the
-forward selecting procedure previously state in \ref{highdeqtl} and
-\ref{highorder} in order to handle a functional phenotype would be very
-beneficial with GWAS level studies. A few challenges do arise while
-considering to conduct a genome-wide association study (GWAS) on
-interacting traits measured at a sequence of time points. The model
-needs to be flexible enough to fit different situations, independence of
-the error structure needs to be maintained or accounted for with the
-time dependencies and finally computational efficiency needs to be good
-enough to fit such complex models. All of these issues combined make it
-a difficult exertion to take on but with computational power increasing,
-it is becoming more feasible to handle.
+phenotypes. As we have discussed, most analysis revolve around point
+wise estimates and do not always take the entirety of the system during
+the analysis. Incorporating selections are starting to become more
+common but further work is this area still needs to be explored.
+Extending the forward selecting procedure previously state in
+\ref{highdeqtl} and \ref{highorder} in order to handle a functional
+phenotype would be very beneficial with GWAS level studies. A few
+challenges do arise while considering to conduct a genome-wide
+association study (GWAS) on interacting traits measured at a sequence of
+time points. The model needs to be flexible enough to fit different
+situations, independence of the error structure needs to be maintained
+or accounted for with the time dependencies and finally computational
+efficiency needs to be good enough to fit such complex models. All of
+these issues combined make it a difficult exertion to take on but with
+computational power increasing, it is becoming more feasible to handle.
 
 In applications like the scenario described where we have a functional
 value phenotype and a high dimensional predictor space with dynamically
-considering interaciton effects it may be too restrictive to suppose
+considering interaction effects it may be too restrictive to suppose
 that the effect of all of the predictors is captured by a simple linear
 fit. Reframing the regression problem to help code in the longitudinal
 data into the structure of the data in a biologically meaningful manner
 and making some sparsity assumptions about the number of significant
 genetic and epistatic effects that affect the phenotype will help in the
-developement of such a model to tackle such a task.
+development of such a model to tackle such a task.
+
+\textbf{Also included in iFormFunctional Mapping Part}
+
+Monitoring the change in expression patterns over time provides the
+distinct possibility of unraveling the mechanistic drivers
+characterizing cellular responses. Gene arrays measuring the level of
+mRNA expression of thousands of genes simultaneously provide a method of
+high-throughput data collection necessary for obtaining the scope of
+data required for understanding the complexities of living organisms.
+Unraveling the coherent complex structures of transcriptional dynamics
+is the goal of a large family of computational methods aiming at
+upgrading the information content of time-course gene expression data.
+In this review, we summarize the qualitative characteristics of these
+approaches, discuss the main challenges that this type of complex data
+present, and, finally, explore the opportunities in the context of
+developing mechanistic models of cellular response.
+\cite{androulakis2007analysis}
 
 \section{Methods}\label{methods-2}
 
@@ -1706,7 +1726,7 @@ Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
 
 This model is nice for a single response but can be too restrictive at
 times. With a functional response over time, having a model with more
-flexibility could more accurately estimate the phenotype espeically when
+flexibility could more accurately estimate the phenotype especially when
 considering a functional phenotype like a growth model. A fit like the
 one mentioned would only restrict growth to be a straight line and that
 may not be applicable in real world applications. By treating the
@@ -1730,25 +1750,25 @@ you could have up to the order of the polynomial effects for each
 predictor. With the predictor set being at a high dimensional level
 already, this may not be something feasible to do. The other area of
 concern is that it would give a way for higher correlation between
-effects in the model. This would violate the intial assumptions of the
+effects in the model. This would violate the initial assumptions of the
 model.
 
 Standard polynomial regression is just one case of using basis functions
 in linear regression. There are many transformations that are able to be
-performed to invoke nicer properities to the data. The basis functions
+performed to invoke nicer properties to the data. The basis functions
 that are going to be focused on in this work are orthogonal polynomials.
 This would be a special case of polynomial regression that would
 alleviate some of the drawbacks mentioned above. Orthogonal polynomials
-by definition are othogonal to each other and therefore would not have
+by definition are orthogonal to each other and therefore would not have
 any correlation between predictors when used as basis functions. Also as
 an advantage, polynomial regression can be used to make similar types of
 interest as other types of multiple regression analysis. It does this
 while modeling a non-linear relationship between the phenotype and
 genetic markers without having to use complex optimization methods.
-Ordinary leasat squares would still apply in this framework, making it
-more computational effecient as well. One specific class of othogonal
+Ordinary least squares would still apply in this framework, making it
+more computational efficient as well. One specific class of orthogonal
 polynomials that will be used are the Legendre polynomials because of
-the nice properites they posses.
+the nice properties they posses.
 
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
 
@@ -1828,7 +1848,7 @@ orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:
 \label{eq:orthg-leg}
 \end{equation}
 
-\(\delta_{mn}\) denotes the Kronecker delta equalt to 1 if m = n and 0
+\(\delta_{mn}\) denotes the Kronecker delta equal to 1 if m = n and 0
 otherwise. These polynomials can be generated by using the following
 recursively. Each Legendre polynomial would be the next order n in the
 expression below.
@@ -1863,12 +1883,11 @@ logistic curve, to describe growth trajectory \cite{west2001general}.
 Here the population is described by a mean growth curve by this growth
 equation where a, b and r are growth parameters each provide a
 biological interpretation, with a being the asymptotic growth, b being
-the initial amount of growth and r being the relative growth rate.
-Timevarying additive and dominant effects of significant SNPs are
-modeled by the Legendre orthogonal polynomial used in quantitative
-genetic studies, mentioned above. (\cite{jiang20152higwas},
-\cite{olori1999estimating}, \cite{li2010functional}). This
-representation can be expressed as
+the initial amount of growth and r being the relative growth rate. Time
+varying additive and dominant effects of significant SNPs are modeled by
+the Legendre orthogonal polynomial used in quantitative genetic studies,
+mentioned above. (\cite{jiang20152higwas}, \cite{olori1999estimating},
+\cite{li2010functional}). This representation can be expressed as
 
 \[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]
 \[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T \]
@@ -1879,7 +1898,7 @@ where \(L_0(t), L_1(t), ... , L_s(t)\) and
 \(v_{j0}, v_{j1},...,v_{js'}\) are the vectors of time-invariant
 additive and dominant effects, respectively. Orders \(s\) and \(s'\),
 selected from information criteria, for the purposes of this procedure
-the Bayesian information criterion (\(BIC_2\)), orignally developed by
+the Bayesian information criterion (\(BIC_2\)), originally developed by
 \cite{chen2008extended} was implemented. A nice feature that comes from
 modeling the fit in this manner is that the dimension of response
 phenotypic data is reduced through LOP modeling.
@@ -1905,18 +1924,18 @@ Procedure}\label{applying-the-iform-procedure}
 
 An outline of the selection procedure used following the model described
 is as follows. At first the mean growth curve is estimated for the
-presented data following the logist growth curve. This could be adjusted
-depending on the funcitonal process the researcher is studying. Once the
-mean curve is fit the selection procedure is intialized in a similar
-fashion as mentioned in previous chapters @ref\{highdeqtl\}. Both the
-solution set and the model set are assigned to the empty set,
+presented data following the logistic growth curve. This could be
+adjusted depending on the functional process the researcher is studying.
+Once the mean curve is fit the selection procedure is initialized in a
+similar fashion as mentioned in previous chapters @ref\{highdeqtl\}.
+Both the solution set and the model set are assigned to the empty set,
 \(S_0=\emptyset\) and \(M_0=\emptyset\). The candidate set starts off
 containing all main effects for the additive and dominant effects of
 each SNP. The selection procedure then begins and each SNP is assessed
 and the best fitting candidate is then placed in the selection set.
 While assessing each candidate SNP, an additional search is performed
 for the best fitting polynomial fit up to a pre-specified order that is
-determined at the begining of the procedure. The orthogonal polynomials
+determined at the beginning of the procedure. The orthogonal polynomials
 are used to assist in fitting the genetic effects for each marker or
 epistatic interaction between the markers. This would allow the genetic
 effect some flexibility over time and give a more representative fit.
@@ -1986,17 +2005,17 @@ future work.
 \subsection{Worked Example}\label{worked-example-1}
 
 As a comparison to what was done before in \ref{highorder} the same mei
-tree dataset used in this chapter was studyied again. This serves as a
+tree dataset used in this chapter was studied again. This serves as a
 comparison to previous performance and also to see if any new
 discoveries can be made by incorporating the time component and fitting
-the growth parameters simulatneously throughout the procedure. The
+the growth parameters simultaneously throughout the procedure. The
 previous model only fit one parameter of the growth equation as a time
 and assessed the genetic markers that had a significant impact of this
 parameter. The parameter focused on was the rate parameter,r for the
 shoot height of the progeny. The initial results running the analysis
 with a single predictor and using the selection procedure are,
 
-As a comparison here are the results for simulatneaously fitting the
+As a comparison here are the results for simultaneously fitting the
 growth curve and allowing for a more flexible genetic effect to be fit
 to the data. As you can see there are overlapping markers identified in
 the models. This shows the robustness of the new selection technique to
@@ -2005,16 +2024,16 @@ overall model has also increased. By including all effects at once, you
 gain more statistical power and it boost the adjusted R square value
 from 0.71 to above 0.9. This boost in model performance could be
 partially due to some over-fitting like we observed in the simulation
-studies and therefore a very strict bonferroni correction was implmented
-to assess whether individual markers were truly significant. Even with a
-strict cut-off we stil observed 3 epistatic predictors to be highly
-significant. This shows the importance of inlcuding such terms while
-performing such a GWAS. The other area to note is the highly significant
-intercept term, which in our case is the result of the growth curve fit
-before implementing the selection procedure. This inidicates also the
-importance of including biologically relevant information in the model
-to help better understand the genetic architecture being studied of the
-phenotype.
+studies and therefore a very strict bonferroni correction was
+implemented to assess whether individual markers were truly significant.
+Even with a strict cut-off we still observed 3 epistatic predictors to
+be highly significant. This shows the importance of including such terms
+while performing such a GWAS. The other area to note is the highly
+significant intercept term, which in our case is the result of the
+growth curve fit before implementing the selection procedure. This
+indicates also the importance of including biologically relevant
+information in the model to help better understand the genetic
+architecture being studied of the phenotype.
 
 \section{Discussion}\label{discussion-2}
 
@@ -2022,16 +2041,19 @@ The new model proposed has some very nice features and seems to perform
 well in the given application. Considering the complexity of working
 high dimensional data coupled with including epsitatic effects as well
 as a functional component to the phenotype, it performs relatively
-efficiently. Using OLS type calculations aided in this efficiecy. This
-was enabled by the framing of the regression problem as a linear
-combination of basis functions. The agreeable properties of orthogonal
-polynomials helped ensure model assumptions are being met as closely as
-possible in order to use the calcuations. Also by including the
-biologically meaningful logistic growth equations it helps fit a
-baseline fit to the data and would better allow for individual genetic
-effects to be found throughout the selection. These would of course have
-to be lab verified in order to assess the true biological mechanisms at
-play for the genetic control of the phenotype.
+efficiently. \textbf{Using generalize least squares, GLS type
+calculations aided in this efficiecy}, while taking into account the
+correlation that would naturally arise between the repeated measurements
+are the same trees over time. This was enabled by the framing of the
+regression problem as a linear combination of basis functions. The
+agreeable properties of orthogonal polynomials helped ensure model
+assumptions are being met as closely as possible in order to use the
+calculations. Also by including the biologically meaningful logistic
+growth equations it helps fit a baseline fit to the data and would
+better allow for individual genetic effects to be found throughout the
+selection. These would of course have to be lab verified in order to
+assess the true biological mechanisms at play for the genetic control of
+the phenotype.
 
 Some possible areas of concern for fitting the genetic effects to the
 polynomials could be that the effect does not conform to the polynomial
@@ -2050,8 +2072,8 @@ further through computational techniques such as cross-validation and
 bootstrapping. The selection procedure is effective as a screening tool
 for exploratory data analysis and hypothesis generation. Lab
 verification would be another area that would help validate the findings
-even futher. The comparison to previously run models is promising step
-in assesing the validity of the model at hand.
+even further. The comparison to previously run models is promising step
+in assessing the validity of the model at hand.
 
 \chapter{Conclusions}\label{conclusions}
 
@@ -2111,6 +2133,23 @@ markers.
 
 Further investigations are needed to confirm or modify our findings by
 QTL mapping in natural populations.
+
+\textbf{Also included in iFormFunctional Mapping Part}
+
+Monitoring the change in expression patterns over time provides the
+distinct possibility of unraveling the mechanistic drivers
+characterizing cellular responses. Gene arrays measuring the level of
+mRNA expression of thousands of genes simultaneously provide a method of
+high-throughput data collection necessary for obtaining the scope of
+data required for understanding the complexities of living organisms.
+Unraveling the coherent complex structures of transcriptional dynamics
+is the goal of a large family of computational methods aiming at
+upgrading the information content of time-course gene expression data.
+In this review, we summarize the qualitative characteristics of these
+approaches, discuss the main challenges that this type of complex data
+present, and, finally, explore the opportunities in the context of
+developing mechanistic models of cellular response.
+\cite{androulakis2007analysis}
 
 \section{Future Steps}\label{future-steps}
 
