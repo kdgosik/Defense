@@ -24,7 +24,7 @@
 
 ### Adaptation of iFORM procedure
 
-<p> Hao and Zhang \cite{hao2014interaction} formulated an interaction forward selecting procedure under the marginality principle (iFORM).  The marker and gene transcript data of the study population can be denoted as $(X_i,Y_i) (i = 1, …, n)$ which are independent and identically distributed copies of (X,Y), where $X = (X_1,..,X_p )^T$ is a p-dimensional predictor vector and Y is the response, expressed by a linear regression model:  
+<p> Hao and Zhang \cite{hao2014interaction} formulated an interaction forward selecting procedure under the marginality principle (iFORM).  The marker and gene transcript data of the study population can be denoted as $(X_i,Y_i) (i = 1,\dots, n)$ which are independent and identically distributed copies of (X,Y), where $X = (X_1,\dots,X_p )^T$ is a p-dimensional predictor vector and Y is the response, expressed by a linear regression model:  
 
 \begin{equation}
 Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
@@ -46,9 +46,9 @@ Y = X^T \beta + Z^T \gamma
 \end{equation}
 
 Some notations that will be used to define the elements of \cite{hao2014interaction} iFORM procedure are as follows.  
-$P_1 = {1,2,…,p}$   $P_2 = {(k,l):1 ≤ k ≤ l ≤ p}.$
+$P_1 = {1,2,…,p}$   $P_2 = {(k,l):1 ≤ k ≤ l ≤ p}$.
 which are the index sets for the linear and two-way interactions terms, respectively.  The significant main effects for the markers and their interaction effects are
-$T_1 = {j:\beta_j \ne 0,j\in P_1},T_2 = {(j,k):\beta_{jk} \ne 0,(j,k) \in P_2 }.$
+$T_1 = {j:\beta_j \ne 0,j\in P_1},T_2 = {(j,k):\beta_{jk} \ne 0,(j,k) \in P_2 }$.
 For any model M, |M| will be used to denote the number of predictors contained in the model.  The true model size would be indicated by $|T_1| = p_0$  and $|T_2| = q_0$ or together would be |T|=d_0=p_0+q_0. For the procedure, three sets will be used throughout. The sets are M for the model set, C for the candidate set of predictors and S for the solution set of predictors currently selected in the model. </p>
 
 <p> There are two principles that are used in the selection procedure when considering interactions as candidates for selection into the final model.  The first is considering the principle of marginality. The principle states that it is inappropriate to model interaction terms when the main effects contributing to the interaction have either not been included in the model or are deleted because their effects become marginal by the inclusion of the interaction effect. The second principle important to the procedure is the heredity principle. The strong case of the principle states that an interaction effect should not be considered unless both the contributing main effects are in the model (\cite{zhao2006model}). This would translate to 

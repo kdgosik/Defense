@@ -38,10 +38,21 @@ The variable selection procedure for QTLs mapping can be seen as one of deciding
 ### HighDeQTL
 
 
+
+
+
+
 ### Higher Order Epistasis
 
 
+
+
+
+
+
 ### iForm Funcional Mapping
+
+
 
 
 
