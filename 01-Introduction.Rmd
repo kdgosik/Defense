@@ -37,22 +37,40 @@ The variable selection procedure for QTLs mapping can be seen as one of deciding
 
 ### HighDeQTL
 
+In this chpater we introduce the iform procedure, originally proposed by (hao and zhang 2014).  This includes the algorithm and how it compares to forward selection.  From there it is adapted to use for a genetic mapping studies.  The properies of this will be explored in detail.  Simulation studies were conducted to assess the properties.  These were also compared to other models to get a sense of the utility and advantages that come with the new selection procedure.  After the comparisons and simulations a real world application is performed.  In the application a data set using C Elegans 
+
+The model perfromed well but feedback was given on...
+consider weak heredity
 
 
+Needs more flexibility
+
+a lot of important genetic variance and heritability were discovered by the inclusion epistatic effects.  These effects boost the overall variance explained and predictive power of the final model selected.  
 
 
 
 ### Higher Order Epistasis
 
+Higher order epistasis is important but under studied because of practical limitations not because of biological limitations
 
 
+**from chapter 03**
+The theoretical models of high-order epistasis have well been established by mathematical biologists (\cite{hansen2001epistasis}; \cite{beerenwinkel2007analysis}). These models provided a foundation to interpret high-order epistasis from a biological standpoint. A few statistical models have been derived to estimate and test high-order epistasis in case-control designs (\cite{wang2015bayesian}) and population-based mapping settings
+
+By extending the order of interaction effects the properties would still need to be studied.  The thereotrical properties that held for the iform procedure were inspected again. Simulation studies were performed to assess practical applications.  Several scenarios and comparison models were considered to extensively look at what properites were being met and which were not.  Then an application to Mei tree growth was conducted in order to see the real world application of such a selection procedure.  Different growth parameters were prviously fit and these were used as the phenotype.  Interesting and more predictive implications came out of the model when considering higher order epistasis throughout the selection procedure.  
+
+The static growth parameters were interesting but using the entire growth curve would be more beneficial to capture all relevant information.
 
 
 
 
 ### iForm Funcional Mapping
 
+In order to use all relevant information of the repeated measure data would take additional computation burden to the selection and the modeling but it would also give more power and flexibility to the modeling that would not be present otherwise.  It is important to use all relevant information in order to make the most accurate prediction about the data.  
 
+Using a growth curve model to assist in fitting the data would help ease some of the comutational burden.  The selection of genetic effects however would be very simplistic as some additive shift to the curve.  This simplistic view may not be the most accurate and therefore more complicated structures could produce better results.  As we have seen in Chapter 03, the genetic effects over time seem to vary among different genotypes and the interaction effects follow more of a non-linear pattern. In order to allow for more flexible, non-linear modeling with not expending too much computation burden, Legendre Orthogonal Polynomials were considered to model the genetic effects.  These polynomials have various form and would allow for the genetic effect to follow different patterns but also not induce unnecessary correlation between predictors included in the model.  
+
+These benefits do come at a computational cost but by including the repeated measures portion of the data it enabled for the use of more data and therefore increase the power of the modeling.  
 
 
 

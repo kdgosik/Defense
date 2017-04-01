@@ -2,6 +2,31 @@
 
 ## Summary
 
+### HighDeQTL
+ - advantages 
+ - disadvantages
+ steps to improve
+
+### Higher Order Epistasis
+ - advantages 
+ - disadvantages
+ steps to improve
+
+
+
+### iForm Functional Mapping
+ - advantages 
+ - disadvantages
+ steps to improve
+
+what else will be done before submitting for publication.  
+
+What areas need developed more and what areas will be looked into and discussed in further detail?
+
+
+
+### Previously written summary paragraph
+
 In my disseration I have applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by \cite{hao2014interaction} that is able to reduce search space substantially by making some reasonable assumptions about the data.  These assumptions can be relaxed a little to broaden the scope of the space. The procedure ahs been applied in both simulated and real datasets in all areas of study.  There are many advantages to using such a procedure with some being it is a computationally efficient way for high dimensional data situations that arise from high throughput data, especially when considering epistasis between gene markers or other type of interaction effects in the model.  Guided search space based off of commonly used principles in model selection that are relevant in real world situations. It is able to perform a GWAS with included epistatic interactions a fairly quick manner.  Able to relax assumptions to widen the search space.  This may decrease the speed of the algorithm but makes the search more comprehensive.  Also it is able to screen for complex scenarios that would be hard to find in a lab setting otherwise.  Having said that with the flexiblity of the initial model, false posiive rates could be a concern and need to be taken into consideration.  Adjustement to the significance level and the model selection criteria have been made to account for this.  This would still need to be followed up on independtly by checking with other datasets and/or lab verification.  
 
 Functional componenets were also considered to such a selection procedure.  This also increases the computational complexity of the model and therefore decreases some efficeiency gains previously seen.  Use biologically relevant information to guide the fitting of the model.  Initially considers well established growth equations as a baseline for the underlying structure.  It then performs a GWAS level analysis with considering epstatic interactions throughout the process.  
@@ -10,6 +35,8 @@ Functional componenets were also considered to such a selection procedure.  This
 
 
 ## Discussion
+
+**Needs Expanded**
 
 The selection procedures proposed attempt to address problems that are complex and have many moving parts to the procedure.  Using a flexible model is very helpful to fulfill such requirements but this could have it be prone to over fitting at times if not well controlled.  Need to heavily consider this as part of interpretating the model.  Using stricter selection criteria and corrections to multuple testing for significance is extremely important.  The main purpose is to use a screening to guide future research, use for exploratory data analysis and hypothesis genration.  
 
@@ -29,7 +56,21 @@ Monitoring the change in expression patterns over time provides the distinct pos
 
 ## Future Steps
 
+ - Aim 1
+   - Continue testing properties of the iForm procedure used with the Legendre Polynomials
+   - Submit by Summer
+
+ - Aim 2
+   - Consider other multivariate responses and correlated error structures.  
+   - Expression levels of different cell lines or tissue types as multivariate response 
+
+ - Aim 3
+  - Combine functional component and multivariate response into complete functional network
+    - Time-Series of gene expression from cell lines or tissue types
+
 More extensive explaination of future aims will be necessary for the final write up.  
+
+
 
 ### Aim 1
 
