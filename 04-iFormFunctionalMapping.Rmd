@@ -32,7 +32,7 @@ Monitoring the change in expression patterns over time provides the distinct pos
 <p> One common approach to regression problems is to frame the model as a linear combination of basis functions.  In typical multiple regression the design matrix would be the values of the observed predictors and these would be used to fit the model, usually with a least squares approach.  The goal then being to fit the expected value of the phenotype of interest in terms of the values of the predictors.  This would result in a linear model of the form,
 
 \begin{equation}
-Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
+Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
 (\#eq: lin-mod)
 \end{equation}
 
