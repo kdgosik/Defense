@@ -1,0 +1,6 @@
+eQTL Type,Count,Proportion
+Cis-eQTL,14,0.0024
+Trans-eQTL,5509,0.9628
+Cis-eQTL x cis-eQTL,0,0
+Trans-eQTL x cis-eQTL or cis-eQTL x trans-eQTL,2,0.0003
+Cis-eQTL x trans-eQTL,196,0.034

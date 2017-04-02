@@ -32,8 +32,8 @@ Monitoring the change in expression patterns over time provides the distinct pos
 <p> One common approach to regression problems is to frame the model as a linear combination of basis functions.  In typical multiple regression the design matrix would be the values of the observed predictors and these would be used to fit the model, usually with a least squares approach.  The goal then being to fit the expected value of the phenotype of interest in terms of the values of the predictors.  This would result in a linear model of the form,
 
 \begin{equation}
-Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
-(\#eq: lin-mod)
+\mathbf{Y} = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
+(\#eq:lin-mod)
 \end{equation}
 
 This model is nice for a single response but can be too restrictive at times.  With a functional response over time, having a model with more flexibility could more accurately estimate the phenotype especially when considering a functional phenotype like a growth model.  A fit like the one mentioned would only restrict growth to be a straight line and that may not be applicable in real world applications.  By treating the problem as linear combination of basis functions, the general form would look like,
@@ -43,14 +43,14 @@ f(x) = \sum_{i=0}^P \theta_i \phi_i(x)
 (\#eq:gen-form)
 \end{equation}
 
-where the $\phi$ are the basis functions of the researchers choosing.  Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area.  A common choice is to use polynomial regression, where $/phi$ would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model.  This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger.  Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor.  With the predictor set being at a high dimensional level already, this may not be something feasible to do.  The other area of concern is that it would give a way for higher correlation between effects in the model.  This would violate the initial assumptions of the model.</p>
+where the $\phi$ are the basis functions of the researchers choosing.  Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area.  A common choice is to use polynomial regression, where $\phi$ would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model.  This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger.  Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor.  With the predictor set being at a high dimensional level already, this may not be something feasible to do.  The other area of concern is that it would give a way for higher correlation between effects in the model.  This would violate the initial assumptions of the model.</p>
 
 <p> Standard polynomial regression is just one case of using basis functions in linear regression.  There are many transformations that are able to be performed to invoke nicer properties to the data.  The basis functions that are going to be focused on in this work are orthogonal polynomials.  This would be a special case of polynomial regression that would alleviate some of the drawbacks mentioned above.  Orthogonal polynomials by definition are orthogonal to each other and therefore would not have any correlation between predictors when used as basis functions.  Also as an advantage, polynomial regression can be used to make similar types of interest as other types of multiple regression analysis.  It does this while modeling a non-linear relationship between the phenotype and genetic markers without having to use complex optimization methods.  Ordinary least squares would still apply in this framework, making it more computational efficient as well.  One specific class of orthogonal polynomials that will be used are the Legendre polynomials because of the nice properties they posses. </p>
 
 
 ### Legendre Polynomials
- **Remove R Code**
-```{r Legendre-fig, fig.cap='First 10 Legendre Polynomials', out.width='80%', fig.asp=.75, fig.align='center', echo = TRUE}
+
+```{r Legendre-fig, fig.cap='First 10 Legendre Polynomials', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
 library(ggplot2)
 library(data.table)
 library(RColorBrewer)
@@ -105,7 +105,7 @@ P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
 (\#eq:rodrigues-formula)
 \end{equation}
 
-An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:
+An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval $−1 \le x \le 1$:
 
 \begin{equation}
 \int_1^{-1} P_m(x)P_n(x)dx = \frac{2}{2+1}\delta_{mn}

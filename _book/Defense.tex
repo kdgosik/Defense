@@ -135,8 +135,8 @@
 }
 \makeatother
 
-\addcontentsline{toc}{chapter}{\listtablename}{\pagenumbering{roman}{\setcounter{page}{5}}}
-\addcontentsline{toc}{chapter}{\listfigurename}{\pagenumbering{roman}{\setcounter{page}{9}}}
+\addcontentsline{toc}{chapter}{\listtablename}
+\addcontentsline{toc}{chapter}{\listfigurename}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -152,7 +152,6 @@
 \begin{document}
 
 \begin{center}
-\begin{titlepage}
 \bf{The Pennsylvania State University} \\
 The Graduate School \\
 College of Medicine Public Health Sciences \\
@@ -168,7 +167,6 @@ Kirk Gosik \\
 Doctor of Philosophy \\
 February 2017 \\
 
-\end{titlepage}
 \newpage
 \pagenumbering{roman}
 \setcounter{page}{2}
@@ -333,9 +331,80 @@ identifying out all possible effects of those markers.
 
 \subsection{HighDeQTL}\label{highdeqtl}
 
+In this chpater we introduce the iform procedure, originally proposed by
+(hao and zhang 2014). This includes the algorithm and how it compares to
+forward selection. From there it is adapted to use for a genetic mapping
+studies. The properies of this will be explored in detail. Simulation
+studies were conducted to assess the properties. These were also
+compared to other models to get a sense of the utility and advantages
+that come with the new selection procedure. After the comparisons and
+simulations a real world application is performed. In the application a
+data set using C Elegans
+
+The model perfromed well but feedback was given on\ldots{} consider weak
+heredity
+
+Needs more flexibility
+
+a lot of important genetic variance and heritability were discovered by
+the inclusion epistatic effects. These effects boost the overall
+variance explained and predictive power of the final model selected.
+
 \subsection{Higher Order Epistasis}\label{higher-order-epistasis}
 
+Higher order epistasis is important but under studied because of
+practical limitations not because of biological limitations
+
+\textbf{from chapter 03} The theoretical models of high-order epistasis
+have well been established by mathematical biologists
+(\cite{hansen2001epistasis}; \cite{beerenwinkel2007analysis}). These
+models provided a foundation to interpret high-order epistasis from a
+biological standpoint. A few statistical models have been derived to
+estimate and test high-order epistasis in case-control designs
+(\cite{wang2015bayesian}) and population-based mapping settings
+
+By extending the order of interaction effects the properties would still
+need to be studied. The thereotrical properties that held for the iform
+procedure were inspected again. Simulation studies were performed to
+assess practical applications. Several scenarios and comparison models
+were considered to extensively look at what properites were being met
+and which were not. Then an application to Mei tree growth was conducted
+in order to see the real world application of such a selection
+procedure. Different growth parameters were prviously fit and these were
+used as the phenotype. Interesting and more predictive implications came
+out of the model when considering higher order epistasis throughout the
+selection procedure.
+
+The static growth parameters were interesting but using the entire
+growth curve would be more beneficial to capture all relevant
+information.
+
 \subsection{iForm Funcional Mapping}\label{iform-funcional-mapping}
+
+In order to use all relevant information of the repeated measure data
+would take additional computation burden to the selection and the
+modeling but it would also give more power and flexibility to the
+modeling that would not be present otherwise. It is important to use all
+relevant information in order to make the most accurate prediction about
+the data.
+
+Using a growth curve model to assist in fitting the data would help ease
+some of the comutational burden. The selection of genetic effects
+however would be very simplistic as some additive shift to the curve.
+This simplistic view may not be the most accurate and therefore more
+complicated structures could produce better results. As we have seen in
+Chapter 03, the genetic effects over time seem to vary among different
+genotypes and the interaction effects follow more of a non-linear
+pattern. In order to allow for more flexible, non-linear modeling with
+not expending too much computation burden, Legendre Orthogonal
+Polynomials were considered to model the genetic effects. These
+polynomials have various form and would allow for the genetic effect to
+follow different patterns but also not induce unnecessary correlation
+between predictors included in the model.
+
+These benefits do come at a computational cost but by including the
+repeated measures portion of the data it enabled for the use of more
+data and therefore increase the power of the modeling.
 
 \begin{figure}
 
@@ -449,12 +518,12 @@ eQTLs from massive amounts of observed data
 \cite{sun2012statistical}; \cite{flutre2013statistical}).
 
 A typical eQTL mapping approach is to associate a gene transcript with a
-single marker such as single nucleotide polymorphism (SNP). By analzying
+single marker such as single nucleotide polymorphism (SNP). By analyzing
 the significance of all these markers one by one adjusted for multiple
 testing, one can count significant loci that contribute to variation of
 expression by the gene. This marginal approach based on a simple
-regression model has been instrumental for the identifcation of eQTLs in
-a variety of organisms (\cite{rockman2010selection};
+regression model has been instrumental for the identification of eQTLs
+in a variety of organisms (\cite{rockman2010selection};
 \cite{kim2014meta}). However, there are two major limitations for the
 results by such a marginal analysis: First, it does not take into
 account the dependence of different markers, thus a significant
@@ -564,54 +633,54 @@ procedure}\label{adaptation-of-iform-procedure}
 Hao and Zhang \cite{hao2014interaction} formulated an interaction
 forward selecting procedure under the marginality principle (iFORM). The
 marker and gene transcript data of the study population can be denoted
-as \((X_i,Y_i) (i = 1, …, n)\) which are independent and identically
-distributed copies of (X,Y), where \(X = (X_1,..,X_p )^T\) is a
+as \((X_i,Y_i) (i = 1,\dots, n)\) which are independent and identically
+distributed copies of (X,Y), where \(X = (X_1,\dots,X_p )^T\) is a
 p-dimensional predictor vector and Y is the response, expressed by a
 linear regression model:
 
 \begin{equation}
 Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
-(\#eq: lin-mod)
+\label{eq:lin-mod}
 \end{equation}
 
-The 's are the coefficients for the genetic effects of each marker.
-Like most genome-wide datasets, the number of markers here grossly
-outnumbers the number of observations, p \textgreater{}\textgreater{} n.
-Therefore, selection procedures would need to be implemented in order to
-fit a linear regression model such as (1). We are already at the point
-of high-dimensional data but if we want to include epistatic effects
-between different markers as predictors as well it would increase the
-amount of predictors by (p\^{}2+p)/2 . The resulting linear model would
-grow to be,
+The \(\beta\)'s are the coefficients for the genetic effects of each
+marker. Like most genome-wide datasets, the number of markers here
+grossly outnumbers the number of observations, \(p >> n\). Therefore,
+selection procedures would need to be implemented in order to fit a
+linear regression model such as \eqref{eq:lin-mod}. We are already at the
+point of high-dimensional data but if we want to include epistatic
+effects between different markers as predictors as well it would
+increase the amount of predictors by \((p^2+p)/2\) . The resulting
+linear model would grow to be,
 
 \begin{equation}
-Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \gamma_{11} X_1^2 +\gamma_{12} {X_1}{X_2} + ⋯ + \gamma_{pp} X_p^2 + \epsilon
-(\#eq: lin-mod2)
+Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \gamma_{11} X_1^2 +\gamma_{12} {X_1}{X_2} + \dots + \gamma_{pp} X_p^2 + \epsilon
+\label{eq:lin-mod2}
 \end{equation}
 
-where 's are the coefficients for the epistatic effects for all the
-quadratic and two-way interactions between the markers. For convenience
-we will assume that the markers and the transcripts are standardized
-before running the selection procedure. Therefore, E(X\_ij )=0,Var(X\_ij
-)=1,E(Y\_i )=0 and Var(Y\_i )=1 for i=1,\ldots{},n; j=1,\ldots{},p.
-Also, the quadratic and two-way interaction effects will be centered
-which we will write as Z\_i=(\ldots{},X\_ik X\_il-E(X\_ik X\_il
-),\ldots{})\^{}T. By doing so we would eliminate the need for an
-intercept in regression model (2). This would reduce the model to the
-form,
+where \(\gamma\)'s are the coefficients for the epistatic effects for
+all the quadratic and two-way interactions between the markers. For
+convenience we will assume that the markers and the transcripts are
+standardized before running the selection procedure. Therefore,
+\(E(X_ij )=0\), \(Var(X_ij )=1\), \(E(Y_i )=0\) and \(Var(Y_i )=1\) for
+\(i=1,\dots,n\); \(j=1,\dots,p\). Also, the quadratic and two-way
+interaction effects will be centered which we will write as
+\(Z_i=(\dots,X_{ik} X_{il}-E(X_{ik} X_{il} ),\dots)^T\). By doing so we
+would eliminate the need for an intercept in regression model
+\eqref{eq:lin-mod2}. This would reduce the model to the form,
 
 \begin{equation}
 Y = X^T \beta + Z^T \gamma
-(\#eq: lin-mod3)
+\label{eq:lin-mod3}
 \end{equation}
 
 Some notations that will be used to define the elements of
 \cite{hao2014interaction} iFORM procedure are as follows.\\
-\(P_1 = {1,2,…,p}\) \(P_2 = {(k,l):1 ≤ k ≤ l ≤ p}.\) which are the index
-sets for the linear and two-way interactions terms, respectively. The
-significant main effects for the markers and their interaction effects
-are
-\(T_1 = {j:\beta_j \ne 0,j\in P_1},T_2 = {(j,k):\beta_{jk} \ne 0,(j,k) \in P_2 }.\)
+\(P_1 = {1,2,\dots,p}\) \(P_2 = {(k,l):1 \le k \le l \le p}\). which are
+the index sets for the linear and two-way interactions terms,
+respectively. The significant main effects for the markers and their
+interaction effects are
+\(T_1 = {j:\beta_j \ne 0,j\in P_1},T_2 = {(j,k):\beta_{jk} \ne 0,(j,k) \in P_2}\).
 For any model M, \textbar{}M\textbar{} will be used to denote the number
 of predictors contained in the model. The true model size would be
 indicated by \(|T_1| = p_0\) and \(|T_2| = q_0\) or together would be
@@ -632,12 +701,12 @@ strong case of the principle states that an interaction effect should
 not be considered unless both the contributing main effects are in the
 model (\cite{zhao2006model}). This would translate to
 \(\gamma_{jk} ≠ 0 only if \beta_j, \beta_k \ne 0 \forall 1 ≤ j, k ≤ p\)
-for model (2). By including both principles during the selection process
-it allows for dynamically including both main effects and interactions
-effects. The interaction effects can only be considered between the main
-effects currently selected into the solution set of the model according
-the discussed principles. A more formal description of the procedure is
-given below.
+for model (\eqref{eq:lin-mod2}). By including both principles during the
+selection process it allows for dynamically including both main effects
+and interactions effects. The interaction effects can only be considered
+between the main effects currently selected into the solution set of the
+model according the discussed principles. A more formal description of
+the procedure is given below.
 
 \subsection{iFORM}\label{iform}
 
@@ -663,22 +732,22 @@ interactions of the main effects that are currently in the solution set.
 This is continued until a designated stopping value, say d. For the
 number of predictors placed into the model set from the solution set the
 Bayesian information Criterion was used,
-\(BIC_2(\hat M)=log(\hat \sigma \hat M)+n^{-1} |\hat M|\star(log(n)+2\star log(d^\star))\),
-where \(\sigma^2 \hat M\) is the sample variance for the given model,
-\(|\hat M|\) is the size of the model or the number of predictors
+\(BIC_2(\hat{M})=log(\hat \sigma \hat M)+n^{-1} |\hat M|\star(log(n)+2\star log(d^\star))\),
+where \(\sigma^2 \hat{M}\) is the sample variance for the given model,
+\(|\hat{M}|\) is the size of the model or the number of predictors
 selected into the given model, and n is the sample size. The \(d^*\)
 term is the number of predictors in the full model. This was proposed as
 \(BIC_2\) by \cite{chen2008extended} which they derived to help control
 the false discovery rate in high dimensional data situations. They also
 showed that it was selection consistent if \(d^\star = O(n^\xi)\) for
-some \(\xi > 0\). The only difference between the traditional \(BIC\)
+some \(\xi \gt 0\). The only difference between the traditional \(BIC\)
 calculation and the \(BIC_2\) is the additional term involving
 \(2log(d*)\). Ignoring the \(BIC\), the most the number of steps in the
 solution path is of size n. The parameter d controls the overall length
 of the solution path. In practice, the exact number of predictors to
 include, say \(d_0\), in the true model is unknown. We want to make d
 large enough to include d\_0 but not so large as to fit the model to the
-point where it becomes oversaturated. Using the \(BIC_2\) should help
+point where it becomes over saturated. Using the \(BIC_2\) should help
 avoid such a matter as well. It is reasonable to assume that \(d_0\) is
 much smaller than n in high dimensional sparse regression problems
 (\cite{fan2008sure}). Since this is the case, for the purposes of our
@@ -712,13 +781,14 @@ orthogonal contrast scales because it is consistent in the sense that
 the effect of a eQTL is consistently defined whether the genetic model
 includes one, two, three, or more eQTL (\cite{kao2002modeling}). The
 orthogonal contrasts for the genetic model can be expressed by
-\(x_{ij} = \left[\frac{-1}{2} if homozygote Q_j Q_j, \frac{-1}{2} if heterozygote Q_j q_j \right]\)
+\[x_{ij} = \left[\frac{-1}{2} if homozygote Q_j Q_j, \frac{-1}{2} if heterozygote Q_j q_j \right]\]
 Typically in an inbred line backcross population a given genotype is
 coded with a 0 and 1. However there are two draws backs to this coding
 when considering the selection procedures discussed above. The first
-issue comes with not including an intercept in model (2). If this is the
-case each of the predictors would need to be centered making the coding
-to -1/2 and 1/2 instead of 0 and 1. Besides meeting the assumptions of
+issue comes with not including an intercept in model
+(\eqref{eq:lin-mod2}). If this is the case each of the predictors would
+need to be centered making the coding to \(-\frac{1}{2}\) and
+\(\frac{1}{2}\) instead of 0 and 1. Besides meeting the assumptions of
 the model that the predictors are centered, it is also beneficial for
 the interaction effects as well. If the coding would remain at 0's and
 1's, the interaction coding would also consist of 0's and 1's. This
@@ -726,12 +796,13 @@ could propose a problem because three out of the four scenarios of
 epistasis between markers would result in a coding of 0 for the level in
 the interaction effect. This has the potential to falsely skew the data
 of no additive effect for interactions terms because of the sparseness
-of coding. By centering the coding to \((-1/2,1/2)\), it would result in
-an interaction effect being coded as \((-1/4,1/4)\). This coding would
-happen for different scenarios for each of the levels. The -1/4 could
-arise when the interaction is made up of a homozygote interacting with a
-heterozygote genotype. A coding of 1/4 would arise by either a
-homozygote interacting with another homozygote genotype, or when a
+of coding. By centering the coding to \((-\frac{1}{2},\frac{1}{2})\), it
+would result in an interaction effect being coded as
+\((-\frac{1}{4},\frac{1}{4})\). This coding would happen for different
+scenarios for each of the levels. The \(-\frac{1}{4}\) could arise when
+the interaction is made up of a homozygote interacting with a
+heterozygote genotype. A coding of \(\frac{1}{4}\) would arise by either
+a homozygote interacting with another homozygote genotype, or when a
 heterozygote interacts with another heterozygote genotype.
 
 \section{Application}\label{application}
@@ -739,34 +810,37 @@ heterozygote interacts with another heterozygote genotype.
 \subsection{Simulation Results}\label{simulation-results}
 
 Simulations studies were conducted to test the theoretical properties of
-the selection procedures and the results \textbf{(Tables 1
--3)\ref{tab:nice-tab}}. The results were compared to several other
-commonly used methods for eQTL mapping. In each of the examples the
-response was generated from model (2) with σ=1,2,and 3 for the random
-error with a sample size of \(n=200\). The \(X_i\)'s were all
-independently and identically distributed realizations generated from
-\(Binomial(0.5)\) and then orthogonal contrasts were made making each
-\(x_ij∈(-1/2,1/2)\). The true \(β=(〖3,0,0,3,0,3,3,0〗_493)\), therefore
-making \(T_1={1,4,6,7}\) and \(p_0=4\). The relevant interactions were
-set to the pairs \(T_2={(1,6),(1,7),(4,7),(4,7)}\) and \(q_0=4\) all
-with \(γ_jk=3\) where \((j,k)∈T_2\). There were several methods compared
-during each of the simulations \textbf{(Tables 1 -3)\ref{tab:nice-tab}}.
-The methods that were used to model the data were single marker
-analysis, forward selection involving only main effects (FS), forward
-selection involving all main effects and interaction (FS2) and the iFORM
-procedure. Several outcomes were evaluated to compare across each of the
-models. The outcomes are separated into three parts. The first part
-focuses on the selection of main effects, the second part focuses on the
-selection of interaction effects and the third part is the overall model
-performance. Simulations of M=100 replicates were run and the outcomes
-considered include
+the selection procedures and the results \ref{tab:sim1}, \ref{tab:sim2}
+and \ref{tab:sim3}. The results were compared to several other commonly
+used methods for eQTL mapping. In each of the examples the response was
+generated from model (2) with σ=1,2,and 3 for the random error with a
+sample size of \(n=200\). The \(X_i\)'s were all independently and
+identically distributed realizations generated from \(Binomial(0.5)\)
+and then orthogonal contrasts were made making each
+\(x_ij\in (-\frac{1}{2}, \frac{1}{2})\). The true
+\(\beta=(3,0,0,3,0,3,3,0_{493})\), therefore making \(T_1={1,4,6,7}\)
+and \(p_0=4\). The relevant interactions were set to the pairs
+\(\mathcal{T}_2={(1,6),(1,7),(4,7),(4,7)}\) and \(q_0=4\) all with
+\(γ_jk=3\) where \((j,k) \in \mathcal{T}_2\). There were several methods
+compared during each of the simulations \ref{tab:sim1}, \ref{tab:sim2}
+and \ref{tab:sim3}. The methods that were used to model the data were
+single marker analysis, forward selection involving only main effects
+(FS), forward selection involving all main effects and interaction (FS2)
+and the iFORM procedure. Several outcomes were evaluated to compare
+across each of the models. The outcomes are separated into three parts.
+The first part focuses on the selection of main effects, the second part
+focuses on the selection of interaction effects and the third part is
+the overall model performance. Simulations of M=100 replicates were run
+and the outcomes considered include
 
-\emph{Convergence Probability (Cov) \(∑_(m=1)^M▒〖I(T⊂T ̂ )/M〗\)
-}Percentage of correct zeros (Cor0)
-\(∑_(m=1)^M▒∑_(j=1)^p▒〖I((β_j ) ̂=0,β_j=0)/[M(p-p_0)]〗\)
+\emph{Convergence Probability (Cov)
+\(\Sigma_{m=1}^MI(\mathcal{T} \subset \hat{\mathcal{T}})/M\) }Percentage
+of correct zeros (Cor0)
+\(\Sigma_{m=1}^M\Sigma_{j=1}^pI((\hat{\beta_j}=0,\beta_j=0)/[M(p-p_0)]\)
 \emph{Percentage of incorrect zeros (Inc0)
-\(∑_(m=1)^M▒∑_(j=1)^p▒〖I((β_j ) ̂=0,β_j≠0)/[M(p_0)]〗\) }Exact Selection
-probability (Exact) \(∑_(m=1)^M▒〖I(T=T ̂ )/M 〗\) \emph{The average
+\(\Sigma_{m=1}^M\Sigma_{j=1}^p I(\hat{\beta_j}=0,\beta_j \ne 0)/[M(p_0)]\)
+}Exact Selection probability (Exact)
+\(\Sigma_{m=1}^M I(\mathcal{T}=\hat{\mathcal{T}})/M\) \emph{The average
 model size }Mean Square Error (MSE) \emph{Adjusted R-square }Computation
 Time in seconds
 
@@ -793,15 +867,93 @@ it took to create the design matrix in order to implement forward
 selection was not included in the computation time. As can be seen from
 the results, using forward selection on the full set of main effects and
 pair-wise interactions took substantially longer to run on average than
-any of the other methods, including the iFrom procedure. Another
+any of the other methods, including the iFORM procedure. Another
 drawback to implementing forward selection on such a large set seemed to
 come with over fitting the model. The selection included the maximum
 number of predictors allowed by the designated stopping value and did
 not use the BIC criteria for final model selection. This resulted in 19
-additional predictors selected \textbf{(Tables 1 -3)\ref{tab:nice-tab}}.
+additional predictors selected \textbf{(Tables 1 -3)\ref{tab:sim1}}.
 This increased the adjusted R-square value of the final model, however
 this is suspected because of over fitting the data and not to be a true
 prediction of the response.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_Table1Sim1.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Simulation 1 Table (sigma=1)'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:sim1}Simulation 1 Table (sigma=1)}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Method & Cov & Cor0 & Inc0 & Exact & Cov.1 & Cor0.1 & Inc0.1 & Exact.1 & Size & MSE & X & Time\\
+\midrule
+Single Marker & 0.00 & 1.000 & 0.2500 & 0.00 & NA & NA & NA & NA & 3.00 & 23.630 & 0.216 & 0.824\\
+FS & 0.85 & 0.953 & 0.0625 & 0.85 & NA & NA & NA & NA & 27.00 & 10.230 & 0.660 & 3.470\\
+FS2 & 1.00 & 0.996 & 0.0000 & 1.00 & 0.95 & 0.981 & 0 & 0.0 & 27.00 & 0.302 & 0.989 & 72.310\\
+iFORM & 0.90 & 0.999 & 0.0500 & 0.90 & 0.90 & 1.000 & 0 & 0.9 & 7.55 & 2.930 & 0.894 & 4.080\\
+Oracle & 1.00 & 1.000 & 0.0000 & 1.00 & 1.00 & 1.000 & 0 & 1.0 & 8.00 & 1.023 & 0.965 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_Table1Sim2.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Simulation 2 Table (sigma=2)'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:sim2}Simulation 2 Table (sigma=2)}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Method & Cov & Cor0 & Inc0 & Exact & Cov.1 & Cor0.1 & Inc0.1 & Exact.1 & Size & MSE & X & Time\\
+\midrule
+Single Marker & 0.02 & 0.999 & 0.529 & 0.029 & NA & NA & NA & NA & 1.97 & 27.02 & 0.178 & 0.69\\
+FS & 0.80 & 0.953 & 0.050 & 0.800 & NA & NA & NA & NA & 27.00 & 11.49 & 0.651 & 3.22\\
+FS2 & 1.00 & 0.996 & 0.000 & 1.000 & 0.98 & 0.98 & 0 & 0.00 & 27.00 & 1.17 & 0.964 & 68.20\\
+iFORM & 0.97 & 0.998 & 0.007 & 0.970 & 0.95 & 1.00 & 0 & 0.93 & 8.70 & 4.41 & 0.865 & 3.84\\
+Oracle & 1.00 & 1.000 & 0.000 & 1.000 & 1.00 & 1.00 & 0 & 1.00 & 8.00 & 3.92 & 0.880 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_Table1Sim3.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Simulation 3 Table (sigma=3)'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:sim3}Simulation 3 Table (sigma=3)}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Method & Cov & Cor0 & Inc0 & Exact & Cov.1 & Cor0.1 & Inc0.1 & Exact.1 & Size & MSE & X & Time\\
+\midrule
+Single Marker & 0.00 & 0.999 & 0.612 & 0.000 & NA & NA & NA & NA & 1.65 & 33.90 & 0.138 & 0.69\\
+FS & 0.82 & 0.953 & 0.043 & 0.827 & NA & NA & NA & NA & 27.00 & 14.44 & 0.633 & 3.22\\
+FS2 & 1.00 & 0.997 & 0.000 & 1.000 & 0.98 & 0.97 & 0 & 0.00 & 27.00 & 2.69 & 0.931 & 68.20\\
+iFORM & 0.89 & 0.995 & 0.060 & 0.896 & 0.96 & 1.00 & 0 & 0.94 & 7.93 & 11.10 & 0.713 & 3.83\\
+Oracle & 1.00 & 1.000 & 0.000 & 1.000 & 1.00 & 1.00 & 0 & 1.00 & 8.00 & 8.98 & 0.771 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Real Data Analysis}\label{real-data-analysis}
 
@@ -823,10 +975,10 @@ and one sex chromosome (denoted as X).
 
 \cite{rockman2010selection} used a classic interval mapping approach to
 detect 2309 eQTLs by testing and scanning associations of each SNP with
-each gene transcript over the entire genome. Rockman et al.'s analysis
-allowed a rectangular map of eQTL positions  gene positions to be
-constructed (Fig. 1), from which one can identify cis-eQTLs on the
-diagonal and trans-eQTLs off the diagonal. However, because their
+each gene transcript over the entire genome. Rockman et al's analysis
+allowed a rectangular map of eQTL positions gene positions to be
+constructed \ref{fig:RockmanPic} , from which one can identify cis-eQTLs
+on the diagonal and trans-eQTLs off the diagonal. However, because their
 association analysis was conducted individually for each SNP, the
 detection of eQTLs was based on the marginal effects of individual
 eQTLs, which may lead to two issues being unsolved. First, of those
@@ -834,7 +986,7 @@ eQTLs detected for the same gene transcript, some may include confounded
 effects by others. Second, the effects of genetic epistasis may take
 place but were not detected. By analyzing all SNPs simultaneously under
 a single framework, the high-dimensional model, iFORM, implemented in
-this study can more precisely characterize the genetic machineries
+this study can more precisely characterize the genetic machinery
 underlying variation in each gene transcript. More specifically, we
 treat each transcript as a response with all SNP markers and their
 interactions as predictors by building a big regression model.
@@ -842,30 +994,132 @@ Significant predictors were then selected based on the iFORM procedure.
 A final model including both main and interaction effects can be
 evaluated by calculating adjusted R-square values
 
-Figure 2 illustrates the map of how a particular gene transcript is
-controlled by its eQTLs through main effects and interaction effects.
-For clarity of our presentation, we only chose one representative gene
-transcript from each chromosome. For example, gene transcript
-A\_12\_P103290 located at position 2069088 -- 2069147 of chromosome I
-was detected to be controlled by main effects due to X2\_13516256 eQTLs
-on chromosomes II and X4\_15632637 eQTLs on chromosome IV and
-X2\_13516256:X4\_15632637 interactions between some of these eQTLs on
-these two chromosomes.
+\begin{figure}
+
+{\centering \includegraphics[width=250px,height=250px]{images/CElegansPicture} 
+
+}
+
+\caption{SNP Picture}\label{fig:RockmanPic}
+\end{figure}
+
+\ref{fig:ChromosomePic} illustrates the map of how a particular gene
+transcript is controlled by its eQTLs through main effects and
+interaction effects. For clarity of our presentation, we only chose one
+representative gene transcript from each chromosome. For example, gene
+transcript A\_12\_P103290 located at position 2069088 -- 2069147 of
+chromosome I was detected to be controlled by main effects due to
+X2\_13516256 eQTLs on chromosomes II and X4\_15632637 eQTLs on
+chromosome IV and X2\_13516256:X4\_15632637 interactions between some of
+these eQTLs on these two chromosomes.
+
+\begin{figure}
+
+{\centering \includegraphics[width=250px,height=250px]{images/iForm_Network_Chr1} 
+
+}
+
+\caption{SNP Picture}\label{fig:ChromosomePic}
+\end{figure}
 
 iFORM provides the estimates of each effect (either main effect or
 interaction effect), standard errors of each estimate and the
-significance tests of each effect. As an example, Table 4 gives the
-result of how gene transcript A\_12\_P103290 can be predicted by its
-eQTLs and their interactions. It can be seen that the final predictive
-model (adjusted R2 = 0.896) contains 14 markers which exert their main
-effects and/or interaction effects on the transcript. Of the 14 final
-markers, a half shows significant main effects (p \textless{} 0.05),
-with several (i.e., X\_14636404, X4\_15568674, X4\_15632637 and
-X\_14542103) explaining about 5\% heritability (defined as a proportion
-of genetic variance due to a predictor over the total phenotypic
-variance). Of these final markers, we identified eight significant
-epistatic interactions. Each epistasis accounts for 4.6 -- 5.5\%
-heritability (Table 4).
+significance tests of each effect. As an example, \ref{tab:OutputTable}
+gives the result of how gene transcript A\_12\_P103290 can be predicted
+by its eQTLs and their interactions. It can be seen that the final
+predictive model (adjusted \(R^2 = 0.896\)) contains 14 markers which
+exert their main effects and/or interaction effects on the transcript.
+Of the 14 final markers, a half shows significant main effects (p
+\textless{} 0.05), with several (i.e., X\_14636404, X4\_15568674,
+X4\_15632637 and X\_14542103) explaining about 5\% heritability (defined
+as a proportion of genetic variance due to a predictor over the total
+phenotypic variance). Of these final markers, we identified eight
+significant epistatic interactions. Each epistasis accounts for 4.6 --
+5.5\% heritability \ref{tab:OutputTable}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{list}\NormalTok{(}
+    \KeywordTok{read.csv}\NormalTok{(}\StringTok{"OutputTable1.csv"}\NormalTok{),}
+    \KeywordTok{read.csv}\NormalTok{(}\StringTok{"OutputTable2.csv"}\NormalTok{)}
+  \NormalTok{),}
+  \DataTypeTok{caption =} \StringTok{"iFORM         Single Marker Analysis"}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\caption{\label{tab:OutputTable}iFORM         Single Marker Analysis}
+
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+eQTL & Effect & SE & p.value & Heritability...\\
+\midrule
+X1\_2068168 (cis-eQTL) & -0.197 & 0.035 & 0.000 & 0.060\\
+X2\_13516256 & -0.069 & 0.039 & 0.080 & 0.007\\
+X2\_13813025 & -0.023 & 0.052 & 0.665 & 0.001\\
+X2\_13694563 & 0.074 & 0.062 & 0.238 & 0.008\\
+X2\_2482896 & 0.064 & 0.027 & 0.017 & 0.006\\
+\addlinespace
+X\_15500580 & 0.073 & 0.064 & 0.253 & 0.008\\
+X\_14636404 & -1.768 & 0.092 & 0.000 & 4.794\\
+X4\_16403215 & 0.028 & 0.040 & 0.489 & 0.001\\
+X4\_15568674 & -1.972 & 0.134 & 0.000 & 5.964\\
+X4\_1873297 & 0.044 & 0.026 & 0.086 & 0.003\\
+\addlinespace
+X4\_15632637 & 1.960 & 0.143 & 0.000 & 5.892\\
+X4\_13532205 & 0.064 & 0.028 & 0.024 & 0.006\\
+X\_15820520 & -0.014 & 0.055 & 0.796 & 0.000\\
+X\_14542103 & 1.786 & 0.087 & 0.000 & 4.892\\
+X2\_13516256.X4\_15632637 & -3.799 & 0.268 & 0.000 & 5.534\\
+\addlinespace
+X2\_13516256.X4\_15568674 & 3.753 & 0.276 & 0.000 & 5.401\\
+X\_15820520.X\_14636404 & -3.771 & 0.172 & 0.000 & 5.453\\
+X\_15820520.X\_14542103 & 3.691 & 0.172 & 0.000 & 5.224\\
+X\_14636404.X4\_1873297 & -3.534 & 0.163 & 0.000 & 4.789\\
+X\_14636404.X4\_13532205 & -3.567 & 0.166 & 0.000 & 4.879\\
+\addlinespace
+X\_14542103.X4\_1873297 & 3.629 & 0.164 & 0.000 & 5.050\\
+X\_14542103.X4\_13532205 & 3.469 & 0.167 & 0.000 & 4.614\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{rrr}
+\toprule
+Effect & SE & pvalue\\
+\midrule
+-0.210 & 0.074 & 0.005\\
+-0.138 & 0.075 & 0.068\\
+-0.095 & 0.074 & 0.201\\
+-0.089 & 0.075 & 0.242\\
+-0.057 & 0.076 & 0.453\\
+\addlinespace
+0.010 & 0.076 & 0.899\\
+0.024 & 0.076 & 0.751\\
+0.087 & 0.075 & 0.252\\
+0.094 & 0.075 & 0.213\\
+0.095 & 0.071 & 0.185\\
+\addlinespace
+0.104 & 0.075 & 0.169\\
+0.111 & 0.075 & 0.143\\
+0.146 & 0.075 & 0.054\\
+0.162 & 0.075 & 0.031\\
+NA & NA & NA\\
+\addlinespace
+NA & NA & NA\\
+NA & NA & NA\\
+NA & NA & NA\\
+NA & NA & NA\\
+NA & NA & NA\\
+\addlinespace
+NA & NA & NA\\
+NA & NA & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 It is interesting to note that all predictors jointly contribute to
 62.6\% heritability for transcript A\_12\_P103290, of which main effects
@@ -873,31 +1127,58 @@ account for 26.7\% and epistatic effects account for 35.9\%. It is very
 surprising that epistasis contributes to more than a half of
 heritability. Of the eight epistatic interactions, only one occurs due
 to the interaction between two significant eQTLs, X\_14542103 and
-X4\_13532205 (Table 4). All the remaining is due to interactions between
-one significant eQTL and one non-significant marker. Some eQTLs, such as
-X\_14542103 and X\_14636404, produce epistasis with a greater frequency
-than others. Despite their involvement in the final predictive model,
-some markers were tested to be insignificant in terms of both main and
-interaction effects, suggesting that they regulate a gene transcript in
-a subtle but important fashion. In summary, iFORM can not only provide
-an estimate of the overall heritability of gene transcript
-A\_12\_P103290 (i.e., the sum of individual heritabilities explained by
-each predictor), but also chart a detailed picture of how each genetic
-variant contributes to transcript variation. In particular, iFORM can
-characterize epistasis and its role in trait control, thus equipped with
-a capacity to retrieve so-called missing heritabilities
-(\cite{manolio2009finding}), a significant issue arising from current
-genome-wide association studies.
+X4\_13532205 \ref{tab:OutputTable}. All the remaining is due to
+interactions between one significant eQTL and one non-significant
+marker. Some eQTLs, such as X\_14542103 and X\_14636404, produce
+epistasis with a greater frequency than others. Despite their
+involvement in the final predictive model, some markers were tested to
+be insignificant in terms of both main and interaction effects,
+suggesting that they regulate a gene transcript in a subtle but
+important fashion. In summary, iFORM can not only provide an estimate of
+the overall heritability of gene transcript A\_12\_P103290 (i.e., the
+sum of individual heritabilities explained by each predictor), but also
+chart a detailed picture of how each genetic variant contributes to
+transcript variation. In particular, iFORM can characterize epistasis
+and its role in trait control, thus equipped with a capacity to retrieve
+so-called missing heritabilities (\cite{manolio2009finding}), a
+significant issue arising from current genome-wide association studies.
 
 Through analyzing associations between all markers and each transcript
 by iFORM, we can identify the difference of cis- and trans-eQTLs for a
 particular transcript. For example, of the eQTLs affecting
 A\_12\_P103290, we detected that X1\_2068168 is a cis-eQTL, whereas all
-others are trans-eQTLs (Table 4). We list the number and distribution of
-these two types of eQTLs and the pattern of how they interact with each
-other to determine gene transcripts (Table 5). By detecting cis-eQTLs
-and trans-eQTLs, iFORM detected that genetic interactions take place
-mostly between trans-eQTLs.
+others are trans-eQTLs \ref{tab:OutputTable}. We list the number and
+distribution of these two types of eQTLs and the pattern of how they
+interact with each other to determine gene transcripts \ref{tab:Table5}.
+By detecting cis-eQTLs and trans-eQTLs, iFORM detected that genetic
+interactions take place mostly between trans-eQTLs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_OutputTable_cisQTL.csv"}\NormalTok{), }
+  \DataTypeTok{caption =} \StringTok{"Distribution of cisQTLs"}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Table5}Distribution of cisQTLs}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+eQTL.Type & Count & Proportion\\
+\midrule
+Cis-eQTL & 14 & 0.0024\\
+Trans-eQTL & 5509 & 0.9628\\
+Cis-eQTL x cis-eQTL & 0 & 0.0000\\
+Trans-eQTL x cis-eQTL or cis-eQTL x trans-eQTL & 2 & 0.0003\\
+Cis-eQTL x trans-eQTL & 196 & 0.0340\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Discussion}\label{discussion}
 
@@ -907,15 +1188,15 @@ organism has been made much easier and more efficient. Because of this,
 genetic studies of complex diseases or traits have developed during the
 past decade to a point at which we can draw a complete picture of
 genetic architecture for disease or trait formation and progression by
-genome-wide association studies (GWAS) (Mackay et al. 2009). Traditional
-marginal analysis based on simple regression has been instrumental for
-the detection of important genetic variants or quantitative trait loci
-in a variety of organisms, but its bottleneck has emerged quickly due to
-its limitation in precisely and comprehensively charting genetic control
-landscapes. Many GWAS studies published are bothered by missing
-heritabilities because of their incapacity to detect genome-wide
-epistasis and genotype  environment interactions
-(\cite{manolio2009finding}).
+genome-wide association studies (GWAS) (\cite{mackay2009genetics}.
+Traditional marginal analysis based on simple regression has been
+instrumental for the detection of important genetic variants or
+quantitative trait loci in a variety of organisms, but its bottleneck
+has emerged quickly due to its limitation in precisely and
+comprehensively charting genetic control landscapes. Many GWAS studies
+published are bothered by missing heritabilities because of their
+incapacity to detect genome-wide epistasis and genotype  environment
+interactions (\cite{manolio2009finding}).
 
 Epistasis is a phenomenon by which the influence of a gene on the
 phenotype depends critically upon the context provided by other genes
@@ -924,13 +1205,14 @@ epistasis is an important source for trait variation
 (\cite{moore2003ubiquitous}; \cite{carlborg2004epistasis};
 \cite{cordell2009detecting}), thus inclusion of epistasis would enhance
 the prediction accuracy of phenotypic performance and shed more light on
-the global genetic architecture of trait control (Mackay 2014). However,
-epistasis is extremely hard to detect as an interaction term, whose
-inclusion may complicate the inference of the predictive model
-(\cite{carlborg2004epistasis}; \cite{mackay2014epistasis}). Thanks to
-recent progresses in high-dimensional data modeling, we have been able
-to implement several cutting-edge statistical models for systematical
-detection and characterization of genome-wide epistasis.
+the global genetic architecture of trait control
+(\cite{mackay2014epistasis}). However, epistasis is extremely hard to
+detect as an interaction term, whose inclusion may complicate the
+inference of the predictive model (\cite{carlborg2004epistasis};
+\cite{mackay2014epistasis}). Thanks to recent progresses in
+high-dimensional data modeling, we have been able to implement several
+cutting-edge statistical models for systematical detection and
+characterization of genome-wide epistasis.
 
 \cite{hao2014interaction} proposed a new high-dimensional model, iFORM,
 that can tackle an issue of interaction selection simultaneously from a
@@ -1095,19 +1377,20 @@ different orders. To tackle the issue of the number of predictors
 \textgreater{}\textgreater{} the number of samples, several variable
 selection approaches have been implemented in association studies. One
 approach is forward selection which was shown to be robust for
-estimating pairwise interactions of predictors (Hao and Zhang 2014).
-With sure screening properties and controlling for false positives, this
-approach, named iFORM, performs very well in capturing important
-information in explaining the response variable. On top of these nice
-theoretical properties it is computationally efficient by using ordinary
-least squares calculations and only requiring a predetermined set up
-steps. Here, we extended the iForm procedure to include HGI's to capture
-more relevant information. In the following sections, the notation and
-model set-up will be introduced. After this theoretical properties will
-be explored. Finally simulated and real data analysis will be conducted
-to help confirm the theoretical properties and show the feasibility of
-using the model for screening across whole genomes to more precisely
-explain phenotypes of interest.
+estimating pairwise interactions of predictors
+(\cite{hao2014interaction}). With sure screening properties and
+controlling for false positives, this approach, named iFORM, performs
+very well in capturing important information in explaining the response
+variable. On top of these nice theoretical properties it is
+computationally efficient by using ordinary least squares calculations
+and only requiring a predetermined set up steps. Here, we extended the
+iForm procedure to include HGI's to capture more relevant information.
+In the following sections, the notation and model set-up will be
+introduced. After this theoretical properties will be explored. Finally
+simulated and real data analysis will be conducted to help confirm the
+theoretical properties and show the feasibility of using the model for
+screening across whole genomes to more precisely explain phenotypes of
+interest.
 
 \subsection{Epistatic model}\label{epistatic-model}
 
@@ -1115,35 +1398,39 @@ Consider a linear model that underlies the true genotype-phenotype
 relationship. Assume that the phenotype, as the response of the model,
 is controlled by a set of p SNPs that act singly and/or interact with
 each other. These main and interaction effects of markers, i.e., the
-predictors of the model, need to be estimated. Let \(Y = (y1, …, yn)^T\)
-denote the phenotypic value of n samples from a mapping or association
-population. When considering pairwise and three-way interactions, the
-linear model is expressed as
+predictors of the model, need to be estimated. Let
+\(\mathbf{Y}=(y_1,\dots, y_n)^T\) denote the phenotypic value of n
+samples from a mapping or association population. When considering
+pairwise and three-way interactions, the linear model is expressed as
 
 \begin{equation}
-Y = \alpha + X^T\beta + Z^T\gamma + W^T\eta + \epsilon
+mathbf{Y} = \alpha + X^T\beta + Z^T\gamma + W^T\eta + \epsilon
 \label{eq:lin-mod}
 \end{equation}
 
-where \(X=(X_1,…,X_p )^T\) is the design matrix that specifies the
-genetic effects of each
-\(marker  = (1, …, p) , Z=(X_j X_k )^T (1≤j≤k≤p)\) is the design
-matrix that specifies the epistatic effects between two markers,
-expressed in \(\gamma, W=(X_j X_k X_l )^T (1 ≤ j ≤ k ≤ l ≤ p)\) is the
-design matrix that specifies the epistatic effects among three markers,
-expressed in \(η\), and \(\epsilon ~ N(0,\sigma^2 )\) is the residual
-error normally distributed with mean zero and variance σ\^{}2. We denote
-the index sets for the linear, order-2 and order-3 effects in equation
-(1), respectively, as \(P_1={1,2,…,p}\) \(P_2={(j,k):1≤j≤k≤p}\)
-\(P_3={(j,k,l):1≤j≤k≤l≤p}\) With the significant main, order-2
-interaction and order-3 interaction effect sets being,
-\(T_1={j:β_j≠0,j∈P_1 }\) \(T_2={(j,k):γ_jk≠0,(j,k)∈P_2 }\)
-\(T_3={(j,k,l):η_jkl≠0,(j,k,l)∈P_3 }\)
+where \(X=(X_1,\dots,X_p)^T\) is the design matrix that specifies the
+genetic effects of each marker
+\(\beta=(\beta_1,\dots,\beta_p,~ Z=(X_jX_k)^T (1 \le j \le k \le p)\)
+is the design matrix that specifies the epistatic effects between two
+markers, expressed in
+\(\gamma, W=(X_j X_k X_l)^T (1 \le j \le k \le l \le p)\) is the design
+matrix that specifies the epistatic effects among three markers,
+expressed in \(\eta\), and \(\epsilon ~ N(0,\sigma^2 )\) is the residual
+error normally distributed with mean zero and variance \(\sigma^2\). We
+denote the index sets for the linear, order-2 and order-3 effects in
+equation \eqref{eq:lin-mod}, respectively, as \(P_1={1,2,\dots,p}\)
+\(P_2={(j,k):1 \le j \le k \le p}\)
+\(P_3={(j,k,l):1 \le j \le k \le l \le p}\) With the significant main,
+order-2 interaction and order-3 interaction effect sets being,
+\(T_1={j:\beta_j \ne 0,j \in P_1}\)
+\(T_2={(j,k):\gamma_{jk} \ne 0,(j,k) \in P_2}\)
+\(T_3={(j,k,l):\eta_{jkl} \ne 0,(j,k,l) \in P_3}\)
 
-The true size of \(T_1\), will be \(p_1\) and similarly for \(T_2\) and
-\(T_3\) will have sizes \(p_2\) and \(p_3\) respectively. There will be
-a total of 3 sets referred to throughout the procedure, the candidate
-set \(C\), the selection set \(S\) and the model set, \(M\). The
+The true size of \(\mathcal{T}_1\), will be \(p_1\) and similarly for
+\(\mathcal{T}_2\) and \(\mathcal{T}_3\) will have sizes \(p_2\) and
+\(p_3\) respectively. There will be a total of 3 sets referred to
+throughout the procedure, the candidate set \(\mathcal{C}\), the
+selection set \(\mathcal{S}\) and the model set, \(\mathcal{M}\). The
 candidate set is the set of all possible predictors at a given step in
 the selection process. The selection set contains the predictors that
 have previously been selected from the candidate set from each iteration
@@ -1156,42 +1443,43 @@ epistasis}\label{iform-with-high-order-epistasis}
 
 The iForm procedure is a forward selecting procedure. In traditional
 forward selection the procedure starts with the empty set and then
-iterates through the entire set of possible predictors in \(C\) and
-selects the best predictor and includes it in S at the end of each step.
-The best predictor can be determined in many ways but usually is defined
-by the predictor that results in the least amount of error. For our
-purposes we use the residual sum of squares. This continues with
-selecting the best predictor from C at each step until a designated
-stopping criterion is met or until some information criterion is met.
-Common information criteria used for selecting predictors to be in \(M\)
-are AIC, BIC, \(R^2\) and Mallow's \(C_p\) statistic.
+iterates through the entire set of possible predictors in
+\(\mathcal{C}\) and selects the best predictor and includes it in S at
+the end of each step. The best predictor can be determined in many ways
+but usually is defined by the predictor that results in the least amount
+of error. For our purposes we use the residual sum of squares. This
+continues with selecting the best predictor from C at each step until a
+designated stopping criterion is met or until some information criterion
+is met. Common information criteria used for selecting predictors to be
+in \(\mathcal{M}\) are AIC, BIC, \(R^2\) and Mallow's \(C_p\) statistic.
 
 The iForm procedure for high-order epistatic detection parallels the
 forward selection procedure, but C will grow dynamically with the
 creation of order-2 and order-3 interaction effects between main effects
 that were included from previous iterations of the procedure. There are
 three steps to the model selection. The first step is to initialize the
-3 sets mentioned above. The sets, \(S\) and \(M\) are set to the empty
-set while the candidate set, \(C\), is first set to \(P_1\), all the
-main effects. The next step starts the forward selection procedure
-selecting predictors from \(C\). The selected predictor will be a main
-effect at the first step. At subsequent steps, after interaction effects
-are included, selected predictors could be either be a main effect,
-order-two or order-three interaction effect. The final step involves
-repeating the second step until a designated stopping criterion is met.
-This can be a certain amount of predictors to be considered in the final
-model, or it can be based off of other factors such as the sample size.
-The designated stopping criterion will be denoted as d. For our purposes
-we use d as a function of the sample size, \(d = n/lo g_2a(n)\). The
-procedure will run up until d iterations, and the optimal model will
-then be constructed from the selection set. This is done by an
-information criterion. Here we used the Bayesian Information Criterion
-proposed by \cite{chen2008extended} denoted as the \(BIC_2\). This was
-derived by them to control the false discovery rate in high dimensional
-model selections.
+3 sets mentioned above. The sets, \(\mathcal{S}\) and \(\mathcal{M}\)
+are set to the empty set while the candidate set, \(\mathcal{C}\), is
+first set to \(P_1\), all the main effects. The next step starts the
+forward selection procedure selecting predictors from \(\mathcal{C}\).
+The selected predictor will be a main effect at the first step. At
+subsequent steps, after interaction effects are included, selected
+predictors could be either be a main effect, order-two or order-three
+interaction effect. The final step involves repeating the second step
+until a designated stopping criterion is met. This can be a certain
+amount of predictors to be considered in the final model, or it can be
+based off of other factors such as the sample size. The designated
+stopping criterion will be denoted as d. For our purposes we use d as a
+function of the sample size, \(d = n/log_2a(n)\). The procedure will run
+up until d iterations, and the optimal model will then be constructed
+from the selection set. This is done by an information criterion. Here
+we used the Bayesian Information Criterion proposed by
+\cite{chen2008extended} denoted as the \(BIC_2\). This was derived by
+them to control the false discovery rate in high dimensional model
+selections.
 
 \begin{equation}
-BIC_2(\hat{M}) = log(\hat{σ_M}^2) + n^{-1} |\hat{M}| * (log(n) + 2*loga(d^*))
+BIC_2(\hat{M}) = log(\hat{\sigma_M}^2) + n^{-1} |\hat{M}|*(log(n)+2*log(d^{\star}))
 \label{eq:bic2}
 \end{equation}
 
@@ -1209,7 +1497,26 @@ can be the case when an interaction effect is included. One of the
 parent effects may become less significant or even not significant at
 all by considering both in the model. The next principle we state as the
 heredity principle but has also been referred to in other work as the
-hierarchy principle (Bien et al 2013 and Lim and Hastie 2014).
+hierarchy principle (\cite{bien2013lasso} and \cite{lim2015learning}).
+There are two cases of the heredity principle considered. The strong
+case would not allow for an order-2 epistasis effect to be included into
+the candidate set without both the parent main effects that make up the
+interaction are first included in the model. More formally this can be
+written as, \(\gamma_{jk} \ne 0\) only if
+\(/beta_j ,\beta_k \ne 0 ~\forall~ 1 \le j, k \le p\). Similarly with
+order-3 epistasis, you would need to have all order-2 epistatic parent
+effects included in the model before including as a candidate predictor.
+This would translate to, \(\eta_{jkl} \ne 0\) only if
+\(\gamma_{jk},\gamma_{jl},/gamma_{kl} \ne 0~\forall~ 1 \le j,k,l \le p\).
+The weak case relaxes the need for all parent effects to be included in
+the model before considering the epistatic effects as candidates. Only
+one parent effect would be required to be in the model for candidates to
+be included. In the scenario with order-2 epistatic effects we would
+need, \(\gamma_{jk} \ne 0\) only if
+\(\beta_j^2+,\beta_k^2 \ne 0~ \forall~ 1 \le j, k \le p\) and with
+order-3 epistatic effects to be considered as a candidate we would need,
+\(\eta_{jkl} \ne 0\) only if
+\(\gamma_{jk}^2+\beta_l^2 \ne 0~\forall~ 1 \le j, k, l \le p\).
 
 The heredity (hierarchy) principle help reduce the search space by
 making the assumption that previously selected main effects would be
@@ -1227,15 +1534,17 @@ ram requirements of standard computers. This is before even stepping up
 to order-3 interactions. The weak heredity principle would decrease the
 candidate set substantially. Assuming a sample size of \(n = 200\),
 would give a cut off of \(n/log_{2}(n) = 200/log_{2}(200) = 26\) steps
-in the procedure. This would give a maximum of approximately 135,000
-candidate predictors. This gives a 100 fold decrease in the candidate
-set. This could substantially make ultra-high dimensional analysis more
-feasible and also speed it up in the process. This is the weak case. If
-considering the strong case the decrease in candidate space is even more
-apparent. Aside from the efficiency by lowering the search space of the
-candidate set, the heredity principle is usually taken into account by
-researchers when selecting models involving the consideration for
-interaction effects.
+in the procedure. The 5000 original predictors plus up to 5000 epistatic
+predictors included in the candidate set at each step in the procedure
+would give a maximum of approximately 135,000 candidate predictors. This
+would give a maximum of approximately 135,000 candidate predictors. This
+gives a 100 fold decrease in the candidate set. This could substantially
+make ultra-high dimensional analysis more feasible and also speed it up
+in the process. This is the weak case. If considering the strong case
+the decrease in candidate space is even more apparent. Aside from the
+efficiency by lowering the search space of the candidate set, the
+heredity principle is usually taken into account by researchers when
+selecting models involving the consideration for interaction effects.
 
 \subsection{Theoretical Properties}\label{theoretical-properties}
 
@@ -1274,16 +1583,16 @@ explain more noise in the data that the model is being fitted on than
 the actual signal you would like to pick up on.
 
 To show the property from above the following conditions would need to
-be met for regulatory purposes. Hao and Zhang (2014) showed how under
-these conditions sure screening properties for interaction models like
-FS2 and iForm are satisfied. This also applies to order-3 interaction
-models like FS3 and iForm with higher order epistasis, like we do with
-the high-order epistasis model. The following assumptions need to be met
-for these conditions. The first is that the \(X=(X_1,…,X_p )^T\) are
-jointly and marginally normal with independent normally distributed
-error. Next we would need the eigenvalues of the covariance matrix to be
-positive and bounded by two constants
-\(0 < \tau_min < 1 < \tau_{max} < \infty\), such that
+be met for regulatory purposes. \cite{hao2014interaction} showed how
+under these conditions sure screening properties for interaction models
+like FS2 and iForm are satisfied. This also applies to order-3
+interaction models like FS3 and iForm with higher order epistasis, like
+we do with the high-order epistasis model. The following assumptions
+need to be met for these conditions. The first is that the
+\(X=(X_1,\dots,X_p)^T\) are jointly and marginally normal with
+independent normally distributed error. Next we would need the
+eigenvalues of the covariance matrix to be positive and bounded by two
+constants \(0 < \tau_min < 1 < \tau_{max} < \infty\), such that
 \(\sqrt{\tau}_min < \lambda_min (\Sigma)≤\lambda_max (\Sigma)< \sqrt{\tau}_max/4\).
 Also, the genetic effects, \(\beta\) need a certain level of signal
 strength. This we would assume to be \(|(|\beta|)| ≤ C_\beta\) for some
@@ -1292,29 +1601,35 @@ positive constant \(C_\beta\) and
 Lastly, there needs to be a certain level of sparsity to the number of
 important effects. Denoting the total number of important effects as
 \(d_0\), and positive constants \(\xi,\xi_0\) and \(\nu\) we would need
-\(log(p) ≤ \nu n^\xi,d_0 ≤ \nu n^(\xi_0)\) and \(ξ+6ξ_0+12ξ_min<1/2\).
-The conditions stated are accepted standards in the literature when
-studying ultra-high dimensional situations. (\cite{hao2014interaction} ,
-\cite{fan2008sure}; \cite{sun2013genome}).
+\(log(p) ≤ \nu n^\xi,d_0 ≤ \nu n^(\xi_0)\) and
+\(\xi+6\xi_0+12\xi_min \lt \frac{1}{2}\). The conditions stated are
+accepted standards in the literature when studying ultra-high
+dimensional situations. (\cite{hao2014interaction} , \cite{fan2008sure};
+\cite{sun2013genome}).
 
 \section{Application}\label{application-1}
 
 \subsection{Simulation Studies}\label{simulation-studies}
 
 To study the numeric properties of the selection procedure, simulation
-studies were conducted. To capture relevant data structures, there were
-several different scenarios considered. For each scenario 50 predictors
-were generated with a sample size of 300 observations. The data was
-split into training and a testing set to study both the fitted
-properties of the model as well as the generalizability of the model.
-There were a variety of metrics obtained to assess the suitability of
-each model utilized in the simulations. The first metrics that were
-taken into account were the rates for the true positives, false
-positives, true negatives and false negatives. Since we have a variety
-of levels to each of the models each of the rates were evaluated for the
-different hierarchical levels. Some of the models only have main effects
-and/or two-way interactions, therefore the rates were only given for the
-area applicable to model and the rest were reported as NA. The
+studies were conducted. Data was generated using R 3.1. The \(X_i\)'s
+were all independently and identically distributed realizations
+generated from Binomial(0.5) and the true effects for both the main and
+epistatic effects were included following different heredity scenarios.
+The phenotype was generated from the linear model setup described
+previously. To capture relevant data structures, there were several
+different scenarios considered. For each scenario 50 predictors were
+generated with a sample size of 300 observations. The data was split
+into training and a testing set to study both the fitted properties of
+the model as well as the generalizability of the model. There were a
+variety of metrics obtained to assess the suitability of each model
+utilized in the simulations. The first metrics that were taken into
+account were the rates for the true positives, false positives, true
+negatives and false negatives. Since we have a variety of levels to each
+of the models each of the rates were evaluated for the different
+hierarchical levels. Some of the models only have main effects and/or
+two-way interactions, therefore the rates were only given for the area
+applicable to model and the rest were reported as NA. The
 generalizability of the models was also assessed by withholding 100
 random observations as a test set. All the data was generated from the
 same scenario and then 100 of the observations were randomly selected
@@ -1333,13 +1648,32 @@ strong heredity order-3, iForm weak heredity order-3, Glinternet
 (\cite{bien2013lasso}), and finally hierNet (\cite{lim2015learning})
 
 Covering a variety of settings the following scenarios were evaluated
-and compared. The first is where the data were generated from the
-interactions of the model follow a strong heredity (hierarchy) with
-\(\sigma = 1\). The second, the data is generated to have the
-interactions in follow a weak heredity (hierarchy) with \(\sigma = 1\).
+and compared.\\
+\textbf{Scenario 1:}
+\(\mathbf{Y}=\beta_1 x_1+\beta_4 x_4+\beta_6 x_6+\beta_7 x_7+\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,7} x_1 x_7+\gamma_{6,7} x_6 x_7+\eta_{1,6,7} x_1 x_6 x_7\)
+The first is where the data were generated from the interactions of the
+model follow a strong heredity (hierarchy) with \(\sigma = 1\). Notice
+we have all parent effects of the order-2 epistatic effects and also all
+parent effects of the order-3 epistatic effect are also in the model.
+
+\textbf{Scenario 2:}
+\(\mathbf{Y}=\beta_1 x_1+\beta_4 x_4+\beta_6 x_6+\beta_7 x_7+\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,9} x_1 x_9+\gamma_{6,7} x_6 x_7+\eta_{1,6,9} x_1 x_6 x_9\)
+The second, the data is generated to have the interactions in follow a
+weak heredity (hierarchy) with \(\sigma = 1\). In this scenario the main
+effect of \(x_9\) is not included in the model but you can see it is
+part of both an order-2 and the order-3 effect.
+
+\textbf{Scenario 3:}
+\(\mathbf{Y}=\beta_1 x_1+\beta_4 x_4+\beta_6 x_6+\beta_7 x_7+\gamma_{2,3} x_2 x_3+\gamma_{3,8} x_3 x_8+\gamma_{5,8} x_5 x_8+\gamma_{5,9} x_5 x_9+\eta_{3,9,11} x_3 x_9 x_11\)
 The third scenario is anti-heredity (hierarchical) where the interaction
 effects are only among predictors not present as main effects in the
-model. Finally the last scenario on generates data that come from pure
+model. We still have main effects and epistatic effects in the model.
+However, the parent effects of the interactions are not the main effects
+included in the model.
+
+\textbf{Scenario 4:}
+\(\mathbf{Y}=\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,9} x_1 x_9+\gamma_{6,7} x_6 x_7+\eta_{1,6,9} x_1 x_6 x_9\)
+Finally the last scenario only generates data that come from pure
 interactions between predictors with no main effects present in the
 model used to generate the data.
 
@@ -1348,27 +1682,156 @@ of the parent main effects need to be selected before interactions are
 selected. The models that appeared to do the best in this simulation
 were forward selection on all order-3 interactions included from the
 beginning (FS3), iForm order-3 weak heredity and iForm order-3 strong
-heredity (Table 1). The FS3 took over a 40 fold increase in time to run.
-The other comparison models, glinternet and hierNet seemed to perform
-well on the training set but not as well on the testing set. This would
-indicate that some overfitting was occurring with those types of
-regularization models. The next scenario was when the truth obeys weak
-heredity. With the underlying model obeying the weak heredity, the iForm
-order-3 strong heredity version dropped off in performance slightly.
-However, the FS3 and iForm order-3 remained as top performers (Table 2).
-The third scenario assessed was from an underlying model with an
-anti-heredity structure. Both main effects and interaction effects were
-used in the model to generate the data. However the interactions
-included in the model were of combinations of main effects in the
-candidate set, that were not in the model. The iForm seems to drop in
-performance with this scenario (Table 3). This is to be expected because
-it is in direct violation of the underlying assumptions of the model
-hierarchy. Even with these violations of the heredity it still performed
-reasonably well. Lastly, making the scenario a little more extreme, the
-underlying model generating the data was only of interactions. There
-were no main effects included in the model. The results of this scenario
-are shown in Table 4. Performance appeared to drop off for all models
-explored in the simulation.
+heredity @ref(tab:Chap3sim1. The FS3 took over a 40 fold increase in
+time to run. The other comparison models, glinternet and hierNet seemed
+to perform well on the training set but not as well on the testing set.
+This would indicate that some overfitting was occurring with those types
+of regularization models. The next scenario was when the truth obeys
+weak heredity. With the underlying model obeying the weak heredity, the
+iForm order-3 strong heredity version dropped off in performance
+slightly. However, the FS3 and iForm order-3 remained as top performers
+@ref(tab:Chap3sim2. The third scenario assessed was from an underlying
+model with an anti-heredity structure. Both main effects and interaction
+effects were used in the model to generate the data. However the
+interactions included in the model were of combinations of main effects
+in the candidate set, that were not in the model. The iForm seems to
+drop in performance with this scenario @ref(tab:Chap3sim3. This is to be
+expected because it is in direct violation of the underlying assumptions
+of the model hierarchy. Even with these violations of the heredity it
+still performed reasonably well. Lastly, making the scenario a little
+more extreme, the underlying model generating the data was only of
+interactions. There were no main effects included in the model. The
+results of this scenario are shown in @ref(tab:Chap3sim4. Performance
+appeared to drop off for all models explored in the simulation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim1.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 1 Simulation results when the truth obeys strong heredity'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap3sim1}Table 1 Simulation results when the truth obeys strong heredity}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Model & T1.tpr & T1.fpr & T2.tpr & T2.fpr & T3.tpr & T3.fpr & Train.MSE & Train.Rsq & Test.MSE & Test.Rsq & Model.Size & Run.Time\\
+\midrule
+Forward select & 1 & 0.001 & 0 & 0.000 & 0 & 0 & 3.330 & 0.727 & 3.490 & 0.711 & 4.04 & 0.757\\
+Iform weak(2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.128 & 0.907 & 1.252 & 0.895 & 8.08 & 5.896\\
+Iform strong(2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.102 & 0.909 & 1.198 & 0.900 & 8.00 & 1.557\\
+Forward select(2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.086 & 0.910 & 1.198 & 0.900 & 8.02 & 25.481\\
+Forward select(3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 0.992 & 0.918 & 1.121 & 0.906 & 8.56 & 471.880\\
+\addlinespace
+Iform weak(3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.020 & 0.916 & 1.135 & 0.905 & 9.13 & 11.346\\
+Iform strong(3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 0.968 & 0.920 & 1.060 & 0.911 & 8.95 & 1.872\\
+glinternet & 1 & 0.441 & 1 & 0.018 & 0 & 0 & 1.246 & 0.898 & 1.446 & 0.880 & 29.90 & 208.170\\
+hierNet & 1 & 0.303 & 1 & 0.024 & 0 & 0 & 0.906 & 0.925 & 1.421 & 0.882 & 40.99 & 27.521\\
+Oracle & NA & NA & NA & NA & NA & NA & 0.953 & 0.921 & 1.050 & 0.912 & 9.00 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim2.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 2 Simulation results when the truth obeys weak heredity'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap3sim2}Table 2 Simulation results when the truth obeys weak heredity}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Model & T1.tpr & T1.fpr & T2.tpr & T2.fpr & T3.tpr & T3.fpr & Train.MSE & Train.Rsq & Test.MSE & Test.Rsq & Model.Size & Run.Time\\
+\midrule
+Forward select & 1 & 0.001 & 0 & 0.000 & 0 & 0 & 3.326 & 0.731 & 3.480 & 0.716 & 4.03 & 4.355\\
+Iform weak(2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.119 & 0.910 & 1.200 & 0.901 & 8.07 & 8.342\\
+Iform strong(2) & 1 & 0.008 & 0 & 0.000 & 0 & 0 & 1.580 & 0.872 & 1.707 & 0.859 & 7.54 & 2.952\\
+Forward select (2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.083 & 0.912 & 1.167 & 0.904 & 8.00 & 38.872\\
+Forward select (3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 0.979 & 0.921 & 1.089 & 0.910 & 8.58 & 569.980\\
+\addlinespace
+Iform weak(3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.003 & 0.919 & 1.079 & 0.911 & 9.03 & 13.054\\
+Iform strong (3) & 1 & 0.008 & 0 & 0.000 & 0 & 0 & 1.578 & 0.872 & 1.705 & 0.859 & 7.58 & 2.787\\
+Glinternet & 1 & 0.531 & 1 & 0.020 & 0 & 0 & 0.906 & 0.927 & 1.425 & 0.883 & 33.18 & 29.975\\
+hierNet & 1 & 0.343 & 1 & 0.027 & 0 & 0 & 0.856 & 0.931 & 1.412 & 0.884 & 43.43 & 33.302\\
+Oracle & NA & NA & NA & NA & NA & NA & 0.940 & 0.924 & 1.034 & 0.915 & 9.00 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim3.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 3 Simulation results when the truth is anti-heredity'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap3sim3}Table 3 Simulation results when the truth is anti-heredity}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Model & T1.tpr & T1.fpr & T2.tpr & T2.fpr & T3.tpr & T3.fpr & Train.MSE & Train.Rsq & Test.MSE & Test.Rsq & Model.Size & Run.Time\\
+\midrule
+Forward select & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 3.284 & 0.729 & 3.510 & 0.714 & 4.02 & 1.005\\
+Iform weak (2) & 1 & 0.004 & 0 & 0.000 & 0 & 0 & 3.140 & 0.741 & 3.435 & 0.719 & 4.77 & 7.866\\
+Iform strong(2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 3.284 & 0.729 & 3.510 & 0.714 & 4.02 & 2.386\\
+Forward select (2) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 1.081 & 0.911 & 1.171 & 0.904 & 8.04 & 29.095\\
+Forward select (3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 0.989 & 0.918 & 1.095 & 0.910 & 8.59 & 548.620\\
+\addlinespace
+Iform weak(3) & 1 & 0.003 & 0 & 0.000 & 0 & 0 & 3.155 & 0.739 & 3.448 & 0.719 & 4.57 & 13.216\\
+Iform strong(3) & 1 & 0.000 & 0 & 0.000 & 0 & 0 & 3.284 & 0.729 & 3.510 & 0.714 & 4.02 & 2.703\\
+glinternet & 1 & 0.710 & 1 & 0.029 & 0 & 0 & 0.844 & 0.931 & 1.578 & 0.871 & 44.59 & 26.564\\
+hierNet & 1 & 0.858 & 1 & 0.085 & 0 & 0 & 0.307 & 0.975 & 2.216 & 0.819 & 119.73 & 3.417\\
+Oracle & NA & NA & NA & NA & NA & NA & 0.952 & 0.921 & 1.031 & 0.915 & 9.00 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim4.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 4 Simulation results when the truth is constructed of pure interactions'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap3sim4}Table 4 Simulation results when the truth is constructed of pure interactions}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+Model & T1.tpr & T1.fpr & T2.tpr & T2.fpr & T3.tpr & T3.fpr & Train.MSE & Train.Rsq & Test.MSE & Test.Rsq & Model.Size & Run.Time\\
+\midrule
+Forward select & NaN & 0.020 & 0 & 0.000 & 0 & 0 & 3.316 & 0.025 & 3.445 & -0.039 & 1.00 & 1.177\\
+Iform weak(2) & NaN & 0.028 & 0 & 0.000 & 0 & 0 & 3.007 & 0.115 & 3.181 & 0.040 & 2.27 & 5.840\\
+Iform strong(2) & NaN & 0.021 & 0 & 0.000 & 0 & 0 & 3.294 & 0.031 & 3.429 & -0.034 & 1.08 & 2.081\\
+Forward select (2) & NaN & 0.000 & 0 & 0.000 & 0 & 0 & 1.117 & 0.669 & 1.170 & 0.644 & 4.01 & 26.396\\
+Forward & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
+\addlinespace
+Select(3) & NaN & 0.000 & 0 & 0.000 & 0 & 0 & 1.005 & 0.703 & 1.081 & 0.671 & 4.62 & 530.360\\
+Iform weak(3) & NaN & 0.025 & 0 & 0.000 & 0 & 0 & 3.043 & 0.106 & 3.209 & 0.032 & 1.86 & 9.461\\
+Iform strong(3) & NaN & 0.021 & 0 & 0.000 & 0 & 0 & 3.294 & 0.031 & 3.429 & -0.034 & 1.08 & 2.265\\
+glinternet & NaN & 0.571 & 1 & 0.017 & 0 & 0 & 1.002 & 0.699 & 1.445 & 0.561 & 27.53 & 145.080\\
+hierNet & NaN & 0.853 & 1 & 0.045 & 0 & 0 & 0.672 & 0.802 & 1.758 & 0.467 & 92.52 & 4.491\\
+Oracle & NA & NA & NA & NA & NA & NA & 0.968 & 0.713 & 1.022 & 0.689 & 5.00 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 In the scenarios where the data was assumed to follow some form of a
 hierarchical structure for the epistasis effects the iForm procedure for
@@ -1396,8 +1859,9 @@ the growth rigor and form of mei important to its ornamental value, a
 cross was made between two distinct cultivars, Fenban (female parent)
 and Kouzi Yudie (male parent), aimed to select superior genotypes from
 hybrids. To the end, an F1 mapping population of 190 hybrids was
-established and further genotyped for 4,934 SNP markers over eight mei
-chromosomes.
+established and further genotyped for 4,934 SNP markers over eight
+linkage groups which correspond to eight chromosomes across the entire
+genome.
 
 To test genotypic differences in growth performance, each of these
 hybrids was grafted on an established root stock using multiple budding
@@ -1428,21 +1892,22 @@ high-order epistasis although it has been thought to regulate growth
 processes.
 
 By treating the estimates of growth parameters for individual hybrids as
-``phenotyopic traits,'' we used iFORM to map growth QTLs and QTL-QTL
-interactions. Of 4,934 markers, 00 are the testcross markers at which
-markers are segregating due to only one heterozygous parent and 00 are
-the intercross markers whose segregation results from the heterozygosity
-of both parents. For a testcross marker, there is only one main genetic
-effect, whereas an intercross marker contains additive and dominant main
-effects. Thus, a pair of testcross markers produces only type of
-epistasis, but a pair of intercross markers forms four types of
-epistasis, additive × additive, additive × dominant, dominant × additive
-and dominant × dominant. For two markers with one from the testcross and
-the other from the intercross, there are two types of epistasis, i.e.,
-additive × additive and additive × dominant (\cite{tong20113funmap}).
-The number and type of epistasis can be characterized for any three
-markers accordingly. Here, the iFORM was implemented in a way that
-allows both marker markers to be modeled and analyzed simultaneously.
+``phenotypic traits,'' we used iFORM to map growth QTLs and QTL-QTL
+interactions. Of 4,934 markers, 2,100 are the testcross markers at which
+markers are segregating due to only one heterozygous parent and 2,834
+are the intercross markers whose segregation results from the
+heterozygosity of both parents. For a testcross marker, there is only
+one main genetic effect, whereas an intercross marker contains additive
+and dominant main effects. Thus, a pair of testcross markers produces
+only type of epistasis, but a pair of intercross markers forms four
+types of epistasis, additive × additive, additive × dominant, dominant ×
+additive and dominant × dominant. For two markers with one from the
+testcross and the other from the intercross, there are two types of
+epistasis, i.e., additive × additive and additive × dominant
+(\cite{tong20113funmap}). The number and type of epistasis can be
+characterized for any three markers accordingly. Here, the iFORM was
+implemented in a way that allows both marker markers to be modeled and
+analyzed simultaneously.
 
 To demonstrate the possible importance of high-order epistasis, we
 analyze the data by assuming that growth parameters are controlled by
@@ -1457,26 +1922,90 @@ turned out that 5 predictors were chosen, i.e., four main additive
 effects of markers, AATTC\_nn\_np\_2517, AATTC\_nn\_np\_2815,
 CATG\_nn\_np\_3479 and CATG\_nn\_np\_1284 and one epistatic effect due
 to markers AATTC\_nn\_np\_2815 and AATTC\_lm\_ll\_3034, for growth
-parameter r of shoot length (Table 4). The main effect of marker
-AATTC\_lm\_ll\_3034 was detected to be insignificant. These main and
-epistatic effects together explained 32.41\% of the total variance of
-parameter r.
+parameter r of shoot length \ref{tab:Chap3Table5}. The main effect of
+marker AATTC\_lm\_ll\_3034 was detected to be insignificant. These main
+and epistatic effects together explained 32.41\% of the total variance
+of parameter r.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_Table5.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap3Table5}Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model}
+\centering
+\begin{tabular}[t]{lrrrl}
+\toprule
+Coefficient & Estimate & SE & T.value & P.value\\
+\midrule
+(Intercept) & 0.18285 & 0.07613 & 2.402 & 0.0174 *\\
+AATTC\_nn\_np\_2517\_a & 0.40013 & 0.06509 & 6.147 & 5.13e-09 ***\\
+AATTC\_nn\_np\_2815\_a & 0.15792 & 0.06837 & 2.310 & 0.0221 *\\
+CATG\_nn\_np\_3479\_a & 0.23433 & 0.05285 & 4.434 & 1.63e-05 ***\\
+CATG\_nn\_np\_1284\_a & 0.22200 & 0.05313 & 4.179 & 4.61e-05 ***\\
+AATTC\_nn\_np\_2815\_a×AATTC\_lm\_ll\_3034\_a & 0.45783 & 0.09244 & 4.953 & 1.71e-06 ***\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 When opening up the iForm procedure to the possibility to creating
 higher order interactions to be placed into the candidate set, a more
 complete picture of the phenotypical variation was revealed. The amount
 of predictors included in the final model grew to 12, with one of them
 being three-way interactions among markers AATTC\_nn\_np\_2815,
-AATTC\_lm\_ll\_3034 and AATTC\_nn\_np\_1615.The adjusted R2 jumped up to
-over 70\% (Table 4). This astonishing jump in predictive power is an
-exemplar case as to the importance of higher-order interactions in
-genetic models. Not only did higher-order interactions become one of the
-most significant predictors in the model selected, it also allowed for
-other order-two interactions and main effects to be kept in the model
-that were previously left out. At the next step of every iteration, the
-new candidate effect was conditioned on everything previously selected.
-With the conditional effect of the higher-order interaction it enabled
-for other lost effects to be modeled as well.
+AATTC\_lm\_ll\_3034 and AATTC\_nn\_np\_1615.The adjusted \(R^2\) jumped
+up to over 70\% \ref{tab:Chap3Table5}. This astonishing jump in
+predictive power is an exemplar case as to the importance of
+higher-order interactions in genetic models. Not only did higher-order
+interactions become one of the most significant predictors in the model
+selected, it also allowed for other order-two interactions and main
+effects to be kept in the model that were previously left out. At the
+next step of every iteration, the new candidate effect was conditioned
+on everything previously selected. With the conditional effect of the
+higher-order interaction it enabled for other lost effects to be modeled
+as well.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_Table6.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap3Table6}Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model}
+\centering
+\begin{tabular}[t]{lrrrl}
+\toprule
+Coefficient & Estimate & SE & T.value & P.value\\
+\midrule
+(Intercept) & 0.16859 & 0.05801 & 2.906 & 0.00415 **\\
+AATTC\_nn\_np\_2517\_a & 0.27773 & 0.04396 & 6.318 & 2.27e-09 ***\\
+AATTC\_nn\_np\_2815\_a & 0.26382 & 0.05295 & 4.983 & 1.54e-06 ***\\
+CATG\_nn\_np\_3479\_a & 0.20767 & 0.03467 & 5.990 & 1.23e-08 ***\\
+CATG\_nn\_np\_1284\_a & 0.04522 & 0.04265 & 1.060 & 0.29055\\
+\addlinespace
+AATTC\_nn\_np\_2815\_a×AATTC\_lm\_ll\_3034\_a & 1.82572 & 0.17925 & 10.185 & < 2e-16 ***\\
+AATTC\_nn\_np\_2815\_a×AATTC\_hk\_hk\_278\_a & 0.25935 & 0.03888 & 6.671 & 3.48e-10 ***\\
+CATG\_lm\_ll\_3153\_a & 0.14877 & 0.03491 & 4.262 & 3.36e-05 ***\\
+CATG\_nn\_np\_1284\_a×AATTC\_nn\_np\_554\_a & 0.22994 & 0.05104 & 4.505 & 1.23e-05 ***\\
+AATTC\_nn\_np\_2815\_a.AATTC\_lm\_ll\_3034\_a×AATTC\_nn\_np\_1615\_a & -1.51714 & 0.19060 & -7.960 & 2.39e-13 ***\\
+\addlinespace
+AATTC\_nn\_np\_2815\_a×AATTC\_nn\_np\_929\_a & -0.30805 & 0.05477 & -5.624 & 7.57e-08 ***\\
+AATTC\_hk\_hk\_479\_d & 0.16044 & 0.03443 & 4.660 & 6.37e-06 ***\\
+AATTC\_nn\_np\_2517\_a×CATG\_hk\_hk\_648\_a & 0.14537 & 0.02840 & 5.118 & 8.33e-07 ***\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The purpose of the mei genetic project is to study the genetic control
 of shoot growth form. Here, we further analyze how three-way
@@ -1537,38 +2066,59 @@ i_{123}(t) &=  [(\mu_{111}(t) + \mu_{122}(t) + \mu_{212}(t) + \mu_{122}(t)) – 
 
 Each genotype can draw a growth curve using its growth parameters (a, b,
 r) estimated from raw data, from which we can chart the curves of
-pairwise and three-way epistatic effects using equation (4). Three
-markers AATTC\_nn\_np\_2815, AATTC\_lm\_ll\_3034 and AATTC\_nn\_np\_1615
-that produce a significant three-way interaction for parameter x of
-shoot length display pronounced differences in growth curve
-(\ref{fig:growth-compare}). The epistasis of low- and high-order
-performs differently to affect growth form, with three-way interactions
-playing a more remarkable role than pairwise epistasis
-(\ref{fig:epistasis-compare}).
+pairwise and three-way epistatic effects using equation
+\eqref{eq:genetic-effects}. Three markers AATTC\_nn\_np\_2815(AA/Aa),
+AATTC\_lm\_ll\_3034(BB/Bb) and AATTC\_nn\_np\_1615(CC/Cc) that produce a
+significant three-way interaction for parameter x of shoot length
+display pronounced differences in growth curve \ref{fig:growth-compare}.
+The epistasis of low- and high-order performs differently to affect
+growth form, with three-way interactions playing a more remarkable role
+than pairwise epistasis \ref{fig:epistasis-compare}.
+
+The figures display the variation between each of the growth curves for
+the eight combinations of the three marker genotypes focused on
+\ref{fig:growth-compare}. Differences of each of the growth parameters
+can be observed when studying the figures. There is clear separation in
+the shoot length that is observed at the end of the 16 weeks. This
+difference can be visually grouped into four clusters that show the
+effect a genotype combination can have on the asymptotic growth
+parameter, a. Another noticeable different between the curves displayed
+is the rate at which the growth developed. At the earlier weeks of
+development you can see some of the genotype combinations grew faster,
+manifesting in a steeper slope and other genotypes had shallower slopes.
+All of these visually show what was picked up on when modeling the shoot
+length growth and the impact of the higher-order interactions between
+the genotypes have on such growth. By solving the system of linear
+equations in \eqref{eq:epi-effects} we can dissect the epistatic effects
+of the genotype combinations. The effects over time are displayed
+\ref{fig:epistasis-compare} and in this you can see the non-linear
+influence of the interactions between the markers included.
 
 \section{Discussion}\label{discussion-1}
 
 Genetic interactions have been thought to contribute to a significant
 portion of genetic variance for quantitative traits of critical
-importance to evolutionary biology, agriculture and medicine (Nelson et
-al. 2013; Mackay 2014). While pairwise interactions have been a major
-focus of quantitative genetic studies, there has been growing evidence
-that genetic interactions involving three or more loci play an important
-role in affecting the phenotypic differentiation of traits (Wang et al.
-2010; Dowell et al. 2010; Pettersson et al. 2011; Pang et al. 2013;
-Weinreich et al. 2013; Taylor and Ehrenreich 2014; Taylor and Ehrenreich
-2015). Because of its complexity due to a network of interactions, the
-detection of high-order epistasis is extremely difficult (Mackay 2014).
-More importantly, interpretation of high-order epistasis and its
-contribution to overall genetic architecture can be better made by
-jointly analyzing all possible low- and high-order interactions among
-genes. This has added an extra challenge to statistical modeling and
-detection of this important phenomenon. Thanks to the recent development
-of statistical models for high-dimensional variable selection, we have
-reformed a statistical modeling framework for detecting high-order
-epistasis by focusing on three-way interactions.
+importance to evolutionary biology, agriculture and medicine
+(\cite{nelson2013century}; \cite{mackay2014epistasis}). While pairwise
+interactions have been a major focus of quantitative genetic studies,
+there has been growing evidence that genetic interactions involving
+three or more loci play an important role in affecting the phenotypic
+differentiation of traits (\cite{wang2010general};
+\cite{dowell2010genotype}; \cite{pettersson2011replication};
+\cite{pang2013statistical}; \cite{weinreich2013should};
+\cite{taylor2014genetic}; \cite{taylor2015higher}). Because of its
+complexity due to a network of interactions, the detection of high-order
+epistasis is extremely difficult (\cite{mackay2014epistasis}). More
+importantly, interpretation of high-order epistasis and its contribution
+to overall genetic architecture can be better made by jointly analyzing
+all possible low- and high-order interactions among genes. This has
+added an extra challenge to statistical modeling and detection of this
+important phenomenon. Thanks to the recent development of statistical
+models for high-dimensional variable selection, we have reformed a
+statistical modeling framework for detecting high-order epistasis by
+focusing on three-way interactions.
 
-Our model extends Hao and Zhang's (2014) forward selection-based
+Our model extends \cite{hao2014interaction} forward selection-based
 algorithm iFORM that has proven to be robust and efficient for computing
 and detecting two-way interactions between predictors (including
 continuous predictors). A favorable property of iFORM is its capacity to
@@ -1584,22 +2134,30 @@ reason why high-order epistatic model outperforms low-order epistatic
 model, as demonstrated from the detection of significant genetic
 interactions in a real data of a woody plant, mei (Prunus mume). It was
 found from a recent study that loci participating in high-order genetic
-interactions may not individually have measurable effects (Bloom et al.
-2013). As a result, our model can be used as a general tool to detect
-genetic interactions of various orders and, therefore, elucidate the
-overall picture of genetic architecture by capturing the so-called
-missing heritability.
+interactions may not individually have measurable effects
+(\cite{bloom2013finding}). As a result, our model can be used as a
+general tool to detect genetic interactions of various orders and,
+therefore, elucidate the overall picture of genetic architecture by
+capturing the so-called missing heritability.
 
 The model was investigated by simulation studies whose result help users
 to determine an optimal design of mapping or association studies in
 terms of sample size, phenotyping precision and the number of markers.
 Its application to P. mume genetic mapping leads to the detection of key
 loci and their interactions expressed at the low- and high-order levels
-for the growth form of shoots. \ldots{}. the R packages was created and
-made available through CRAN (Comprehensive R Archive
-Network){[}\url{https://cran.r-project.org/}{]}. We packed iFORM/eQTL in
-R with the source code is available at Center for Statistical Genetics
-(website){[}\url{http://statgen.psu.edu/software/}{]}
+for the growth form of shoots. The curve of three-way epistasis on mei
+shoot length growth was observed to increase exponentially during the
+first five weeks of shoot sprouting and become stable after five weeks.
+Such integration of the model into growth equation shed light on the
+developmental mechanisms of growth processes through epistasis, a
+question that has evoked a tremendous interest of researchers globally
+in the area of evolutionary developmental biology
+(\cite{franks2007rapid}, \cite{cartolano2015heterochrony},
+\cite{nishino2013network}). We have created an R package that has
+implemented the model which adds a function to allow epistasis of any
+orders to be searched. The package can be uploaded at
+\url{http://statgen.psu.edu/software/} and will be made available
+through CRAN (Comprehensive R Archive Network).
 
 \chapter{iForm Functional Mapping (A computational
 method)}\label{iform-functional-mapping-a-computational-method}
@@ -1658,26 +2216,26 @@ interactions between genotypes.
 There are many approaches for gene mapping with genome-wide association
 studies (GWAS) being one of the most popular one, achieving a
 considerable success since their first publication in 2005
-(\textbackslash{}cite\{klein2005complement). Analytical approaches are
-constantly being developed to perform GWAS studies. There are a few
-areas of challenges in statistical modeling and analysis of genetic data
-that account for the complexity of phenotypic information. Generally
-GWAS studies associate genetic markers with static, single valued
-phenotypes. As we have discussed, most analysis revolve around point
-wise estimates and do not always take the entirety of the system during
-the analysis. Incorporating selections are starting to become more
-common but further work is this area still needs to be explored.
-Extending the forward selecting procedure previously state in
-\ref{highdeqtl} and \ref{highorder} in order to handle a functional
-phenotype would be very beneficial with GWAS level studies. A few
-challenges do arise while considering to conduct a genome-wide
-association study (GWAS) on interacting traits measured at a sequence of
-time points. The model needs to be flexible enough to fit different
-situations, independence of the error structure needs to be maintained
-or accounted for with the time dependencies and finally computational
-efficiency needs to be good enough to fit such complex models. All of
-these issues combined make it a difficult exertion to take on but with
-computational power increasing, it is becoming more feasible to handle.
+(\cite{klein2005complement}). Analytical approaches are constantly being
+developed to perform GWAS studies. There are a few areas of challenges
+in statistical modeling and analysis of genetic data that account for
+the complexity of phenotypic information. Generally GWAS studies
+associate genetic markers with static, single valued phenotypes. As we
+have discussed, most analysis revolve around point wise estimates and do
+not always take the entirety of the system during the analysis.
+Incorporating selections are starting to become more common but further
+work is this area still needs to be explored. Extending the forward
+selecting procedure previously state in \ref{highdeqtl} and
+\ref{highorder} in order to handle a functional phenotype would be very
+beneficial with GWAS level studies. A few challenges do arise while
+considering to conduct a genome-wide association study (GWAS) on
+interacting traits measured at a sequence of time points. The model
+needs to be flexible enough to fit different situations, independence of
+the error structure needs to be maintained or accounted for with the
+time dependencies and finally computational efficiency needs to be good
+enough to fit such complex models. All of these issues combined make it
+a difficult exertion to take on but with computational power increasing,
+it is becoming more feasible to handle.
 
 In applications like the scenario described where we have a functional
 value phenotype and a high dimensional predictor space with dynamically
@@ -1720,7 +2278,7 @@ of interest in terms of the values of the predictors. This would result
 in a linear model of the form,
 
 \begin{equation}
-Y = \beta_0 + \beta_1 X_1 + ⋯ + \beta_p X_p + \epsilon
+Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
 (\#eq: lin-mod)
 \end{equation}
 
@@ -1771,6 +2329,8 @@ polynomials that will be used are the Legendre polynomials because of
 the nice properties they posses.
 
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
+
+\textbf{Remove R Code}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1829,11 +2389,11 @@ the nice properties they posses.
 \caption{First 10 Legendre Polynomials}\label{fig:Legendre-fig}
 \end{figure}
 
-The definition of the Legendre polynomials are the solutions for n = 0,
-1, 2, \ldots{} (with the normalization Pn(1) = 1) form a polynomial
-sequence of orthogonal polynomials called the Legendre polynomials. Each
-Legendre polynomial Pn(x) is an nth-degree polynomial. It may be
-expressed using Rodrigues' formula:
+The definition of the Legendre polynomials are the solutions for \$n =
+0, 1, 2, \dots \$(with the normalization \(P_n(1) = 1\) form a
+polynomial sequence of orthogonal polynomials called the Legendre
+polynomials. Each Legendre polynomial \(P_n(x)\) is an nth-degree
+polynomial. It may be expressed using Rodrigues' formula:
 
 \begin{equation}
 P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
@@ -1919,8 +2479,8 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \label{eq:epi-legendre}
 \end{equation}
 
-\subsection{Applying the iForm
-Procedure}\label{applying-the-iform-procedure}
+\subsection{Integrating with the iForm
+Procedure}\label{integrating-with-the-iform-procedure}
 
 An outline of the selection procedure used following the model described
 is as follows. At first the mean growth curve is estimated for the
@@ -2079,6 +2639,44 @@ in assessing the validity of the model at hand.
 
 \section{Summary}\label{summary}
 
+\subsection{HighDeQTL}\label{highdeqtl-1}
+
+\begin{itemize}
+\tightlist
+\item
+  advantages
+\item
+  disadvantages steps to improve
+\end{itemize}
+
+\subsection{Higher Order Epistasis}\label{higher-order-epistasis-1}
+
+\begin{itemize}
+\tightlist
+\item
+  advantages
+\item
+  disadvantages steps to improve
+\end{itemize}
+
+\subsection{iForm Functional Mapping}\label{iform-functional-mapping}
+
+\begin{itemize}
+\tightlist
+\item
+  advantages
+\item
+  disadvantages steps to improve
+\end{itemize}
+
+what else will be done before submitting for publication.
+
+What areas need developed more and what areas will be looked into and
+discussed in further detail?
+
+\subsection{Previously written summary
+paragraph}\label{previously-written-summary-paragraph}
+
 In my disseration I have applied, adapted and extended the forward
 selection procedure under the marginality assumption first proposed by
 \cite{hao2014interaction} that is able to reduce search space
@@ -2111,6 +2709,8 @@ the underlying structure. It then performs a GWAS level analysis with
 considering epstatic interactions throughout the process.
 
 \section{Discussion}\label{discussion-3}
+
+\textbf{Needs Expanded}
 
 The selection procedures proposed attempt to address problems that are
 complex and have many moving parts to the procedure. Using a flexible
@@ -2152,6 +2752,35 @@ developing mechanistic models of cellular response.
 \cite{androulakis2007analysis}
 
 \section{Future Steps}\label{future-steps}
+
+\begin{itemize}
+\item
+  Aim 1
+\item
+  Continue testing properties of the iForm procedure used with the
+  Legendre Polynomials
+\item
+  Submit by Summer
+\item
+  Aim 2
+\item
+  Consider other multivariate responses and correlated error
+  structures.\\
+\item
+  Expression levels of different cell lines or tissue types as
+  multivariate response
+\item
+  Aim 3
+\item
+  Combine functional component and multivariate response into complete
+  functional network
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Time-Series of gene expression from cell lines or tissue types
+  \end{itemize}
+\end{itemize}
 
 More extensive explaination of future aims will be necessary for the
 final write up.
