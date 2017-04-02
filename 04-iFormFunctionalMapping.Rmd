@@ -154,7 +154,46 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \end{equation}
 
 
-### Integrating with the iForm Procedure
+### Incorporating with the iForm Procedure
+
+
+$$
+\begin{equation}
+\begin{split}
+P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
+& = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
+& = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
+\end{split}
+\end{equation}
+$$
+
+
+
+(iForm with Legendre Polynomials Model)
+
+
+$$\alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T$$
+$$\beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T$$
+
+$$
+\begin{equation}
+\begin{split}
+y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k + \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{aa}(t) \xi_{I_1}\xi_{I_2} \\ 
++ \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} + \epsilon(t)
+\end{split}
+\end{equation}
+$$
+
+$$\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}$$
+
+( Model (iForm with Legendre Model) )
+
+  - Step 1: (Initialization) 
+  Set $\mathcal{S}^{(0)} = \emptyset$, $\mathcal{M}_0 = \emptyset$ and $\mathcal{C}_0 = \mathcal{P_1}$
+  - Step 2: (Selection) In the kth step with given $\mathcal{S}^{(k-1)}$, $\mathcal{C}^{k−1}$ and $\mathcal{M}^{k−1}$, [forward regression](#/7) is used to select one more predictor from $\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}$ into the model while checking for different degrees of the legendre polynomial used as a basis for the genetic effect. We add the selected one into $\mathcal{S}^{k−1}$ to get $\mathcal{S}^k$. We also update $\mathcal{C}^k$ and $\mathcal{M}^k$ if the newly selected predictor is a main effect. Otherwise, $\mathcal{C}^k = \mathcal{C}^{k−1}$ and $\mathcal{M}^k = \mathcal{M}^{k−1}$
+  - Step 3: (Solution Path). Iterating Step 2, for D times, which leads to a total of D nested candidate models.  We then collect those models by a solution path $\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}$
+
+
 
 <p> An outline of the selection procedure used following the model described is as follows.  At first the mean growth curve is estimated for the presented data following the logistic growth curve.  This could be adjusted depending on the functional process the researcher is studying.  Once the mean curve is fit the selection procedure is initialized in a similar fashion as mentioned in previous chapters \@ref{highdeqtl}.  Both the solution set and the model set are assigned to the empty set, $S_0=\emptyset$ and $M_0=\emptyset$. The candidate set starts off containing all main effects for the additive and dominant effects of each SNP.  The selection procedure then begins and each SNP is assessed and the best fitting candidate is then placed in the selection set.  While assessing each candidate SNP, an additional search is performed for the best fitting polynomial fit up to a pre-specified order that is determined at the beginning of the procedure.  The orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other functional models or other types of non-linear functions that characterizes the biological systems being evaluated. We are treating the polynomials as a basis function for the regression problem and therefore the Residual Sum of Squares is calculated similar to multiple regression but replacing the design matrix with the necessary basis functions.  This continues until a designated stopping value is reached.  The $BIC_2$ is then used to find the optimal fit given the selection procedure performed.  The following graphics show how the process works at each step </p>
 
@@ -179,6 +218,15 @@ knitr::include_graphics("images/LegendreFit.png")
 
 As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures.Simulation studies were performed to ascertain the validity of the model.  Rates at which correct markers/epistasis were selected and overall model true model size was assessed. Data was original generated from a mean curve following the growth equation described above. It was then sampled from a multivariate normal distribution with the mean vector following the generated and with correlated errors over time. Significant effects were also included in the model to simulate different marker levels.  These effects could be main effects of SNPs, or epistatic effects of interaction between SNPs.  There were a total of 4 main effects and three interaction effects simulated.  This simulation was replicated 100 times and then the selection procedure was ran.  It performed well with 93% of the replicates selecting all main and interaction effects and the other 7% of the models select a majority of the effects.  The model size simulated was of size 7.  The average model size of the replicates fit was around 13.5.  This would indicate some slight over-fitting but all important effects were included in the model.  Some considerations for this need to be looked into further for future work.  
 
+```{r, echo = FALSE}
+
+kable(
+  read.csv("Functional_SimulationResults.csv"), 
+  digits = 4, 
+  caption = "Simulation Results"
+  )
+
+```
 
 ### Worked Example
 
@@ -194,6 +242,16 @@ As a comparison here are the results for simultaneously fitting the growth curve
 <!-- \includegraphics[width=8in]{HT_ResultsTable.pdf}  -->
 <!-- \end{center} -->
 
+
+```{r, echo = FALSE}
+
+kable(
+  read.csv("Functional_Output.csv"), 
+  digits = 4, 
+  caption = "Simulation Results"
+  )
+
+```
 
 ## Discussion
 

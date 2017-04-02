@@ -1,0 +1,3 @@
+Model,T1_tpr,T1_fpr,T2_tpr,T2_fpr
+Model Predictors,1,0.1417,1,0.0037
+Polynomial Degree,0.7125,0.0251,0.9667,0.0007
