@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.7.6)  2 APR 2017 20:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.7.6)  3 APR 2017 10:36
 entering extended mode
 **Defense.tex
 (C:\Users\Kirk\Documents\School\PhD\Dissertation\Defense\_book\Defense.tex
@@ -1094,200 +1094,161 @@ been already used, duplicate ignored
                    \relax 
 l.267 
        [2 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images
-/SNP_Picture.png>]
-
-Package natbib Warning: Citation `wu2007statistical' on page 3 undefined on inp
-ut line 273.
-
-[3]
-
-Package natbib Warning: Citation `whittaker1996mapping' on page 4 undefined on 
-input line 315.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-Underfull \vbox (badness 4819) has occurred while \output is active []
-
- [5]
-
-Package natbib Warning: Citation `hansen2001epistasis' on page 6 undefined on i
-nput line 361.
-
-
-Package natbib Warning: Citation `beerenwinkel2007analysis' on page 6 undefined
- on input line 361.
-
-
-Package natbib Warning: Citation `wang2015bayesian' on page 6 undefined on inpu
-t line 365.
-
-[6] <images/SystemsMapping.png, id=274, 704.8734pt x 464.937pt>
+/SNP_Picture.png>] <images/SystemsMapping.png, id=255, 704.8734pt x 464.937pt>
 File: images/SystemsMapping.png Graphic file (type png)
 
 <use images/SystemsMapping.png>
-Package pdftex.def Info: images/SystemsMapping.png used on input line 412.
+Package pdftex.def Info: images/SystemsMapping.png used on input line 270.
 (pdftex.def)             Requested size: 375.81827pt x 247.89105pt.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 419.
 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 429.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 430
-.
+Package natbib Warning: Citation `wu2007statistical' on page 3 undefined on inp
+ut line 282.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+[3 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/System
+sMapping.png>]
 
-! LaTeX Error: File `Defense_files/figure-latex/nice-fig-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.436 ...h]{Defense_files/figure-latex/nice-fig-1}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7]
-
-Package natbib Warning: Citation `R-bookdown' on page 8 undefined on input line
- 493.
+Package natbib Warning: Citation `whittaker1996mapping' on page 4 undefined on 
+input line 324.
 
 
-Package natbib Warning: Citation `xie2015' on page 8 undefined on input line 49
-4.
+Underfull \vbox (badness 4120) has occurred while \output is active []
 
-[8 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/System
-sMapping.png>] [9] [10
+ [4]
+
+Package natbib Warning: Citation `hao2014interaction' on page 5 undefined on in
+put line 350.
+
+
+Package natbib Warning: Citation `rockman2010selection' on page 5 undefined on 
+input line 359.
+
+[5] [6]pdfTeX warning (ext4): destination with the same identifier (name{highde
+qtl}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.408 eQTL}\label{highdeqtl}}
+                              [7] [8
 
 ]
 Chapter 2.
 
-Package natbib Warning: Citation `emilsson2008genetics' on page 11 undefined on
- input line 504.
+Package natbib Warning: Citation `emilsson2008genetics' on page 9 undefined on 
+input line 416.
 
 
-Package natbib Warning: Citation `cookson2009mapping' on page 11 undefined on i
-nput line 504.
+Package natbib Warning: Citation `cookson2009mapping' on page 9 undefined on in
+put line 416.
 
 
-Package natbib Warning: Citation `nica2013expression' on page 11 undefined on i
-nput line 505.
+Package natbib Warning: Citation `nica2013expression' on page 9 undefined on in
+put line 417.
 
 
-Package natbib Warning: Citation `kim2014meta' on page 11 undefined on input li
-ne 509.
+Package natbib Warning: Citation `kim2014meta' on page 9 undefined on input lin
+e 421.
 
 
-Package natbib Warning: Citation `fairfax2014innate' on page 11 undefined on in
-put line 509.
+Package natbib Warning: Citation `fairfax2014innate' on page 9 undefined on inp
+ut line 421.
 
 
-Package natbib Warning: Citation `lee2014common' on page 11 undefined on input 
-line 510.
+Package natbib Warning: Citation `lee2014common' on page 9 undefined on input l
+ine 422.
 
 
-Package natbib Warning: Citation `nica2013expression' on page 11 undefined on i
-nput line 514.
+Package natbib Warning: Citation `nica2013expression' on page 9 undefined on in
+put line 426.
 
 
-Package natbib Warning: Citation `li2013using' on page 11 undefined on input li
-ne 514.
+Package natbib Warning: Citation `li2013using' on page 9 undefined on input lin
+e 426.
 
 
-Package natbib Warning: Citation `koopmann2014genome' on page 11 undefined on i
-nput line 515.
+Package natbib Warning: Citation `koopmann2014genome' on page 9 undefined on in
+put line 427.
 
 
-Package natbib Warning: Citation `kendziorski2006statistical' on page 11 undefi
-ned on input line 518.
+Package natbib Warning: Citation `kendziorski2006statistical' on page 9 undefin
+ed on input line 430.
 
 
-Package natbib Warning: Citation `chun2009expression' on page 11 undefined on i
-nput line 518.
+Package natbib Warning: Citation `chun2009expression' on page 9 undefined on in
+put line 430.
 
 
-Package natbib Warning: Citation `sun2012statistical' on page 11 undefined on i
-nput line 519.
+Package natbib Warning: Citation `sun2012statistical' on page 9 undefined on in
+put line 431.
 
 
-Package natbib Warning: Citation `flutre2013statistical' on page 11 undefined o
-n input line 519.
+Package natbib Warning: Citation `flutre2013statistical' on page 9 undefined on
+ input line 431.
 
 
-Package natbib Warning: Citation `rockman2010selection' on page 11 undefined on
- input line 527.
+Package natbib Warning: Citation `rockman2010selection' on page 9 undefined on 
+input line 439.
 
 
-Package natbib Warning: Citation `kim2014meta' on page 11 undefined on input li
-ne 528.
+Package natbib Warning: Citation `kim2014meta' on page 9 undefined on input lin
+e 440.
 
 
-Package natbib Warning: Citation `wu2007statistical' on page 11 undefined on in
-put line 534.
+Package natbib Warning: Citation `wu2007statistical' on page 9 undefined on inp
+ut line 446.
 
 
-Package natbib Warning: Citation `cheverud1995epistasis' on page 11 undefined o
-n input line 539.
+Package natbib Warning: Citation `cheverud1995epistasis' on page 9 undefined on
+ input line 451.
 
 
-Package natbib Warning: Citation `moore2003ubiquitous' on page 11 undefined on 
-input line 539.
+Package natbib Warning: Citation `moore2003ubiquitous' on page 9 undefined on i
+nput line 451.
 
 
-Package natbib Warning: Citation `van2010detection' on page 11 undefined on inp
-ut line 540.
+Package natbib Warning: Citation `van2010detection' on page 9 undefined on inpu
+t line 452.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 11 undefined on 
-input line 540.
+Package natbib Warning: Citation `mackay2014epistasis' on page 9 undefined on i
+nput line 452.
 
-[11]
+[9]
 
-Package natbib Warning: Citation `tibshirani1996regression' on page 12 undefine
-d on input line 550.
-
-
-Package natbib Warning: Citation `fan2001variable' on page 12 undefined on inpu
-t line 550.
+Package natbib Warning: Citation `tibshirani1996regression' on page 10 undefine
+d on input line 462.
 
 
-Package natbib Warning: Citation `candes2007dantzig' on page 12 undefined on in
-put line 551.
+Package natbib Warning: Citation `fan2001variable' on page 10 undefined on inpu
+t line 462.
 
 
-Package natbib Warning: Citation `zhao2006model' on page 12 undefined on input 
-line 552.
+Package natbib Warning: Citation `candes2007dantzig' on page 10 undefined on in
+put line 463.
 
 
-Package natbib Warning: Citation `zhang2010nearly' on page 12 undefined on inpu
-t line 553.
+Package natbib Warning: Citation `zhao2006model' on page 10 undefined on input 
+line 464.
 
 
-Package natbib Warning: Citation `zhao2006model' on page 12 undefined on input 
-line 555.
+Package natbib Warning: Citation `zhang2010nearly' on page 10 undefined on inpu
+t line 465.
 
 
-Package natbib Warning: Citation `fan2008sure' on page 12 undefined on input li
-ne 558.
+Package natbib Warning: Citation `zhao2006model' on page 10 undefined on input 
+line 467.
 
 
-Package natbib Warning: Citation `wang2009forward' on page 12 undefined on inpu
-t line 558.
+Package natbib Warning: Citation `fan2008sure' on page 10 undefined on input li
+ne 470.
 
-[12]
 
-Package natbib Warning: Citation `hao2014interaction' on page 13 undefined on i
-nput line 564.
+Package natbib Warning: Citation `wang2009forward' on page 10 undefined on inpu
+t line 470.
+
+[10]
+
+Package natbib Warning: Citation `hao2014interaction' on page 11 undefined on i
+nput line 476.
 
 
 ! Package inputenc Error: Unicode char \u8: not set up for use with LaTeX.
@@ -1296,7 +1257,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.579 effects at each locus, and additive 
+l.491 effects at each locus, and additive 
                                               additive, additive  dominant,
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1309,7 +1270,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.579 ..., and additive  additive, additive 
+l.491 ..., and additive  additive, additive 
                                                    dominant,
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1322,7 +1283,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.580 dominant 
+l.492 dominant 
                    additive and dominant  dominant effects between the tw...
 
 Your command was ignored.
@@ -1336,7 +1297,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.580 dominant  additive and dominant 
+l.492 dominant  additive and dominant 
                                              dominant effects between the tw...
 
 Your command was ignored.
@@ -1344,25 +1305,25 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Package natbib Warning: Citation `kempthorne1968correlation' on page 13 undefin
-ed on input line 581.
+Package natbib Warning: Citation `kempthorne1968correlation' on page 11 undefin
+ed on input line 493.
 
 
-Package natbib Warning: Citation `rockman2010selection' on page 13 undefined on
- input line 595.
+Package natbib Warning: Citation `rockman2010selection' on page 11 undefined on
+ input line 507.
 
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
- [13]
+ [11]
 
-Package natbib Warning: Citation `li2013using' on page 14 undefined on input li
-ne 621.
+Package natbib Warning: Citation `li2013using' on page 12 undefined on input li
+ne 533.
 
-[14]
+[12]
 
-Package natbib Warning: Citation `hao2014interaction' on page 15 undefined on i
-nput line 634.
+Package natbib Warning: Citation `hao2014interaction' on page 13 undefined on i
+nput line 546.
 
 
 ! Package inputenc Error: Unicode char \u8:⋯ not set up for use with LaTeX.
@@ -1371,7 +1332,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.643 Y = \beta_0 + \beta_1 X_1 + ⋯
+l.555 Y = \beta_0 + \beta_1 X_1 + ⋯
                                       + \beta_p X_p + \epsilon
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1384,7 +1345,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.647 The \(\beta\)
+l.559 The \(\beta\)
                       's are the coefficients for the genetic effects of each
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1397,20 +1358,20 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.662 where \(\gamma\)
+l.574 where \(\gamma\)
                          's are the coefficients for the epistatic effects for
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[15]
+[13]
 
-Package natbib Warning: Citation `hao2014interaction' on page 16 undefined on i
-nput line 679.
+Package natbib Warning: Citation `hao2014interaction' on page 14 undefined on i
+nput line 591.
 
 
-Package natbib Warning: Citation `zhao2006model' on page 16 undefined on input 
-line 703.
+Package natbib Warning: Citation `zhao2006model' on page 14 undefined on input 
+line 615.
 
 
 ! Package inputenc Error: Unicode char \u8:≠ not set up for use with LaTeX.
@@ -1419,7 +1380,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.704 \(\gamma_{jk} ≠
+l.616 \(\gamma_{jk} ≠
                         0 only if \beta_j, \beta_k \ne 0 \forall 1 ≤ j, k ...
 
 Your command was ignored.
@@ -1433,7 +1394,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.704 ...y if \beta_j, \beta_k \ne 0 \forall 1 ≤
+l.616 ...y if \beta_j, \beta_k \ne 0 \forall 1 ≤
                                                    j, k ≤ p\)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1446,7 +1407,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.704 ...a_j, \beta_k \ne 0 \forall 1 ≤ j, k ≤
+l.616 ...a_j, \beta_k \ne 0 \forall 1 ≤ j, k ≤
                                                    p\)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1455,17 +1416,17 @@ or  <return>  to continue without it.
 
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
- [16]
+ [14]
 
-Package natbib Warning: Citation `hao2014interaction' on page 17 undefined on i
-nput line 714.
+Package natbib Warning: Citation `hao2014interaction' on page 15 undefined on i
+nput line 626.
 
 
-Package natbib Warning: Citation `chen2008extended' on page 17 undefined on inp
-ut line 741.
+Package natbib Warning: Citation `chen2008extended' on page 15 undefined on inp
+ut line 653.
 
 ! Undefined control sequence.
-l.744 some \(\xi \gt
+l.656 some \(\xi \gt
                      0\). The only difference between the traditional \(BIC\)
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1474,18 +1435,18 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Package natbib Warning: Citation `fan2008sure' on page 17 undefined on input li
-ne 754.
+Package natbib Warning: Citation `fan2008sure' on page 15 undefined on input li
+ne 666.
 
-[17] [18]
+[15] [16]
 
-Package natbib Warning: Citation `kao2002modeling' on page 19 undefined on inpu
-t line 783.
+Package natbib Warning: Citation `kao2002modeling' on page 17 undefined on inpu
+t line 695.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19]
+ [17]
 
 ! Package inputenc Error: Unicode char \u8:σ not set up for use with LaTeX.
 
@@ -1493,7 +1454,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.817 generated from model (2) with σ
+l.729 generated from model (2) with σ
                                       =1,2,and 3 for the random error with a
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1506,7 +1467,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.825 \(γ
+l.737 \(γ
           _jk=3\) where \((j,k) \in \mathcal{T}_2\). There were several methods
 
 Your command was ignored.
@@ -1514,68 +1475,77 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 838--847
+Underfull \hbox (badness 2591) in paragraph at lines 750--759
 []\T1/lmr/m/it/10.95 (+20) Convergence Prob-a-bil-ity (Cov) $\OT1/lmr/m/n/10.95
  (+20) []\OML/lmm/m/it/10.95 I\OT1/lmr/m/n/10.95 (+20) (\OMS/lmsy/m/n/10.95 T 
  []\OT1/lmr/m/n/10.95 (+20) )\OML/lmm/m/it/10.95 =M$ \T1/lmr/m/n/10.95 (+20) P
 er-cent-age of cor-rect ze-ros (Cor0)
  []
 
+[18]
+Overfull \hbox (90.57397pt too wide) in paragraph at lines 799--810
+ [][] 
+ []
+
+[19]
+Overfull \hbox (74.149pt too wide) in paragraph at lines 816--827
+ [][] 
+ []
+
+
+Overfull \hbox (74.149pt too wide) in paragraph at lines 833--844
+ [][] 
+ []
+
+
+Package natbib Warning: Citation `rockman2010selection' on page 20 undefined on
+ input line 848.
+
 [20]
-Overfull \hbox (90.57397pt too wide) in paragraph at lines 887--898
- [][] 
- []
 
-[21]
-Overfull \hbox (74.149pt too wide) in paragraph at lines 904--915
- [][] 
- []
+Package natbib Warning: Citation `rockman2010selection' on page 21 undefined on
+ input line 864.
 
-
-Overfull \hbox (74.149pt too wide) in paragraph at lines 921--932
- [][] 
- []
-
-
-Package natbib Warning: Citation `rockman2010selection' on page 22 undefined on
- input line 936.
-
-[22]
-
-Package natbib Warning: Citation `rockman2010selection' on page 23 undefined on
- input line 952.
-
-<images/CElegansPicture.png, id=382, 383.5128pt x 357.4956pt>
+<images/CElegansPicture.png, id=369, 383.5128pt x 357.4956pt>
 File: images/CElegansPicture.png Graphic file (type png)
 
 <use images/CElegansPicture.png>
-Package pdftex.def Info: images/CElegansPicture.png used on input line 975.
+Package pdftex.def Info: images/CElegansPicture.png used on input line 887.
 (pdftex.def)             Requested size: 250.9423pt x 233.91858pt.
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
- [23]
-<images/iForm_Network_Chr1.jpeg, id=388, 2007.5pt x 2007.5pt>
+ [21]
+<images/iForm_Network_Chr1.jpeg, id=375, 2007.5pt x 2007.5pt>
 File: images/iForm_Network_Chr1.jpeg Graphic file (type jpg)
 
 <use images/iForm_Network_Chr1.jpeg>
-Package pdftex.def Info: images/iForm_Network_Chr1.jpeg used on input line 994.
+Package pdftex.def Info: images/iForm_Network_Chr1.jpeg used on input line 906.
 
 (pdftex.def)             Requested size: 250.93689pt x 250.93689pt.
- [24 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/CEle
+ [22 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/CEle
 gansPicture.png>]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 929.
 
-Package natbib Warning: Citation `manolio2009finding' on page 25 undefined on i
-nput line 1119.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 930.
+
+
+Package natbib Warning: Citation `manolio2009finding' on page 23 undefined on i
+nput line 1031.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/iFor
-m_Network_Chr1.jpeg>] [26]
+ [23 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/iFor
+m_Network_Chr1.jpeg>] [24]
 
-Package natbib Warning: Citation `mackay2009genetics' on page 27 undefined on i
-nput line 1167.
+Package natbib Warning: Citation `mackay2009genetics' on page 25 undefined on i
+nput line 1079.
 
 
 ! Package inputenc Error: Unicode char \u8: not set up for use with LaTeX.
@@ -1584,103 +1554,103 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1174 ...t genome-wide epistasis and genotype 
+l.1086 ...t genome-wide epistasis and genotype 
                                                    environment
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Package natbib Warning: Citation `manolio2009finding' on page 27 undefined on i
-nput line 1175.
+Package natbib Warning: Citation `manolio2009finding' on page 25 undefined on i
+nput line 1087.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [25]
 
-Package natbib Warning: Citation `cheverud1995epistasis' on page 28 undefined o
-n input line 1179.
-
-
-Package natbib Warning: Citation `moore2003ubiquitous' on page 28 undefined on 
-input line 1181.
+Package natbib Warning: Citation `cheverud1995epistasis' on page 26 undefined o
+n input line 1091.
 
 
-Package natbib Warning: Citation `carlborg2004epistasis' on page 28 undefined o
-n input line 1181.
+Package natbib Warning: Citation `moore2003ubiquitous' on page 26 undefined on 
+input line 1093.
 
 
-Package natbib Warning: Citation `cordell2009detecting' on page 28 undefined on
- input line 1182.
+Package natbib Warning: Citation `carlborg2004epistasis' on page 26 undefined o
+n input line 1093.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 28 undefined on 
-input line 1185.
+Package natbib Warning: Citation `cordell2009detecting' on page 26 undefined on
+ input line 1094.
 
 
-Package natbib Warning: Citation `carlborg2004epistasis' on page 28 undefined o
-n input line 1187.
+Package natbib Warning: Citation `mackay2014epistasis' on page 26 undefined on 
+input line 1097.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 28 undefined on 
-input line 1188.
+Package natbib Warning: Citation `carlborg2004epistasis' on page 26 undefined o
+n input line 1099.
+
+
+Package natbib Warning: Citation `mackay2014epistasis' on page 26 undefined on 
+input line 1100.
 
 
 Underfull \vbox (badness 2865) has occurred while \output is active []
 
- [28]
+ [26]
 
-Package natbib Warning: Citation `hao2014interaction' on page 29 undefined on i
-nput line 1193.
-
-
-Package natbib Warning: Citation `rockman2010selection' on page 29 undefined on
- input line 1209.
+Package natbib Warning: Citation `hao2014interaction' on page 27 undefined on i
+nput line 1105.
 
 
-Package natbib Warning: Citation `schadt2005integrative' on page 29 undefined o
-n input line 1215.
+Package natbib Warning: Citation `rockman2010selection' on page 27 undefined on
+ input line 1121.
 
 
-Package natbib Warning: Citation `emilsson2008genetics' on page 29 undefined on
- input line 1216.
+Package natbib Warning: Citation `schadt2005integrative' on page 27 undefined o
+n input line 1127.
 
 
-Package natbib Warning: Citation `cookson2009mapping' on page 29 undefined on i
-nput line 1216.
+Package natbib Warning: Citation `emilsson2008genetics' on page 27 undefined on
+ input line 1128.
 
 
-Package natbib Warning: Citation `pickrell2010understanding' on page 29 undefin
-ed on input line 1217.
+Package natbib Warning: Citation `cookson2009mapping' on page 27 undefined on i
+nput line 1128.
 
 
-Package natbib Warning: Citation `nica2013expression' on page 29 undefined on i
-nput line 1217.
+Package natbib Warning: Citation `pickrell2010understanding' on page 27 undefin
+ed on input line 1129.
+
+
+Package natbib Warning: Citation `nica2013expression' on page 27 undefined on i
+nput line 1129.
 
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
- [29]
+ [27]
 
-Package natbib Warning: Citation `imielinski2008exploiting' on page 30 undefine
-d on input line 1230.
-
-
-Package natbib Warning: Citation `mcmullen1998quantitative' on page 30 undefine
-d on input line 1233.
+Package natbib Warning: Citation `imielinski2008exploiting' on page 28 undefine
+d on input line 1142.
 
 
-Package natbib Warning: Citation `stich2007power' on page 30 undefined on input
- line 1233.
+Package natbib Warning: Citation `mcmullen1998quantitative' on page 28 undefine
+d on input line 1145.
 
 
-Package natbib Warning: Citation `wang2010general' on page 30 undefined on inpu
-t line 1235.
+Package natbib Warning: Citation `stich2007power' on page 28 undefined on input
+ line 1145.
 
 
-Package natbib Warning: Citation `pang2013statistical' on page 30 undefined on 
-input line 1236.
+Package natbib Warning: Citation `wang2010general' on page 28 undefined on inpu
+t line 1147.
+
+
+Package natbib Warning: Citation `pang2013statistical' on page 28 undefined on 
+input line 1148.
 
 
 ! Package inputenc Error: Unicode char \u8: not set up for use with LaTeX.
@@ -1689,7 +1659,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1248 additive 
+l.1160 additive 
                     additive, additive  dominant, dominant  additive and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1702,7 +1672,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1248 additive  additive, additive 
+l.1160 additive  additive, additive 
                                            dominant, dominant  additive and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1715,7 +1685,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1248 ...ive, additive  dominant, dominant 
+l.1160 ...ive, additive  dominant, dominant 
                                                    additive and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1728,142 +1698,142 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1249 dominant 
+l.1161 dominant 
                     dominant, between each pair of loci
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Package natbib Warning: Citation `kempthorne1968correlation' on page 30 undefin
-ed on input line 1250.
+Package natbib Warning: Citation `kempthorne1968correlation' on page 28 undefin
+ed on input line 1162.
 
 
-Package natbib Warning: Citation `vinuela2010genome' on page 30 undefined on in
-put line 1256.
+Package natbib Warning: Citation `vinuela2010genome' on page 28 undefined on in
+put line 1168.
 
 
-Package natbib Warning: Citation `ackermann2013impact' on page 30 undefined on 
-input line 1256.
+Package natbib Warning: Citation `ackermann2013impact' on page 28 undefined on 
+input line 1168.
 
 
-Package natbib Warning: Citation `kim2010wavelet' on page 30 undefined on input
- line 1259.
+Package natbib Warning: Citation `kim2010wavelet' on page 28 undefined on input
+ line 1171.
 
 
-Package natbib Warning: Citation `li2013using' on page 30 undefined on input li
-ne 1263.
+Package natbib Warning: Citation `li2013using' on page 28 undefined on input li
+ne 1175.
 
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
- [30]
-[31] [32
+ [28]
+[29] [30
 
 ]
 Chapter 3.
 
-Package natbib Warning: Citation `nelson2013century' on page 33 undefined on in
-put line 1274.
+Package natbib Warning: Citation `nelson2013century' on page 31 undefined on in
+put line 1186.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 33 undefined on 
-input line 1274.
+Package natbib Warning: Citation `mackay2014epistasis' on page 31 undefined on 
+input line 1186.
 
 
-Package natbib Warning: Citation `cordell2009detecting' on page 33 undefined on
- input line 1278.
+Package natbib Warning: Citation `cordell2009detecting' on page 31 undefined on
+ input line 1190.
 
 
-Package natbib Warning: Citation `van2011travelling' on page 33 undefined on in
-put line 1279.
+Package natbib Warning: Citation `van2011travelling' on page 31 undefined on in
+put line 1191.
 
 
-Package natbib Warning: Citation `wei2014detecting' on page 33 undefined on inp
-ut line 1279.
+Package natbib Warning: Citation `wei2014detecting' on page 31 undefined on inp
+ut line 1191.
 
 
-Package natbib Warning: Citation `li2014fast' on page 33 undefined on input lin
-e 1282.
+Package natbib Warning: Citation `li2014fast' on page 31 undefined on input lin
+e 1194.
 
 
-Package natbib Warning: Citation `gosik2016iform' on page 33 undefined on input
- line 1282.
+Package natbib Warning: Citation `gosik2016iform' on page 31 undefined on input
+ line 1194.
 
 
-Package natbib Warning: Citation `wang2010general' on page 33 undefined on inpu
-t line 1291.
+Package natbib Warning: Citation `wang2010general' on page 31 undefined on inpu
+t line 1203.
 
 
-Package natbib Warning: Citation `dowell2010genotype' on page 33 undefined on i
-nput line 1291.
+Package natbib Warning: Citation `dowell2010genotype' on page 31 undefined on i
+nput line 1203.
 
 
-Package natbib Warning: Citation `pang2013statistical' on page 33 undefined on 
-input line 1292.
+Package natbib Warning: Citation `pang2013statistical' on page 31 undefined on 
+input line 1204.
 
 
-Package natbib Warning: Citation `taylor2014genetic' on page 33 undefined on in
-put line 1292.
+Package natbib Warning: Citation `taylor2014genetic' on page 31 undefined on in
+put line 1204.
 
 
-Package natbib Warning: Citation `pettersson2011replication' on page 33 undefin
-ed on input line 1295.
+Package natbib Warning: Citation `pettersson2011replication' on page 31 undefin
+ed on input line 1207.
 
 
-Package natbib Warning: Citation `taylor2014genetic' on page 33 undefined on in
-put line 1297.
+Package natbib Warning: Citation `taylor2014genetic' on page 31 undefined on in
+put line 1209.
 
 
-Package natbib Warning: Citation `weinreich2013should' on page 33 undefined on 
-input line 1299.
+Package natbib Warning: Citation `weinreich2013should' on page 31 undefined on 
+input line 1211.
 
 
-Package natbib Warning: Citation `imielinski2008exploiting' on page 33 undefine
-d on input line 1301.
+Package natbib Warning: Citation `imielinski2008exploiting' on page 31 undefine
+d on input line 1213.
 
 
-Package natbib Warning: Citation `he2010prevalent' on page 33 undefined on inpu
-t line 1301.
+Package natbib Warning: Citation `he2010prevalent' on page 31 undefined on inpu
+t line 1213.
 
-[33]
+[31]
 
-Package natbib Warning: Citation `hansen2001epistasis' on page 34 undefined on 
-input line 1306.
-
-
-Package natbib Warning: Citation `beerenwinkel2007analysis' on page 34 undefine
-d on input line 1307.
+Package natbib Warning: Citation `hansen2001epistasis' on page 32 undefined on 
+input line 1218.
 
 
-Package natbib Warning: Citation `wang2015bayesian' on page 34 undefined on inp
-ut line 1310.
+Package natbib Warning: Citation `beerenwinkel2007analysis' on page 32 undefine
+d on input line 1219.
 
 
-Package natbib Warning: Citation `pang2013statistical' on page 34 undefined on 
-input line 1311.
+Package natbib Warning: Citation `wang2015bayesian' on page 32 undefined on inp
+ut line 1222.
 
 
-Package natbib Warning: Citation `wang2015bayesian' on page 34 undefined on inp
-ut line 1312.
+Package natbib Warning: Citation `pang2013statistical' on page 32 undefined on 
+input line 1223.
 
 
-Package natbib Warning: Citation `hao2014interaction' on page 34 undefined on i
-nput line 1324.
+Package natbib Warning: Citation `wang2015bayesian' on page 32 undefined on inp
+ut line 1224.
 
 
-Package natbib Warning: Citation `gosik2016iform' on page 34 undefined on input
- line 1328.
+Package natbib Warning: Citation `hao2014interaction' on page 32 undefined on i
+nput line 1236.
+
+
+Package natbib Warning: Citation `gosik2016iform' on page 32 undefined on input
+ line 1240.
 
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
- [34]
+ [32]
 
-Package natbib Warning: Citation `hao2014interaction' on page 35 undefined on i
-nput line 1357.
+Package natbib Warning: Citation `hao2014interaction' on page 33 undefined on i
+nput line 1269.
 
-[35]
+[33]
 
 ! Package inputenc Error: Unicode char \u8: not set up for use with LaTeX.
 
@@ -1871,7 +1841,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1389 
+l.1301 
           \(\beta=(\beta_1,\dots,\beta_p,~ Z=(X_jX_k)^T (1 \le j \le k \le p)\)
 
 Your command was ignored.
@@ -1881,37 +1851,37 @@ or  <return>  to continue without it.
 
 Underfull \vbox (badness 1286) has occurred while \output is active []
 
- [36]
+ [34]
 
-Package natbib Warning: Citation `chen2008extended' on page 37 undefined on inp
-ut line 1453.
+Package natbib Warning: Citation `chen2008extended' on page 35 undefined on inp
+ut line 1365.
 
-[37]
+[35]
 
-Package natbib Warning: Citation `bien2013lasso' on page 38 undefined on input 
-line 1476.
+Package natbib Warning: Citation `bien2013lasso' on page 36 undefined on input 
+line 1388.
 
 
-Package natbib Warning: Citation `lim2015learning' on page 38 undefined on inpu
-t line 1476.
+Package natbib Warning: Citation `lim2015learning' on page 36 undefined on inpu
+t line 1388.
 
 
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
- [38]
-[39]
+ [36]
+[37]
 
-Package natbib Warning: Citation `hao2014interaction' on page 40 undefined on i
-nput line 1529.
+Package natbib Warning: Citation `hao2014interaction' on page 38 undefined on i
+nput line 1441.
 
-[40]
+[38]
 
-Package natbib Warning: Citation `fan2008sure' on page 41 undefined on input li
-ne 1552.
+Package natbib Warning: Citation `fan2008sure' on page 39 undefined on input li
+ne 1464.
 
 
-Package natbib Warning: Citation `hao2014interaction' on page 41 undefined on i
-nput line 1562.
+Package natbib Warning: Citation `hao2014interaction' on page 39 undefined on i
+nput line 1474.
 
 
 ! Package inputenc Error: Unicode char \u8:≤ not set up for use with LaTeX.
@@ -1920,7 +1890,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1572 \(\sqrt{\tau}_min < \lambda_min (\Sigma)≤
+l.1484 \(\sqrt{\tau}_min < \lambda_min (\Sigma)≤
                                                   \lambda_max (\Sigma)< \sqr...
 
 Your command was ignored.
@@ -1934,7 +1904,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1574 ... we would assume to be \(|(|\beta|)| ≤
+l.1486 ... we would assume to be \(|(|\beta|)| ≤
                                                    C_\beta\) for some
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1947,7 +1917,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1576 \(\beta_min ≥
+l.1488 \(\beta_min ≥
                        \nu\beta \eta^{-\xi_min}\),with \(\beta_min=mina(\bet...
 
 Your command was ignored.
@@ -1961,7 +1931,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1580 \(log(p) ≤
+l.1492 \(log(p) ≤
                     \nu n^\xi,d_0 ≤ \nu n^(\xi_0)\) and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1974,14 +1944,14 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1580 \(log(p) ≤ \nu n^\xi,d_0 ≤
+l.1492 \(log(p) ≤ \nu n^\xi,d_0 ≤
                                       \nu n^(\xi_0)\) and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Undefined control sequence.
-l.1581 \(\xi+6\xi_0+12\xi_min \lt
+l.1493 \(\xi+6\xi_0+12\xi_min \lt
                                   \frac{1}{2}\). The conditions stated are
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1990,522 +1960,528 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Package natbib Warning: Citation `hao2014interaction' on page 41 undefined on i
-nput line 1583.
+Package natbib Warning: Citation `hao2014interaction' on page 39 undefined on i
+nput line 1495.
 
 
-Package natbib Warning: Citation `fan2008sure' on page 41 undefined on input li
-ne 1583.
+Package natbib Warning: Citation `fan2008sure' on page 39 undefined on input li
+ne 1495.
 
 
-Package natbib Warning: Citation `sun2013genome' on page 41 undefined on input 
-line 1584.
+Package natbib Warning: Citation `sun2013genome' on page 39 undefined on input 
+line 1496.
 
 
-Package natbib Warning: Citation `bien2013lasso' on page 41 undefined on input 
-line 1624.
+Package natbib Warning: Citation `bien2013lasso' on page 39 undefined on input 
+line 1536.
 
 
-Package natbib Warning: Citation `lim2015learning' on page 41 undefined on inpu
-t line 1624.
+Package natbib Warning: Citation `lim2015learning' on page 39 undefined on inpu
+t line 1536.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41]
+ [39]
 Underfull \vbox (badness 5446) has occurred while \output is active []
 
- [42]
-[43]
-Underfull \vbox (badness 10000) detected at line 1690
+ [40]
+[41]
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 159
+8.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \vbox (badness 10000) detected at line 1602
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44]
-Overfull \hbox (241.04259pt too wide) in paragraph at lines 1696--1713
+ [42]
+Overfull \hbox (241.04259pt too wide) in paragraph at lines 1608--1625
  [][] 
  []
 
 
-Overfull \hbox (244.69258pt too wide) in paragraph at lines 1728--1745
+Overfull \hbox (244.69258pt too wide) in paragraph at lines 1640--1657
  [][] 
  []
 
 
 Underfull \vbox (badness 2951) has occurred while \output is active []
 
- [45]
-Overfull \hbox (244.69258pt too wide) in paragraph at lines 1760--1777
+ [43]
+Overfull \hbox (244.69258pt too wide) in paragraph at lines 1672--1689
  [][] 
  []
 
 
-Overfull \hbox (244.69258pt too wide) in paragraph at lines 1792--1810
+Overfull \hbox (244.69258pt too wide) in paragraph at lines 1704--1722
  [][] 
  []
+
+
+Underfull \vbox (badness 1389) has occurred while \output is active []
+
+ [44]
+
+Package natbib Warning: Citation `sun2013genome' on page 45 undefined on input 
+line 1741.
+
+
+Package natbib Warning: Citation `sun2014genetic' on page 45 undefined on input
+ line 1741.
+
+
+Package natbib Warning: Citation `zhang2013epigenetic' on page 45 undefined on 
+input line 1745.
+
+[45]
+
+Package natbib Warning: Citation `ma2002response' on page 46 undefined on input
+ line 1777.
+
+
+Package natbib Warning: Citation `wu2006functional' on page 46 undefined on inp
+ut line 1777.
+
+
+Package natbib Warning: Citation `li2012estimation' on page 46 undefined on inp
+ut line 1778.
+
+
+Package natbib Warning: Citation `tong20113funmap' on page 46 undefined on inpu
+t line 1795.
 
 
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
  [46]
-
-Package natbib Warning: Citation `sun2013genome' on page 47 undefined on input 
-line 1829.
-
-
-Package natbib Warning: Citation `sun2014genetic' on page 47 undefined on input
- line 1829.
-
-
-Package natbib Warning: Citation `zhang2013epigenetic' on page 47 undefined on 
-input line 1833.
-
-[47]
-
-Package natbib Warning: Citation `ma2002response' on page 48 undefined on input
- line 1865.
-
-
-Package natbib Warning: Citation `wu2006functional' on page 48 undefined on inp
-ut line 1865.
-
-
-Package natbib Warning: Citation `li2012estimation' on page 48 undefined on inp
-ut line 1866.
-
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 1879
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 1840
 .
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-
-Package natbib Warning: Citation `tong20113funmap' on page 48 undefined on inpu
-t line 1883.
-
-
-Underfull \vbox (badness 1389) has occurred while \output is active []
-
- [48]
-Overfull \hbox (13.5512pt too wide) in paragraph at lines 1919--1931
+Overfull \hbox (13.5512pt too wide) in paragraph at lines 1831--1843
  [][] 
  []
 
-[49]
-Overfull \hbox (140.3875pt too wide) in paragraph at lines 1963--1984
+[47]
+Overfull \hbox (140.3875pt too wide) in paragraph at lines 1875--1896
  [][] 
  []
 
 
 Underfull \vbox (badness 1259) has occurred while \output is active []
 
- [50]
-<images/GrowthCurveComparison.png, id=523, 361.35pt x 289.08pt>
+ [48]
+<images/GrowthCurveComparison.png, id=512, 361.35pt x 289.08pt>
 File: images/GrowthCurveComparison.png Graphic file (type png)
 
 <use images/GrowthCurveComparison.png>
 Package pdftex.def Info: images/GrowthCurveComparison.png used on input line 19
-98.
+10.
 (pdftex.def)             Requested size: 361.36566pt x 289.09251pt.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2015.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1927.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [51]
+ [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/Grow
-thCurveComparison.png>] <images/EpistasisComparison.png, id=533, 361.35pt x 289
+ [50 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/Grow
+thCurveComparison.png>] <images/EpistasisComparison.png, id=523, 361.35pt x 289
 .08pt>
 File: images/EpistasisComparison.png Graphic file (type png)
 
 <use images/EpistasisComparison.png>
-Package pdftex.def Info: images/EpistasisComparison.png used on input line 2028
+Package pdftex.def Info: images/EpistasisComparison.png used on input line 1940
 .
 (pdftex.def)             Requested size: 361.36566pt x 289.09251pt.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 2041.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1953.
 
-[53 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/Epist
+[51 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/Epist
 asisComparison.png>]
 
-Package natbib Warning: Citation `nelson2013century' on page 54 undefined on in
-put line 2078.
+Package natbib Warning: Citation `nelson2013century' on page 52 undefined on in
+put line 1990.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 54 undefined on 
-input line 2078.
+Package natbib Warning: Citation `mackay2014epistasis' on page 52 undefined on 
+input line 1990.
 
 
-Package natbib Warning: Citation `wang2010general' on page 54 undefined on inpu
-t line 2082.
+Package natbib Warning: Citation `wang2010general' on page 52 undefined on inpu
+t line 1994.
 
 
-Package natbib Warning: Citation `dowell2010genotype' on page 54 undefined on i
-nput line 2083.
+Package natbib Warning: Citation `dowell2010genotype' on page 52 undefined on i
+nput line 1995.
 
 
-Package natbib Warning: Citation `pettersson2011replication' on page 54 undefin
-ed on input line 2083.
+Package natbib Warning: Citation `pettersson2011replication' on page 52 undefin
+ed on input line 1995.
 
 
-Package natbib Warning: Citation `pang2013statistical' on page 54 undefined on 
-input line 2084.
+Package natbib Warning: Citation `pang2013statistical' on page 52 undefined on 
+input line 1996.
 
 
-Package natbib Warning: Citation `weinreich2013should' on page 54 undefined on 
-input line 2084.
+Package natbib Warning: Citation `weinreich2013should' on page 52 undefined on 
+input line 1996.
 
 
-Package natbib Warning: Citation `taylor2014genetic' on page 54 undefined on in
-put line 2085.
+Package natbib Warning: Citation `taylor2014genetic' on page 52 undefined on in
+put line 1997.
 
 
-Package natbib Warning: Citation `taylor2015higher' on page 54 undefined on inp
-ut line 2085.
+Package natbib Warning: Citation `taylor2015higher' on page 52 undefined on inp
+ut line 1997.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 54 undefined on 
-input line 2087.
+Package natbib Warning: Citation `mackay2014epistasis' on page 52 undefined on 
+input line 1999.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54]
+ [52]
 
-Package natbib Warning: Citation `hao2014interaction' on page 55 undefined on i
-nput line 2097.
-
-
-Package natbib Warning: Citation `bloom2013finding' on page 55 undefined on inp
-ut line 2114.
-
-[55]
-
-Package natbib Warning: Citation `franks2007rapid' on page 56 undefined on inpu
-t line 2131.
+Package natbib Warning: Citation `hao2014interaction' on page 53 undefined on i
+nput line 2009.
 
 
-Package natbib Warning: Citation `cartolano2015heterochrony' on page 56 undefin
-ed on input line 2131.
+Package natbib Warning: Citation `bloom2013finding' on page 53 undefined on inp
+ut line 2026.
+
+[53]
+
+Package natbib Warning: Citation `franks2007rapid' on page 54 undefined on inpu
+t line 2043.
 
 
-Package natbib Warning: Citation `nishino2013network' on page 56 undefined on i
-nput line 2132.
+Package natbib Warning: Citation `cartolano2015heterochrony' on page 54 undefin
+ed on input line 2043.
 
-[56]
+
+Package natbib Warning: Citation `nishino2013network' on page 54 undefined on i
+nput line 2044.
+
+[54]
 Chapter 4.
 
-Package natbib Warning: Citation `jinks1982biometrical' on page 57 undefined on
- input line 2144.
+Package natbib Warning: Citation `jinks1982biometrical' on page 55 undefined on
+ input line 2056.
 
 
-Package natbib Warning: Citation `hill2004ds' on page 57 undefined on input lin
-e 2145.
+Package natbib Warning: Citation `hill2004ds' on page 55 undefined on input lin
+e 2057.
 
 
-Package natbib Warning: Citation `wu1996detecting' on page 57 undefined on inpu
-t line 2145.
+Package natbib Warning: Citation `wu1996detecting' on page 55 undefined on inpu
+t line 2057.
 
 
-Package natbib Warning: Citation `mackay2009genetics' on page 57 undefined on i
-nput line 2146.
+Package natbib Warning: Citation `mackay2009genetics' on page 55 undefined on i
+nput line 2058.
 
 
-Package natbib Warning: Citation `park2010estimation' on page 57 undefined on i
-nput line 2146.
+Package natbib Warning: Citation `park2010estimation' on page 55 undefined on i
+nput line 2058.
 
 
-Package natbib Warning: Citation `cheverud1995epistasis' on page 57 undefined o
-n input line 2150.
+Package natbib Warning: Citation `cheverud1995epistasis' on page 55 undefined o
+n input line 2062.
 
 
-Package natbib Warning: Citation `moore2003ubiquitous' on page 57 undefined on 
-input line 2151.
+Package natbib Warning: Citation `moore2003ubiquitous' on page 55 undefined on 
+input line 2063.
 
 
-Package natbib Warning: Citation `van2010detection' on page 57 undefined on inp
-ut line 2151.
+Package natbib Warning: Citation `van2010detection' on page 55 undefined on inp
+ut line 2063.
 
 
-Package natbib Warning: Citation `mackay2014epistasis' on page 57 undefined on 
-input line 2152.
+Package natbib Warning: Citation `mackay2014epistasis' on page 55 undefined on 
+input line 2064.
 
 
-Package natbib Warning: Citation `taylor2015higher' on page 57 undefined on inp
-ut line 2155.
+Package natbib Warning: Citation `taylor2015higher' on page 55 undefined on inp
+ut line 2067.
 
 
-Package natbib Warning: Citation `hansen2001epistasis' on page 57 undefined on 
-input line 2160.
+Package natbib Warning: Citation `hansen2001epistasis' on page 55 undefined on 
+input line 2072.
 
 
-Package natbib Warning: Citation `beerenwinkel2007analysis' on page 57 undefine
-d on input line 2160.
+Package natbib Warning: Citation `beerenwinkel2007analysis' on page 55 undefine
+d on input line 2072.
 
 
-Package natbib Warning: Citation `wang2015bayesian' on page 57 undefined on inp
-ut line 2164.
+Package natbib Warning: Citation `wang2015bayesian' on page 55 undefined on inp
+ut line 2076.
 
 
-Package natbib Warning: Citation `pang2013statistical' on page 57 undefined on 
-input line 2165.
+Package natbib Warning: Citation `pang2013statistical' on page 55 undefined on 
+input line 2077.
 
-[57
+[55
 
 ]
 
-Package natbib Warning: Citation `hernandez2015understanding' on page 58 undefi
-ned on input line 2168.
+Package natbib Warning: Citation `hernandez2015understanding' on page 56 undefi
+ned on input line 2080.
 
 
-Package natbib Warning: Citation `muraya2017genetic' on page 58 undefined on in
-put line 2169.
+Package natbib Warning: Citation `muraya2017genetic' on page 56 undefined on in
+put line 2081.
 
 
-Package natbib Warning: Citation `sun2015mapping' on page 58 undefined on input
- line 2170.
+Package natbib Warning: Citation `sun2015mapping' on page 56 undefined on input
+ line 2082.
 
 
-Package natbib Warning: Citation `ma2002functional' on page 58 undefined on inp
-ut line 2173.
+Package natbib Warning: Citation `ma2002functional' on page 56 undefined on inp
+ut line 2085.
 
 
-Package natbib Warning: Citation `wu2006functional' on page 58 undefined on inp
-ut line 2174.
+Package natbib Warning: Citation `wu2006functional' on page 56 undefined on inp
+ut line 2086.
 
 
-Package natbib Warning: Citation `li2015dynamic' on page 58 undefined on input 
-line 2174.
+Package natbib Warning: Citation `li2015dynamic' on page 56 undefined on input 
+line 2086.
 
 
-Package natbib Warning: Citation `muraya2017genetic' on page 58 undefined on in
-put line 2175.
+Package natbib Warning: Citation `muraya2017genetic' on page 56 undefined on in
+put line 2087.
 
 
-Package natbib Warning: Citation `he2010mapping' on page 58 undefined on input 
-line 2177.
+Package natbib Warning: Citation `he2010mapping' on page 56 undefined on input 
+line 2089.
 
 
-Package natbib Warning: Citation `li2010functional' on page 58 undefined on inp
-ut line 2178.
+Package natbib Warning: Citation `li2010functional' on page 56 undefined on inp
+ut line 2090.
 
 
-Package natbib Warning: Citation `hou2006framework' on page 58 undefined on inp
-ut line 2184.
+Package natbib Warning: Citation `hou2006framework' on page 56 undefined on inp
+ut line 2096.
 
 
-Package natbib Warning: Citation `west2001general' on page 58 undefined on inpu
-t line 2187.
+Package natbib Warning: Citation `west2001general' on page 56 undefined on inpu
+t line 2099.
 
 
-Package natbib Warning: Citation `sun2014model' on page 58 undefined on input l
-ine 2188.
+Package natbib Warning: Citation `sun2014model' on page 56 undefined on input l
+ine 2100.
 
 
-Package natbib Warning: Citation `klein2005complement' on page 58 undefined on 
-input line 2195.
+Package natbib Warning: Citation `klein2005complement' on page 56 undefined on 
+input line 2107.
 
 
 Underfull \vbox (badness 4120) has occurred while \output is active []
 
- [58]
+ [56]
 
-Package natbib Warning: Citation `androulakis2007analysis' on page 59 undefined
- on input line 2241.
+Package natbib Warning: Citation `androulakis2007analysis' on page 57 undefined
+ on input line 2153.
 
-[59] [60] [61]
+[57] [58]
 
 ! LaTeX Error: File `Defense_files/figure-latex/Legendre-fig-1' not found.
 
@@ -2513,7 +2489,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2311 ...fense_files/figure-latex/Legendre-fig-1}
+l.2223 ...fense_files/figure-latex/Legendre-fig-1}
                                                   
 I could not locate the file with any of these extensions:
 .png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
@@ -2521,13 +2497,17 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
+
 ! Package inputenc Error: Unicode char \u8:− not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2331 \(−
+l.2243 \(−
             1 \le x \le 1\):
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2536,57 +2516,57 @@ or  <return>  to continue without it.
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 2348.
+(amsmath)                 on input line 2260.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60]
+
+Package natbib Warning: Citation `west2001general' on page 61 undefined on inpu
+t line 2281.
+
+
+Package natbib Warning: Citation `jiang20152higwas' on page 61 undefined on inp
+ut line 2288.
+
+
+Package natbib Warning: Citation `olori1999estimating' on page 61 undefined on 
+input line 2288.
+
+
+Package natbib Warning: Citation `li2010functional' on page 61 undefined on inp
+ut line 2289.
+
+[61]
+
+Package natbib Warning: Citation `chen2008extended' on page 62 undefined on inp
+ut line 2301.
+
+
+Package natbib Warning: Citation `li2010functional' on page 62 undefined on inp
+ut line 2304.
+
+
+Package natbib Warning: Citation `jiang20152higwas' on page 62 undefined on inp
+ut line 2304.
+
+
+Package natbib Warning: Citation `li2010functional' on page 62 undefined on inp
+ut line 2305.
+
+
+Package natbib Warning: Citation `ahn2010functional' on page 62 undefined on in
+put line 2305.
+
+
+Package natbib Warning: Citation `das2011dynamic' on page 62 undefined on input
+ line 2306.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
-
-Package natbib Warning: Citation `west2001general' on page 63 undefined on inpu
-t line 2369.
-
-
-Package natbib Warning: Citation `jiang20152higwas' on page 63 undefined on inp
-ut line 2376.
-
-
-Package natbib Warning: Citation `olori1999estimating' on page 63 undefined on 
-input line 2376.
-
-
-Package natbib Warning: Citation `li2010functional' on page 63 undefined on inp
-ut line 2377.
-
-[63]
-
-Package natbib Warning: Citation `chen2008extended' on page 64 undefined on inp
-ut line 2389.
-
-
-Package natbib Warning: Citation `li2010functional' on page 64 undefined on inp
-ut line 2392.
-
-
-Package natbib Warning: Citation `jiang20152higwas' on page 64 undefined on inp
-ut line 2392.
-
-
-Package natbib Warning: Citation `li2010functional' on page 64 undefined on inp
-ut line 2393.
-
-
-Package natbib Warning: Citation `ahn2010functional' on page 64 undefined on in
-put line 2393.
-
-
-Package natbib Warning: Citation `das2011dynamic' on page 64 undefined on input
- line 2394.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [64]
 
 ! LaTeX Error: Bad math environment delimiter.
 
@@ -2594,7 +2574,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2413 \begin{equation}
+l.2325 \begin{equation}
                        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2603,7 +2583,7 @@ or  <return>  to continue without it.
 ! Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.2419 \end{equation}
+l.2331 \end{equation}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2612,13 +2592,13 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-! LaTeX Error: \begin{equation*} on input line 2412 ended by \end{equation}.
+! LaTeX Error: \begin{equation*} on input line 2324 ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2419 \end{equation}
+l.2331 \end{equation}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2631,7 +2611,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2420 \]
+l.2332 \]
          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2644,7 +2624,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2420 \]
+l.2332 \]
          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2653,7 +2633,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.2420 \]
+l.2332 \]
          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2664,7 +2644,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.2420 \]
+l.2332 \]
          
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -2672,7 +2652,7 @@ So I shall assume that you typed `$$' both times.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.2420 \]
+l.2332 \]
          
 Things are pretty mixed up, but I think the worst is over.
 
@@ -2683,7 +2663,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2428 \begin{equation}
+l.2340 \begin{equation}
                        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2692,7 +2672,7 @@ or  <return>  to continue without it.
 ! Undefined control sequence.
 <argument> ...beta _k(t)\zeta _k + \sum _{I_1 \lt 
                                                   I_2=1}^{I}\gamma _I^{aa}(t...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2703,7 +2683,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...{I_1}\xi _{I_2} \\ + \sum _{I_1 \lt 
                                                   I_2=1}^{I}\gamma _I^{ad}(t...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2714,7 +2694,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ..._{I_1}\zeta _{I_2} + \sum _{I_1 \lt 
                                                   I_2=1}^{I} \gamma _I^{da}(...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2725,7 +2705,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...a _{I_1}\xi _{I_2} + \sum _{I_1 \lt 
                                                   I_2=1}^{I} \gamma _I^{dd}(...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2736,7 +2716,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...beta _k(t)\zeta _k + \sum _{I_1 \lt 
                                                   I_2=1}^{I}\gamma _I^{aa}(t...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2747,7 +2727,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...{I_1}\xi _{I_2} \\ + \sum _{I_1 \lt 
                                                   I_2=1}^{I}\gamma _I^{ad}(t...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2758,7 +2738,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ..._{I_1}\zeta _{I_2} + \sum _{I_1 \lt 
                                                   I_2=1}^{I} \gamma _I^{da}(...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2769,7 +2749,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...a _{I_1}\xi _{I_2} + \sum _{I_1 \lt 
                                                   I_2=1}^{I} \gamma _I^{dd}(...
-l.2432 \end{split}
+l.2344 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2780,7 +2760,7 @@ and I'll forget about whatever was undefined.
 ! Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.2433 \end{equation}
+l.2345 \end{equation}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2791,15 +2771,15 @@ my insertion and my current dilemma will both disappear.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65]
+ [63]
 
-! LaTeX Error: \begin{equation*} on input line 2427 ended by \end{equation}.
+! LaTeX Error: \begin{equation*} on input line 2339 ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2433 \end{equation}
+l.2345 \end{equation}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2812,7 +2792,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2434 \]
+l.2346 \]
          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2825,7 +2805,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2434 \]
+l.2346 \]
          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2834,7 +2814,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.2434 \]
+l.2346 \]
          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2845,7 +2825,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.2434 \]
+l.2346 \]
          
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -2853,7 +2833,7 @@ So I shall assume that you typed `$$' both times.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.2434 \]
+l.2346 \]
          
 Things are pretty mixed up, but I think the worst is over.
 
@@ -2864,7 +2844,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2447 ...athcal{S}^{(k-1)}\), \(\mathcal{C}^{k−
+l.2359 ...athcal{S}^{(k-1)}\), \(\mathcal{C}^{k−
                                                   1}\) and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2877,7 +2857,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2448   \(\mathcal{M}^{k−
+l.2360   \(\mathcal{M}^{k−
                             1}\), \protect\hyperlink{ux2f7}{forward regression}
 
 Your command was ignored.
@@ -2891,7 +2871,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2450   \(\mathcal{C}^{k−
+l.2362   \(\mathcal{C}^{k−
                             1}/ \mathcal{S}^{k−1}\) into the model while c...
 
 Your command was ignored.
@@ -2905,7 +2885,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2450   \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−
+l.2362   \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−
                                                  1}\) into the model while c...
 
 Your command was ignored.
@@ -2919,7 +2899,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2452 ...he selected one into \(\mathcal{S}^{k−
+l.2364 ...he selected one into \(\mathcal{S}^{k−
                                                   1}\)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2932,7 +2912,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2455 ...ise, \(\mathcal{C}^k = \mathcal{C}^{k−
+l.2367 ...ise, \(\mathcal{C}^k = \mathcal{C}^{k−
                                                   1}\) and
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2945,84 +2925,87 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2456   \(\mathcal{M}^k = \mathcal{M}^{k−
+l.2368   \(\mathcal{M}^k = \mathcal{M}^{k−
                                             1}\)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[66] <images/GrowthCurveExample.png, id=620, 422.32782pt x 268.75406pt>
+[64] <images/GrowthCurveExample.png, id=611, 422.32782pt x 268.75406pt>
 File: images/GrowthCurveExample.png Graphic file (type png)
 
 <use images/GrowthCurveExample.png>
-Package pdftex.def Info: images/GrowthCurveExample.png used on input line 2492.
+Package pdftex.def Info: images/GrowthCurveExample.png used on input line 2404.
 
 (pdftex.def)             Requested size: 375.81258pt x 239.15344pt.
 
-<images/ExampleDataGrowthCurve.png, id=621, 422.32782pt x 268.75406pt>
+<images/ExampleDataGrowthCurve.png, id=612, 422.32782pt x 268.75406pt>
 File: images/ExampleDataGrowthCurve.png Graphic file (type png)
 
 <use images/ExampleDataGrowthCurve.png>
 Package pdftex.def Info: images/ExampleDataGrowthCurve.png used on input line 2
-501.
+413.
 (pdftex.def)             Requested size: 375.81258pt x 239.15344pt.
 
-<images/LegendreFit.png, id=622, 422.32782pt x 268.75406pt>
+<images/LegendreFit.png, id=613, 422.32782pt x 268.75406pt>
 File: images/LegendreFit.png Graphic file (type png)
 
 <use images/LegendreFit.png>
-Package pdftex.def Info: images/LegendreFit.png used on input line 2510.
+Package pdftex.def Info: images/LegendreFit.png used on input line 2422.
 (pdftex.def)             Requested size: 375.81258pt x 239.15344pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/Grow
-thCurveExample.png>] [68 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defen
+ [65 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defense/_book/images/Grow
+thCurveExample.png>] [66 <C:/Users/Kirk/Documents/School/PhD/Dissertation/Defen
 se/_book/images/ExampleDataGrowthCurve.png> <C:/Users/Kirk/Documents/School/PhD
 /Dissertation/Defense/_book/images/LegendreFit.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69]
-Overfull \hbox (140.3875pt too wide) in paragraph at lines 2584--2605
+ [67]
+Overfull \hbox (140.3875pt too wide) in paragraph at lines 2496--2517
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70]
-Overfull \hbox (170.50146pt too wide) in paragraph at lines 2631--2682
+ [68]
+Overfull \hbox (170.50146pt too wide) in paragraph at lines 2543--2594
  [][] 
  []
 
-[71] [72] [73] [74
+[69] [70] [71] [72
 
 ]
 Chapter 5.
 
-Underfull \vbox (badness 5302) has occurred while \output is active []
+Package natbib Warning: Citation `hao2014interaction' on page 73 undefined on i
+nput line 2642.
 
- [75]
+[73] [74] [75]
 
-Package natbib Warning: Citation `hao2014interaction' on page 76 undefined on i
-nput line 2768.
+Package natbib Warning: Citation `androulakis2007analysis' on page 76 undefined
+ on input line 2758.
 
-[76] [77]
-
-Package natbib Warning: Citation `androulakis2007analysis' on page 78 undefined
- on input line 2838.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2853--2856
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 2773--2776
 
  []
 
-[78] [79] [80] [81] [82
+
+Underfull \vbox (badness 2229) has occurred while \output is active []
+
+ [77]
+Underfull \vbox (badness 5446) has occurred while \output is active []
+
+ [78]
+[79] [80
 
 ]
 Chapter 6.
 
-LaTeX Warning: File `appendix.pdf' not found on input line 2937.
+LaTeX Warning: File `appendix.pdf' not found on input line 2857.
 
 
 ! Package pdftex.def Error: File `appendix.pdf' not found.
@@ -3031,7 +3014,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2937 \includegraphics[width=8in]{appendix.pdf}
+l.2857 \includegraphics[width=8in]{appendix.pdf}
                                                 
 Using draft setting for this image.
 Try typing  <return>  to proceed.
@@ -3041,31 +3024,46 @@ No file Defense.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2944.
-[83]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2944.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2864.
+[81]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2864.
  (C:\Users\Kirk\Documents\School\PhD\Dissertation\Defense\_book\Defense.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2944.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2944.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2864.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2864.
 
-Package rerunfilecheck Info: File `Defense.out' has not changed.
-(rerunfilecheck)             Checksum: 0455183F4DD161BD7AF5E2463B5B30BD;3110.
 
+
+Package rerunfilecheck Warning: File `Defense.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Defense.out':
+(rerunfilecheck)             Before: 0455183F4DD161BD7AF5E2463B5B30BD;3110
+(rerunfilecheck)             After:  4379B0187059430E7B079C794769A400;2970.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2944.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2864.
  ) 
 Here is how much of TeX's memory you used:
- 14077 strings out of 493921
- 203670 string characters out of 3144880
+ 14078 strings out of 493921
+ 203690 string characters out of 3144880
  311905 words of memory out of 3000000
  16827 multiletter control sequences out of 15000+200000
  70181 words of font info for 118 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  32i,17n,35p,1532b,433s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{ux2f7} has been referenced but does not exist, re
-placed by a fixed one
+pdfTeX warning (dest): name{higherorder} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{ux2f7} has been referenced but does not exist, repl
+aced by a fixed one
+
+pdfTeX warning (dest): name{figure.1.3} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{table.1.1} has been referenced but does not exist, 
+replaced by a fixed one
 
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/Mi
@@ -3087,9 +3085,9 @@ msy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:
 /Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Program Fi
 les (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Defense.pdf (95 pages, 1539552 bytes).
+Output written on Defense.pdf (93 pages, 1534524 bytes).
 PDF statistics:
- 814 PDF objects out of 1000 (max. 8388607)
- 192 named destinations out of 1000 (max. 500000)
+ 809 PDF objects out of 1000 (max. 8388607)
+ 193 named destinations out of 1000 (max. 500000)
  10494 words of extra memory for PDF output out of 12000 (max. 10000000)
 

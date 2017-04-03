@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="My Dissertation Written in Bookdown.">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="My Dissertation Written in Bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  <meta name="twitter:description" content="My Dissertation Written in Bookdown." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="highorder.html">
+<link rel="next" href="conclusions-1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css, toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+true
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="iformfunc" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> iForm Functional Mapping</h1>
+<div id="motivation-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Motivation</h2>
+<p>
+As we have seen and also has been noted by several researchers while conducting biometric analysis (; ; ) or molecular dissection (, ) is that quantatitve traits are very complex and much is still needed to be learned. The researchers cited note that the traits are most likely polygenic, including gene-gene interactions and other sources of interaction effects. (; ; ; ) Higher order interactions of complex traits are not well studied because of their difficulty to detect in mapping studies as well. The lack of data should not be construed as proof that this order of interaction does not exist. (). The difficulty in detection leads a way for new computational methods to be developed and approaches to describe how to distinguish such effects. As noted in chapter <a href="highorder.html#highorder">3</a>, new theoretical models of high-order epistasis have well been established by mathematical biologists (; ). These models provided a foundation to interpret high-order epistasis from a biological standpoint. A few statistical models have been derived to estimate and test high-order epistasis in case-control designs () and population-based mapping settings ()
+</p>
+<p>
+Growth and developmental traits are mostly better described by a functional process (, ), it is more biologically meaningful to map these traits as growth curves (). There have been a few different approaches that have integrated growth equations into genetic mapping via the likelihood function, leading to the birth of a so-called functional mapping models (; ; ; ). These style of approaches can allow for the developmental change of genetic control to be characterized across both time and as well as space (; ). Treating the phenotype as a complex trait it would be likely it would follow a more functional or dynamic process. This information could be lost or greatly limited by treating the response as a single static predictor. Modeling the longitudinal structures in this fashion, functional mapping has proven to be of great statistical power in gene identification and the utilization of sparse phenotypic data (). In an attempt to capture all relevant information and be as parsimonious as possible principles from biophysical and biochemical processes were considered. The logistic growth equations are both biologically relevant (; ) and have few parameters that can be mapped to growth QTLs by estimating these parameters for each genotype and interactions between genotypes.
+</p>
+<p>
+There are many approaches for gene mapping with genome-wide association studies (GWAS) being one of the most popular one, achieving a considerable success since their first publication in 2005 (). Analytical approaches are constantly being developed to perform GWAS studies. There are a few areas of challenges in statistical modeling and analysis of genetic data that account for the complexity of phenotypic information. Generally GWAS studies associate genetic markers with static, single valued phenotypes. As we have discussed, most analysis revolve around point wise estimates and do not always take the entirety of the system during the analysis. Incorporating selections are starting to become more common but further work is this area still needs to be explored. Extending the forward selecting procedure previously state in <a href="intro.html#highdeqtl">1.3.1</a> and <a href="highorder.html#highorder">3</a> in order to handle a functional phenotype would be very beneficial with GWAS level studies. A few challenges do arise while considering to conduct a genome-wide association study (GWAS) on interacting traits measured at a sequence of time points. The model needs to be flexible enough to fit different situations, independence of the error structure needs to be maintained or accounted for with the time dependencies and finally computational efficiency needs to be good enough to fit such complex models. All of these issues combined make it a difficult exertion to take on but with computational power increasing, it is becoming more feasible to handle.
+</p>
+<p>
+In applications like the scenario described where we have a functional value phenotype and a high dimensional predictor space with dynamically considering interaction effects it may be too restrictive to suppose that the effect of all of the predictors is captured by a simple linear fit. Reframing the regression problem to help code in the longitudinal data into the structure in a biologically meaningful manner and making some sparsity assumptions about the number of significant genetic and epistatic effects that affect the phenotype will help in the development of such a model to tackle such a task.
+</p>
+</div>
+<div id="methods-2" class="section level2">
+<h2><span class="header-section-number">4.2</span> Methods</h2>
+<div id="regression-by-linear-combination-of-basis-functions" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Regression by linear combination of basis functions</h3>
+<p>
+<p>One common approach to regression problems is to frame the model as a linear combination of basis functions. In typical multiple regression the design matrix would be the values of the observed predictors and these would be used to fit the model, usually with a least squares approach. The goal then being to fit the expected value of the phenotype of interest in terms of the values of the predictors. This would result in a linear model of the form,</p>
+<span class="math display" id="eq:lin-mod">\[\begin{equation}
+\mathbf{Y} = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
+\tag{2.1}
+\end{equation}\]</span>
+<p>This model is nice for a single response but can be too restrictive at times. With a functional response over time, having a model with more flexibility could more accurately estimate the phenotype especially when considering a functional phenotype like a growth model. A fit like the one mentioned would only restrict growth to be a straight line and that may not be applicable in real world applications. By treating the problem as linear combination of basis functions, the general form would look like,</p>
+<span class="math display" id="eq:gen-form">\[\begin{equation}
+f(x) = \sum_{i=0}^P \theta_i \phi_i(x)
+\tag{4.1}
+\end{equation}\]</span>
+where the <span class="math inline">\(\phi\)</span> are the basis functions of the researchers choosing. Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area. A common choice is to use polynomial regression, where <span class="math inline">\(\phi\)</span> would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model. This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger. Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor. With the predictor set being at a high dimensional level already, this may not be something feasible to do. The other area of concern is that it would give a way for higher correlation between effects in the model. This would violate the initial assumptions of the model.
+</p>
+<p>
+Standard polynomial regression is just one case of using basis functions in linear regression. There are many transformations that are able to be performed to invoke nicer properties to the data. The basis functions that are going to be focused on in this work are orthogonal polynomials. This would be a special case of polynomial regression that would alleviate some of the drawbacks mentioned above. Orthogonal polynomials by definition are orthogonal to each other and therefore would not have any correlation between predictors when used as basis functions. Also as an advantage, polynomial regression can be used to make similar types of interest as other types of multiple regression analysis. It does this while modeling a non-linear relationship between the phenotype and genetic markers without having to use complex optimization methods. Ordinary least squares would still apply in this framework, making it more computational efficient as well. One specific class of orthogonal polynomials that will be used are the Legendre polynomials because of the nice properties they posses.
+</p>
+</div>
+<div id="legendre-polynomials" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Legendre Polynomials</h3>
+<div class="figure" style="text-align: center"><span id="fig:Legendre-fig"></span>
+<img src="Defense_files/figure-html/Legendre-fig-1.png" alt="First 10 Legendre Polynomials" width="80%" />
+<p class="caption">
+FIGURE 4.1: First 10 Legendre Polynomials
+</p>
+</div>
+<p>The definition of the Legendre polynomials are the solutions for $n = 0, 1, 2, $ (with the normalization <span class="math inline">\(P_n(1) = 1\)</span> form a polynomial sequence of orthogonal polynomials called the Legendre polynomials. Each Legendre polynomial <span class="math inline">\(P_n(x)\)</span> is an nth-degree polynomial. It may be expressed using Rodrigues’ formula:</p>
+<span class="math display" id="eq:rodrigues-formula">\[\begin{equation}
+P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
+\tag{4.2}
+\end{equation}\]</span>
+<p>An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval <span class="math inline">\(−1 \le x \le 1\)</span>:</p>
+<span class="math display" id="eq:orthg-leg">\[\begin{equation}
+\int_1^{-1} P_m(x)P_n(x)dx = \frac{2}{2+1}\delta_{mn}
+\tag{4.3}
+\end{equation}\]</span>
+<p><span class="math inline">\(\delta_{mn}\)</span> denotes the Kronecker delta equal to 1 if m = n and 0 otherwise. These polynomials can be generated by using the following recursively. Each Legendre polynomial would be the next order n in the expression below.</p>
+<span class="math display" id="eq:leg-eq">\[\begin{equation}
+\begin{split}
+P_n(x) &amp; = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
+&amp; = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
+&amp; = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
+\end{split}
+\tag{4.4}
+\end{equation}\]</span>
+<p>With the nature of the Legendre orthogonal polynomials, it was advantageous for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset. By seeing which polynomial curve fits the given phenotype, it removes some of the challenges when fitting the model. Different orders of the polynomial are tried throughout the procedure to allow for flexibility in the fitting the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.</p>
+</div>
+<div id="model" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Model</h3>
+<p>The layout of the underlying model is first fit to an asymptotic growth model described by a logistic curve of the form,</p>
+<p><span class="math display">\[\mu(t) = a/(1 + b * exp(-r*t))\]</span></p>
+<p>It is biologically meaningful to implement a growth equation, like a logistic curve, to describe growth trajectory . Here the population is described by a mean growth curve by this growth equation where a, b and r are growth parameters each provide a biological interpretation, with a being the asymptotic growth, b being the initial amount of growth and r being the relative growth rate. Time varying additive and dominant effects of significant SNPs are modeled by the Legendre orthogonal polynomial used in quantitative genetic studies, mentioned above. (, , ). This representation can be expressed as</p>
+<p><span class="math display">\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]</span> <span class="math display">\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s&#39;}(t))*(v_{j0}, v_{j1},...,v_{js&#39;})^T \]</span></p>
+<p>where <span class="math inline">\(L_0(t), L_1(t), ... , L_s(t)\)</span> and <span class="math inline">\(L_0(t), L_1(t), ... , L_{s&#39;}(t)\)</span> are the LOP of orders <span class="math inline">\(s\)</span> and <span class="math inline">\(s&#39;\)</span>, respectively; and <span class="math inline">\(u_{j0}, u_{j1},...,u_{js}\)</span> and <span class="math inline">\(v_{j0}, v_{j1},...,v_{js&#39;}\)</span> are the vectors of time-invariant additive and dominant effects, respectively. Orders <span class="math inline">\(s\)</span> and <span class="math inline">\(s&#39;\)</span>, selected from information criteria, for the purposes of this procedure the Bayesian information criterion (<span class="math inline">\(BIC_2\)</span>), originally developed by  was implemented. A nice feature that comes from modeling the fit in this manner is that the dimension of response data is reduced through LOP modeling. (, , , , ). Writing the model out more explicitly we would have,</p>
+<span class="math display" id="eq:epi-legendre">\[\begin{equation}
+\begin{split}
+y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k \\ 
+&amp;+ \sum_{I_1&lt;I_2=1}^{I}\gamma_I^{aa}(t) \xi_{I_1}\xi_{I_2} \\ 
+&amp;+ \sum_{I_1&lt;I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} \\
+&amp;+ \sum_{I_1&lt;I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} \\
+&amp;+ \sum_{I_1&lt;I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} \\ 
+&amp;+ \epsilon(t)
+\end{split}
+\tag{4.5}
+\end{equation}\]</span>
+</div>
+<div id="incorporating-with-the-iform-procedure" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Incorporating with the iForm Procedure</h3>
+<p>We start off with the underlying assumption that our final model will be of the following form.</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k + \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{aa}(t) \xi_{I_1}\xi_{I_2} \\ 
++ \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} + \epsilon(t)
+\end{split}
+\end{equation}
+\]</span> where,</p>
+<p><span class="math display">\[\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}\]</span> <span class="math display">\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]</span> <span class="math display">\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s&#39;}(t))*(v_{j0}, v_{j1},...,v_{js&#39;})^T \]</span></p>
+<p>
+An outline of the selection procedure used following the model described is as follows. At first the mean growth curve is estimated for the presented data following the logistic growth curve. This could be adjusted depending on the functional process the researcher is studying. Once the mean curve is fit the selection procedure is initialized in a similar fashion as mentioned in previous chapters @ref{highdeqtl}. Both the solution set is assigned to the empty set, <span class="math inline">\(S_0=\emptyset\)</span> and the model set is set to just the fitted growth curve as an effect.<span class="math inline">\(M_0=\mu(t)\)</span>. The candidate set begins with containing all main effects for the additive and dominant effects of each SNP. The selection procedure then begins and each SNP is assessed and the best fitting candidate is then placed in the selection set. While assessing each candidate SNP, an additional search is performed for the best fitting polynomial fit up to a pre-specified order that is determined at the beginning of the procedure. The orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other functional models or other types of non-linear functions that characterizes the biological systems being evaluated. We are treating the polynomials as a basis function for the regression problem and therefore the residual sum of squares is calculated similar to generalized least squares but replacing the design matrix with the necessary basis functions. This continues until a designated stopping value is reached. The <span class="math inline">\(BIC_2\)</span> is then used to find the optimal fit given the selection set produced by the procedure. The following graphics show how the process works at each step
+</p>
+<ul>
+<li>Step 1: (Growth Curve) Fit the mean growth curve to the response data and use as an intercept term.<br />
+</li>
+<li>Step 2: (Initialization) Set <span class="math inline">\(\mathcal{S}^{(0)} = \emptyset\)</span>, <span class="math inline">\(\mathcal{M}_0 = \mu(t)\)</span> and <span class="math inline">\(\mathcal{C}_0 = \mathcal{P_1}\)</span></li>
+<li>Step 3: (Selection) In the kth step with given <span class="math inline">\(\mathcal{S}^{(k-1)}\)</span>, <span class="math inline">\(\mathcal{C}^{k−1}\)</span> and <span class="math inline">\(\mathcal{M}^{k−1}\)</span>, forward regression is used to select one more predictor from <span class="math inline">\(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\)</span> into the model while checking for different degrees of the legendre polynomial used as a basis for the genetic effect. We add the selected one into <span class="math inline">\(\mathcal{S}^{k−1}\)</span> to get <span class="math inline">\(\mathcal{S}^k\)</span>. We also update <span class="math inline">\(\mathcal{C}^k\)</span> and <span class="math inline">\(\mathcal{M}^k\)</span> if the newly selected predictor is a main effect. Otherwise, <span class="math inline">\(\mathcal{C}^k = \mathcal{C}^{k−1}\)</span> and <span class="math inline">\(\mathcal{M}^k = \mathcal{M}^{k−1}\)</span></li>
+<li>Step 4: (Solution Path). Iterating Step 2, for D times, which leads to a total of D nested candidate models. We then collect those models by a solution path <span class="math inline">\(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)</span></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:growth-example"></span>
+<img src="images/GrowthCurveExample.png" alt="Intial Growth Curve Fit" width="80%" />
+<p class="caption">
+FIGURE 4.2: Intial Growth Curve Fit
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:growth-exampledata"></span>
+<img src="images/ExampleDataGrowthCurve.png" alt="Growth Cruve with Example Data" width="80%" />
+<p class="caption">
+FIGURE 4.3: Growth Cruve with Example Data
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:legendre-fit"></span>
+<img src="images/LegendreFit.png" alt="Additional Legendre Fit to Data" width="80%" />
+<p class="caption">
+FIGURE 4.4: Additional Legendre Fit to Data
+</p>
+</div>
+<p>
+As you can see from the step by step graphics, the mean growth curve is fit. The example data follows the overall growth pattern but there is some variation that is left to be explained. Each genetic marker is then tested to see if the fit is improved by the addition of the effect following the legendre polynomial. We see in the third graphic that the selected line fits closer to the given data than using the mean growth curve by itself. This genetic effect then would be selected and place into the selection set. Further iterations to the procedure will then be conducted to see if the fit can be further explained by the inclusion of additional genetic or epistatic effects.
+</p>
+</div>
+</div>
+<div id="application-2" class="section level2">
+<h2><span class="header-section-number">4.3</span> Application</h2>
+<div id="simulation-studies-1" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Simulation Studies</h3>
+<p>
+As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures. Simulation studies were performed to ascertain the validity of the model. Rates at which correct markers/epistasis were selected and overall model true model size was assessed. Data was original generated from a mean curve following the growth equation described above. It was then sampled from a multivariate normal distribution with the mean vector following the generated curve and correlated errors over time. Significant effects were also included in the model to simulate different marker levels. These effects could be main effects of SNPs, or epistatic effects of interaction between SNPs. There were a total of four main effects and three interaction effects simulated. This simulation was replicated 100 times and then the selection procedure was implemented. It performed well with each of the replicates selecting all main and interaction effects that were set to be significant in the underlying model. There were additional effects selected up to 14% of the time. You can see this in the false positive rate of the model predictors. The true model size was simulated to be of size seven and this was obtained the large majority of the time. The average model size of the replicates fit was around 13.5 which explains the 14% false positive rate. This would indicate some slight over-fitting but all important effects were included in the model. Future considerations for this area could be beneficial to obtaining less over fitting.
+</p>
+<table>
+<caption><span id="tab:Chap4SimResults">TABLE 4.1: </span>Simulation Results</caption>
+<thead>
+<tr class="header">
+<th align="left">Model</th>
+<th align="right">T1_tpr</th>
+<th align="right">T1_fpr</th>
+<th align="right">T2_tpr</th>
+<th align="right">T2_fpr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Model Predictors</td>
+<td align="right">1.0000</td>
+<td align="right">0.1417</td>
+<td align="right">1.0000</td>
+<td align="right">0.0037</td>
+</tr>
+<tr class="even">
+<td align="left">Polynomial Degree</td>
+<td align="right">0.7125</td>
+<td align="right">0.0251</td>
+<td align="right">0.9667</td>
+<td align="right">0.0007</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="worked-example-1" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Worked Example</h3>
+<p>Comparing to previous work in <a href="highorder.html#highorder">3</a> the same mei tree dataset used in this chapter was reanalyzed. This serves as a comparison to previous performance and also to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simultaneously throughout the procedure. The previous model only fit one parameter of the growth equation as a time and assessed the genetic markers that had a significant impact of this parameter. The parameter focused on was the rate parameter,r for the shoot height of the progeny. The initial results running the analysis with a single predictor and using the selection procedure are,</p>
+<table>
+<caption><span id="tab:Chap4Table2">TABLE 4.2: </span>Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model</caption>
+<thead>
+<tr class="header">
+<th align="left">Coefficient</th>
+<th align="right">Estimate</th>
+<th align="right">SE</th>
+<th align="right">T.value</th>
+<th align="left">P.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.16859</td>
+<td align="right">0.05801</td>
+<td align="right">2.906</td>
+<td align="left">0.00415 **</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2517_a</td>
+<td align="right">0.27773</td>
+<td align="right">0.04396</td>
+<td align="right">6.318</td>
+<td align="left">2.27e-09 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2815_a</td>
+<td align="right">0.26382</td>
+<td align="right">0.05295</td>
+<td align="right">4.983</td>
+<td align="left">1.54e-06 ***</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_nn_np_3479_a</td>
+<td align="right">0.20767</td>
+<td align="right">0.03467</td>
+<td align="right">5.990</td>
+<td align="left">1.23e-08 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_1284_a</td>
+<td align="right">0.04522</td>
+<td align="right">0.04265</td>
+<td align="right">1.060</td>
+<td align="left">0.29055</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2815_a×AATTC_lm_ll_3034_a</td>
+<td align="right">1.82572</td>
+<td align="right">0.17925</td>
+<td align="right">10.185</td>
+<td align="left">&lt; 2e-16 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2815_a×AATTC_hk_hk_278_a</td>
+<td align="right">0.25935</td>
+<td align="right">0.03888</td>
+<td align="right">6.671</td>
+<td align="left">3.48e-10 ***</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_3153_a</td>
+<td align="right">0.14877</td>
+<td align="right">0.03491</td>
+<td align="right">4.262</td>
+<td align="left">3.36e-05 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_1284_a×AATTC_nn_np_554_a</td>
+<td align="right">0.22994</td>
+<td align="right">0.05104</td>
+<td align="right">4.505</td>
+<td align="left">1.23e-05 ***</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2815_a.AATTC_lm_ll_3034_a×AATTC_nn_np_1615_a</td>
+<td align="right">-1.51714</td>
+<td align="right">0.19060</td>
+<td align="right">-7.960</td>
+<td align="left">2.39e-13 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2815_a×AATTC_nn_np_929_a</td>
+<td align="right">-0.30805</td>
+<td align="right">0.05477</td>
+<td align="right">-5.624</td>
+<td align="left">7.57e-08 ***</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_479_d</td>
+<td align="right">0.16044</td>
+<td align="right">0.03443</td>
+<td align="right">4.660</td>
+<td align="left">6.37e-06 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2517_a×CATG_hk_hk_648_a</td>
+<td align="right">0.14537</td>
+<td align="right">0.02840</td>
+<td align="right">5.118</td>
+<td align="left">8.33e-07 ***</td>
+</tr>
+</tbody>
+</table>
+<p>
+Simultaneously fitting the growth curve and allowing for a more flexible genetic effect to be fit to the data are presented below. As you can see there are overlapping markers identified in the models. This shows the robustness of the new selection technique to be consistent with previous models. You can also see that the fit of the overall model has also increased. By including all effects at once, you gain more statistical power and it boost the adjusted R square value from 0.71 to above 0.9. This boost in model performance could be partially due to some over-fitting like we observed in the simulation studies and therefore a very strict bonferroni correction was implemented to assess whether individual markers were truly significant. Even with a strict cut-off we still observed 3 epistatic predictors to be highly significant. This shows the importance of including such terms while performing such a GWAS. The other area to note is the highly significant intercept term, <span class="math inline">\(\mu(t)\)</span>, which in our case is the result of the growth curve fit before implementing the selection procedure. This indicates also the importance of including biologically relevant information in the model to help better understand the genetic architecture being studied of the phenotype.
+</p>
+<table>
+<caption><span id="tab:Chap4Results">TABLE 4.3: </span>Growth Height</caption>
+<thead>
+<tr class="header">
+<th align="left">Coefficient</th>
+<th align="right">Estimate</th>
+<th align="right">SE</th>
+<th align="right">T.value</th>
+<th align="right">P.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mu_t</td>
+<td align="right">0.9846</td>
+<td align="right">0.0142</td>
+<td align="right">69.2890</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_2801_a_P0</td>
+<td align="right">-18.3460</td>
+<td align="right">2.3306</td>
+<td align="right">-7.8719</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_2801_a_by_AATTC_lm_ll_2056_a_P0</td>
+<td align="right">15.0998</td>
+<td align="right">2.7364</td>
+<td align="right">5.5181</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_2801_a_by_AATTC_nn_np_2246_a_P0</td>
+<td align="right">17.4473</td>
+<td align="right">2.5890</td>
+<td align="right">6.7389</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_3635_a_P0</td>
+<td align="right">35.6463</td>
+<td align="right">2.4577</td>
+<td align="right">14.5041</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_nn_np_3635_a_by_CATG_lm_ll_2637_a_P0</td>
+<td align="right">-20.8632</td>
+<td align="right">2.1622</td>
+<td align="right">-9.6492</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_lm_ll_2056_a_by_CATG_lm_ll_2801_a_by_CATG_nn_np_4200_a_P0</td>
+<td align="right">11.6351</td>
+<td align="right">2.9936</td>
+<td align="right">3.8866</td>
+<td align="right">0.0001</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2246_a_by_AATTC_nn_np_4205_a_by_CATG_lm_ll_2801_a_P0</td>
+<td align="right">-22.1074</td>
+<td align="right">3.3058</td>
+<td align="right">-6.6874</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_3635_a_by_AATTC_nn_np_2292_a_P0</td>
+<td align="right">-16.8444</td>
+<td align="right">2.0928</td>
+<td align="right">-8.0488</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_753_d_P0</td>
+<td align="right">-13.8052</td>
+<td align="right">1.8007</td>
+<td align="right">-7.6664</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_hk_hk_753_d_by_AATTC_hk_hk_485_a_P0</td>
+<td align="right">18.9017</td>
+<td align="right">2.0761</td>
+<td align="right">9.1045</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_nn_np_3635_a_by_CATG_nn_np_3234_a_P0</td>
+<td align="right">-7.2607</td>
+<td align="right">2.4541</td>
+<td align="right">-2.9586</td>
+<td align="right">0.0031</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_hk_hk_753_d_by_CATG_nn_np_2208_a_P0</td>
+<td align="right">7.8192</td>
+<td align="right">2.2885</td>
+<td align="right">3.4167</td>
+<td align="right">0.0006</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_485_a_by_AATTC_hk_hk_753_d_by_AATTC_nn_np_3611_a_P0</td>
+<td align="right">-15.9119</td>
+<td align="right">3.0362</td>
+<td align="right">-5.2407</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_2801_a_by_AATTC_nn_np_3395_a_P0</td>
+<td align="right">-13.7696</td>
+<td align="right">2.3020</td>
+<td align="right">-5.9816</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_1732_a_P0</td>
+<td align="right">-8.9870</td>
+<td align="right">2.5788</td>
+<td align="right">-3.4849</td>
+<td align="right">0.0005</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_1732_a_by_AATTC_nn_np_4608_a_P0</td>
+<td align="right">23.9765</td>
+<td align="right">2.7677</td>
+<td align="right">8.6631</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_4608_a_by_CATG_lm_ll_1732_a_by_CATG_nn_np_3543_a_P0</td>
+<td align="right">-18.6126</td>
+<td align="right">3.3495</td>
+<td align="right">-5.5569</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_789_a_by_CATG_nn_np_3234_a_by_CATG_nn_np_3635_a_P0</td>
+<td align="right">-11.7958</td>
+<td align="right">2.8852</td>
+<td align="right">-4.0884</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_1732_a_by_AATTC_lm_ll_2212_a_P0</td>
+<td align="right">8.1659</td>
+<td align="right">2.1777</td>
+<td align="right">3.7498</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_1732_a_by_CATG_nn_np_2948_a_P0</td>
+<td align="right">9.5687</td>
+<td align="right">2.3217</td>
+<td align="right">4.1214</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_495_a_by_CATG_lm_ll_1732_a_by_CATG_nn_np_2948_a_P0</td>
+<td align="right">-8.6498</td>
+<td align="right">2.1831</td>
+<td align="right">-3.9622</td>
+<td align="right">0.0001</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_4608_a_by_CATG_lm_ll_1732_a_by_CATG_lm_ll_2787_a_P1</td>
+<td align="right">14.2735</td>
+<td align="right">2.1351</td>
+<td align="right">6.6852</td>
+<td align="right">0.0000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="discussion-2" class="section level2">
+<h2><span class="header-section-number">4.4</span> Discussion</h2>
+<p>
+Some possible areas of concern for fitting the genetic effects to the polynomials could be that the effect does not conform to the polynomial curve under consideration. This can be alleviated by using other types of basis functions such as splines, but this would also cost a huge amount in computational efficiency with such a high dimensional data set. You need to be as efficient as possible when implementing a GWAS style study with the inclusion of possible epistasis. False positives could be of concern as well throughout the selection. The flexibility of the model and the wide range of polynomial fits that are considered could result in artifacts in the data to be picked up on. This is partially alleviated by using improved selection criteria like the <span class="math inline">\(BIC_2\)</span> and also having stricter than conventional cut-off values for significance testing. However these would still need to be assessed further through computational techniques such as cross-validation and bootstrapping. The selection procedure is effective as a screening tool for exploratory data analysis and hypothesis generation. Lab verification would be another area that would help validate the findings even further. The comparison to previously run models is promising step in assessing the validity of the model at hand.
+</p>
+<p>
+The new model proposed has some very nice features and performs well in the given application. Considering the complexity of working with high dimensional data coupled with including epsitatic effects as well as a functional component to the phenotype, it performs relatively efficiently. Using generalize least squares type calculations aided in this efficiency, while taking into account the correlation that would naturally arise between the repeated measurements of the same trees over time. This was enabled by the framing of the regression problem as a linear combination of basis functions. The agreeable properties of orthogonal polynomials helped ensure model assumptions are being met as closely as possible in order to use the calculations. Also by including the biologically meaningful logistic growth equations it helps fit a baseline fit to the data and would better allow for individual genetic effects to be found throughout the selection. These would of course have to be lab verified in order to assess the true biological mechanisms at play for the genetic control of the phenotype.
+</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="highorder.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusions-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-iFormFunctionalMapping.Rmd",
+"text": "Edit"
+},
+"download": ["Defense.pdf", "Defense.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

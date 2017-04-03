@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="highdeqtl.html">
-<link rel="next" href="iform-functional-mapping-a-computational-method.html">
+<link rel="next" href="iformfunc.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -181,10 +181,6 @@ BIC_2(\hat{M}) = log(\hat{\sigma_M}^2) + n^{-1} |\hat{M}|*(log(n)+2*log(d^{\star
 <p><strong>Scenario 4:</strong><br />
 <span class="math inline">\(\mathbf{Y}=\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,9} x_1 x_9+\gamma_{6,7} x_6 x_7+\eta_{1,6,9} x_1 x_6 x_9\)</span> Finally the last scenario only generates data that come from pure interactions between predictors with no main effects present in the model used to generate the data.</p>
 <p>For the first scenarios where the truth obeys strong heredity where all of the parent main effects need to be selected before interactions are selected. The models that appeared to do the best in this simulation were forward selection on all order-3 interactions included from the beginning (FS3), iForm order-3 weak heredity and iForm order-3 strong heredity @ref(tab:Chap3sim1. The FS3 took over a 40 fold increase in time to run. The other comparison models, glinternet and hierNet seemed to perform well on the training set but not as well on the testing set. This would indicate that some overfitting was occurring with those types of regularization models. The next scenario was when the truth obeys weak heredity. With the underlying model obeying the weak heredity, the iForm order-3 strong heredity version dropped off in performance slightly. However, the FS3 and iForm order-3 remained as top performers @ref(tab:Chap3sim2. The third scenario assessed was from an underlying model with an anti-heredity structure. Both main effects and interaction effects were used in the model to generate the data. However the interactions included in the model were of combinations of main effects in the candidate set, that were not in the model. The iForm seems to drop in performance with this scenario @ref(tab:Chap3sim3. This is to be expected because it is in direct violation of the underlying assumptions of the model hierarchy. Even with these violations of the heredity it still performed reasonably well. Lastly, making the scenario a little more extreme, the underlying model generating the data was only of interactions. There were no main effects included in the model. The results of this scenario are shown in @ref(tab:Chap3sim4. Performance appeared to drop off for all models explored in the simulation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
-  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_TableSim1.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 1 Simulation results when the truth obeys strong heredity&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:Chap3sim1">TABLE 3.1: </span>Table 1 Simulation results when the truth obeys strong heredity</caption>
 <thead>
@@ -357,10 +353,6 @@ BIC_2(\hat{M}) = log(\hat{\sigma_M}^2) + n^{-1} |\hat{M}|*(log(n)+2*log(d^{\star
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
-  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_TableSim2.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 2 Simulation results when the truth obeys weak heredity&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:Chap3sim2">TABLE 3.2: </span>Table 2 Simulation results when the truth obeys weak heredity</caption>
 <thead>
@@ -533,10 +525,6 @@ BIC_2(\hat{M}) = log(\hat{\sigma_M}^2) + n^{-1} |\hat{M}|*(log(n)+2*log(d^{\star
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
-  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_TableSim3.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 3 Simulation results when the truth is anti-heredity&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:Chap3sim3">TABLE 3.3: </span>Table 3 Simulation results when the truth is anti-heredity</caption>
 <thead>
@@ -709,10 +697,6 @@ BIC_2(\hat{M}) = log(\hat{\sigma_M}^2) + n^{-1} |\hat{M}|*(log(n)+2*log(d^{\star
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
-  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_TableSim4.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 4 Simulation results when the truth is constructed of pure interactions&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:Chap3sim4">TABLE 3.4: </span>Table 4 Simulation results when the truth is constructed of pure interactions</caption>
 <thead>
@@ -913,10 +897,6 @@ g(t) = a/[1+b*exp(-rt)]
 <p>where <span class="math inline">\(g(t)\)</span> is the amount of shoot growth at time t, a is the asymptotic value of growth when time tends to be infinite, b is a parameter that reflects the amount of growth at time 0, and r is the relative growth rate. These three parameters determine the overall form of growth curve jointly, although they function differently. Thus, by estimating these parameters for individual hybrids using a nonlinear least squares approach, we can draw the growth curve of each hybrid. Differences in growth curve among hybrids may be controlled by specific genes or quantitative trait loci (QTLs). Although tremendous efforts have been made to map growth QTLs and their epistasis (;; ), none has characterized the contribution of high-order epistasis although it has been thought to regulate growth processes.</p>
 <p>By treating the estimates of growth parameters for individual hybrids as “phenotypic traits,” we used iFORM to map growth QTLs and QTL-QTL interactions. Of 4,934 markers, 2,100 are the testcross markers at which markers are segregating due to only one heterozygous parent and 2,834 are the intercross markers whose segregation results from the heterozygosity of both parents. For a testcross marker, there is only one main genetic effect, whereas an intercross marker contains additive and dominant main effects. Thus, a pair of testcross markers produces only type of epistasis, but a pair of intercross markers forms four types of epistasis, additive x additive, additive x dominant, dominant x additive and dominant x dominant. For two markers with one from the testcross and the other from the intercross, there are two types of epistasis, i.e., additive x additive and additive x dominant (). The number and type of epistasis can be characterized for any three markers accordingly. Here, the iFORM was implemented in a way that allows both marker markers to be modeled and analyzed simultaneously.</p>
 <p>To demonstrate the possible importance of high-order epistasis, we analyze the data by assuming that growth parameters are controlled by low-order epistasis only and by both low- and high-order epistasis, respectively. The weak heredity (hierarchical) was used to screen every SNP and possible interaction of the main effects selected and the rest of the SNPs left in the candidate set. It was not restricted to the strong case where both main effects had to be in the model for the interaction to be considered. For the pairwise epistatic model, this grew the candidate set to almost 20,000 predictors to choose from. It turned out that 5 predictors were chosen, i.e., four main additive effects of markers, AATTC_nn_np_2517, AATTC_nn_np_2815, CATG_nn_np_3479 and CATG_nn_np_1284 and one epistatic effect due to markers AATTC_nn_np_2815 and AATTC_lm_ll_3034, for growth parameter r of shoot length <a href="highorder.html#tab:Chap3Table5">3.5</a>. The main effect of marker AATTC_lm_ll_3034 was detected to be insignificant. These main and epistatic effects together explained 32.41% of the total variance of parameter r.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
-  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_Table5.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:Chap3Table5">TABLE 3.5: </span>Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model</caption>
 <thead>
@@ -974,10 +954,6 @@ g(t) = a/[1+b*exp(-rt)]
 </tbody>
 </table>
 <p>When opening up the iForm procedure to the possibility to creating higher order interactions to be placed into the candidate set, a more complete picture of the phenotypical variation was revealed. The amount of predictors included in the final model grew to 12, with one of them being three-way interactions among markers AATTC_nn_np_2815, AATTC_lm_ll_3034 and AATTC_nn_np_1615.The adjusted <span class="math inline">\(R^2\)</span> jumped up to over 70% <a href="highorder.html#tab:Chap3Table5">3.5</a>. This astonishing jump in predictive power is an exemplar case as to the importance of higher-order interactions in genetic models. Not only did higher-order interactions become one of the most significant predictors in the model selected, it also allowed for other order-two interactions and main effects to be kept in the model that were previously left out. At the next step of every iteration, the new candidate effect was conditioned on everything previously selected. With the conditional effect of the higher-order interaction it enabled for other lost effects to be modeled as well.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
-  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_Table6.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:Chap3Table6">TABLE 3.6: </span>Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model</caption>
 <thead>
@@ -1133,7 +1109,7 @@ i_{123}(t) &amp;=  [(\mu_{111}(t) + \mu_{122}(t) + \mu_{212}(t) + \mu_{122}(t)) 
         </div>
       </div>
 <a href="highdeqtl.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="iform-functional-mapping-a-computational-method.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="iformfunc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

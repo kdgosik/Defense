@@ -135,8 +135,8 @@
 }
 \makeatother
 
-\addcontentsline{toc}{chapter}{\listtablename}
-\addcontentsline{toc}{chapter}{\listfigurename}
+\addcontentsline{toc}{chapter}{\listtablename}{ix}
+\addcontentsline{toc}{chapter}{\listfigurename}{xi}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -209,7 +209,7 @@ Knowledge about how changes in gene expression are encoded by expression quantit
 \section{Background}\label{background}
 
 There are several techniques used for studying genetics and mapping the
-results. Some of the more populor techniques include cross-breeding
+results. Some of the more popular techniques include cross-breeding
 experiments or, in the case of humans, the examination of family
 histories, known as pedigrees. More recently, CRISPR/Cas9 can be used to
 mimic mitotic recombination to help map out genes as well.
@@ -224,7 +224,7 @@ flowering plants, is that a map based entirely on genes is not very
 detailed.(\cite{brown2006genomes}) Genes have long areas of non-coding
 regions between them and therefore result in large gaps from gene to
 gene. This is further complicated because not every gene has allelic
-forms that can be easily or conventiently distinguished. With these
+forms that can be easily or conveniently distinguished. With these
 considerations in mind gene maps may not be comprehensive enough and
 other markers may be needed.
 
@@ -234,11 +234,11 @@ alleles to be useful. There are three types of DNA sequence feature that
 satisfy this requirement: restriction fragment length polymorphisms
 (RFLPs), simple sequence length polymorphisms (SSLPs), and single
 nucleotide polymorphisms (SNPs). (\cite{brown2006genomes}) The genetic
-markers that have been emphaised in this work are single nucleotide
+markers that have been emphasized in this work are single nucleotide
 polymorphisms. Attempting to be at the highest levels of resolution for
 identifying quantitative traits, using SNPs are the most specific case.
-This will give exact location of the nucletid that may be impacting the
-genetic control over the phenotype.
+This will give exact location of the nucleotide that may be impacting
+the genetic control over the phenotype.
 
 \begin{figure}
 
@@ -251,7 +251,7 @@ genetic control over the phenotype.
 
 There are several goals to genetic mapping and association studies that
 identify certain regions of the genome that contain genes involved in
-specifying a quantitative trait, refered to as quantitative trait loci
+specifying a quantitative trait, referred to as quantitative trait loci
 (QTLs). One main goal is to estimate the genetic effects of these loci.
 The relationship between the genetic effects of QTLs and the phenotypic
 value of quantitative traits can be described by a linear model
@@ -261,9 +261,18 @@ number of markers across the whole genome, and most of the markers may
 have very little or next no effect on the phenotype under study. The
 models can be very sparse, with most cases, the number of genetic
 markers or variables is bigger than the sample size, especially when
-interactions among markers are considered. This makes a model is
-oversaturated and furher model selection techniques may be required to
+interactions among markers are considered. This makes a model is over
+saturated and further model selection techniques may be required to
 capture the necessary information. \cite{dong2015accurate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/SystemsMapping} 
+
+}
+
+\caption{Systems Map}\label{fig:system-map}
+\end{figure}
 
 \section{Some Exisiting Methods}\label{some-exisiting-methods}
 
@@ -321,179 +330,82 @@ the genetic architecture of a trait.
 
 \section{Chapter Overview}\label{chapter-overview}
 
-The main goal of this paper is to propose an improved selection
-procedures which use regression techniques to approach high scale
-variable selection problems such as the ones arising in epistatic
-analysis
+The main theme of this paper is to propose an improvements on selection
+procedures which use regression techniques to approach high dimensional
+variable selection such as the ones arising in epistatic analysis. The
+variable selection procedure for QTL mapping can be seen as one of
+deciding which subset of variables have effects on the phenotypes of
+interest, and identifying those specific traits out of all possible
+effects between the markers. Each procedure proposed is a forward
+selecting method that starts with the empty set. After starting with the
+empty set each procedure continues to add markers to the model set as
+possible QTLs. Once a designated stopping criteria is met the final
+model is fit and the effects are estimated. Each of the next three
+chapters focuses on a new selection procedure and the properties of
+them.
 
-The variable selection procedure for QTLs mapping can be seen as one of
-deciding which subset of variables have effects on phenotypes, and
-identifying out all possible effects of those markers.
+\hypertarget{highdeqtl}{\subsection{HighDeQTL}\label{highdeqtl}}
 
-\subsection{HighDeQTL}\label{highdeqtl}
-
-In this chpater we introduce the iform procedure, originally proposed by
-(hao and zhang 2014). This includes the algorithm and how it compares to
-forward selection. From there it is adapted to use for a genetic mapping
-studies. The properies of this will be explored in detail. Simulation
-studies were conducted to assess the properties. These were also
-compared to other models to get a sense of the utility and advantages
+In this chapter we introduce the iform procedure, originally proposed by
+(\cite{hao2014interaction}). Included in the chapter is the algorithm
+and how it compares to forward selection. From there it is adapted to
+use for a genetic mapping studies. The properties of this will be
+explored in detail. Simulation studies were conducted to assess how well
+the properties are met and under what conditions. Comparisons to other
+models was also explored to get a sense of the utility and advantages
 that come with the new selection procedure. After the comparisons and
-simulations a real world application is performed. In the application a
-data set using C Elegans
-
-The model perfromed well but feedback was given on\ldots{} consider weak
-heredity
-
-Needs more flexibility
-
-a lot of important genetic variance and heritability were discovered by
-the inclusion epistatic effects. These effects boost the overall
-variance explained and predictive power of the final model selected.
+simulations a real world application is performed. The application was a
+reanalysis of a data set using C Elegans first proposed by
+\cite{rockman2010selection}.
 
 \subsection{Higher Order Epistasis}\label{higher-order-epistasis}
 
-Higher order epistasis is important but under studied because of
-practical limitations not because of biological limitations
-
-\textbf{from chapter 03} The theoretical models of high-order epistasis
-have well been established by mathematical biologists
-(\cite{hansen2001epistasis}; \cite{beerenwinkel2007analysis}). These
-models provided a foundation to interpret high-order epistasis from a
-biological standpoint. A few statistical models have been derived to
-estimate and test high-order epistasis in case-control designs
-(\cite{wang2015bayesian}) and population-based mapping settings
-
-By extending the order of interaction effects the properties would still
-need to be studied. The thereotrical properties that held for the iform
-procedure were inspected again. Simulation studies were performed to
-assess practical applications. Several scenarios and comparison models
-were considered to extensively look at what properites were being met
-and which were not. Then an application to Mei tree growth was conducted
-in order to see the real world application of such a selection
-procedure. Different growth parameters were prviously fit and these were
-used as the phenotype. Interesting and more predictive implications came
-out of the model when considering higher order epistasis throughout the
-selection procedure.
-
-The static growth parameters were interesting but using the entire
-growth curve would be more beneficial to capture all relevant
-information.
+The next chapter considers higher order epistasis and its importance.
+Currently it is under studied because of practical limitations not
+because of biological limitations or relevance. The iFORM procedure
+proposed in Chapter 2 is then extended to incorporate higher orders of
+epistatic effects. Even though similar methods are being used the
+properties are still studied and assessed. Simulation studies were
+performed to assess practical applications. Several scenarios and
+comparison models were considered to extensively look at what properties
+were being met and which were not. Then an application to Mei tree
+growth was conducted in order to see the real world application of such
+a selection procedure. Different growth parameters were previously fit
+and these were used as the phenotype. Interesting and more predictive
+implications came out of the model when considering higher order
+epistasis throughout the selection procedure.
 
 \subsection{iForm Funcional Mapping}\label{iform-funcional-mapping}
 
-In order to use all relevant information of the repeated measure data
-would take additional computation burden to the selection and the
+The application of the Mei tree growth led into exploring to use a more
+functional phenotype as a response throughout the selection procedure.
+In order to use all relevant information of the repeated measure data,
+it would take an additional computation burden to the selection and the
 modeling but it would also give more power and flexibility to the
 modeling that would not be present otherwise. It is important to use all
 relevant information in order to make the most accurate prediction about
-the data.
+the data. Using a growth curve model to assist in fitting the data would
+help ease some of the computational burden. The selection of genetic
+effects however would be very simplistic as some additive shift to the
+curve. This view may not be the most accurate and therefore more
+complicated structures will be implemented to produce better results.
+Legendre orthogonal polynomials were considered to model the genetic
+effects. These polynomials have various forms and would allow for the
+genetic effect to follow different patterns but also not induce
+unnecessary correlation between predictors when included in the model.
+Again, simulation studies were conducted and a reanalysis of the full
+Mei tree dataset was considered.
 
-Using a growth curve model to assist in fitting the data would help ease
-some of the comutational burden. The selection of genetic effects
-however would be very simplistic as some additive shift to the curve.
-This simplistic view may not be the most accurate and therefore more
-complicated structures could produce better results. As we have seen in
-Chapter 03, the genetic effects over time seem to vary among different
-genotypes and the interaction effects follow more of a non-linear
-pattern. In order to allow for more flexible, non-linear modeling with
-not expending too much computation burden, Legendre Orthogonal
-Polynomials were considered to model the genetic effects. These
-polynomials have various form and would allow for the genetic effect to
-follow different patterns but also not induce unnecessary correlation
-between predictors included in the model.
+\subsection{Conclusions}\label{conclusions}
 
-These benefits do come at a computational cost but by including the
-repeated measures portion of the data it enabled for the use of more
-data and therefore increase the power of the modeling.
+Finally in the last chapter it will focus on comparisons and discussion
+around the models proposed. Future aims of the research goals will be
+explored also. Seeing how my current research will lead into the aims
+and what possible directions can be explored with the given statistical
+frameworks.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{images/SystemsMapping} 
-
-}
-
-\caption{Systems Map}\label{fig:system-map}
-\end{figure}
-
-You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway, e.g.,
-Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and
-\texttt{table} environments, respectively.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{Defense_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:}
-prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
-reference tables generated from \texttt{knitr::kable()}, e.g., see Table
-\ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-You can write citations, too. For example, we are using the
-\textbf{bookdown} package \citep{R-bookdown} in this sample book, which
-was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
-
-\chapter{High Dimensional eQTL}\label{highdeqtl}
+\hypertarget{highdeqtl}{\chapter{High Dimensional
+eQTL}\label{highdeqtl}}
 
 \section{Motivation}\label{motivation}
 
@@ -576,8 +488,8 @@ can also be considered. We expand Hao and Zhang's regression model to
 include discrete components. Also, for an F2 or a natural population
 with three genotypes at each locus, we need to estimate a total of eight
 genetic effects for a pair of markers, which are additive and dominant
-effects at each locus, and additive  additive, additive  dominant,
-dominant  additive and dominant  dominant effects between the two loci
+effects at each locus, and additive x additive, additive x dominant,
+dominant x additive and dominant x dominant effects between the two loci
 (\cite{kempthorne1968correlation}). Thus, if the number of markers is p,
 a total number of predictors including all main and two-way interaction
 terms is \(2p^2\). For a typical moderate-sized mapping study, in which
@@ -1245,8 +1157,8 @@ in the F2 design of model systems and natural populations of outcrossing
 species such as humans. A more general model of iFORM should consider
 three genotypes at each locus, which provides estimates of additive and
 dominant effects at each locus and four types of epistasis, i.e.,
-additive  additive, additive  dominant, dominant  additive and
-dominant  dominant, between each pair of loci
+additive x additive, additive x dominant, dominant x additive and
+dominant x dominant, between each pair of loci
 (\cite{kempthorne1968correlation}). Each of these epistatic types may
 affect a phenotype through a different pathway.
 
@@ -1265,7 +1177,8 @@ series into iFORM, we will be able to map dynamic eQTLs for gene
 expression and make a quantitative prediction of temporal and spatial
 patterns of genetic control by eQTLs.
 
-\chapter{High-order Epistatic Networks}\label{highorder}
+\hypertarget{highorder}{\chapter{High-order Epistatic
+Networks}\label{highorder}}
 
 \section{Motivation}\label{motivation-1}
 
@@ -1680,15 +1593,6 @@ interactions. There were no main effects included in the model. The
 results of this scenario are shown in @ref(tab:Chap3sim4. Performance
 appeared to drop off for all models explored in the simulation.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim1.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 1 Simulation results when the truth obeys strong heredity'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:Chap3sim1}Table 1 Simulation results when the truth obeys strong heredity}
@@ -1711,15 +1615,6 @@ Oracle & NA & NA & NA & NA & NA & NA & 0.953 & 0.921 & 1.050 & 0.912 & 9.00 & NA
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim2.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 2 Simulation results when the truth obeys weak heredity'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -1744,15 +1639,6 @@ Oracle & NA & NA & NA & NA & NA & NA & 0.940 & 0.924 & 1.034 & 0.915 & 9.00 & NA
 \end{tabular}
 \end{table}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim3.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 3 Simulation results when the truth is anti-heredity'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:Chap3sim3}Table 3 Simulation results when the truth is anti-heredity}
@@ -1775,15 +1661,6 @@ Oracle & NA & NA & NA & NA & NA & NA & 0.952 & 0.921 & 1.031 & 0.915 & 9.00 & NA
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_TableSim4.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 4 Simulation results when the truth is constructed of pure interactions'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -1903,15 +1780,6 @@ marker AATTC\_lm\_ll\_3034 was detected to be insignificant. These main
 and epistatic effects together explained 32.41\% of the total variance
 of parameter r.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_Table5.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:Chap3Table5}Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model}
@@ -1946,15 +1814,6 @@ next step of every iteration, the new candidate effect was conditioned
 on everything previously selected. With the conditional effect of the
 higher-order interaction it enabled for other lost effects to be modeled
 as well.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_Table6.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -2135,8 +1994,8 @@ orders to be searched. The package can be uploaded at
 \url{http://statgen.psu.edu/software/} and will be made available
 through CRAN (Comprehensive R Archive Network).
 
-\chapter{iForm Functional Mapping (A computational
-method)}\label{iform-functional-mapping-a-computational-method}
+\hypertarget{iformfunc}{\chapter{iForm Functional
+Mapping}\label{iformfunc}}
 
 \section{Motivation}\label{motivation-2}
 
@@ -2218,27 +2077,10 @@ value phenotype and a high dimensional predictor space with dynamically
 considering interaction effects it may be too restrictive to suppose
 that the effect of all of the predictors is captured by a simple linear
 fit. Reframing the regression problem to help code in the longitudinal
-data into the structure of the data in a biologically meaningful manner
-and making some sparsity assumptions about the number of significant
-genetic and epistatic effects that affect the phenotype will help in the
-development of such a model to tackle such a task.
-
-\textbf{Also included in iFormFunctional Mapping Part}
-
-Monitoring the change in expression patterns over time provides the
-distinct possibility of unraveling the mechanistic drivers
-characterizing cellular responses. Gene arrays measuring the level of
-mRNA expression of thousands of genes simultaneously provide a method of
-high-throughput data collection necessary for obtaining the scope of
-data required for understanding the complexities of living organisms.
-Unraveling the coherent complex structures of transcriptional dynamics
-is the goal of a large family of computational methods aiming at
-upgrading the information content of time-course gene expression data.
-In this review, we summarize the qualitative characteristics of these
-approaches, discuss the main challenges that this type of complex data
-present, and, finally, explore the opportunities in the context of
-developing mechanistic models of cellular response.
-\cite{androulakis2007analysis}
+data into the structure in a biologically meaningful manner and making
+some sparsity assumptions about the number of significant genetic and
+epistatic effects that affect the phenotype will help in the development
+of such a model to tackle such a task.
 
 \section{Methods}\label{methods-2}
 
@@ -2316,7 +2158,7 @@ the nice properties they posses.
 \end{figure}
 
 The definition of the Legendre polynomials are the solutions for \$n =
-0, 1, 2, \dots \$(with the normalization \(P_n(1) = 1\) form a
+0, 1, 2, \dots \$ (with the normalization \(P_n(1) = 1\) form a
 polynomial sequence of orthogonal polynomials called the Legendre
 polynomials. Each Legendre polynomial \(P_n(x)\) is an nth-degree
 polynomial. It may be expressed using Rodrigues' formula:
@@ -2349,14 +2191,15 @@ P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 \label{eq:leg-eq}
 \end{equation}
 
-With nature of the Legendre orthogonal polynomials, it was advantages
-for both dimension reduction and also handling unevenly spaced, missing
-or non-uniform time measurements from different subjects in the dataset.
-By seeing which polynomial curve fits the given phenotype, it removes
-some of the challenges when fitting the model. Different orders of the
-polynomial are tried throughout the procedure to allow for flexibility
-in the fitting the genetic variation from the mean curve for each of the
-genotypes or epistasis between genotypes considered in the model.
+With the nature of the Legendre orthogonal polynomials, it was
+advantageous for both dimension reduction and also handling unevenly
+spaced, missing or non-uniform time measurements from different subjects
+in the dataset. By seeing which polynomial curve fits the given
+phenotype, it removes some of the challenges when fitting the model.
+Different orders of the polynomial are tried throughout the procedure to
+allow for flexibility in the fitting the genetic variation from the mean
+curve for each of the genotypes or epistasis between genotypes
+considered in the model.
 
 \subsection{Model}\label{model}
 
@@ -2387,12 +2230,11 @@ additive and dominant effects, respectively. Orders \(s\) and \(s'\),
 selected from information criteria, for the purposes of this procedure
 the Bayesian information criterion (\(BIC_2\)), originally developed by
 \cite{chen2008extended} was implemented. A nice feature that comes from
-modeling the fit in this manner is that the dimension of response
-phenotypic data is reduced through LOP modeling.
-(\cite{li2010functional}, \cite{jiang20152higwas},
-\cite{li2010functional}, \cite{ahn2010functional},
-\cite{das2011dynamic}). Writing the model out more explicitly we would
-have,
+modeling the fit in this manner is that the dimension of response data
+is reduced through LOP modeling. (\cite{li2010functional},
+\cite{jiang20152higwas}, \cite{li2010functional},
+\cite{ahn2010functional}, \cite{das2011dynamic}). Writing the model out
+more explicitly we would have,
 
 \begin{equation}
 \begin{split}
@@ -2409,20 +2251,8 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \subsection{Incorporating with the iForm
 Procedure}\label{incorporating-with-the-iform-procedure}
 
-\[
-\begin{equation}
-\begin{split}
-P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
-& = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
-& = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
-\end{split}
-\end{equation}
-\]
-
-(iForm with Legendre Polynomials Model)
-
-\[\alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T\]
-\[\beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T\]
+We start off with the underlying assumption that our final model will be
+of the following form.
 
 \[
 \begin{equation}
@@ -2431,34 +2261,11 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 + \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} + \epsilon(t)
 \end{split}
 \end{equation}
-\]
+\] where,
 
 \[\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}\]
-
-( Model (iForm with Legendre Model) )
-
-\begin{itemize}
-\tightlist
-\item
-  Step 1: (Initialization) Set \(\mathcal{S}^{(0)} = \emptyset\),
-  \(\mathcal{M}_0 = \emptyset\) and \(\mathcal{C}_0 = \mathcal{P_1}\)
-\item
-  Step 2: (Selection) In the kth step with given
-  \(\mathcal{S}^{(k-1)}\), \(\mathcal{C}^{k−1}\) and
-  \(\mathcal{M}^{k−1}\), \protect\hyperlink{ux2f7}{forward regression}
-  is used to select one more predictor from
-  \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\) into the model while checking
-  for different degrees of the legendre polynomial used as a basis for
-  the genetic effect. We add the selected one into \(\mathcal{S}^{k−1}\)
-  to get \(\mathcal{S}^k\). We also update \(\mathcal{C}^k\) and
-  \(\mathcal{M}^k\) if the newly selected predictor is a main effect.
-  Otherwise, \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
-  \(\mathcal{M}^k = \mathcal{M}^{k−1}\)
-\item
-  Step 3: (Solution Path). Iterating Step 2, for D times, which leads to
-  a total of D nested candidate models. We then collect those models by
-  a solution path \(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)
-\end{itemize}
+\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]
+\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T \]
 
 An outline of the selection procedure used following the model described
 is as follows. At first the mean growth curve is estimated for the
@@ -2466,26 +2273,53 @@ presented data following the logistic growth curve. This could be
 adjusted depending on the functional process the researcher is studying.
 Once the mean curve is fit the selection procedure is initialized in a
 similar fashion as mentioned in previous chapters @ref\{highdeqtl\}.
-Both the solution set and the model set are assigned to the empty set,
-\(S_0=\emptyset\) and \(M_0=\emptyset\). The candidate set starts off
-containing all main effects for the additive and dominant effects of
-each SNP. The selection procedure then begins and each SNP is assessed
-and the best fitting candidate is then placed in the selection set.
-While assessing each candidate SNP, an additional search is performed
-for the best fitting polynomial fit up to a pre-specified order that is
-determined at the beginning of the procedure. The orthogonal polynomials
-are used to assist in fitting the genetic effects for each marker or
-epistatic interaction between the markers. This would allow the genetic
-effect some flexibility over time and give a more representative fit.
-This could also be used with other functional models or other types of
+Both the solution set is assigned to the empty set, \(S_0=\emptyset\)
+and the model set is set to just the fitted growth curve as an
+effect.\(M_0=\mu(t)\). The candidate set begins with containing all main
+effects for the additive and dominant effects of each SNP. The selection
+procedure then begins and each SNP is assessed and the best fitting
+candidate is then placed in the selection set. While assessing each
+candidate SNP, an additional search is performed for the best fitting
+polynomial fit up to a pre-specified order that is determined at the
+beginning of the procedure. The orthogonal polynomials are used to
+assist in fitting the genetic effects for each marker or epistatic
+interaction between the markers. This would allow the genetic effect
+some flexibility over time and give a more representative fit. This
+could also be used with other functional models or other types of
 non-linear functions that characterizes the biological systems being
 evaluated. We are treating the polynomials as a basis function for the
-regression problem and therefore the Residual Sum of Squares is
-calculated similar to multiple regression but replacing the design
+regression problem and therefore the residual sum of squares is
+calculated similar to generalized least squares but replacing the design
 matrix with the necessary basis functions. This continues until a
 designated stopping value is reached. The \(BIC_2\) is then used to find
-the optimal fit given the selection procedure performed. The following
-graphics show how the process works at each step
+the optimal fit given the selection set produced by the procedure. The
+following graphics show how the process works at each step
+
+\begin{itemize}
+\tightlist
+\item
+  Step 1: (Growth Curve) Fit the mean growth curve to the response data
+  and use as an intercept term.\\
+\item
+  Step 2: (Initialization) Set \(\mathcal{S}^{(0)} = \emptyset\),
+  \(\mathcal{M}_0 = \mu(t)\) and \(\mathcal{C}_0 = \mathcal{P_1}\)
+\item
+  Step 3: (Selection) In the kth step with given
+  \(\mathcal{S}^{(k-1)}\), \(\mathcal{C}^{k−1}\) and
+  \(\mathcal{M}^{k−1}\), forward regression is used to select one more
+  predictor from \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\) into the model
+  while checking for different degrees of the legendre polynomial used
+  as a basis for the genetic effect. We add the selected one into
+  \(\mathcal{S}^{k−1}\) to get \(\mathcal{S}^k\). We also update
+  \(\mathcal{C}^k\) and \(\mathcal{M}^k\) if the newly selected
+  predictor is a main effect. Otherwise,
+  \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
+  \(\mathcal{M}^k = \mathcal{M}^{k−1}\)
+\item
+  Step 4: (Solution Path). Iterating Step 2, for D times, which leads to
+  a total of D nested candidate models. We then collect those models by
+  a solution path \(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)
+\end{itemize}
 
 \begin{figure}
 
@@ -2493,7 +2327,7 @@ graphics show how the process works at each step
 
 }
 
-\caption{Example Growth Curve}\label{fig:growth-example}
+\caption{Intial Growth Curve Fit}\label{fig:growth-example}
 \end{figure}
 
 \begin{figure}
@@ -2502,7 +2336,7 @@ graphics show how the process works at each step
 
 }
 
-\caption{Example Data with Growth Cruve}\label{fig:growth-exampledata}
+\caption{Growth Cruve with Example Data}\label{fig:growth-exampledata}
 \end{figure}
 
 \begin{figure}
@@ -2514,31 +2348,45 @@ graphics show how the process works at each step
 \caption{Additional Legendre Fit to Data}\label{fig:legendre-fit}
 \end{figure}
 
+As you can see from the step by step graphics, the mean growth curve is
+fit. The example data follows the overall growth pattern but there is
+some variation that is left to be explained. Each genetic marker is then
+tested to see if the fit is improved by the addition of the effect
+following the legendre polynomial. We see in the third graphic that the
+selected line fits closer to the given data than using the mean growth
+curve by itself. This genetic effect then would be selected and place
+into the selection set. Further iterations to the procedure will then be
+conducted to see if the fit can be further explained by the inclusion of
+additional genetic or epistatic effects.
+
 \section{Application}\label{application-2}
 
 \subsection{Simulation Studies}\label{simulation-studies-1}
 
 As statistical issues become more complex they are going to be more
 analytically intractable and computational methods will need to close
-that gap to show the effectiveness of new models and
-procedures.Simulation studies were performed to ascertain the validity
-of the model. Rates at which correct markers/epistasis were selected and
+that gap to show the effectiveness of new models and procedures.
+Simulation studies were performed to ascertain the validity of the
+model. Rates at which correct markers/epistasis were selected and
 overall model true model size was assessed. Data was original generated
 from a mean curve following the growth equation described above. It was
 then sampled from a multivariate normal distribution with the mean
-vector following the generated and with correlated errors over time.
+vector following the generated curve and correlated errors over time.
 Significant effects were also included in the model to simulate
 different marker levels. These effects could be main effects of SNPs, or
-epistatic effects of interaction between SNPs. There were a total of 4
-main effects and three interaction effects simulated. This simulation
-was replicated 100 times and then the selection procedure was ran. It
-performed well with 93\% of the replicates selecting all main and
-interaction effects and the other 7\% of the models select a majority of
-the effects. The model size simulated was of size 7. The average model
-size of the replicates fit was around 13.5. This would indicate some
-slight over-fitting but all important effects were included in the
-model. Some considerations for this need to be looked into further for
-future work.
+epistatic effects of interaction between SNPs. There were a total of
+four main effects and three interaction effects simulated. This
+simulation was replicated 100 times and then the selection procedure was
+implemented. It performed well with each of the replicates selecting all
+main and interaction effects that were set to be significant in the
+underlying model. There were additional effects selected up to 14\% of
+the time. You can see this in the false positive rate of the model
+predictors. The true model size was simulated to be of size seven and
+this was obtained the large majority of the time. The average model size
+of the replicates fit was around 13.5 which explains the 14\% false
+positive rate. This would indicate some slight over-fitting but all
+important effects were included in the model. Future considerations for
+this area could be beneficial to obtaining less over fitting.
 
 \begin{table}
 
@@ -2557,25 +2405,16 @@ Polynomial Degree & 0.7125 & 0.0251 & 0.9667 & 0.0007\\
 
 \subsection{Worked Example}\label{worked-example-1}
 
-As a comparison to what was done before in \ref{highorder} the same mei
-tree dataset used in this chapter was studied again. This serves as a
-comparison to previous performance and also to see if any new
-discoveries can be made by incorporating the time component and fitting
-the growth parameters simultaneously throughout the procedure. The
-previous model only fit one parameter of the growth equation as a time
-and assessed the genetic markers that had a significant impact of this
-parameter. The parameter focused on was the rate parameter,r for the
-shoot height of the progeny. The initial results running the analysis
-with a single predictor and using the selection procedure are,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_Table6.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+Comparing to previous work in \ref{highorder} the same mei tree dataset
+used in this chapter was reanalyzed. This serves as a comparison to
+previous performance and also to see if any new discoveries can be made
+by incorporating the time component and fitting the growth parameters
+simultaneously throughout the procedure. The previous model only fit one
+parameter of the growth equation as a time and assessed the genetic
+markers that had a significant impact of this parameter. The parameter
+focused on was the rate parameter,r for the shoot height of the progeny.
+The initial results running the analysis with a single predictor and
+using the selection procedure are,
 
 \begin{table}
 
@@ -2604,25 +2443,25 @@ AATTC\_nn\_np\_2517\_a×CATG\_hk\_hk\_648\_a & 0.14537 & 0.02840 & 5.118 & 8.33e
 \end{tabular}
 \end{table}
 
-As a comparison here are the results for simultaneously fitting the
-growth curve and allowing for a more flexible genetic effect to be fit
-to the data. As you can see there are overlapping markers identified in
-the models. This shows the robustness of the new selection technique to
-be consistent with previous models. You can also see that the fit of the
-overall model has also increased. By including all effects at once, you
-gain more statistical power and it boost the adjusted R square value
-from 0.71 to above 0.9. This boost in model performance could be
-partially due to some over-fitting like we observed in the simulation
-studies and therefore a very strict bonferroni correction was
-implemented to assess whether individual markers were truly significant.
-Even with a strict cut-off we still observed 3 epistatic predictors to
-be highly significant. This shows the importance of including such terms
-while performing such a GWAS. The other area to note is the highly
-significant intercept term, which in our case is the result of the
-growth curve fit before implementing the selection procedure. This
-indicates also the importance of including biologically relevant
-information in the model to help better understand the genetic
-architecture being studied of the phenotype.
+Simultaneously fitting the growth curve and allowing for a more flexible
+genetic effect to be fit to the data are presented below. As you can see
+there are overlapping markers identified in the models. This shows the
+robustness of the new selection technique to be consistent with previous
+models. You can also see that the fit of the overall model has also
+increased. By including all effects at once, you gain more statistical
+power and it boost the adjusted R square value from 0.71 to above 0.9.
+This boost in model performance could be partially due to some
+over-fitting like we observed in the simulation studies and therefore a
+very strict bonferroni correction was implemented to assess whether
+individual markers were truly significant. Even with a strict cut-off we
+still observed 3 epistatic predictors to be highly significant. This
+shows the importance of including such terms while performing such a
+GWAS. The other area to note is the highly significant intercept term,
+\(\mu(t)\), which in our case is the result of the growth curve fit
+before implementing the selection procedure. This indicates also the
+importance of including biologically relevant information in the model
+to help better understand the genetic architecture being studied of the
+phenotype.
 
 \begin{table}
 
@@ -2683,24 +2522,6 @@ AATTC\_nn\_np\_4608\_a\_by\_CATG\_lm\_ll\_1732\_a\_by\_CATG\_lm\_ll\_2787\_a\_P1
 
 \section{Discussion}\label{discussion-2}
 
-The new model proposed has some very nice features and seems to perform
-well in the given application. Considering the complexity of working
-high dimensional data coupled with including epsitatic effects as well
-as a functional component to the phenotype, it performs relatively
-efficiently. \textbf{Using generalize least squares, GLS type
-calculations aided in this efficiecy}, while taking into account the
-correlation that would naturally arise between the repeated measurements
-are the same trees over time. This was enabled by the framing of the
-regression problem as a linear combination of basis functions. The
-agreeable properties of orthogonal polynomials helped ensure model
-assumptions are being met as closely as possible in order to use the
-calculations. Also by including the biologically meaningful logistic
-growth equations it helps fit a baseline fit to the data and would
-better allow for individual genetic effects to be found throughout the
-selection. These would of course have to be lab verified in order to
-assess the true biological mechanisms at play for the genetic control of
-the phenotype.
-
 Some possible areas of concern for fitting the genetic effects to the
 polynomials could be that the effect does not conform to the polynomial
 curve under consideration. This can be alleviated by using other types
@@ -2721,213 +2542,215 @@ verification would be another area that would help validate the findings
 even further. The comparison to previously run models is promising step
 in assessing the validity of the model at hand.
 
-\chapter{Conclusions}\label{conclusions}
+The new model proposed has some very nice features and performs well in
+the given application. Considering the complexity of working with high
+dimensional data coupled with including epsitatic effects as well as a
+functional component to the phenotype, it performs relatively
+efficiently. Using generalize least squares type calculations aided in
+this efficiency, while taking into account the correlation that would
+naturally arise between the repeated measurements of the same trees over
+time. This was enabled by the framing of the regression problem as a
+linear combination of basis functions. The agreeable properties of
+orthogonal polynomials helped ensure model assumptions are being met as
+closely as possible in order to use the calculations. Also by including
+the biologically meaningful logistic growth equations it helps fit a
+baseline fit to the data and would better allow for individual genetic
+effects to be found throughout the selection. These would of course have
+to be lab verified in order to assess the true biological mechanisms at
+play for the genetic control of the phenotype.
+
+\chapter{Conclusions}\label{conclusions-1}
 
 \section{Summary}\label{summary}
 
+In my dissertation I have applied, adapted and extended the forward
+selection procedure under the marginality assumption first proposed by
+\cite{hao2014interaction}. This procedure is able to reduce the search
+space substantially by making some reasonable assumptions about the data
+and underlying biological structure. These assumptions can be relaxed a
+little to broaden the scope of the search space if desired. The
+procedure has been applied in both simulated and real datasets in all
+areas of study. There are many advantages to using such a procedure with
+some being it is a computationally efficient way for high dimensional
+data situations that arise from high throughput data, especially when
+considering epistasis between gene markers or other type of interaction
+effects in the model. The search space is guided based off of commonly
+used principles in model selection that are relevant in real world
+situations. It is able to perform a GWAS with included epistatic
+interactions a fairly quick manner.
+
+The ability to relax these assumptions leads to a widened search space
+but may decrease the speed of the algorithm. This will make the search
+more comprehensive and able to pick up on effects that may have been
+missed with stricter assumptions. One nice use for the procedure is the
+ability to screen for complex scenarios that would be hard to find in a
+lab setting otherwise. The screening lends itself to find previously
+undiscovered effects but with the flexibility of the initial model,
+false positive rates could be a concern and need to be taken into
+consideration. Adjustment to the significance level and the model
+selection criteria have been made to account for this. This would still
+need to be followed up by independently checking with other datasets
+and/or lab verification techniques.
+
 \subsection{HighDeQTL}\label{highdeqtl-1}
 
-\begin{itemize}
-\tightlist
-\item
-  advantages
-\item
-  disadvantages steps to improve
-\end{itemize}
+In \protect\hyperlink{highdeqtl}{Chapter 02} the iFORM procedure was
+introduced and explored. It showed many desirable properties for high
+dimensional data analysis. Simulation studies were performed to assess
+the properties and compare across other models. After simulations were
+conducted a real world application was conducted on gene expression data
+and conducting a GWAS to find eQTLs for the different genes. Using all
+markers in a single model as well as the inclusion of the possibility to
+include epistatic effects as eQTLs gave a novel take on the reanalysis
+of the C Elegans dataset. As we have seen there are many advantages to
+the approach but one limiting question presented was that the
+restriction on epistatic effects may have been too restrictive. Using
+the strong heredity principle may miss some interactions that could
+occur between markers that have not yet been selected. Also only
+considering interactions with markers at two loci instead of higher
+orders could be limiting the search to fully explain the expression
+profile.
 
 \subsection{Higher Order Epistasis}\label{higher-order-epistasis-1}
 
-\begin{itemize}
-\tightlist
-\item
-  advantages
-\item
-  disadvantages steps to improve
-\end{itemize}
+In \protect\hyperlink{highorder}{Chapter 03} higher order epistasis was
+focused on the help explain a larger proportion of the phenotypic
+variation. Extending the iFORM procedure to open up the possibility of
+higher order epistasis is pivotal in understanding complex traits. More
+support is coming out that phenotypes that are controlled by a multitude
+of genetic and epigenetic effects potential could come from effects
+involving three or more loci (\cite{taylor2014genetic}). Given that this
+is the case the procedure was extended and simulation studies were
+conducted to see the affect on the properties of the procedure.
+Different levels of heredity and different orders of interactions were
+also assessed. Other types of interaction models were also presented for
+comparison purposes. The iFORM procedure performed well in the
+simulation studies and appeared to capture the relevant information from
+the underlying models. A real world application was then presented on a
+growth parameter of Mei trees. The difference in running the procedure
+with the possibility of finding higher order epistasis allowed for a
+much greater proportion the variance to be explained by the markers.
+This was favorable for the inclusion of higher order effects and showed
+promise for the model. The phenotype was a static growth parameter,
+which was the rate at which the trees grew for each individual
+observation. The growth was measured over time and then a growth curve
+was fit for each tree. This was then used for the phenotype. This was a
+good approach but it misses the repeated measures and possibly other
+information that may have been present throughout the growth process.
+Since this is the case a functional phenotype was considered to help
+capture all relevant information.
 
 \subsection{iForm Functional Mapping}\label{iform-functional-mapping}
 
-\begin{itemize}
-\tightlist
-\item
-  advantages
-\item
-  disadvantages steps to improve
-\end{itemize}
-
-what else will be done before submitting for publication.
-
-What areas need developed more and what areas will be looked into and
-discussed in further detail?
-
-\subsection{Previously written summary
-paragraph}\label{previously-written-summary-paragraph}
-
-In my disseration I have applied, adapted and extended the forward
-selection procedure under the marginality assumption first proposed by
-\cite{hao2014interaction} that is able to reduce search space
-substantially by making some reasonable assumptions about the data.
-These assumptions can be relaxed a little to broaden the scope of the
-space. The procedure ahs been applied in both simulated and real
-datasets in all areas of study. There are many advantages to using such
-a procedure with some being it is a computationally efficient way for
-high dimensional data situations that arise from high throughput data,
-especially when considering epistasis between gene markers or other type
-of interaction effects in the model. Guided search space based off of
-commonly used principles in model selection that are relevant in real
-world situations. It is able to perform a GWAS with included epistatic
-interactions a fairly quick manner. Able to relax assumptions to widen
-the search space. This may decrease the speed of the algorithm but makes
-the search more comprehensive. Also it is able to screen for complex
-scenarios that would be hard to find in a lab setting otherwise. Having
-said that with the flexiblity of the initial model, false posiive rates
-could be a concern and need to be taken into consideration. Adjustement
-to the significance level and the model selection criteria have been
-made to account for this. This would still need to be followed up on
-independtly by checking with other datasets and/or lab verification.
-
-Functional componenets were also considered to such a selection
-procedure. This also increases the computational complexity of the model
-and therefore decreases some efficeiency gains previously seen. Use
-biologically relevant information to guide the fitting of the model.
-Initially considers well established growth equations as a baseline for
-the underlying structure. It then performs a GWAS level analysis with
-considering epstatic interactions throughout the process.
+In \protect\hyperlink{iformfunc}{Chapter 04} functional components were
+also considered for the selection procedure. This increases the
+computational complexity of the model and therefore decreases some
+efficiency gains previously seen but is necessary to capture all
+information. Using biologically relevant information to guide the
+fitting of the model to a functional curve will help improve the
+efficiency and relevance. Initially well established growth equations
+were considered as a baseline for the underlying structure. The
+procedure then performs a GWAS level analysis with considering epistatic
+interactions throughout the process. The selection of the markers as
+possible genetic and epigenetic effects follows in a similar fashion as
+the iForm procedure. Additional aspects had to be accounted for the
+functional response and growth curve. Again simulation studies were
+performed and a real world application was conducted. A reanalysis of
+the full Mei tree dataset used in chapter 3 was explored. Including the
+functional valued phenotype gave new insight into the genetic control.
 
 \section{Discussion}\label{discussion-3}
 
-\textbf{Needs Expanded}
-
 The selection procedures proposed attempt to address problems that are
 complex and have many moving parts to the procedure. Using a flexible
-model is very helpful to fulfill such requirements but this could have
-it be prone to over fitting at times if not well controlled. Need to
-heavily consider this as part of interpretating the model. Using
-stricter selection criteria and corrections to multuple testing for
-significance is extremely important. The main purpose is to use a
-screening to guide future research, use for exploratory data analysis
-and hypothesis genration.
+model is very helpful to fulfill such requirements but this could lend
+itself to be prone to over fitting at times if not well controlled.
+Being aware of this factor is part of interpreting the model a
+researcher would need to be aware of. Using stricter selection criteria
+and corrections to multiple testing for significance is extremely
+important. The main purpose is to use as a screening to guide future
+research while considering the possibilities of epistatic effects and
+accounting for the entire genetic architecture at one time. The
+importance of such a procedure could be used to help guide research and
+also find new discoveries into complex, multi-loci traits that would be
+extremely difficult to find in just a lab setting alone.
 
-With the complexity and expense that comes with genetic mapping,
-especially with a functional traits that needs repeatedly measured over
-time. Correlation structures are inherent in this data that need be
-addressed and usually done so at a heavy computational cost. Framing the
-problem as a regression problem and beingn able to use OLS calculations
-help to reduce the cost. Verification steps are important steps
-especially with something as intricate as epistatic effects between gene
-markers.
-
-Further investigations are needed to confirm or modify our findings by
-QTL mapping in natural populations.
-
-\textbf{Also included in iFormFunctional Mapping Part}
-
-Monitoring the change in expression patterns over time provides the
-distinct possibility of unraveling the mechanistic drivers
-characterizing cellular responses. Gene arrays measuring the level of
-mRNA expression of thousands of genes simultaneously provide a method of
-high-throughput data collection necessary for obtaining the scope of
-data required for understanding the complexities of living organisms.
-Unraveling the coherent complex structures of transcriptional dynamics
-is the goal of a large family of computational methods aiming at
-upgrading the information content of time-course gene expression data.
-In this review, we summarize the qualitative characteristics of these
-approaches, discuss the main challenges that this type of complex data
-present, and, finally, explore the opportunities in the context of
-developing mechanistic models of cellular response.
-\cite{androulakis2007analysis}
+There are many attractive properties that the iFORM procedure posses. It
+is computationally efficient given the large and growing predictor space
+it uses. Along with the computational advantages, the selection
+procedures proposed have sure screening properties. This indicates that
+all the important effects in the true model will be selected with
+probability tending to one. It also only includes a small proportion of
+effects based off of a designated criteria that can be set. This will
+help with interpretability of the final output as well as controlling
+for the possibility of overfitting the data. There is still much that
+can be extended and explored by using this type of selection procedure
+on a variety of settings and/or phenotypes.
 
 \section{Future Steps}\label{future-steps}
 
-\begin{itemize}
-\item
-  Aim 1
-\item
-  Continue testing properties of the iForm procedure used with the
-  Legendre Polynomials
-\item
-  Submit by Summer
-\item
-  Aim 2
-\item
-  Consider other multivariate responses and correlated error
-  structures.\\
-\item
-  Expression levels of different cell lines or tissue types as
-  multivariate response
-\item
-  Aim 3
-\item
-  Combine functional component and multivariate response into complete
-  functional network
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Time-Series of gene expression from cell lines or tissue types
-  \end{itemize}
-\end{itemize}
-
-More extensive explaination of future aims will be necessary for the
-final write up.
-
 \subsection{Aim 1}\label{aim-1}
 
-Incorporating other mean curves for the intercept term could help extend
+Incorporating other curves for the mean response curve could help extend
 and relate to other areas of biology that follow a functional trait.
 There are also other types of orthogonal polynomials that could be
 explored as well. Using others polynomials would allow for other fits to
 the data that may be more applicable in other scenarios. Also using
-other basis functions in general could open up opportunties for other
-areas of application.
+other basis functions in general could open up opportunities for other
+areas of application. There are many non-linear functions that could be
+used besides a polynomial fit that may also explain the underlying
+genetic effects over time for other situations.
 
 \section{Aim 2}\label{aim-2}
 
 Other interesting areas would be to consider different levels of
-interactions with other omics data. Gene-gene interactions considered
-are only a portion of the picture and this type of modeling could also
-handle more levels of interactions that occur in a biological system.
-One area that I am particularly interested in applying would be in
-methylation studies of the gene expression. This level of interaction is
-very important and a selection procedure like the one proposed could
-help screen and generate of possible effects and hypothesis to continue
-to look into. It would also apply in gene-environment interactions. This
-does not have to be restricted to just within the biological system
-under study. Environmental factors are important areas that could vastly
-impact the development of a phenotype.
+interactions with other omics data. The gene-gene interactions
+considered are only a portion of the picture and this type of modeling
+could also handle complex levels of interactions that occur in a
+biological system. One area that I am particularly interested in
+applying it to would be in methylation and its interaction with gene
+expression. This level of interaction is very important and a selection
+procedure like the one proposed could help screen and generate possible
+effects for hypotheses to continue to look into. This does not have to
+be restricted to just within the biological system under study. It would
+also apply in gene-environment interactions. Environmental factors are
+important areas that could vastly impact the development of a phenotype.
+Having the interaction with environmental factors could open up further
+avenues that able to previously be explored.
 
 \subsection{Aim 3}\label{aim-3}
 
 Statistical areas that could as be considered to extend the model would
-be to include multivariate reponses to the system. For example having
-gene and protein expression being a bivariate reponse and to see how
+be to include multivariate responses to the system. For example having
+gene and protein expression being a bivariate response and to see how
 genetic markers and epistasis between the markers would better predict
-this by taking the correlation between those two response variables into
-account. Other statistical considerations would be to extend selection
-criteria to help further reduce the possibility of false positves being
-selected given a growing dataset like the one that occurs while
-dynamically including interaction effects throughout the selection.
-Making the model even more computational efficient would always be
-benefical as well. The faster a model can accurately run the more likely
-a researcher will use it. It will also help process all the high
-throughput data that is being constantly developed.
+this scenario. It could take the correlation between the protein and
+expression response variables into account. Other statistical
+considerations would be to extend selection criteria to help further
+reduce the possibility of false positives being selected given a growing
+dataset like the one that occurs while dynamically including interaction
+effects throughout the selection. Making the model even more
+computational efficient would always be beneficial as well. The faster a
+model can accurately run the more likely a researcher will be to use it.
+It will also help process all the high throughput data that is being
+constantly developed.
 
 \subsection{Closing Remarks}\label{closing-remarks}
 
-Continuing on, my aim would be to work with datasets of this scale and
-incorporate the types of statistical methods mentioned and machine
-learning techniques to aid in analysis. The results could help gain
-larger insights into the genomic/epigenetic architecture of biological
-systems. On top of the importance of a functional component to the
-phenotype, considering other types of multivariate responses would be
-interesting to study in context of such a system. Integrating different
-level of omics data and the challenges that arise with such complicated
-and large datasets has interested me throughout my PhD work. Translating
-such a complex system into usable information that can be shared in
-order to prevent and fight disease would be ideal research for me. This
-type of research would need both methodological development as well as
-application of existing statistical and machine/deep learning techniques
-to handle the magnitude of the problem.
+Continuing on, my aim would be to work with datasets of high dimensional
+scale and incorporate the types of statistical methods mentioned and
+machine learning techniques to aid in analysis. The results could help
+gain larger insights into the genomic/epigenetic architecture of
+biological systems. On top of the importance of a functional component
+to the phenotype, considering other types of multivariate responses
+would be interesting to study in context of such a system. Integrating
+different level of omics data and the challenges that arise with such
+complicated and large datasets has interested me throughout my work.
+Translating such a complex system into usable information that can be
+shared in order to prevent and fight disease would be ideal research.
+This type of research would need both methodological development as well
+as application of existing statistical and machine/deep learning
+techniques to handle the magnitude of the problem.
 
 \chapter{Appendix}\label{appendix}
 
