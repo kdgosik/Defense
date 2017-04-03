@@ -2355,10 +2355,10 @@ following graphics show how the process works at each step
   Step 1: (Growth Curve) Fit the mean growth curve to the resonse data
   and use as an intercept term.\\
 \item
-  Step 1: (Initialization) Set \(\mathcal{S}^{(0)} = \emptyset\),
+  Step 2: (Initialization) Set \(\mathcal{S}^{(0)} = \emptyset\),
   \(\mathcal{M}_0 = \mu(t)\) and \(\mathcal{C}_0 = \mathcal{P_1}\)
 \item
-  Step 2: (Selection) In the kth step with given
+  Step 3: (Selection) In the kth step with given
   \(\mathcal{S}^{(k-1)}\), \(\mathcal{C}^{k−1}\) and
   \(\mathcal{M}^{k−1}\), \protect\hyperlink{ux2f7}{forward regression}
   is used to select one more predictor from
@@ -2370,7 +2370,7 @@ following graphics show how the process works at each step
   Otherwise, \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
   \(\mathcal{M}^k = \mathcal{M}^{k−1}\)
 \item
-  Step 3: (Solution Path). Iterating Step 2, for D times, which leads to
+  Step 4: (Solution Path). Iterating Step 2, for D times, which leads to
   a total of D nested candidate models. We then collect those models by
   a solution path \(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)
 \end{itemize}
@@ -2419,24 +2419,28 @@ additional genetic or epistatic effects.
 
 As statistical issues become more complex they are going to be more
 analytically intractable and computational methods will need to close
-that gap to show the effectiveness of new models and
-procedures.Simulation studies were performed to ascertain the validity
-of the model. Rates at which correct markers/epistasis were selected and
+that gap to show the effectiveness of new models and procedures.
+Simulation studies were performed to ascertain the validity of the
+model. Rates at which correct markers/epistasis were selected and
 overall model true model size was assessed. Data was original generated
 from a mean curve following the growth equation described above. It was
 then sampled from a multivariate normal distribution with the mean
-vector following the generated and with correlated errors over time.
+vector following the generated curve and correlated errors over time.
 Significant effects were also included in the model to simulate
 different marker levels. These effects could be main effects of SNPs, or
-epistatic effects of interaction between SNPs. There were a total of 4
-main effects and three interaction effects simulated. This simulation
-was replicated 100 times and then the selection procedure was ran. It
-performed well with 93\% of the replicates selecting all main and
-interaction effects and the other 7\% of the models select a majority of
-the effects. The model size simulated was of size 7. The average model
-size of the replicates fit was around 13.5. This would indicate some
-slight over-fitting but all important effects were included in the
-model. Some considerations for this need to be looked into further for
+epistatic effects of interaction between SNPs. There were a total of
+four main effects and three interaction effects simulated. This
+simulation was replicated 100 times and then the selection procedure was
+implemented. It performed well with each of the replicates selecting all
+main and interaction effects that were set to be significant in the
+underlying model. There were additional effects selected up to 14\% of
+the time. You can see this in the false positive rate of the model
+predictors. The true model size was simulated to be of size seven and
+this was obstained the large majority of the time. The average model
+size of the replicates fit was around 13.5 which explains the 14\% false
+positive rate. This would indicate some slight over-fitting but all
+important effects were included in the model. Future considerations for
+this area could be beneficial to obtaining alooked into further for
 future work.
 
 \begin{table}
