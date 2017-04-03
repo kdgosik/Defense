@@ -10,7 +10,6 @@
 
 <p> In this article, we deploy a variable selection procedure within a genetic mapping or association setting to characterize the genetic architecture of complex traits composed of main effects of individual genes, pairwise epistasis between two genes, and three-way epistasis among three genes. The model was built on greedy interaction screening forward selection developed under the marginality principle (named iFORM) by \cite{hao2014interaction}. These approaches, proved to possess sure screening property for ultrahigh-dimensional modeling, have been implemented to model the genetic architecture of main effects and pairwise epistasis due to eQTLs for gene transcripts (\cite{gosik2016iform}). Here, we extend the implementation of iFORM to systematically capture three-way interactions that are expressed among all possible markers studied. To show the statistical power of the extended model, we performed computer simulation studies. The model was further validated through analyzing a real data of genetic mapping for shoot growth in a woody plant, mei (Prunus mume). The model should be used in any other mapping or association studies of quantitative traits. </p>
 
-
 ## Methods
 
 ### Mapping and association studies
@@ -55,7 +54,6 @@ Two guiding principles are used to help dynamically select the main effects and 
 
 The heredity (hierarchy) principle help reduce the search space by making the assumption that previously selected main effects would be involved in the interaction effects.  By considering this principle it substantially reduces the search space making this feasible for ultra-high dimensional situations.  Even larger than ram datasets can be used with efficient memory mapping of the dataset while running the procedure. The weak version of the heredity principle for three-way interactions states that at least one of the main effects needs to be selected into the model to consider an interaction effect that contains that predictor. Considering a moderately high set of predictors say p = 5000, if trying to include all order-2 interactions upfront, will make the candidate set be as high as 12,498,000.  This alone could exceed most ram requirements of standard computers. This is before even stepping up to order-3 interactions.  The weak heredity principle would decrease the candidate set substantially. Assuming a sample size of $n = 200$, would give a cut off of $n/log_{2}(n) = 200/log_{2}(200) = 26$ steps in the procedure.  The 5000 original predictors plus up to 5000 epistatic predictors included in the candidate set at each step in the procedure would give a maximum of approximately 135,000 candidate predictors.  This would give a maximum of approximately 135,000 candidate predictors.  This gives a 100 fold decrease in the candidate set. This could substantially make ultra-high dimensional analysis more feasible and also speed it up in the process. This is the weak case. If considering the strong case the decrease in candidate space is even more apparent. Aside from the efficiency by lowering the search space of the candidate set, the heredity principle is usually taken into account by researchers when selecting models involving the consideration for interaction effects.
 
-
 ### Theoretical Properties 
 
 The theoretical properties of the iForm procedure with high-order epistasis follow closely with the forward selection procedure. \cite{hao2014interaction} summarize forward selection nicely as follows.  At each step, the response is regressed on the most correlated covariate, and the residual is calculated and used as the new response in next step. After the most correlated covariate (say, $X_1$) is selected, all other covariates are regressed on $X_1$, and then the covariates are substituted by the corresponding normalized residuals, which are used as the new covariates in next step. By viewing forward selection in this sense the computational complexity of the procedure depends upon the size of the candidate set. The candidate set in the iForm’s case does grow dynamically at each step, by at most the number of predictors currently selected in C for each step. If we denote the current size of the candidate set as m then each iteration of the procedure grows with complexity of O(nm), where n is the sample size. Leaving the selection unrestricted we would not be able to fit more than n predictors for a linear model and therefore n would be the most main effects that would be able to be selected. Considering the weakest form of the heredity principle at the current iteration there would be at most $p + (n(n-1)(n-2))/6$ predictors in the candidate set. This would make the total complexity of the selection procedure to be $nO(n(p+n(n-1)(n-2))) = O(n^3 p+n^5)$. This makes the total complexity grow linearly as p grows.
@@ -63,7 +61,6 @@ The theoretical properties of the iForm procedure with high-order epistasis foll
 The theoretical properties of the iForm procedure show sure screening properties (\cite{fan2008sure}). By this we mean that all the import predictors, whether that is a main effect or epistatic effect will be selected with probability tending to 1. This is important to capture as much of the signal as possible through all the noise that comes with $p >> n$ or ultra-high dimensional situations. It is also important not to ‘over-fit’ the model with unnecessary predictors that actually explain more noise in the data that the model is being fitted on than the actual signal you would like to pick up on. 
 
 To show the property from above the following conditions would need to be met for regulatory purposes.  \cite{hao2014interaction} showed how under these conditions sure screening properties for interaction models like FS2 and iForm are satisfied.  This also applies to order-3 interaction models like FS3 and iForm with higher order epistasis, like we do with the high-order epistasis model.  The following assumptions need to be met for these conditions. The first is that the $X=(X_1,\dots,X_p)^T$ are jointly and marginally normal with independent normally distributed error.  Next we would need the eigenvalues of the covariance matrix to be positive and bounded by two constants $0 < \tau_min < 1 < \tau_{max} < \infty$, such that $\sqrt{\tau}_min < \lambda_min (\Sigma)≤\lambda_max (\Sigma)< \sqrt{\tau}_max/4$.  Also, the genetic effects, $\beta$ need a certain level of signal strength.  This we would assume to be $|(|\beta|)| ≤ C_\beta$ for some positive constant $C_\beta$  and $\beta_min ≥ \nu\beta \eta^{-\xi_min}$,with $\beta_min=mina(\beta)$.  Lastly, there needs to be a certain level of sparsity to the number of important effects.  Denoting the total number of important effects as $d_0$, and positive constants $\xi,\xi_0$  and $\nu$ we would need $log(p) ≤ \nu n^\xi,d_0 ≤ \nu n^(\xi_0)$  and $\xi+6\xi_0+12\xi_min  \lt \frac{1}{2}$.  The conditions stated are accepted standards in the literature when studying ultra-high dimensional situations.  (\cite{hao2014interaction} , \cite{fan2008sure}; \cite{sun2013genome}).
-
 
 ## Application
 
@@ -91,28 +88,28 @@ Finally the last scenario only generates data that come from pure interactions b
 
 For the first scenarios where the truth obeys strong heredity where all of the parent main effects need to be selected before interactions are selected. The models that appeared to do the best in this simulation were forward selection on all order-3 interactions included from the beginning (FS3), iForm order-3 weak heredity and iForm order-3 strong heredity \@ref(tab:Chap3sim1. The FS3 took over a 40 fold increase in time to run. The other comparison models, glinternet and hierNet seemed to perform well on the training set but not as well on the testing set. This would indicate that some overfitting was occurring with those types of regularization models. The next scenario was when the truth obeys weak heredity. With the underlying model obeying the weak heredity, the iForm order-3 strong heredity version dropped off in performance slightly. However, the FS3 and iForm order-3 remained as top performers \@ref(tab:Chap3sim2.  The third scenario assessed was from an underlying model with an anti-heredity structure.  Both main effects and interaction effects were used in the model to generate the data.  However the interactions included in the model were of combinations of main effects in the candidate set, that were not in the model. The iForm seems to drop in performance with this scenario \@ref(tab:Chap3sim3. This is to be expected because it is in direct violation of the underlying assumptions of the model hierarchy.  Even with these violations of the heredity it still performed reasonably well. Lastly, making the scenario a little more extreme, the underlying model generating the data was only of interactions. There were no main effects included in the model.  The results of this scenario are shown in \@ref(tab:Chap3sim4. Performance appeared to drop off for all models explored in the simulation.  
 
-```{r Chap3sim1, tidy=FALSE}
+```{r Chap3sim1, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_TableSim1.csv"), caption = 'Table 1 Simulation results when the truth obeys strong heredity',
   booktabs = TRUE
 )
 ```
 
-```{r Chap3sim2, tidy=FALSE}
+```{r Chap3sim2, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_TableSim2.csv"), caption = 'Table 2 Simulation results when the truth obeys weak heredity',
   booktabs = TRUE
 )
 ```
 
-```{r Chap3sim3, tidy=FALSE}
+```{r Chap3sim3, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_TableSim3.csv"), caption = 'Table 3 Simulation results when the truth is anti-heredity',
   booktabs = TRUE
 )
 ```
 
-```{r Chap3sim4, tidy=FALSE}
+```{r Chap3sim4, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_TableSim4.csv"), caption = 'Table 4 Simulation results when the truth is constructed of pure interactions',
   booktabs = TRUE
@@ -138,7 +135,7 @@ By treating the estimates of growth parameters for individual hybrids as “phen
 
 To demonstrate the possible importance of high-order epistasis, we analyze the data by assuming that growth parameters are controlled by low-order epistasis only and by both low- and high-order epistasis, respectively. The weak heredity (hierarchical) was used to screen every SNP and possible interaction of the main effects selected and the rest of the SNPs left in the candidate set.  It was not restricted to the strong case where both main effects had to be in the model for the interaction to be considered. For the pairwise epistatic model, this grew the candidate set to almost 20,000 predictors to choose from. It turned out that 5 predictors were chosen, i.e., four main additive effects of markers, AATTC_nn_np_2517, AATTC_nn_np_2815, CATG_nn_np_3479 and CATG_nn_np_1284 and one epistatic effect due to markers AATTC_nn_np_2815 and AATTC_lm_ll_3034, for growth parameter r of shoot length \@ref(tab:Chap3Table5). The main effect of marker AATTC_lm_ll_3034 was detected to be insignificant. These main and epistatic effects together explained 32.41% of the total variance of parameter r. 
 
-```{r Chap3Table5, tidy=FALSE}
+```{r Chap3Table5, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_Table5.csv"), caption = 'Table 5 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a low-order epistatic model',
   booktabs = TRUE
@@ -147,7 +144,7 @@ knitr::kable(
 
 When opening up the iForm procedure to the possibility to creating higher order interactions to be placed into the candidate set, a more complete picture of the phenotypical variation was revealed.  The amount of predictors included in the final model grew to 12, with one of them being three-way interactions among markers AATTC_nn_np_2815, AATTC_lm_ll_3034 and AATTC_nn_np_1615.The adjusted $R^2$ jumped up to over 70% \@ref(tab:Chap3Table5). This astonishing jump in predictive power is an exemplar case as to the importance of higher-order interactions in genetic models. Not only did higher-order interactions become one of the most significant predictors in the model selected, it also allowed for other order-two interactions and main effects to be kept in the model that were previously left out. At the next step of every iteration, the new candidate effect was conditioned on everything previously selected. With the conditional effect of the higher-order interaction it enabled for other lost effects to be modeled as well. 
 
-```{r Chap3Table6, tidy=FALSE}
+```{r Chap3Table6, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_Table6.csv"), caption = 'Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model',
   booktabs = TRUE

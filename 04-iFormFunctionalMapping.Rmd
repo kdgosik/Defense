@@ -198,7 +198,7 @@ knitr::kable(
 
 Comparing to previous work in \@ref(highorder) the same mei tree dataset used in this chapter was reanalyzed.  This serves as a comparison to previous performance and also to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simultaneously throughout the procedure.  The previous model only fit one parameter of the growth equation as a time and assessed the genetic markers that had a significant impact of this parameter.  The parameter focused on was the rate parameter,r for the shoot height of the progeny.  The initial results running the analysis with a single predictor and using the selection procedure are,
 
-```{r Chap4Table2, tidy=FALSE}
+```{r Chap4Table2, tidy=FALSE, echo = FALSE}
 knitr::kable(
   read.csv("Chapter03_Table6.csv"), caption = 'Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model',
   booktabs = TRUE
