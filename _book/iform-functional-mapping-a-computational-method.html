@@ -139,16 +139,16 @@ In applications like the scenario described where we have a functional value phe
 <h3><span class="header-section-number">4.2.1</span> Regression by linear combination of basis functions</h3>
 <p>
 <p>One common approach to regression problems is to frame the model as a linear combination of basis functions. In typical multiple regression the design matrix would be the values of the observed predictors and these would be used to fit the model, usually with a least squares approach. The goal then being to fit the expected value of the phenotype of interest in terms of the values of the predictors. This would result in a linear model of the form,</p>
-<span class="math display">\[\begin{equation}
-Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
-(\#eq: lin-mod)
+<span class="math display" id="eq:lin-mod">\[\begin{equation}
+\mathbf{Y} = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
+\tag{2.1}
 \end{equation}\]</span>
 <p>This model is nice for a single response but can be too restrictive at times. With a functional response over time, having a model with more flexibility could more accurately estimate the phenotype especially when considering a functional phenotype like a growth model. A fit like the one mentioned would only restrict growth to be a straight line and that may not be applicable in real world applications. By treating the problem as linear combination of basis functions, the general form would look like,</p>
 <span class="math display" id="eq:gen-form">\[\begin{equation}
 f(x) = \sum_{i=0}^P \theta_i \phi_i(x)
 \tag{4.1}
 \end{equation}\]</span>
-where the <span class="math inline">\(\phi\)</span> are the basis functions of the researchers choosing. Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area. A common choice is to use polynomial regression, where <span class="math inline">\(/phi\)</span> would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model. This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger. Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor. With the predictor set being at a high dimensional level already, this may not be something feasible to do. The other area of concern is that it would give a way for higher correlation between effects in the model. This would violate the initial assumptions of the model.
+where the <span class="math inline">\(\phi\)</span> are the basis functions of the researchers choosing. Under this format you can choose any function that would fit the need of the given problem and has relevance to the application area. A common choice is to use polynomial regression, where <span class="math inline">\(\phi\)</span> would be the predictors raised to different degrees in order to invoke a non-linear relationship into the model. This works well but it comes with some draw backs. The first being that for each degree consider, it could grow the predictor set even larger. Instead of just one effect for each predictor you could have up to the order of the polynomial effects for each predictor. With the predictor set being at a high dimensional level already, this may not be something feasible to do. The other area of concern is that it would give a way for higher correlation between effects in the model. This would violate the initial assumptions of the model.
 </p>
 <p>
 Standard polynomial regression is just one case of using basis functions in linear regression. There are many transformations that are able to be performed to invoke nicer properties to the data. The basis functions that are going to be focused on in this work are orthogonal polynomials. This would be a special case of polynomial regression that would alleviate some of the drawbacks mentioned above. Orthogonal polynomials by definition are orthogonal to each other and therefore would not have any correlation between predictors when used as basis functions. Also as an advantage, polynomial regression can be used to make similar types of interest as other types of multiple regression analysis. It does this while modeling a non-linear relationship between the phenotype and genetic markers without having to use complex optimization methods. Ordinary least squares would still apply in this framework, making it more computational efficient as well. One specific class of orthogonal polynomials that will be used are the Legendre polynomials because of the nice properties they posses.
@@ -156,50 +156,6 @@ Standard polynomial regression is just one case of using basis functions in line
 </div>
 <div id="legendre-polynomials" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Legendre Polynomials</h3>
-<p><strong>Remove R Code</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(data.table)
-<span class="kw">library</span>(RColorBrewer)
-
-Legendre&lt;-function( t, <span class="dt">np.order=</span><span class="dv">1</span>,<span class="dt">tmin=</span><span class="ot">NULL</span>, <span class="dt">tmax=</span><span class="ot">NULL</span> )
-{
-  u &lt;-<span class="st"> </span>-<span class="dv">1</span>
-  v &lt;-<span class="st"> </span><span class="dv">1</span>
-  if (<span class="kw">is.null</span>(tmin)) tmin&lt;-<span class="kw">min</span>(t)
-  if (<span class="kw">is.null</span>(tmax)) tmax&lt;-<span class="kw">max</span>(t)
-  nt &lt;-<span class="st"> </span><span class="kw">length</span>(t)
-  ti    &lt;-<span class="st"> </span>u +<span class="st"> </span>((v-u)*(t-tmin))/(tmax -<span class="st"> </span>tmin)
-  np.order.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">0</span>,nt*np.order),<span class="dt">nrow=</span>nt)
-  if(np.order &gt;=<span class="dv">1</span>)
-    np.order.mat[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,nt)
-  if (np.order&gt;=<span class="dv">2</span>)
-    np.order.mat[,<span class="dv">2</span>] &lt;-<span class="st"> </span>ti
-  if (np.order&gt;=<span class="dv">3</span>)
-    np.order.mat[,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="fl">0.5</span>*(<span class="dv">3</span>*ti*ti<span class="dv">-1</span>)
-  if (np.order&gt;=<span class="dv">4</span>)
-    np.order.mat[,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="fl">0.5</span>*(<span class="dv">5</span>*ti^<span class="dv">3-3</span>*ti)
-  if (np.order&gt;=<span class="dv">5</span>)
-    np.order.mat[,<span class="dv">5</span>] &lt;-<span class="st"> </span><span class="fl">0.125</span>*(<span class="dv">35</span>*ti^<span class="dv">4-30</span>*ti^<span class="dv">2+3</span>)
-  if (np.order&gt;=<span class="dv">6</span>)
-    np.order.mat[,<span class="dv">6</span>] &lt;-<span class="st"> </span><span class="fl">0.125</span>*(<span class="dv">63</span>*ti^<span class="dv">5-70</span>*ti^<span class="dv">3+15</span>*ti)
-  if (np.order&gt;=<span class="dv">7</span>)
-    np.order.mat[,<span class="dv">7</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">16</span>)*(<span class="dv">231</span>*ti^<span class="dv">6-315</span>*ti^<span class="dv">4+105</span>*ti^<span class="dv">2-5</span>)
-  if (np.order&gt;=<span class="dv">8</span>)
-    np.order.mat[,<span class="dv">8</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">16</span>)*(<span class="dv">429</span>*ti^<span class="dv">7-693</span>*ti^<span class="dv">5+315</span>*ti^<span class="dv">3-35</span>*ti)
-  if (np.order&gt;=<span class="dv">9</span>)
-    np.order.mat[,<span class="dv">9</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">128</span>)*(<span class="dv">6435</span>*ti^<span class="dv">8-12012</span>*ti^<span class="dv">6+6930</span>*ti^<span class="dv">4-1260</span>*ti^<span class="dv">2+35</span>)
-  if (np.order&gt;=<span class="dv">10</span>)
-    np.order.mat[,<span class="dv">10</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">128</span>)*(<span class="dv">12155</span>*ti^<span class="dv">9-25740</span>*ti^<span class="dv">7+18018</span>*ti^<span class="dv">5-4620</span>*ti^<span class="dv">3+315</span>*ti)
-  if (np.order&gt;=<span class="dv">11</span>)
-    np.order.mat[,<span class="dv">11</span>] &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">256</span>)*(<span class="dv">46189</span>*ti^<span class="dv">10-109395</span>*ti^<span class="dv">8+90090</span>*ti^<span class="dv">6-30030</span>*ti^<span class="dv">4+3465</span>*ti^<span class="dv">2-63</span>)
-  <span class="kw">return</span>(np.order.mat)
-}
-
-L &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.01</span>), <span class="kw">Legendre</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.01</span>), <span class="dv">10</span>))
-L_melt &lt;-<span class="st"> </span><span class="kw">melt</span>(L, <span class="dt">id =</span> <span class="st">&quot;t&quot;</span>)
-
-<span class="kw">ggplot</span>(L_melt, <span class="kw">aes</span>(<span class="dt">x =</span> t, <span class="dt">y =</span> value, <span class="dt">group =</span> variable, <span class="dt">color =</span> <span class="kw">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;Set3&quot;</span>)[variable])) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:Legendre-fig"></span>
 <img src="Defense_files/figure-html/Legendre-fig-1.png" alt="First 10 Legendre Polynomials" width="80%" />
 <p class="caption">
@@ -211,7 +167,7 @@ FIGURE 4.1: First 10 Legendre Polynomials
 P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
 \tag{4.2}
 \end{equation}\]</span>
-<p>An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:</p>
+<p>An important property of the Legendre polynomials is that they are orthogonal with respect to the L2-norm on the interval <span class="math inline">\(−1 \le x \le 1\)</span>:</p>
 <span class="math display" id="eq:orthg-leg">\[\begin{equation}
 \int_1^{-1} P_m(x)P_n(x)dx = \frac{2}{2+1}\delta_{mn}
 \tag{4.3}
@@ -246,8 +202,34 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \tag{4.5}
 \end{equation}\]</span>
 </div>
-<div id="integrating-with-the-iform-procedure" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Integrating with the iForm Procedure</h3>
+<div id="incorporating-with-the-iform-procedure" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Incorporating with the iForm Procedure</h3>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+P_n(x) &amp; = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
+&amp; = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
+&amp; = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
+\end{split}
+\end{equation}
+\]</span></p>
+<p>(iForm with Legendre Polynomials Model)</p>
+<p><span class="math display">\[\alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T\]</span> <span class="math display">\[\beta_j(t) = (L_0(t), L_1(t), ... , L_{s&#39;}(t))*(v_{j0}, v_{j1},...,v_{js&#39;})^T\]</span></p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k + \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{aa}(t) \xi_{I_1}\xi_{I_2} \\ 
++ \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} + \epsilon(t)
+\end{split}
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}\]</span></p>
+<p>( Model (iForm with Legendre Model) )</p>
+<ul>
+<li>Step 1: (Initialization) Set <span class="math inline">\(\mathcal{S}^{(0)} = \emptyset\)</span>, <span class="math inline">\(\mathcal{M}_0 = \emptyset\)</span> and <span class="math inline">\(\mathcal{C}_0 = \mathcal{P_1}\)</span></li>
+<li>Step 2: (Selection) In the kth step with given <span class="math inline">\(\mathcal{S}^{(k-1)}\)</span>, <span class="math inline">\(\mathcal{C}^{k−1}\)</span> and <span class="math inline">\(\mathcal{M}^{k−1}\)</span>, <a href="#/7">forward regression</a> is used to select one more predictor from <span class="math inline">\(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\)</span> into the model while checking for different degrees of the legendre polynomial used as a basis for the genetic effect. We add the selected one into <span class="math inline">\(\mathcal{S}^{k−1}\)</span> to get <span class="math inline">\(\mathcal{S}^k\)</span>. We also update <span class="math inline">\(\mathcal{C}^k\)</span> and <span class="math inline">\(\mathcal{M}^k\)</span> if the newly selected predictor is a main effect. Otherwise, <span class="math inline">\(\mathcal{C}^k = \mathcal{C}^{k−1}\)</span> and <span class="math inline">\(\mathcal{M}^k = \mathcal{M}^{k−1}\)</span></li>
+<li>Step 3: (Solution Path). Iterating Step 2, for D times, which leads to a total of D nested candidate models. We then collect those models by a solution path <span class="math inline">\(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)</span></li>
+</ul>
 <p>
 An outline of the selection procedure used following the model described is as follows. At first the mean growth curve is estimated for the presented data following the logistic growth curve. This could be adjusted depending on the functional process the researcher is studying. Once the mean curve is fit the selection procedure is initialized in a similar fashion as mentioned in previous chapters @ref{highdeqtl}. Both the solution set and the model set are assigned to the empty set, <span class="math inline">\(S_0=\emptyset\)</span> and <span class="math inline">\(M_0=\emptyset\)</span>. The candidate set starts off containing all main effects for the additive and dominant effects of each SNP. The selection procedure then begins and each SNP is assessed and the best fitting candidate is then placed in the selection set. While assessing each candidate SNP, an additional search is performed for the best fitting polynomial fit up to a pre-specified order that is determined at the beginning of the procedure. The orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other functional models or other types of non-linear functions that characterizes the biological systems being evaluated. We are treating the polynomials as a basis function for the regression problem and therefore the Residual Sum of Squares is calculated similar to multiple regression but replacing the design matrix with the necessary basis functions. This continues until a designated stopping value is reached. The <span class="math inline">\(BIC_2\)</span> is then used to find the optimal fit given the selection procedure performed. The following graphics show how the process works at each step
 </p>
@@ -276,17 +258,329 @@ FIGURE 4.4: Additional Legendre Fit to Data
 <div id="simulation-studies-1" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Simulation Studies</h3>
 <p>As statistical issues become more complex they are going to be more analytically intractable and computational methods will need to close that gap to show the effectiveness of new models and procedures.Simulation studies were performed to ascertain the validity of the model. Rates at which correct markers/epistasis were selected and overall model true model size was assessed. Data was original generated from a mean curve following the growth equation described above. It was then sampled from a multivariate normal distribution with the mean vector following the generated and with correlated errors over time. Significant effects were also included in the model to simulate different marker levels. These effects could be main effects of SNPs, or epistatic effects of interaction between SNPs. There were a total of 4 main effects and three interaction effects simulated. This simulation was replicated 100 times and then the selection procedure was ran. It performed well with 93% of the replicates selecting all main and interaction effects and the other 7% of the models select a majority of the effects. The model size simulated was of size 7. The average model size of the replicates fit was around 13.5. This would indicate some slight over-fitting but all important effects were included in the model. Some considerations for this need to be looked into further for future work.</p>
+<table>
+<caption><span id="tab:Chap4SimResults">TABLE 4.1: </span>Simulation Results</caption>
+<thead>
+<tr class="header">
+<th align="left">Model</th>
+<th align="right">T1_tpr</th>
+<th align="right">T1_fpr</th>
+<th align="right">T2_tpr</th>
+<th align="right">T2_fpr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Model Predictors</td>
+<td align="right">1.0000</td>
+<td align="right">0.1417</td>
+<td align="right">1.0000</td>
+<td align="right">0.0037</td>
+</tr>
+<tr class="even">
+<td align="left">Polynomial Degree</td>
+<td align="right">0.7125</td>
+<td align="right">0.0251</td>
+<td align="right">0.9667</td>
+<td align="right">0.0007</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="worked-example-1" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Worked Example</h3>
 <p>As a comparison to what was done before in <a href="highorder.html#highorder">3</a> the same mei tree dataset used in this chapter was studied again. This serves as a comparison to previous performance and also to see if any new discoveries can be made by incorporating the time component and fitting the growth parameters simultaneously throughout the procedure. The previous model only fit one parameter of the growth equation as a time and assessed the genetic markers that had a significant impact of this parameter. The parameter focused on was the rate parameter,r for the shoot height of the progeny. The initial results running the analysis with a single predictor and using the selection procedure are,</p>
-<!-- \begin{center}  -->
-<!-- \includegraphics[width=8in]{EpistasisDetection_HTGrowthRate.pdf}  -->
-<!-- \end{center} -->
-<p>As a comparison here are the results for simultaneously fitting the growth curve and allowing for a more flexible genetic effect to be fit to the data. As you can see there are overlapping markers identified in the models. This shows the robustness of the new selection technique to be consistent with previous models. You can also see that the fit of the overall model has also increased. By including all effects at once, you gain more statistical power and it boost the adjusted R square value from 0.71 to above 0.9. This boost in model performance could be partially due to some over-fitting like we observed in the simulation studies and therefore a very strict bonferroni correction was implemented to assess whether individual markers were truly significant. Even with a strict cut-off we still observed 3 epistatic predictors to be highly significant. This shows the importance of including such terms while performing such a GWAS. The other area to note is the highly significant intercept term, which in our case is the result of the growth curve fit before implementing the selection procedure. This indicates also the importance of including biologically relevant information in the model to help better understand the genetic architecture being studied of the phenotype.</p>
-<!-- \begin{center}  -->
-<!-- \includegraphics[width=8in]{HT_ResultsTable.pdf}  -->
-<!-- \end{center} -->
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
+  <span class="kw">read.csv</span>(<span class="st">&quot;Chapter03_Table6.csv&quot;</span>), <span class="dt">caption =</span> <span class="st">&#39;Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model&#39;</span>,
+  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
+)</code></pre></div>
+<table>
+<caption><span id="tab:Chap4Table2">TABLE 4.2: </span>Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model</caption>
+<thead>
+<tr class="header">
+<th align="left">Coefficient</th>
+<th align="right">Estimate</th>
+<th align="right">SE</th>
+<th align="right">T.value</th>
+<th align="left">P.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.16859</td>
+<td align="right">0.05801</td>
+<td align="right">2.906</td>
+<td align="left">0.00415 **</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2517_a</td>
+<td align="right">0.27773</td>
+<td align="right">0.04396</td>
+<td align="right">6.318</td>
+<td align="left">2.27e-09 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2815_a</td>
+<td align="right">0.26382</td>
+<td align="right">0.05295</td>
+<td align="right">4.983</td>
+<td align="left">1.54e-06 ***</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_nn_np_3479_a</td>
+<td align="right">0.20767</td>
+<td align="right">0.03467</td>
+<td align="right">5.990</td>
+<td align="left">1.23e-08 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_1284_a</td>
+<td align="right">0.04522</td>
+<td align="right">0.04265</td>
+<td align="right">1.060</td>
+<td align="left">0.29055</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2815_a×AATTC_lm_ll_3034_a</td>
+<td align="right">1.82572</td>
+<td align="right">0.17925</td>
+<td align="right">10.185</td>
+<td align="left">&lt; 2e-16 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2815_a×AATTC_hk_hk_278_a</td>
+<td align="right">0.25935</td>
+<td align="right">0.03888</td>
+<td align="right">6.671</td>
+<td align="left">3.48e-10 ***</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_3153_a</td>
+<td align="right">0.14877</td>
+<td align="right">0.03491</td>
+<td align="right">4.262</td>
+<td align="left">3.36e-05 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_1284_a×AATTC_nn_np_554_a</td>
+<td align="right">0.22994</td>
+<td align="right">0.05104</td>
+<td align="right">4.505</td>
+<td align="left">1.23e-05 ***</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2815_a.AATTC_lm_ll_3034_a×AATTC_nn_np_1615_a</td>
+<td align="right">-1.51714</td>
+<td align="right">0.19060</td>
+<td align="right">-7.960</td>
+<td align="left">2.39e-13 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2815_a×AATTC_nn_np_929_a</td>
+<td align="right">-0.30805</td>
+<td align="right">0.05477</td>
+<td align="right">-5.624</td>
+<td align="left">7.57e-08 ***</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_479_d</td>
+<td align="right">0.16044</td>
+<td align="right">0.03443</td>
+<td align="right">4.660</td>
+<td align="left">6.37e-06 ***</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_2517_a×CATG_hk_hk_648_a</td>
+<td align="right">0.14537</td>
+<td align="right">0.02840</td>
+<td align="right">5.118</td>
+<td align="left">8.33e-07 ***</td>
+</tr>
+<tr class="even">
+<td align="left">As a comparison here are the results for simultaneously fit</td>
+<td align="right">ting the gr</td>
+<td align="right">owth curve</td>
+<td align="right">and allow</td>
+<td align="left">ing for a more flexible genetic effect to be fit to the data. As you can see there are overlapping markers identified in the models. This shows the robustness of the new selection technique to be consistent with previous models. You can also see that the fit of the overall model has also increased. By including all effects at once, you gain more statistical power and it boost the adjusted R square value from 0.71 to above 0.9. This boost in model performance could be partially due to some over-fitting like we observed in the simulation studies and therefore a very strict bonferroni correction was implemented to assess whether individual markers were truly significant. Even with a strict cut-off we still observed 3 epistatic predictors to be highly significant. This shows the importance of including such terms while performing such a GWAS. The other area to note is the highly significant intercept term, which in our case is the result of the growth curve fit before implementing the selection procedure. This indicates also the importance of including biologically relevant information in the model to help better understand the genetic architecture being studied of the phenotype.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:Chap4Results">TABLE 4.3: </span>Growth Height</caption>
+<thead>
+<tr class="header">
+<th align="left">Coefficient</th>
+<th align="right">Estimate</th>
+<th align="right">SE</th>
+<th align="right">T.value</th>
+<th align="right">P.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mu_t</td>
+<td align="right">0.9846</td>
+<td align="right">0.0142</td>
+<td align="right">69.2890</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_2801_a_P0</td>
+<td align="right">-18.3460</td>
+<td align="right">2.3306</td>
+<td align="right">-7.8719</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_2801_a_by_AATTC_lm_ll_2056_a_P0</td>
+<td align="right">15.0998</td>
+<td align="right">2.7364</td>
+<td align="right">5.5181</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_2801_a_by_AATTC_nn_np_2246_a_P0</td>
+<td align="right">17.4473</td>
+<td align="right">2.5890</td>
+<td align="right">6.7389</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_3635_a_P0</td>
+<td align="right">35.6463</td>
+<td align="right">2.4577</td>
+<td align="right">14.5041</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_nn_np_3635_a_by_CATG_lm_ll_2637_a_P0</td>
+<td align="right">-20.8632</td>
+<td align="right">2.1622</td>
+<td align="right">-9.6492</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_lm_ll_2056_a_by_CATG_lm_ll_2801_a_by_CATG_nn_np_4200_a_P0</td>
+<td align="right">11.6351</td>
+<td align="right">2.9936</td>
+<td align="right">3.8866</td>
+<td align="right">0.0001</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_2246_a_by_AATTC_nn_np_4205_a_by_CATG_lm_ll_2801_a_P0</td>
+<td align="right">-22.1074</td>
+<td align="right">3.3058</td>
+<td align="right">-6.6874</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_nn_np_3635_a_by_AATTC_nn_np_2292_a_P0</td>
+<td align="right">-16.8444</td>
+<td align="right">2.0928</td>
+<td align="right">-8.0488</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_753_d_P0</td>
+<td align="right">-13.8052</td>
+<td align="right">1.8007</td>
+<td align="right">-7.6664</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_hk_hk_753_d_by_AATTC_hk_hk_485_a_P0</td>
+<td align="right">18.9017</td>
+<td align="right">2.0761</td>
+<td align="right">9.1045</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_nn_np_3635_a_by_CATG_nn_np_3234_a_P0</td>
+<td align="right">-7.2607</td>
+<td align="right">2.4541</td>
+<td align="right">-2.9586</td>
+<td align="right">0.0031</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_hk_hk_753_d_by_CATG_nn_np_2208_a_P0</td>
+<td align="right">7.8192</td>
+<td align="right">2.2885</td>
+<td align="right">3.4167</td>
+<td align="right">0.0006</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_485_a_by_AATTC_hk_hk_753_d_by_AATTC_nn_np_3611_a_P0</td>
+<td align="right">-15.9119</td>
+<td align="right">3.0362</td>
+<td align="right">-5.2407</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_2801_a_by_AATTC_nn_np_3395_a_P0</td>
+<td align="right">-13.7696</td>
+<td align="right">2.3020</td>
+<td align="right">-5.9816</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_1732_a_P0</td>
+<td align="right">-8.9870</td>
+<td align="right">2.5788</td>
+<td align="right">-3.4849</td>
+<td align="right">0.0005</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_1732_a_by_AATTC_nn_np_4608_a_P0</td>
+<td align="right">23.9765</td>
+<td align="right">2.7677</td>
+<td align="right">8.6631</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_nn_np_4608_a_by_CATG_lm_ll_1732_a_by_CATG_nn_np_3543_a_P0</td>
+<td align="right">-18.6126</td>
+<td align="right">3.3495</td>
+<td align="right">-5.5569</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_789_a_by_CATG_nn_np_3234_a_by_CATG_nn_np_3635_a_P0</td>
+<td align="right">-11.7958</td>
+<td align="right">2.8852</td>
+<td align="right">-4.0884</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">CATG_lm_ll_1732_a_by_AATTC_lm_ll_2212_a_P0</td>
+<td align="right">8.1659</td>
+<td align="right">2.1777</td>
+<td align="right">3.7498</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="odd">
+<td align="left">CATG_lm_ll_1732_a_by_CATG_nn_np_2948_a_P0</td>
+<td align="right">9.5687</td>
+<td align="right">2.3217</td>
+<td align="right">4.1214</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="left">AATTC_hk_hk_495_a_by_CATG_lm_ll_1732_a_by_CATG_nn_np_2948_a_P0</td>
+<td align="right">-8.6498</td>
+<td align="right">2.1831</td>
+<td align="right">-3.9622</td>
+<td align="right">0.0001</td>
+</tr>
+<tr class="odd">
+<td align="left">AATTC_nn_np_4608_a_by_CATG_lm_ll_1732_a_by_CATG_lm_ll_2787_a_P1</td>
+<td align="right">14.2735</td>
+<td align="right">2.1351</td>
+<td align="right">6.6852</td>
+<td align="right">0.0000</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="discussion-2" class="section level2">

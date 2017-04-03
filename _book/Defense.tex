@@ -152,6 +152,7 @@
 \begin{document}
 
 \begin{center}
+\begin{titlepage}
 \bf{The Pennsylvania State University} \\
 The Graduate School \\
 College of Medicine Public Health Sciences \\
@@ -166,7 +167,7 @@ Kirk Gosik \\
 
 Doctor of Philosophy \\
 February 2017 \\
-
+\end{titlepage}
 \newpage
 \pagenumbering{roman}
 \setcounter{page}{2}
@@ -872,19 +873,12 @@ drawback to implementing forward selection on such a large set seemed to
 come with over fitting the model. The selection included the maximum
 number of predictors allowed by the designated stopping value and did
 not use the BIC criteria for final model selection. This resulted in 19
-additional predictors selected \textbf{(Tables 1 -3)\ref{tab:sim1}}.
-This increased the adjusted R-square value of the final model, however
-this is suspected because of over fitting the data and not to be a true
-prediction of the response.
+additional predictors selected \ref{tab:sim1}, \ref{tab:sim2} and
+\ref{tab:sim3}. This increased the adjusted R-square value of the final
+model, however this is suspected because of over fitting the data and
+not to be a true prediction of the response.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_Table1Sim1.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Simulation 1 Table (sigma=1)'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\textbf{runs off the page}
 
 \begin{table}
 
@@ -903,15 +897,6 @@ Oracle & 1.00 & 1.000 & 0.0000 & 1.00 & 1.00 & 1.000 & 0 & 1.0 & 8.00 & 1.023 & 
 \end{tabular}
 \end{table}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_Table1Sim2.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Simulation 2 Table (sigma=2)'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:sim2}Simulation 2 Table (sigma=2)}
@@ -928,15 +913,6 @@ Oracle & 1.00 & 1.000 & 0.000 & 1.000 & 1.00 & 1.00 & 0 & 1.00 & 8.00 & 3.92 & 0
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter02_Table1Sim3.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Simulation 3 Table (sigma=3)'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -1404,7 +1380,7 @@ samples from a mapping or association population. When considering
 pairwise and three-way interactions, the linear model is expressed as
 
 \begin{equation}
-mathbf{Y} = \alpha + X^T\beta + Z^T\gamma + W^T\eta + \epsilon
+\mathbf{Y}=\alpha + X^T\beta + Z^T\gamma + W^T\eta + \epsilon
 \label{eq:lin-mod}
 \end{equation}
 
@@ -1649,21 +1625,21 @@ strong heredity order-3, iForm weak heredity order-3, Glinternet
 
 Covering a variety of settings the following scenarios were evaluated
 and compared.\\
-\textbf{Scenario 1:}
+\textbf{Scenario 1:}\\
 \(\mathbf{Y}=\beta_1 x_1+\beta_4 x_4+\beta_6 x_6+\beta_7 x_7+\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,7} x_1 x_7+\gamma_{6,7} x_6 x_7+\eta_{1,6,7} x_1 x_6 x_7\)
 The first is where the data were generated from the interactions of the
 model follow a strong heredity (hierarchy) with \(\sigma = 1\). Notice
 we have all parent effects of the order-2 epistatic effects and also all
 parent effects of the order-3 epistatic effect are also in the model.
 
-\textbf{Scenario 2:}
+\textbf{Scenario 2:}\\
 \(\mathbf{Y}=\beta_1 x_1+\beta_4 x_4+\beta_6 x_6+\beta_7 x_7+\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,9} x_1 x_9+\gamma_{6,7} x_6 x_7+\eta_{1,6,9} x_1 x_6 x_9\)
 The second, the data is generated to have the interactions in follow a
 weak heredity (hierarchy) with \(\sigma = 1\). In this scenario the main
 effect of \(x_9\) is not included in the model but you can see it is
 part of both an order-2 and the order-3 effect.
 
-\textbf{Scenario 3:}
+\textbf{Scenario 3:}\\
 \(\mathbf{Y}=\beta_1 x_1+\beta_4 x_4+\beta_6 x_6+\beta_7 x_7+\gamma_{2,3} x_2 x_3+\gamma_{3,8} x_3 x_8+\gamma_{5,8} x_5 x_8+\gamma_{5,9} x_5 x_9+\eta_{3,9,11} x_3 x_9 x_11\)
 The third scenario is anti-heredity (hierarchical) where the interaction
 effects are only among predictors not present as main effects in the
@@ -1671,7 +1647,7 @@ model. We still have main effects and epistatic effects in the model.
 However, the parent effects of the interactions are not the main effects
 included in the model.
 
-\textbf{Scenario 4:}
+\textbf{Scenario 4:}\\
 \(\mathbf{Y}=\gamma_{1,4} x_1 x_4+\gamma_{1,6} x_1 x_6+\gamma_{1,9} x_1 x_9+\gamma_{6,7} x_6 x_7+\eta_{1,6,9} x_1 x_6 x_9\)
 Finally the last scenario only generates data that come from pure
 interactions between predictors with no main effects present in the
@@ -1900,10 +1876,10 @@ heterozygosity of both parents. For a testcross marker, there is only
 one main genetic effect, whereas an intercross marker contains additive
 and dominant main effects. Thus, a pair of testcross markers produces
 only type of epistasis, but a pair of intercross markers forms four
-types of epistasis, additive × additive, additive × dominant, dominant ×
-additive and dominant × dominant. For two markers with one from the
+types of epistasis, additive x additive, additive x dominant, dominant x
+additive and dominant x dominant. For two markers with one from the
 testcross and the other from the intercross, there are two types of
-epistasis, i.e., additive × additive and additive × dominant
+epistasis, i.e., additive x additive and additive x dominant
 (\cite{tong20113funmap}). The number and type of epistasis can be
 characterized for any three markers accordingly. Here, the iFORM was
 implemented in a way that allows both marker markers to be modeled and
@@ -2278,8 +2254,8 @@ of interest in terms of the values of the predictors. This would result
 in a linear model of the form,
 
 \begin{equation}
-Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
-(\#eq: lin-mod)
+\mathbf{Y} = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
+\label{eq:lin-mod}
 \end{equation}
 
 This model is nice for a single response but can be too restrictive at
@@ -2299,7 +2275,7 @@ f(x) = \sum_{i=0}^P \theta_i \phi_i(x)
 where the \(\phi\) are the basis functions of the researchers choosing.
 Under this format you can choose any function that would fit the need of
 the given problem and has relevance to the application area. A common
-choice is to use polynomial regression, where \(/phi\) would be the
+choice is to use polynomial regression, where \(\phi\) would be the
 predictors raised to different degrees in order to invoke a non-linear
 relationship into the model. This works well but it comes with some draw
 backs. The first being that for each degree consider, it could grow the
@@ -2330,56 +2306,6 @@ the nice properties they posses.
 
 \subsection{Legendre Polynomials}\label{legendre-polynomials}
 
-\textbf{Remove R Code}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\KeywordTok{library}\NormalTok{(data.table)}
-\KeywordTok{library}\NormalTok{(RColorBrewer)}
-
-\NormalTok{Legendre<-function( t, }\DataTypeTok{np.order=}\DecValTok{1}\NormalTok{,}\DataTypeTok{tmin=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{tmax=}\OtherTok{NULL} \NormalTok{)}
-\NormalTok{\{}
-  \NormalTok{u <-}\StringTok{ }\NormalTok{-}\DecValTok{1}
-  \NormalTok{v <-}\StringTok{ }\DecValTok{1}
-  \NormalTok{if (}\KeywordTok{is.null}\NormalTok{(tmin)) tmin<-}\KeywordTok{min}\NormalTok{(t)}
-  \NormalTok{if (}\KeywordTok{is.null}\NormalTok{(tmax)) tmax<-}\KeywordTok{max}\NormalTok{(t)}
-  \NormalTok{nt <-}\StringTok{ }\KeywordTok{length}\NormalTok{(t)}
-  \NormalTok{ti    <-}\StringTok{ }\NormalTok{u +}\StringTok{ }\NormalTok{((v-u)*(t-tmin))/(tmax -}\StringTok{ }\NormalTok{tmin)}
-  \NormalTok{np.order.mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,nt*np.order),}\DataTypeTok{nrow=}\NormalTok{nt)}
-  \NormalTok{if(np.order >=}\DecValTok{1}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{1}\NormalTok{] <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,nt)}
-  \NormalTok{if (np.order>=}\DecValTok{2}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{2}\NormalTok{] <-}\StringTok{ }\NormalTok{ti}
-  \NormalTok{if (np.order>=}\DecValTok{3}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{3}\NormalTok{] <-}\StringTok{ }\FloatTok{0.5}\NormalTok{*(}\DecValTok{3}\NormalTok{*ti*ti}\DecValTok{-1}\NormalTok{)}
-  \NormalTok{if (np.order>=}\DecValTok{4}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{4}\NormalTok{] <-}\StringTok{ }\FloatTok{0.5}\NormalTok{*(}\DecValTok{5}\NormalTok{*ti^}\DecValTok{3-3}\NormalTok{*ti)}
-  \NormalTok{if (np.order>=}\DecValTok{5}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{5}\NormalTok{] <-}\StringTok{ }\FloatTok{0.125}\NormalTok{*(}\DecValTok{35}\NormalTok{*ti^}\DecValTok{4-30}\NormalTok{*ti^}\DecValTok{2+3}\NormalTok{)}
-  \NormalTok{if (np.order>=}\DecValTok{6}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{6}\NormalTok{] <-}\StringTok{ }\FloatTok{0.125}\NormalTok{*(}\DecValTok{63}\NormalTok{*ti^}\DecValTok{5-70}\NormalTok{*ti^}\DecValTok{3+15}\NormalTok{*ti)}
-  \NormalTok{if (np.order>=}\DecValTok{7}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{7}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{16}\NormalTok{)*(}\DecValTok{231}\NormalTok{*ti^}\DecValTok{6-315}\NormalTok{*ti^}\DecValTok{4+105}\NormalTok{*ti^}\DecValTok{2-5}\NormalTok{)}
-  \NormalTok{if (np.order>=}\DecValTok{8}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{8}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{16}\NormalTok{)*(}\DecValTok{429}\NormalTok{*ti^}\DecValTok{7-693}\NormalTok{*ti^}\DecValTok{5+315}\NormalTok{*ti^}\DecValTok{3-35}\NormalTok{*ti)}
-  \NormalTok{if (np.order>=}\DecValTok{9}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{9}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{128}\NormalTok{)*(}\DecValTok{6435}\NormalTok{*ti^}\DecValTok{8-12012}\NormalTok{*ti^}\DecValTok{6+6930}\NormalTok{*ti^}\DecValTok{4-1260}\NormalTok{*ti^}\DecValTok{2+35}\NormalTok{)}
-  \NormalTok{if (np.order>=}\DecValTok{10}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{10}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{128}\NormalTok{)*(}\DecValTok{12155}\NormalTok{*ti^}\DecValTok{9-25740}\NormalTok{*ti^}\DecValTok{7+18018}\NormalTok{*ti^}\DecValTok{5-4620}\NormalTok{*ti^}\DecValTok{3+315}\NormalTok{*ti)}
-  \NormalTok{if (np.order>=}\DecValTok{11}\NormalTok{)}
-    \NormalTok{np.order.mat[,}\DecValTok{11}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\NormalTok{/}\DecValTok{256}\NormalTok{)*(}\DecValTok{46189}\NormalTok{*ti^}\DecValTok{10-109395}\NormalTok{*ti^}\DecValTok{8+90090}\NormalTok{*ti^}\DecValTok{6-30030}\NormalTok{*ti^}\DecValTok{4+3465}\NormalTok{*ti^}\DecValTok{2-63}\NormalTok{)}
-  \KeywordTok{return}\NormalTok{(np.order.mat)}
-\NormalTok{\}}
-
-\NormalTok{L <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{t =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.01}\NormalTok{), }\KeywordTok{Legendre}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.01}\NormalTok{), }\DecValTok{10}\NormalTok{))}
-\NormalTok{L_melt <-}\StringTok{ }\KeywordTok{melt}\NormalTok{(L, }\DataTypeTok{id =} \StringTok{"t"}\NormalTok{)}
-
-\KeywordTok{ggplot}\NormalTok{(L_melt, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{t, }\DataTypeTok{y =} \NormalTok{value, }\DataTypeTok{group =} \NormalTok{variable, }\DataTypeTok{color =} \KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{10}\NormalTok{, }\StringTok{"Set3"}\NormalTok{)[variable])) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_line}\NormalTok{() +}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"none"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth]{Defense_files/figure-latex/Legendre-fig-1} 
@@ -2401,7 +2327,8 @@ P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
 \end{equation}
 
 An important property of the Legendre polynomials is that they are
-orthogonal with respect to the L2-norm on the interval −1 ≤ x ≤ 1:
+orthogonal with respect to the L2-norm on the interval
+\(−1 \le x \le 1\):
 
 \begin{equation}
 \int_1^{-1} P_m(x)P_n(x)dx = \frac{2}{2+1}\delta_{mn}
@@ -2479,8 +2406,59 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \label{eq:epi-legendre}
 \end{equation}
 
-\subsection{Integrating with the iForm
-Procedure}\label{integrating-with-the-iform-procedure}
+\subsection{Incorporating with the iForm
+Procedure}\label{incorporating-with-the-iform-procedure}
+
+\[
+\begin{equation}
+\begin{split}
+P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
+& = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
+& = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
+\end{split}
+\end{equation}
+\]
+
+(iForm with Legendre Polynomials Model)
+
+\[\alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T\]
+\[\beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T\]
+
+\[
+\begin{equation}
+\begin{split}
+y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k + \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{aa}(t) \xi_{I_1}\xi_{I_2} \\ 
++ \sum_{I_1 \lt I_2=1}^{I}\gamma_I^{ad}(t) \xi_{I_1}\zeta_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{da}(t) \zeta_{I_1}\xi_{I_2} + \sum_{I_1 \lt I_2=1}^{I} \gamma_I^{dd}(t)\zeta_{I_1}\zeta_{I_2} + \epsilon(t)
+\end{split}
+\end{equation}
+\]
+
+\[\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}\]
+
+( Model (iForm with Legendre Model) )
+
+\begin{itemize}
+\tightlist
+\item
+  Step 1: (Initialization) Set \(\mathcal{S}^{(0)} = \emptyset\),
+  \(\mathcal{M}_0 = \emptyset\) and \(\mathcal{C}_0 = \mathcal{P_1}\)
+\item
+  Step 2: (Selection) In the kth step with given
+  \(\mathcal{S}^{(k-1)}\), \(\mathcal{C}^{k−1}\) and
+  \(\mathcal{M}^{k−1}\), \protect\hyperlink{ux2f7}{forward regression}
+  is used to select one more predictor from
+  \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\) into the model while checking
+  for different degrees of the legendre polynomial used as a basis for
+  the genetic effect. We add the selected one into \(\mathcal{S}^{k−1}\)
+  to get \(\mathcal{S}^k\). We also update \(\mathcal{C}^k\) and
+  \(\mathcal{M}^k\) if the newly selected predictor is a main effect.
+  Otherwise, \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
+  \(\mathcal{M}^k = \mathcal{M}^{k−1}\)
+\item
+  Step 3: (Solution Path). Iterating Step 2, for D times, which leads to
+  a total of D nested candidate models. We then collect those models by
+  a solution path \(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)
+\end{itemize}
 
 An outline of the selection procedure used following the model described
 is as follows. At first the mean growth curve is estimated for the
@@ -2562,6 +2540,21 @@ slight over-fitting but all important effects were included in the
 model. Some considerations for this need to be looked into further for
 future work.
 
+\begin{table}
+
+\caption{\label{tab:Chap4SimResults}Simulation Results}
+\centering
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+Model & T1\_tpr & T1\_fpr & T2\_tpr & T2\_fpr\\
+\hline
+Model Predictors & 1.0000 & 0.1417 & 1.0000 & 0.0037\\
+\hline
+Polynomial Degree & 0.7125 & 0.0251 & 0.9667 & 0.0007\\
+\hline
+\end{tabular}
+\end{table}
+
 \subsection{Worked Example}\label{worked-example-1}
 
 As a comparison to what was done before in \ref{highorder} the same mei
@@ -2574,6 +2567,42 @@ and assessed the genetic markers that had a significant impact of this
 parameter. The parameter focused on was the rate parameter,r for the
 shoot height of the progeny. The initial results running the analysis
 with a single predictor and using the selection procedure are,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{read.csv}\NormalTok{(}\StringTok{"Chapter03_Table6.csv"}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Chap4Table2}Table 6 The detection of epistasis for the relative growth rate (r) of shoot length in the full-sib family of mei tree by a high-order epistatic model}
+\centering
+\begin{tabular}[t]{lrrrl}
+\toprule
+Coefficient & Estimate & SE & T.value & P.value\\
+\midrule
+(Intercept) & 0.16859 & 0.05801 & 2.906 & 0.00415 **\\
+AATTC\_nn\_np\_2517\_a & 0.27773 & 0.04396 & 6.318 & 2.27e-09 ***\\
+AATTC\_nn\_np\_2815\_a & 0.26382 & 0.05295 & 4.983 & 1.54e-06 ***\\
+CATG\_nn\_np\_3479\_a & 0.20767 & 0.03467 & 5.990 & 1.23e-08 ***\\
+CATG\_nn\_np\_1284\_a & 0.04522 & 0.04265 & 1.060 & 0.29055\\
+\addlinespace
+AATTC\_nn\_np\_2815\_a×AATTC\_lm\_ll\_3034\_a & 1.82572 & 0.17925 & 10.185 & < 2e-16 ***\\
+AATTC\_nn\_np\_2815\_a×AATTC\_hk\_hk\_278\_a & 0.25935 & 0.03888 & 6.671 & 3.48e-10 ***\\
+CATG\_lm\_ll\_3153\_a & 0.14877 & 0.03491 & 4.262 & 3.36e-05 ***\\
+CATG\_nn\_np\_1284\_a×AATTC\_nn\_np\_554\_a & 0.22994 & 0.05104 & 4.505 & 1.23e-05 ***\\
+AATTC\_nn\_np\_2815\_a.AATTC\_lm\_ll\_3034\_a×AATTC\_nn\_np\_1615\_a & -1.51714 & 0.19060 & -7.960 & 2.39e-13 ***\\
+\addlinespace
+AATTC\_nn\_np\_2815\_a×AATTC\_nn\_np\_929\_a & -0.30805 & 0.05477 & -5.624 & 7.57e-08 ***\\
+AATTC\_hk\_hk\_479\_d & 0.16044 & 0.03443 & 4.660 & 6.37e-06 ***\\
+AATTC\_nn\_np\_2517\_a×CATG\_hk\_hk\_648\_a & 0.14537 & 0.02840 & 5.118 & 8.33e-07 ***\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 As a comparison here are the results for simultaneously fitting the
 growth curve and allowing for a more flexible genetic effect to be fit
@@ -2594,6 +2623,63 @@ growth curve fit before implementing the selection procedure. This
 indicates also the importance of including biologically relevant
 information in the model to help better understand the genetic
 architecture being studied of the phenotype.
+
+\begin{table}
+
+\caption{\label{tab:Chap4Results}Growth Height}
+\centering
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+Coefficient & Estimate & SE & T.value & P.value\\
+\hline
+mu\_t & 0.9846 & 0.0142 & 69.2890 & 0.0000\\
+\hline
+CATG\_lm\_ll\_2801\_a\_P0 & -18.3460 & 2.3306 & -7.8719 & 0.0000\\
+\hline
+CATG\_lm\_ll\_2801\_a\_by\_AATTC\_lm\_ll\_2056\_a\_P0 & 15.0998 & 2.7364 & 5.5181 & 0.0000\\
+\hline
+CATG\_lm\_ll\_2801\_a\_by\_AATTC\_nn\_np\_2246\_a\_P0 & 17.4473 & 2.5890 & 6.7389 & 0.0000\\
+\hline
+CATG\_nn\_np\_3635\_a\_P0 & 35.6463 & 2.4577 & 14.5041 & 0.0000\\
+\hline
+CATG\_nn\_np\_3635\_a\_by\_CATG\_lm\_ll\_2637\_a\_P0 & -20.8632 & 2.1622 & -9.6492 & 0.0000\\
+\hline
+AATTC\_lm\_ll\_2056\_a\_by\_CATG\_lm\_ll\_2801\_a\_by\_CATG\_nn\_np\_4200\_a\_P0 & 11.6351 & 2.9936 & 3.8866 & 0.0001\\
+\hline
+AATTC\_nn\_np\_2246\_a\_by\_AATTC\_nn\_np\_4205\_a\_by\_CATG\_lm\_ll\_2801\_a\_P0 & -22.1074 & 3.3058 & -6.6874 & 0.0000\\
+\hline
+CATG\_nn\_np\_3635\_a\_by\_AATTC\_nn\_np\_2292\_a\_P0 & -16.8444 & 2.0928 & -8.0488 & 0.0000\\
+\hline
+AATTC\_hk\_hk\_753\_d\_P0 & -13.8052 & 1.8007 & -7.6664 & 0.0000\\
+\hline
+AATTC\_hk\_hk\_753\_d\_by\_AATTC\_hk\_hk\_485\_a\_P0 & 18.9017 & 2.0761 & 9.1045 & 0.0000\\
+\hline
+CATG\_nn\_np\_3635\_a\_by\_CATG\_nn\_np\_3234\_a\_P0 & -7.2607 & 2.4541 & -2.9586 & 0.0031\\
+\hline
+AATTC\_hk\_hk\_753\_d\_by\_CATG\_nn\_np\_2208\_a\_P0 & 7.8192 & 2.2885 & 3.4167 & 0.0006\\
+\hline
+AATTC\_hk\_hk\_485\_a\_by\_AATTC\_hk\_hk\_753\_d\_by\_AATTC\_nn\_np\_3611\_a\_P0 & -15.9119 & 3.0362 & -5.2407 & 0.0000\\
+\hline
+CATG\_lm\_ll\_2801\_a\_by\_AATTC\_nn\_np\_3395\_a\_P0 & -13.7696 & 2.3020 & -5.9816 & 0.0000\\
+\hline
+CATG\_lm\_ll\_1732\_a\_P0 & -8.9870 & 2.5788 & -3.4849 & 0.0005\\
+\hline
+CATG\_lm\_ll\_1732\_a\_by\_AATTC\_nn\_np\_4608\_a\_P0 & 23.9765 & 2.7677 & 8.6631 & 0.0000\\
+\hline
+AATTC\_nn\_np\_4608\_a\_by\_CATG\_lm\_ll\_1732\_a\_by\_CATG\_nn\_np\_3543\_a\_P0 & -18.6126 & 3.3495 & -5.5569 & 0.0000\\
+\hline
+CATG\_lm\_ll\_789\_a\_by\_CATG\_nn\_np\_3234\_a\_by\_CATG\_nn\_np\_3635\_a\_P0 & -11.7958 & 2.8852 & -4.0884 & 0.0000\\
+\hline
+CATG\_lm\_ll\_1732\_a\_by\_AATTC\_lm\_ll\_2212\_a\_P0 & 8.1659 & 2.1777 & 3.7498 & 0.0002\\
+\hline
+CATG\_lm\_ll\_1732\_a\_by\_CATG\_nn\_np\_2948\_a\_P0 & 9.5687 & 2.3217 & 4.1214 & 0.0000\\
+\hline
+AATTC\_hk\_hk\_495\_a\_by\_CATG\_lm\_ll\_1732\_a\_by\_CATG\_nn\_np\_2948\_a\_P0 & -8.6498 & 2.1831 & -3.9622 & 0.0001\\
+\hline
+AATTC\_nn\_np\_4608\_a\_by\_CATG\_lm\_ll\_1732\_a\_by\_CATG\_lm\_ll\_2787\_a\_P1 & 14.2735 & 2.1351 & 6.6852 & 0.0000\\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Discussion}\label{discussion-2}
 
