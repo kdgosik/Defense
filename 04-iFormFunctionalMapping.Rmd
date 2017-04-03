@@ -1,5 +1,9 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 # iForm Functional Mapping {#iformfunc}
-
 
 ## Motivation
 
@@ -11,19 +15,6 @@
 
 <p> In applications like the scenario described where we have a functional value phenotype and a high dimensional predictor space with dynamically considering interaction effects it may be too restrictive to suppose that the effect
 of all of the predictors is captured by a simple linear fit.  Reframing the regression problem to help code in the longitudinal data into the structure in a biologically meaningful manner and making some sparsity assumptions about the number of significant genetic and epistatic effects that affect the phenotype will help in the development of such a model to tackle such a task. </p>
-
-
-
-
-
-**Also included in iFormFunctional Mapping Part**
-
-Monitoring the change in expression patterns over time provides the distinct possibility of unraveling the mechanistic drivers characterizing cellular responses. Gene arrays measuring the level of mRNA expression of thousands of genes simultaneously provide a method of high-throughput data collection necessary for obtaining the scope of data required for understanding the complexities of living organisms. Unraveling the coherent complex structures of transcriptional dynamics is the goal of a large family of computational methods aiming at upgrading the information content of time-course gene expression data. In this review, we summarize the qualitative characteristics of these approaches, discuss the main challenges that this type of complex data present, and, finally, explore the opportunities in the context of developing mechanistic models of cellular response. \cite{androulakis2007analysis}
-
-
-
-
-
 
 ## Methods
 
@@ -89,16 +80,16 @@ Legendre<-function( t, np.order=1,tmin=NULL, tmax=NULL )
   return(np.order.mat)
 }
 
-L <- data.frame(t = seq(0, 1, by = 0.01), Legendre(seq(0, 1, by = 0.01), 10))
-L_melt <- melt(L, id = "t")
+L <- data.frame(time = seq(0, 1, by = 0.01), Legendre(seq(0, 1, by = 0.01), 10))
+L_melt <- melt(L, id = "time")
 
-ggplot(L_melt, aes(x = t, y = value, group = variable, color = brewer.pal(10, "Set3")[variable])) + 
+ggplot(L_melt, aes(x = time, y = value, group = variable, color = brewer.pal(10, "Set3")[variable])) + 
   geom_line() + theme(legend.position="none")
 
 
 ```
 
-The definition of the Legendre polynomials are the solutions for $n = 0, 1, 2, \dots $(with the normalization $P_n(1) = 1$ form a polynomial sequence of orthogonal polynomials called the Legendre polynomials. Each Legendre polynomial $P_n(x)$ is an nth-degree polynomial. It may be expressed using Rodrigues' formula:
+The definition of the Legendre polynomials are the solutions for $n = 0, 1, 2, \dots $ (with the normalization $P_n(1) = 1$ form a polynomial sequence of orthogonal polynomials called the Legendre polynomials. Each Legendre polynomial $P_n(x)$ is an nth-degree polynomial. It may be expressed using Rodrigues' formula:
 
 \begin{equation}
 P_n(x) = \frac{1}{2^nn!} \frac{d^n}{dx^n}[(x^2-1)^n]
@@ -124,7 +115,7 @@ P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
 (\#eq:leg-eq)
 \end{equation}
 
-With nature of the Legendre orthogonal polynomials, it was advantages for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset. By seeing which polynomial curve fits the given phenotype, it removes some of the challenges when fitting the model. Different orders of the polynomial are tried throughout the procedure to allow for flexibility in the fitting the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.  
+With the nature of the Legendre orthogonal polynomials, it was advantageous for both dimension reduction and also handling unevenly spaced, missing or non-uniform time measurements from different subjects in the dataset. By seeing which polynomial curve fits the given phenotype, it removes some of the challenges when fitting the model. Different orders of the polynomial are tried throughout the procedure to allow for flexibility in the fitting the genetic variation from the mean curve for each of the genotypes or epistasis between genotypes considered in the model.  
 
 
 
@@ -139,7 +130,7 @@ It is biologically meaningful to implement a growth equation, like a logistic cu
 $$ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T $$
 $$ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T $$
 
-where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, for the purposes of this procedure the Bayesian information criterion ($BIC_2$), originally developed by \cite{chen2008extended} was implemented.  A nice feature that comes from modeling the fit in this manner is that the dimension of response phenotypic data is reduced through LOP modeling. (\cite{li2010functional}, \cite{jiang20152higwas}, \cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).  Writing the model out more explicitly we would have,
+where $L_0(t), L_1(t), ... , L_s(t)$ and  $L_0(t), L_1(t), ... , L_{s'}(t)$ are the LOP of orders $s$ and $s'$, respectively; and $u_{j0}, u_{j1},...,u_{js}$ and $v_{j0}, v_{j1},...,v_{js'}$ are the vectors of time-invariant additive and dominant effects, respectively. Orders $s$ and $s'$, selected from information criteria, for the purposes of this procedure the Bayesian information criterion ($BIC_2$), originally developed by \cite{chen2008extended} was implemented.  A nice feature that comes from modeling the fit in this manner is that the dimension of response data is reduced through LOP modeling. (\cite{li2010functional}, \cite{jiang20152higwas}, \cite{li2010functional}, \cite{ahn2010functional}, \cite{das2011dynamic}).  Writing the model out more explicitly we would have,
 
 \begin{equation}
 \begin{split}
@@ -156,24 +147,7 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 
 ### Incorporating with the iForm Procedure
 
-
-$$
-\begin{equation}
-\begin{split}
-P_n(x) & = \frac{1}{2^n}\sum_{k=0}^{n}{{n}\choose{k}}^2(x-1)^{n-k}(x+1)^k \\
-& = \sum_{k=0}^{n}{{n}\choose{k}}{{-n-1}\choose{k}}{\left(\frac{1-x}{2}\right)}^k \\
-& = 2^{-n}\sum_{k=0}^{n} x^k {{n}\choose{k}}{{\frac{n+k+1}{2}}\choose{k}} \\
-\end{split}
-\end{equation}
-$$
-
-
-
-(iForm with Legendre Polynomials Model)
-
-
-$$\alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T$$
-$$\beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T$$
+We start off with the underlying assumption that our final model will be of the following form.
 
 $$
 \begin{equation}
@@ -183,27 +157,25 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \end{split}
 \end{equation}
 $$
+where,
 
 $$\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}$$
+$$ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T $$
+$$ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T $$
 
-( Model (iForm with Legendre Model) )
+<p> An outline of the selection procedure used following the model described is as follows.  At first the mean growth curve is estimated for the presented data following the logistic growth curve.  This could be adjusted depending on the functional process the researcher is studying.  Once the mean curve is fit the selection procedure is initialized in a similar fashion as mentioned in previous chapters \@ref{highdeqtl}.  Both the solution set is assigned to the empty set, $S_0=\emptyset$ and the model set is set to just the fitted growth curve as an effect.$M_0=\mu(t)$. The candidate set begins with containing all main effects for the additive and dominant effects of each SNP.  The selection procedure then begins and each SNP is assessed and the best fitting candidate is then placed in the selection set.  While assessing each candidate SNP, an additional search is performed for the best fitting polynomial fit up to a pre-specified order that is determined at the beginning of the procedure.  The orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other functional models or other types of non-linear functions that characterizes the biological systems being evaluated. We are treating the polynomials as a basis function for the regression problem and therefore the residual sum of squares is calculated similar to generalized least squares but replacing the design matrix with the necessary basis functions.  This continues until a designated stopping value is reached.  The $BIC_2$ is then used to find the optimal fit given the selection set produced by the procedure.  The following graphics show how the process works at each step </p>
 
+  - Step 1: (Growth Curve) Fit the mean growth curve to the resonse data and use as an intercept term.  
   - Step 1: (Initialization) 
-  Set $\mathcal{S}^{(0)} = \emptyset$, $\mathcal{M}_0 = \emptyset$ and $\mathcal{C}_0 = \mathcal{P_1}$
+  Set $\mathcal{S}^{(0)} = \emptyset$, $\mathcal{M}_0 = \mu(t)$ and $\mathcal{C}_0 = \mathcal{P_1}$
   - Step 2: (Selection) In the kth step with given $\mathcal{S}^{(k-1)}$, $\mathcal{C}^{k−1}$ and $\mathcal{M}^{k−1}$, [forward regression](#/7) is used to select one more predictor from $\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}$ into the model while checking for different degrees of the legendre polynomial used as a basis for the genetic effect. We add the selected one into $\mathcal{S}^{k−1}$ to get $\mathcal{S}^k$. We also update $\mathcal{C}^k$ and $\mathcal{M}^k$ if the newly selected predictor is a main effect. Otherwise, $\mathcal{C}^k = \mathcal{C}^{k−1}$ and $\mathcal{M}^k = \mathcal{M}^{k−1}$
   - Step 3: (Solution Path). Iterating Step 2, for D times, which leads to a total of D nested candidate models.  We then collect those models by a solution path $\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}$
 
-
-
-<p> An outline of the selection procedure used following the model described is as follows.  At first the mean growth curve is estimated for the presented data following the logistic growth curve.  This could be adjusted depending on the functional process the researcher is studying.  Once the mean curve is fit the selection procedure is initialized in a similar fashion as mentioned in previous chapters \@ref{highdeqtl}.  Both the solution set and the model set are assigned to the empty set, $S_0=\emptyset$ and $M_0=\emptyset$. The candidate set starts off containing all main effects for the additive and dominant effects of each SNP.  The selection procedure then begins and each SNP is assessed and the best fitting candidate is then placed in the selection set.  While assessing each candidate SNP, an additional search is performed for the best fitting polynomial fit up to a pre-specified order that is determined at the beginning of the procedure.  The orthogonal polynomials are used to assist in fitting the genetic effects for each marker or epistatic interaction between the markers. This would allow the genetic effect some flexibility over time and give a more representative fit. This could also be used with other functional models or other types of non-linear functions that characterizes the biological systems being evaluated. We are treating the polynomials as a basis function for the regression problem and therefore the Residual Sum of Squares is calculated similar to multiple regression but replacing the design matrix with the necessary basis functions.  This continues until a designated stopping value is reached.  The $BIC_2$ is then used to find the optimal fit given the selection procedure performed.  The following graphics show how the process works at each step </p>
-
-
-
-```{r growth-example, fig.cap='Example Growth Curve', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+```{r growth-example, fig.cap='Intial Growth Curve Fit', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
 knitr::include_graphics("images/GrowthCurveExample.png")
 ```
 
-```{r growth-exampledata, fig.cap='Example Data with Growth Cruve', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+```{r growth-exampledata, fig.cap='Growth Cruve with Example Data', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
 knitr::include_graphics("images/ExampleDataGrowthCurve.png")
 ```
 
@@ -211,6 +183,7 @@ knitr::include_graphics("images/ExampleDataGrowthCurve.png")
 knitr::include_graphics("images/LegendreFit.png")
 ```
 
+<p> As you can see from the step by step graphics, the mean growth curve is fit.  The example data follows the overall growth pattern but there is some variation that is left to be exlpained.  Each genetic marker is then tested to see if the fit is improved by the addition of the effect following the legendre polynomial.  We see in the thrid graphic that the selected line fits closer to the given data than using the mean growth curve by itself.  This genetic effect then would be selected and place into the selection set.  Futher iterations to the procedure will then be conducted to see if the fit can be futher explained by the inclusion of additional genetic or epistatic effects.  </p>
 
 ## Application
 

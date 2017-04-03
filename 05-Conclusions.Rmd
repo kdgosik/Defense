@@ -18,7 +18,7 @@ In [Chapter 02](#highdeqtl) the iFORM procedure was introduced and explored.  It
 
 ### Higher Order Epistasis
 
-In [Chapter 03](#higherorder) higher order epistsis was the focus.  Extending the iFORM procedure to open up the possibilty of higher order epistasis is pivotal in understanding complex traits. More support is coming out that phenotypes that are controlled by a multitude of genetic and epigentic effects potential could come from effects involving three or more loci.  
+In [Chapter 03](#highorder) higher order epistsis was the focus.  Extending the iFORM procedure to open up the possibilty of higher order epistasis is pivotal in understanding complex traits. More support is coming out that phenotypes that are controlled by a multitude of genetic and epigentic effects potential could come from effects involving three or more loci.  
 
  - advantages 
  - disadvantages
