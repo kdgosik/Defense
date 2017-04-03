@@ -17,13 +17,15 @@ knitr::include_graphics("images/SNP_Picture.png")
 
 <p> There are several goals to genetic mapping and association studies that identify certain regions of the genome that contain genes involved in specifying a quantitative trait, refered to as quantitative trait loci (QTLs).  One main goal is to estimate the genetic effects of these loci. The relationship between the genetic effects of QTLs and the phenotypic value of quantitative traits can be described by a linear model (\cite{collard2005introduction}, \cite{xu2007empirical}). Typically, because of the high throughput nature of the data there are a large number of markers across the whole genome, and most of the markers may have very little or next no effect on the phenotype under study. The models can be very sparse, with most cases, the number of genetic markers or variables is bigger than the sample size, especially when interactions among markers are considered. This makes a model is oversaturated and furher model selection techniques may be required to capture the necessary information. \cite{dong2015accurate} </p>
 
-
+```{r system-map, fig.cap='Systems Map', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
+knitr::include_graphics("images/SystemsMapping.png")
+```
 
 ## Some Exisiting Methods
 
-Numerous methods exist and are being developed to measure and find quantitative trait loci (QTL) effects.  These methods can broadly fall into three main categories.  These categories are Least-Square methods, maximum likelihood and Bayesian approaches.  (\cite{wu2007statistical})  Each method has advantages and considerations that you would need to be aware before conducting analyses to find QTL effects from the given markers.  A brief discussions on a few of the methods are given to highlight some areas of consideration and how the methods proposed can handle such considerations.  
+<p> Numerous methods exist and are being developed to measure and find quantitative trait loci (QTL) effects.  These methods can broadly fall into three main categories.  These categories are Least-Square methods, maximum likelihood and Bayesian approaches.  (\cite{wu2007statistical})  Each method has advantages and considerations that you would need to be aware before conducting analyses to find QTL effects from the given markers.  A brief discussions on a few of the methods are given to highlight some areas of consideration and how the methods proposed can handle such considerations. </p>
 
-Marker Regression would fall in the category of Least Squares approaches.  If looking at one marker analysis general t-test and ANOVA procedures can be used to analyze the relationship.  It is not recommended however for use in general practice because you do not know how dense the markers are measured.  QTL interval mapping would be preferred in such an analysis because the methods take account for missing genotype data that may not have been measured.  When estimating a QTL position through maximum likelihood methods, like interval mapping, positions of other possible QTLs could affect the detection of the true position.  Neighboring QTLs could possibly flatten the likelihood in instances where there are multiple QTLs on the same chromosome. This would make an effect look less significant at a given location than it actually is.  Another possibility is that in the search over the interval you may find an area where the likelihood could reach a peak but could be a “ghost” QTL.  This is where an effect is observed because a neighboring QTL is skewing the results at the particular position you are looking in and the result is a false discovery of the position.  Marker Regression has been shown to improve interval mapping, which is call Composite Interval Mapping.  This is where the QTL position found is also combined in a linear regression where the covariates are the other markers in the dataset.  By including the markers as covariates the other position in the chromosome are accounted for in the analysis and false discovery is reduced.  
+<p> Marker Regression would fall in the category of Least Squares approaches.  If looking at one marker analysis general t-test and ANOVA procedures can be used to analyze the relationship.  It is not recommended however for use in general practice because you do not know how dense the markers are measured.  QTL interval mapping would be preferred in such an analysis because the methods take account for missing genotype data that may not have been measured.  When estimating a QTL position through maximum likelihood methods, like interval mapping, positions of other possible QTLs could affect the detection of the true position.  Neighboring QTLs could possibly flatten the likelihood in instances where there are multiple QTLs on the same chromosome. This would make an effect look less significant at a given location than it actually is.  Another possibility is that in the search over the interval you may find an area where the likelihood could reach a peak but could be a “ghost” QTL.  This is where an effect is observed because a neighboring QTL is skewing the results at the particular position you are looking in and the result is a false discovery of the position.  Marker Regression has been shown to improve interval mapping, which is call Composite Interval Mapping.  This is where the QTL position found is also combined in a linear regression where the covariates are the other markers in the dataset.  By including the markers as covariates the other position in the chromosome are accounted for in the analysis and false discovery is reduced.  </p>
 
 <p> The analysis of interval mapping and single marker analyses has shown to be effective but it limits our inference to one marker at a time as a possible loci that controls a trait.   Using Marker Regression however you can incorporate multiple markers in a single analysis to test for possible QTL for a given trait.  It is cautioned that running such an analysis is only an approximate test because the null hypothesis is there is no difference between the marker levels and therefore a non-mixture distribution but the alternative is a mixture of distributions.  The assumptions regression would make of the errors within the marker type to be normally distributed may not be entirely met if the QTL’s fall between the marker regions.  However \cite{whittaker1996mapping} have shown that a direct regression of phenotypes on marker types, provides the same information about location of QTL-effects without having to step to all positions on the interval.  With this information using the entire marker set in a regression analysis would provide a nice, computationally efficient way to map out the genetic architecture of a trait.</p>
 
@@ -71,33 +73,3 @@ In order to use all relevant information of the repeated measure data would take
 Using a growth curve model to assist in fitting the data would help ease some of the comutational burden.  The selection of genetic effects however would be very simplistic as some additive shift to the curve.  This simplistic view may not be the most accurate and therefore more complicated structures could produce better results.  As we have seen in Chapter 03, the genetic effects over time seem to vary among different genotypes and the interaction effects follow more of a non-linear pattern. In order to allow for more flexible, non-linear modeling with not expending too much computation burden, Legendre Orthogonal Polynomials were considered to model the genetic effects.  These polynomials have various form and would allow for the genetic effect to follow different patterns but also not induce unnecessary correlation between predictors included in the model.  
 
 These benefits do come at a computational cost but by including the repeated measures portion of the data it enabled for the use of more data and therefore increase the power of the modeling.  
-
-
-
-```{r system-map, fig.cap='Systems Map', out.width='80%', fig.asp=.75, fig.align='center', echo = FALSE}
-knitr::include_graphics("images/SystemsMapping.png")
-```
-
-
-
-
-
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
-
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
-
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].

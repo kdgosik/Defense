@@ -1,4 +1,4 @@
-# iForm Functional Mapping (A computational method)
+# iForm Functional Mapping {#iformfunc}
 
 
 ## Motivation

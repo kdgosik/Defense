@@ -2,12 +2,24 @@
 
 ## Summary
 
+<p> In my dissertation I have applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by \cite{hao2014interaction} that is able to reduce the search space substantially by making some reasonable assumptions about the data and underlying biological structure.  These assumptions can be relaxed a little to broaden the scope of the search space if desired. The procedure has been applied in both simulated and real datasets in all areas of study.  There are many advantages to using such a procedure with some being it is a computationally efficient way for high dimensional data situations that arise from high throughput data, especially when considering epistasis between gene markers or other type of interaction effects in the model.  The search space is guided based off of commonly used principles in model selection that are relevant in real world situations. It is able to perform a GWAS with included epistatic interactions a fairly quick manner.  </p>
+
+<p> The ability to relax these assumptions leads to a widened search space but may decrease the speed of the algorithm.  This will make the search more comprehensive and able to pick up on effects that may have been missed with stricter assumptions.  One nice use for the procedure is the ability to screen for complex scenarios that would be hard to find in a lab setting otherwise.  The screening lends itself to find previously undiscovered effects but with the flexibility of the initial model, false positive rates could be a concern and need to be taken into consideration.  Adjustment to the significance level and the model selection criteria have been made to account for this.  This would still need to be followed up by independently checking with other datasets and/or lab verification techniques.  </p>
+
+
+
+
 ### HighDeQTL
+
+In [Chapter 02](#highdeqtl) the iFORM procedure was introduced and explored.  It showed many nice properties that are desirable in high dimensional data analysis.   
  - advantages 
  - disadvantages
  steps to improve
 
 ### Higher Order Epistasis
+
+In [Chapter 03](#higherorder) higher order epistsis was the focus.  Extending the iFORM procedure to open up the possibilty of higher order epistasis is pivotal in understanding complex traits. More support is coming out that phenotypes that are controlled by a multitude of genetic and epigentic effects potential could come from effects involving three or more loci.  
+
  - advantages 
  - disadvantages
  steps to improve
@@ -19,28 +31,22 @@
  - disadvantages
  steps to improve
 
+In [Chapter 04](#iformfunc)
+Functional components were also considered to such a selection procedure.  This also increases the computational complexity of the model and therefore decreases some efficiency gains previously seen.  Using biologically relevant information to guide the fitting of the model.  Initially considers well established growth equations as a baseline for the underlying structure.  It then performs a GWAS level analysis with considering epstatic interactions throughout the process.  
+
+
 what else will be done before submitting for publication.  
 
 What areas need developed more and what areas will be looked into and discussed in further detail?
-
-
-
-### Previously written summary paragraph
-
-In my disseration I have applied, adapted and extended the forward selection procedure under the marginality assumption first proposed by \cite{hao2014interaction} that is able to reduce search space substantially by making some reasonable assumptions about the data.  These assumptions can be relaxed a little to broaden the scope of the space. The procedure ahs been applied in both simulated and real datasets in all areas of study.  There are many advantages to using such a procedure with some being it is a computationally efficient way for high dimensional data situations that arise from high throughput data, especially when considering epistasis between gene markers or other type of interaction effects in the model.  Guided search space based off of commonly used principles in model selection that are relevant in real world situations. It is able to perform a GWAS with included epistatic interactions a fairly quick manner.  Able to relax assumptions to widen the search space.  This may decrease the speed of the algorithm but makes the search more comprehensive.  Also it is able to screen for complex scenarios that would be hard to find in a lab setting otherwise.  Having said that with the flexiblity of the initial model, false posiive rates could be a concern and need to be taken into consideration.  Adjustement to the significance level and the model selection criteria have been made to account for this.  This would still need to be followed up on independtly by checking with other datasets and/or lab verification.  
-
-Functional componenets were also considered to such a selection procedure.  This also increases the computational complexity of the model and therefore decreases some efficeiency gains previously seen.  Use biologically relevant information to guide the fitting of the model.  Initially considers well established growth equations as a baseline for the underlying structure.  It then performs a GWAS level analysis with considering epstatic interactions throughout the process.  
-
-
 
 
 ## Discussion
 
 **Needs Expanded**
 
-The selection procedures proposed attempt to address problems that are complex and have many moving parts to the procedure.  Using a flexible model is very helpful to fulfill such requirements but this could have it be prone to over fitting at times if not well controlled.  Need to heavily consider this as part of interpretating the model.  Using stricter selection criteria and corrections to multuple testing for significance is extremely important.  The main purpose is to use a screening to guide future research, use for exploratory data analysis and hypothesis genration.  
+The selection procedures proposed attempt to address problems that are complex and have many moving parts to the procedure.  Using a flexible model is very helpful to fulfill such requirements but this could have it be prone to over fitting at times if not well controlled.  Need to heavily consider this as part of interpreting the model.  Using stricter selection criteria and corrections to multiple testing for significance is extremely important.  The main purpose is to use a screening to guide future research, use for exploratory data analysis and hypothesis generation.  
 
-With the complexity and expense that comes with genetic mapping, especially with a functional traits that needs repeatedly measured over time.  Correlation structures are inherent in this data that need be addressed and usually done so at a heavy computational cost.  Framing the problem as a regression problem and beingn able to use OLS calculations help to reduce the cost.  Verification steps are important steps especially with something as intricate as epistatic effects between gene markers.
+With the complexity and expense that comes with genetic mapping, especially with a functional traits that needs repeatedly measured over time.  Correlation structures are inherent in this data that need be addressed and usually done so at a heavy computational cost.  Framing the problem as a regression problem and being able to use OLS calculations help to reduce the cost.  Verification steps are important steps especially with something as intricate as epistatic effects between gene markers.
 
 Further investigations are needed to confirm or modify our findings by QTL mapping in natural populations.
 
@@ -68,13 +74,13 @@ Monitoring the change in expression patterns over time provides the distinct pos
   - Combine functional component and multivariate response into complete functional network
     - Time-Series of gene expression from cell lines or tissue types
 
-More extensive explaination of future aims will be necessary for the final write up.  
+More extensive explanation of future aims will be necessary for the final write up.  
 
 
 
 ### Aim 1
 
-Incorporating other mean curves for the intercept term could help extend and relate to other areas of biology that follow a functional trait.  There are also other types of orthogonal polynomials that could be explored as well.  Using others polynomials would allow for other fits to the data that may be more applicable in other scenarios.  Also using other basis functions in general could open up opportunties for other areas of application.  
+Incorporating other mean curves for the intercept term could help extend and relate to other areas of biology that follow a functional trait.  There are also other types of orthogonal polynomials that could be explored as well.  Using others polynomials would allow for other fits to the data that may be more applicable in other scenarios.  Also using other basis functions in general could open up opportunities for other areas of application.  
 
 
 ## Aim 2
@@ -83,7 +89,7 @@ Other interesting areas would be to consider different levels of interactions wi
 
 ### Aim 3
 
-Statistical areas that could as be considered to extend the model would be to include multivariate reponses to the system.  For example having gene and protein expression being a bivariate reponse and to see how genetic markers and epistasis between the markers would better predict this by taking the correlation between those two response variables into account.  Other statistical considerations would be to extend selection criteria to help further reduce the possibility of false positves being selected given a growing dataset like the one that occurs while dynamically including interaction effects throughout the selection.  Making the model even more computational efficient would always be benefical as well.  The faster a model can accurately run the more likely a researcher will use it.  It will also help process all the high throughput data that is being constantly developed.  
+Statistical areas that could as be considered to extend the model would be to include multivariate responses to the system.  For example having gene and protein expression being a bivariate response and to see how genetic markers and epistasis between the markers would better predict this by taking the correlation between those two response variables into account.  Other statistical considerations would be to extend selection criteria to help further reduce the possibility of false positives being selected given a growing dataset like the one that occurs while dynamically including interaction effects throughout the selection.  Making the model even more computational efficient would always be beneficial as well.  The faster a model can accurately run the more likely a researcher will use it.  It will also help process all the high throughput data that is being constantly developed.  
 
 ### Closing Remarks
 
