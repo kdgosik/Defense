@@ -1157,8 +1157,8 @@ in the F2 design of model systems and natural populations of outcrossing
 species such as humans. A more general model of iFORM should consider
 three genotypes at each locus, which provides estimates of additive and
 dominant effects at each locus and four types of epistasis, i.e.,
-additive  additive, additive  dominant, dominant  additive and
-dominant  dominant, between each pair of loci
+additive x additive, additive x dominant, dominant x additive and
+dominant x dominant, between each pair of loci
 (\cite{kempthorne1968correlation}). Each of these epistatic types may
 affect a phenotype through a different pathway.
 
@@ -2360,14 +2360,14 @@ following graphics show how the process works at each step
 \item
   Step 3: (Selection) In the kth step with given
   \(\mathcal{S}^{(k-1)}\), \(\mathcal{C}^{k−1}\) and
-  \(\mathcal{M}^{k−1}\), \protect\hyperlink{ux2f7}{forward regression}
-  is used to select one more predictor from
-  \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\) into the model while checking
-  for different degrees of the legendre polynomial used as a basis for
-  the genetic effect. We add the selected one into \(\mathcal{S}^{k−1}\)
-  to get \(\mathcal{S}^k\). We also update \(\mathcal{C}^k\) and
-  \(\mathcal{M}^k\) if the newly selected predictor is a main effect.
-  Otherwise, \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
+  \(\mathcal{M}^{k−1}\), forward regression is used to select one more
+  predictor from \(\mathcal{C}^{k−1}/ \mathcal{S}^{k−1}\) into the model
+  while checking for different degrees of the legendre polynomial used
+  as a basis for the genetic effect. We add the selected one into
+  \(\mathcal{S}^{k−1}\) to get \(\mathcal{S}^k\). We also update
+  \(\mathcal{C}^k\) and \(\mathcal{M}^k\) if the newly selected
+  predictor is a main effect. Otherwise,
+  \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
   \(\mathcal{M}^k = \mathcal{M}^{k−1}\)
 \item
   Step 4: (Solution Path). Iterating Step 2, for D times, which leads to
@@ -2440,8 +2440,7 @@ this was obstained the large majority of the time. The average model
 size of the replicates fit was around 13.5 which explains the 14\% false
 positive rate. This would indicate some slight over-fitting but all
 important effects were included in the model. Future considerations for
-this area could be beneficial to obtaining alooked into further for
-future work.
+this area could be beneficial to obtaining less over fitting.
 
 \begin{table}
 
@@ -2460,16 +2459,16 @@ Polynomial Degree & 0.7125 & 0.0251 & 0.9667 & 0.0007\\
 
 \subsection{Worked Example}\label{worked-example-1}
 
-As a comparison to what was done before in \ref{highorder} the same mei
-tree dataset used in this chapter was studied again. This serves as a
-comparison to previous performance and also to see if any new
-discoveries can be made by incorporating the time component and fitting
-the growth parameters simultaneously throughout the procedure. The
-previous model only fit one parameter of the growth equation as a time
-and assessed the genetic markers that had a significant impact of this
-parameter. The parameter focused on was the rate parameter,r for the
-shoot height of the progeny. The initial results running the analysis
-with a single predictor and using the selection procedure are,
+Comparing to previous work in \ref{highorder} the same mei tree dataset
+used in this chapter was reanalyzed. This serves as a comparison to
+previous performance and also to see if any new discoveries can be made
+by incorporating the time component and fitting the growth parameters
+simultaneously throughout the procedure. The previous model only fit one
+parameter of the growth equation as a time and assessed the genetic
+markers that had a significant impact of this parameter. The parameter
+focused on was the rate parameter,r for the shoot height of the progeny.
+The initial results running the analysis with a single predictor and
+using the selection procedure are,
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2507,25 +2506,25 @@ AATTC\_nn\_np\_2517\_a×CATG\_hk\_hk\_648\_a & 0.14537 & 0.02840 & 5.118 & 8.33e
 \end{tabular}
 \end{table}
 
-As a comparison here are the results for simultaneously fitting the
-growth curve and allowing for a more flexible genetic effect to be fit
-to the data. As you can see there are overlapping markers identified in
-the models. This shows the robustness of the new selection technique to
-be consistent with previous models. You can also see that the fit of the
-overall model has also increased. By including all effects at once, you
-gain more statistical power and it boost the adjusted R square value
-from 0.71 to above 0.9. This boost in model performance could be
-partially due to some over-fitting like we observed in the simulation
-studies and therefore a very strict bonferroni correction was
-implemented to assess whether individual markers were truly significant.
-Even with a strict cut-off we still observed 3 epistatic predictors to
-be highly significant. This shows the importance of including such terms
-while performing such a GWAS. The other area to note is the highly
-significant intercept term, which in our case is the result of the
-growth curve fit before implementing the selection procedure. This
-indicates also the importance of including biologically relevant
-information in the model to help better understand the genetic
-architecture being studied of the phenotype.
+Simultaneously fitting the growth curve and allowing for a more flexible
+genetic effect to be fit to the data are presented below. As you can see
+there are overlapping markers identified in the models. This shows the
+robustness of the new selection technique to be consistent with previous
+models. You can also see that the fit of the overall model has also
+increased. By including all effects at once, you gain more statistical
+power and it boost the adjusted R square value from 0.71 to above 0.9.
+This boost in model performance could be partially due to some
+over-fitting like we observed in the simulation studies and therefore a
+very strict bonferroni correction was implemented to assess whether
+individual markers were truly significant. Even with a strict cut-off we
+still observed 3 epistatic predictors to be highly significant. This
+shows the importance of including such terms while performing such a
+GWAS. The other area to note is the highly significant intercept term,
+\(\mu(t)\), which in our case is the result of the growth curve fit
+before implementing the selection procedure. This indicates also the
+importance of including biologically relevant information in the model
+to help better understand the genetic architecture being studied of the
+phenotype.
 
 \begin{table}
 
