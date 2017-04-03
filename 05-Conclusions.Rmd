@@ -30,7 +30,7 @@
 
 <p> Incorporating other curves for the mean response curve could help extend and relate to other areas of biology that follow a functional trait. There are also other types of orthogonal polynomials that could be explored as well. Using others polynomials would allow for other fits to the data that may be more applicable in other scenarios.  Also using other basis functions in general could open up opportunities for other areas of application. There are many non-linear functions that could be used besides a polynomial fit that may also explain the underlying genetic effects over time for other situations. </p>
 
-## Aim 2
+### Aim 2
 
 <p> Other interesting areas would be to consider different levels of interactions with other omics data.  The gene-gene interactions considered are only a portion of the picture and this type of modeling could also handle complex levels of interactions that occur in a biological system.  One area that I am particularly interested in applying it to would be in methylation and its interaction with gene expression.  This level of interaction is very important and a selection procedure like the one proposed could help screen and generate possible effects for hypotheses to continue to look into. This does not have to be restricted to just within the biological system under study. It would also apply in gene-environment interactions. Environmental factors are important areas that could vastly impact the development of a phenotype. Having the interaction with environmental factors could open up further avenues that able to previously be explored. </p>
 
