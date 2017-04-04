@@ -1,3 +1,8 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 # Introduction {#intro}
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -42,9 +47,8 @@ knitr::include_graphics("images/SystemsMapping.png")
 
 ### iForm Funcional Mapping
 
-<p> The application of the Mei tree growth led into exploring to use a more functional phenotype as a response throughout the selection procedure.  In order to use all relevant information of the repeated measure data, it would take an additional computation burden to the selection and the modeling but it would also give more power and flexibility to the modeling that would not be present otherwise.  It is important to use all relevant information in order to make the most accurate prediction about the data.  Using a growth curve model to assist in fitting the data would help ease some of the computational burden.  The selection of genetic effects however would be very simplistic as some additive shift to the curve.  This view may not be the most accurate and therefore more complicated structures will be implemented to produce better results. Legendre orthogonal polynomials were considered to model the genetic effects.  These polynomials have various forms and would allow for the genetic effect to follow different patterns but also not induce unnecessary correlation between predictors when included in the model. Again, simulation studies were conducted and a reanalysis of the full Mei tree dataset was considered.  </p>
+<p> The application of the Mei tree growth led into exploring to use a more functional phenotype as a response throughout the selection procedure.  In order to use all relevant information of the repeated measure data, it would take an additional computation burden to the selection and the modeling but it would also give more power and flexibility to the modeling that would not be present otherwise.  It is important to use all relevant information in order to make the most accurate prediction about the data.  Using a growth curve model to assist in fitting the data would help ease some of the computational burden.  The selection of genetic effects however would be very simplistic as some additive shift to the curve.  This view may not be the most accurate and therefore more complicated structures will be implemented to produce better results. Legendre orthogonal polynomials were considered to model the genetic effects.  These polynomials have various forms and would allow for the genetic effect to follow different patterns but also not induce unnecessary correlation between predictors when included in the model. Again, simulation studies were conducted and a reanalysis of the full Mei tree dataset was considered.</p>
 
 ### Conclusions
 
-<p> Finally in the last chapter it will focus on comparisons and discussion around the models proposed.  Future aims of the research goals will be explored also.  Seeing how my current research will lead into the aims and what possible directions can be explored with the given statistical frameworks. </p>
-
+<p> Finally the last chapter will focus on comparisons and discussion around the models proposed.  It will also summarize and discuss advantages to each of the proposed models. What benefits and looks to be aware of will also be identified. Future aims of the research goals will be explored following the discussion.  The possible directions the research can be taken and also some extensions that are possible. Finally, seeing how my current research will lead into the aims and what possible directions can be explored with the given statistical frameworks will be dicussed.</p>
