@@ -26,53 +26,11 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Untitled},
-            pdfauthor={Kirk Gosik},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -118,15 +76,13 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Untitled}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Kirk Gosik}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \predate{\centering\large\emph}
-  \postdate{\par}
-  \date{April 3, 2017}
+  \title{}
+  \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -154,7 +110,6 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \begin{document}
-\maketitle
 
 \begin{center}
 \begin{titlepage}
@@ -555,7 +510,7 @@ Hao and Zhang \cite{hao2014interaction} formulated an interaction
 forward selecting procedure under the marginality principle (iFORM). The
 marker and gene transcript data of the study population can be denoted
 as \((X_i,Y_i) (i = 1,\dots, n)\) which are independent and identically
-distributed copies of (X,Y), where \(X = (X_1,\dots,X_p )^T\) is a
+distributed copies of (X,Y), where \(X = (X_1,\dots,X_p)^T\) is a
 p-dimensional predictor vector and Y is the response, expressed by a
 linear regression model:
 
@@ -564,14 +519,14 @@ Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon
 \label{eq:lin-mod}
 \end{equation}
 
-The \(\beta\)'s are the coefficients for the genetic effects of each
+The \(\beta\)'s are the coefficients for the genetic effects of each
 marker. Like most genome-wide datasets, the number of markers here
-grossly outnumbers the number of observations, \(p >> n\). Therefore,
-selection procedures would need to be implemented in order to fit a
-linear regression model such as \eqref{eq:lin-mod}. We are already at the
-point of high-dimensional data but if we want to include epistatic
-effects between different markers as predictors as well it would
-increase the amount of predictors by \((p^2+p)/2\) . The resulting
+grossly outnumbers the number of observations, \(p \gt\gt n\).
+Therefore, selection procedures would need to be implemented in order to
+fit a linear regression model such as \eqref{eq:lin-mod}. We are already
+at the point of high-dimensional data but if we want to include
+epistatic effects between different markers as predictors as well it
+would increase the amount of predictors by \((p^2+p)/2\) . The resulting
 linear model would grow to be,
 
 \begin{equation}
@@ -579,14 +534,14 @@ Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \gamma_{11} X_1^2 +\gamma_{12}
 \label{eq:lin-mod2}
 \end{equation}
 
-where \(\gamma\)'s are the coefficients for the epistatic effects for
+where \(\gamma\)'s are the coefficients for the epistatic effects for
 all the quadratic and two-way interactions between the markers. For
 convenience we will assume that the markers and the transcripts are
 standardized before running the selection procedure. Therefore,
-\(E(X_ij )=0\), \(Var(X_ij )=1\), \(E(Y_i )=0\) and \(Var(Y_i )=1\) for
+\(E(X_ij)=0\), \(Var(X_ij)=1\), \(E(Y_i)=0\) and \(Var(Y_i)=1\) for
 \(i=1,\dots,n\); \(j=1,\dots,p\). Also, the quadratic and two-way
 interaction effects will be centered which we will write as
-\(Z_i=(\dots,X_{ik} X_{il}-E(X_{ik} X_{il} ),\dots)^T\). By doing so we
+\(Z_i=(\dots,X_{ik} X_{il}-E(X_{ik} X_{il}),\dots)^T\). By doing so we
 would eliminate the need for an intercept in regression model
 \eqref{eq:lin-mod2}. This would reduce the model to the form,
 
@@ -622,7 +577,7 @@ strong case of the principle states that an interaction effect should
 not be considered unless both the contributing main effects are in the
 model (\cite{zhao2006model}). This would translate to
 \(\gamma_{jk} \ne 0\) only if
-\(\beta_j, \beta_k \ne 0 \forall 1 ≤ j, k ≤ p\) for model
+\(\beta_j, \beta_k \ne 0~ \forall~ 1 \le j, k \le p\) for model
 (\eqref{eq:lin-mod2}). By including both principles during the selection
 process it allows for dynamically including both main effects and
 interactions effects. The interaction effects can only be considered
@@ -635,21 +590,21 @@ the procedure is given below.
 \cite{hao2014interaction} formulated an interaction forward selecting
 procedure under the marginality principle (iFORM). The procedure's
 initial step starts with the empty set for both the solution set and the
-model set, \(S_0=\emptyset\) and \(M_0=\emptyset\). The candidate set
-contains all main effects at the beginning, \(\mathcal{C}_0 = P_1\), for
-each of the markers as a possible eQTL. Typical forward selection
-procedures are carried out to start the selection. Each marker is tested
-individually using a marker regression. The marker that results in the
-lowest residual sum of squares is the marker selected from the candidate
-set into the solution set as an eQTL. This is then iterated again for a
-selection of another marker into the model set. Once there are at least
-two main effects selected into the solution set, using the strong
-heredity principle, the quadratic and two-way interactions are then
-created and placed into the candidate set as possible eQTLs for
-selection in the next step. This process continues selecting main
-effects or the newly created interaction effects into the solution set.
-If another main effect is selected into the solution set, then the
-candidate set grows with the creation of all possible two-way
+model set, \(\mathcal{S}_0=\emptyset\) and \(\mathcal{M}_0=\emptyset\).
+The candidate set contains all main effects at the beginning,
+\(\mathcal{C}_0 = P_1\), for each of the markers as a possible eQTL.
+Typical forward selection procedures are carried out to start the
+selection. Each marker is tested individually using a marker regression.
+The marker that results in the lowest residual sum of squares is the
+marker selected from the candidate set into the solution set as an eQTL.
+This is then iterated again for a selection of another marker into the
+model set. Once there are at least two main effects selected into the
+solution set, using the strong heredity principle, the quadratic and
+two-way interactions are then created and placed into the candidate set
+as possible eQTLs for selection in the next step. This process continues
+selecting main effects or the newly created interaction effects into the
+solution set. If another main effect is selected into the solution set,
+then the candidate set grows with the creation of all possible two-way
 interactions of the main effects that are currently in the solution set.
 This is continued until a designated stopping value, say d. For the
 number of predictors placed into the model set from the solution set the
@@ -1069,7 +1024,7 @@ quantitative trait loci in a variety of organisms, but its bottleneck
 has emerged quickly due to its limitation in precisely and
 comprehensively charting genetic control landscapes. Many GWAS studies
 published are bothered by missing heritabilities because of their
-incapacity to detect genome-wide epistasis and genotype  environment
+incapacity to detect genome-wide epistasis and genotype x environment
 interactions (\cite{manolio2009finding}).
 
 Epistasis is a phenomenon by which the influence of a gene on the
@@ -1285,12 +1240,12 @@ pairwise and three-way interactions, the linear model is expressed as
 
 where \(X=(X_1,\dots,X_p)^T\) is the design matrix that specifies the
 genetic effects of each marker
-\(\beta=(\beta_1,\dots,\beta_p,~ Z=(X_jX_k)^T (1 \le j \le k \le p)\)
-is the design matrix that specifies the epistatic effects between two
+\(\beta=(\beta_1,\dots,\beta_p,~ Z=(X_jX_k)^T (1 \le j \le k \le p)\) is
+the design matrix that specifies the epistatic effects between two
 markers, expressed in
 \(\gamma, W=(X_j X_k X_l)^T (1 \le j \le k \le l \le p)\) is the design
 matrix that specifies the epistatic effects among three markers,
-expressed in \(\eta\), and \(\epsilon ~ N(0,\sigma^2 )\) is the residual
+expressed in \(\eta\), and \(\epsilon ~ N(0,\sigma^2)\) is the residual
 error normally distributed with mean zero and variance \(\sigma^2\). We
 denote the index sets for the linear, order-2 and order-3 effects in
 equation \eqref{eq:lin-mod}, respectively, as \(P_1={1,2,\dots,p}\)
@@ -1722,7 +1677,7 @@ relative growth rate. These three parameters determine the overall form
 of growth curve jointly, although they function differently. Thus, by
 estimating these parameters for individual hybrids using a nonlinear
 least squares approach, we can draw the growth curve of each hybrid.
-Differences in growth curve among hybrids may be controlled by specific
+Differences in growth curves among hybrids may be controlled by specific
 genes or quantitative trait loci (QTLs). Although tremendous efforts
 have been made to map growth QTLs and their epistasis
 (\cite{ma2002response};\cite{wu2006functional};
@@ -1731,7 +1686,7 @@ high-order epistasis although it has been thought to regulate growth
 processes.
 
 By treating the estimates of growth parameters for individual hybrids as
-``phenotypic traits,'' we used iFORM to map growth QTLs and QTL-QTL
+``phenotypic traits'', we used iFORM to map growth QTLs and QTL-QTL
 interactions. Of 4,934 markers, 2,100 are the testcross markers at which
 markers are segregating due to only one heterozygous parent and 2,834
 are the intercross markers whose segregation results from the
@@ -2259,27 +2214,28 @@ presented data following the logistic growth curve. This could be
 adjusted depending on the functional process the researcher is studying.
 Once the mean curve is fit the selection procedure is initialized in a
 similar fashion as mentioned in previous chapters @ref\{highdeqtl\}.
-Both the solution set is assigned to the empty set, \(S_0=\emptyset\)
-and the model set is set to just the fitted growth curve as an
-effect.\(M_0=\mu(t)\). The candidate set begins with containing all main
-effects for the additive and dominant effects of each SNP. The selection
-procedure then begins and each SNP is assessed and the best fitting
-candidate is then placed in the selection set. While assessing each
-candidate SNP, an additional search is performed for the best fitting
-polynomial fit up to a pre-specified order that is determined at the
-beginning of the procedure. The orthogonal polynomials are used to
-assist in fitting the genetic effects for each marker or epistatic
-interaction between the markers. This would allow the genetic effect
-some flexibility over time and give a more representative fit. This
-could also be used with other functional models or other types of
-non-linear functions that characterizes the biological systems being
-evaluated. We are treating the polynomials as a basis function for the
-regression problem and therefore the residual sum of squares is
-calculated similar to generalized least squares but replacing the design
-matrix with the necessary basis functions. This continues until a
-designated stopping value is reached. The \(BIC_2\) is then used to find
-the optimal fit given the selection set produced by the procedure. The
-following graphics show how the process works at each step
+Both the solution set is assigned to the empty set,
+\(\mathcal{S}_0=\emptyset\) and the model set is set to just the fitted
+growth curve as an effect.\(\mathcal{M}_0=\mu(t)\). The candidate set
+begins with containing all main effects for the additive and dominant
+effects of each SNP. The selection procedure then begins and each SNP is
+assessed and the best fitting candidate is then placed in the selection
+set. While assessing each candidate SNP, an additional search is
+performed for the best fitting polynomial fit up to a pre-specified
+order that is determined at the beginning of the procedure. The
+orthogonal polynomials are used to assist in fitting the genetic effects
+for each marker or epistatic interaction between the markers. This would
+allow the genetic effect some flexibility over time and give a more
+representative fit. This could also be used with other functional models
+or other types of non-linear functions that characterizes the biological
+systems being evaluated. We are treating the polynomials as a basis
+function for the regression problem and therefore the residual sum of
+squares is calculated similar to generalized least squares but replacing
+the design matrix with the necessary basis functions. This continues
+until a designated stopping value is reached. The \(BIC_2\) is then used
+to find the optimal fit given the selection set produced by the
+procedure. The following graphics show how the process works at each
+step
 
 \begin{itemize}
 \tightlist
@@ -2302,7 +2258,7 @@ following graphics show how the process works at each step
   \(\mathcal{C}^k = \mathcal{C}^{k−1}\) and
   \(\mathcal{M}^k = \mathcal{M}^{k−1}\)
 \item
-  Step 4: (Solution Path). Iterating Step 2, for D times, which leads to
+  Step 4: (Solution Path). Iterating Step 3, for D times, which leads to
   a total of D nested candidate models. We then collect those models by
   a solution path \(\mathbb{S}=\{\mathcal{S}^{(k)}: 1 \le k \le D\}\)
 \end{itemize}
@@ -2737,49 +2693,6 @@ shared in order to prevent and fight disease would be ideal research.
 This type of research would need both methodological development as well
 as application of existing statistical and machine/deep learning
 techniques to handle the magnitude of the problem.
-
-\chapter{Appendix}\label{appendix}
-
-This needs more work. Only includes first part of the appendix pdf
-
-\begin{center} 
-\includegraphics[width=8in]{appendix.pdf} 
-\end{center}
-
-\section{R Markdown}\label{r-markdown}
-
-This is an R Markdown document. Markdown is a simple formatting syntax
-for authoring HTML, PDF, and MS Word documents. For more details on
-using R Markdown see \url{http://rmarkdown.rstudio.com}.
-
-When you click the \textbf{Knit} button a document will be generated
-that includes both content as well as the output of any embedded R code
-chunks within the document. You can embed an R code chunk like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(cars)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-\end{verbatim}
-
-\section{Including Plots}\label{including-plots}
-
-You can also embed plots, for example:
-
-\includegraphics{Defense_files/figure-latex/pressure-1.pdf}
-
-Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
-chunk to prevent printing of the R code that generated the plot.
 
 \bibliography{packages,book}
 \addcontentsline{toc}{chapter}{\bibname}
