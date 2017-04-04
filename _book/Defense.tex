@@ -135,11 +135,10 @@ The dissertation of Kirk Gosik was reviewed and approved* by the following:
 
 Rongling Wu \\
 Distinguished Professor of Public Health Sciences and Statistics \\
-Thesis Advisor, Chair of Committee
+Dissertation Advisor, Chair of Committee
 
 Vernon Chinchilli \\
 Distinguished Professor and Chair of Public Health Sciences
-
 
 Lan Kong \\
 Associate Professor of Public Health Sciences
@@ -561,9 +560,10 @@ For any model M, \(|\mathcal{M}|\) will be used to denote the number of
 predictors contained in the model. The true model size would be
 indicated by \(|\mathcal{T}_1| = p_0\) and \(|\mathcal{T}_2| = q_0\) or
 together would be \(|\mathcal{T}|=d_0=p_0+q_0\). For the procedure,
-three sets will be used throughout. The sets are M for the model set, C
-for the candidate set of predictors and S for the solution set of
-predictors currently selected in the model.
+three sets will be used throughout. The sets are \(\mathcal{M}\) for the
+model set, \(\mathcal{C}\) for the candidate set of predictors and
+\(\mathcal{S}\) for the solution set of predictors currently selected in
+the model.
 
 There are two principles that are used in the selection procedure when
 considering interactions as candidates for selection into the final
@@ -690,11 +690,11 @@ Simulations studies were conducted to test the theoretical properties of
 the selection procedures and the results \ref{tab:sim1}, \ref{tab:sim2}
 and \ref{tab:sim3}. The results were compared to several other commonly
 used methods for eQTL mapping. In each of the examples the response was
-generated from model (2) with σ=1,2,and 3 for the random error with a
-sample size of \(n=200\). The \(X_i\)'s were all independently and
-identically distributed realizations generated from \(Binomial(0.5)\)
-and then orthogonal contrasts were made making each
-\(x_{ij} \in (-\frac{1}{2}, \frac{1}{2})\). The true
+generated from model (2) with \(\sigma=1,2,~and~3\) for the random error
+with a sample size of \(n=200\). The \(X_i\)'s were all independently
+and identically distributed realizations generated from
+\(Binomial(0.5)\) and then orthogonal contrasts were made making each
+\(x_{ij}~\in~(-\frac{1}{2}, \frac{1}{2})\). The true
 \(\beta=(3,0,0,3,0,3,3,0_{493})\), therefore making
 \(\mathcal{T}_1={1,4,6,7}\) and \(p_0=4\). The relevant interactions
 were set to the pairs \(\mathcal{T}_2={(1,6),(1,7),(4,7),(4,7)}\) and
@@ -829,7 +829,7 @@ and one sex chromosome (denoted as X).
 detect 2309 eQTLs by testing and scanning associations of each SNP with
 each gene transcript over the entire genome. Rockman et al's analysis
 allowed a rectangular map of eQTL positions gene positions to be
-constructed \ref{fig:RockmanPic} , from which one can identify cis-eQTLs
+constructed \ref{fig:RockmanPic}, from which one can identify cis-eQTLs
 on the diagonal and trans-eQTLs off the diagonal. However, because their
 association analysis was conducted individually for each SNP, the
 detection of eQTLs was based on the marginal effects of individual
@@ -1274,42 +1274,43 @@ epistasis}\label{iform-with-high-order-epistasis}
 The iForm procedure is a forward selecting procedure. In traditional
 forward selection the procedure starts with the empty set and then
 iterates through the entire set of possible predictors in
-\(\mathcal{C}\) and selects the best predictor and includes it in S at
-the end of each step. The best predictor can be determined in many ways
-but usually is defined by the predictor that results in the least amount
-of error. For our purposes we use the residual sum of squares. This
-continues with selecting the best predictor from C at each step until a
-designated stopping criterion is met or until some information criterion
-is met. Common information criteria used for selecting predictors to be
-in \(\mathcal{M}\) are AIC, BIC, \(R^2\) and Mallow's \(C_p\) statistic.
+\(\mathcal{C}\) and selects the best predictor and includes it in
+\(\mathcal{S}\) at the end of each step. The best predictor can be
+determined in many ways but usually is defined by the predictor that
+results in the least amount of error. For our purposes we use the
+residual sum of squares. This continues with selecting the best
+predictor from \(\mathcal{C}\) at each step until a designated stopping
+criterion is met or until some information criterion is met. Common
+information criteria used for selecting predictors to be in
+\(\mathcal{M}\) are AIC, BIC, \(R^2\) and Mallow's \(C_p\) statistic.
 
 The iForm procedure for high-order epistatic detection parallels the
-forward selection procedure, but C will grow dynamically with the
-creation of order-2 and order-3 interaction effects between main effects
-that were included from previous iterations of the procedure. There are
-three steps to the model selection. The first step is to initialize the
-3 sets mentioned above. The sets, \(\mathcal{S}\) and \(\mathcal{M}\)
-are set to the empty set while the candidate set, \(\mathcal{C}\), is
-first set to \(P_1\), all the main effects. The next step starts the
-forward selection procedure selecting predictors from \(\mathcal{C}\).
-The selected predictor will be a main effect at the first step. At
-subsequent steps, after interaction effects are included, selected
-predictors could be either be a main effect, order-two or order-three
-interaction effect. The final step involves repeating the second step
-until a designated stopping criterion is met. This can be a certain
-amount of predictors to be considered in the final model, or it can be
-based off of other factors such as the sample size. The designated
-stopping criterion will be denoted as d. For our purposes we use d as a
-function of the sample size, \(d = n/log_2a(n)\). The procedure will run
-up until d iterations, and the optimal model will then be constructed
-from the selection set. This is done by an information criterion. Here
-we used the Bayesian Information Criterion proposed by
-\cite{chen2008extended} denoted as the \(BIC_2\). This was derived by
-them to control the false discovery rate in high dimensional model
-selections.
+forward selection procedure, but \(\mathcal{C}\) will grow dynamically
+with the creation of order-2 and order-3 interaction effects between
+main effects that were included from previous iterations of the
+procedure. There are three steps to the model selection. The first step
+is to initialize the 3 sets mentioned above. The sets, \(\mathcal{S}\)
+and \(\mathcal{M}\) are set to the empty set while the candidate set,
+\(\mathcal{C}\), is first set to \(P_1\), all the main effects. The next
+step starts the forward selection procedure selecting predictors from
+\(\mathcal{C}\). The selected predictor will be a main effect at the
+first step. At subsequent steps, after interaction effects are included,
+selected predictors could be either be a main effect, order-two or
+order-three interaction effect. The final step involves repeating the
+second step until a designated stopping criterion is met. This can be a
+certain amount of predictors to be considered in the final model, or it
+can be based off of other factors such as the sample size. The
+designated stopping criterion will be denoted as d. For our purposes we
+use d as a function of the sample size, \(d = n/log_2(n)\). The
+procedure will run up until d iterations, and the optimal model will
+then be constructed from the selection set. This is done by an
+information criterion. Here we used the Bayesian Information Criterion
+proposed by \cite{chen2008extended} denoted as the \(BIC_2\). This was
+derived by them to control the false discovery rate in high dimensional
+model selections.
 
 \begin{equation}
-BIC_2(\hat{M}) = log(\hat{\sigma_M}^2) + n^{-1} |\hat{M}|*(log(n)+2*log(d^{\star}))
+BIC_2(\hat{\mathcal{M}}) = log(\hat{\sigma_{\mathcal{M}}^2) + n^{-1} |\hat{\mathcal{M}}|*(log(n)+2*log(d^{\star}))
 \label{eq:bic2}
 \end{equation}
 
@@ -1343,8 +1344,8 @@ the model before considering the epistatic effects as candidates. Only
 one parent effect would be required to be in the model for candidates to
 be included. In the scenario with order-2 epistatic effects we would
 need, \(\gamma_{jk} \ne 0\) only if
-\(\beta_j^2+,\beta_k^2 \ne 0~ \forall~ 1 \le j, k \le p\) and with
-order-3 epistatic effects to be considered as a candidate we would need,
+\(\beta_j^2+,\beta_k^2 \ne 0~\forall~1 \le j, k \le p\) and with order-3
+epistatic effects to be considered as a candidate we would need,
 \(\eta_{jkl} \ne 0\) only if
 \(\gamma_{jk}^2+\beta_l^2 \ne 0~\forall~ 1 \le j, k, l \le p\).
 
@@ -1407,10 +1408,10 @@ properties (\cite{fan2008sure}). By this we mean that all the import
 predictors, whether that is a main effect or epistatic effect will be
 selected with probability tending to 1. This is important to capture as
 much of the signal as possible through all the noise that comes with
-\(p >> n\) or ultra-high dimensional situations. It is also important
-not to `over-fit' the model with unnecessary predictors that actually
-explain more noise in the data that the model is being fitted on than
-the actual signal you would like to pick up on.
+\(p \gt\gt n\) or ultra-high dimensional situations. It is also
+important not to `over-fit' the model with unnecessary predictors that
+actually explain more noise in the data that the model is being fitted
+on than the actual signal you would like to pick up on.
 
 To show the property from above the following conditions would need to
 be met for regulatory purposes. \cite{hao2014interaction} showed how
@@ -1423,18 +1424,18 @@ need to be met for these conditions. The first is that the
 independent normally distributed error. Next we would need the
 eigenvalues of the covariance matrix to be positive and bounded by two
 constants \(0 < \tau_min < 1 < \tau_{max} < \infty\), such that
-\(\sqrt{\tau}_min < \lambda_min (\Sigma)≤\lambda_max (\Sigma)< \sqrt{\tau}_max/4\).
+\(\sqrt{\tau}_{min} \lt \lambda_{min} (\Sigma) \le \lambda_{max} (\Sigma) \lt \sqrt{\tau}_{max}/4\).
 Also, the genetic effects, \(\beta\) need a certain level of signal
-strength. This we would assume to be \(|(|\beta|)| ≤ C_\beta\) for some
-positive constant \(C_\beta\) and
-\(\beta_min ≥ \nu\beta \eta^{-\xi_min}\),with \(\beta_min=mina(\beta)\).
-Lastly, there needs to be a certain level of sparsity to the number of
-important effects. Denoting the total number of important effects as
-\(d_0\), and positive constants \(\xi,\xi_0\) and \(\nu\) we would need
-\(log(p) ≤ \nu n^\xi,d_0 ≤ \nu n^(\xi_0)\) and
-\(\xi+6\xi_0+12\xi_min \lt \frac{1}{2}\). The conditions stated are
-accepted standards in the literature when studying ultra-high
-dimensional situations. (\cite{hao2014interaction} , \cite{fan2008sure};
+strength. This we would assume to be \(|(|\beta|)| \le C_\beta\) for
+some positive constant \(C_\beta\) and
+\(\beta_min \ge \nu\beta \eta^{-\xi_min}\), with
+\(\beta_min=min(\beta)\). Lastly, there needs to be a certain level of
+sparsity to the number of important effects. Denoting the total number
+of important effects as \(d_0\), and positive constants \(\xi,\xi_0\)
+and \(\nu\) we would need \(log(p) \le \nu n^\xi,d_0 \le \nu n^(\xi_0)\)
+and \(\xi+6\xi_0+12\xi_{min} \lt \frac{1}{2}\). The conditions stated
+are accepted standards in the literature when studying ultra-high
+dimensional situations. (\cite{hao2014interaction}, \cite{fan2008sure};
 \cite{sun2013genome}).
 
 \section{Application}\label{application-1}
@@ -1845,7 +1846,7 @@ r) estimated from raw data, from which we can chart the curves of
 pairwise and three-way epistatic effects using equation
 \eqref{eq:genetic-effects}. Three markers AATTC\_nn\_np\_2815(AA/Aa),
 AATTC\_lm\_ll\_3034(BB/Bb) and AATTC\_nn\_np\_1615(CC/Cc) that produce a
-significant three-way interaction for parameter x of shoot length
+significant three-way interaction for parameter r of shoot length
 display pronounced differences in growth curve \ref{fig:growth-compare}.
 The epistasis of low- and high-order performs differently to affect
 growth form, with three-way interactions playing a more remarkable role
@@ -2160,13 +2161,13 @@ the Legendre orthogonal polynomial used in quantitative genetic studies,
 mentioned above. (\cite{jiang20152higwas}, \cite{olori1999estimating},
 \cite{li2010functional}). This representation can be expressed as
 
-\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]
-\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T \]
+\[ \alpha_j(t) = (L_0(t), L_1(t),\dots, L_s(t))*(u_{j0}, u_{j1},\dots,u_{js})^T \]
+\[ \beta_j(t) = (L_0(t), L_1(t),\dots, L_{s'}(t))*(v_{j0}, v_{j1},\dots,v_{js'})^T \]
 
-where \(L_0(t), L_1(t), ... , L_s(t)\) and
-\(L_0(t), L_1(t), ... , L_{s'}(t)\) are the LOP of orders \(s\) and
-\(s'\), respectively; and \(u_{j0}, u_{j1},...,u_{js}\) and
-\(v_{j0}, v_{j1},...,v_{js'}\) are the vectors of time-invariant
+where \(L_0(t), L_1(t),\dots, L_s(t)\) and
+\(L_0(t), L_1(t),\dots, L_{s'}(t)\) are the LOP of orders \(s\) and
+\(s'\), respectively; and \(u_{j0}, u_{j1},\dots,u_{js}\) and
+\(v_{j0}, v_{j1},\dots,v_{js'}\) are the vectors of time-invariant
 additive and dominant effects, respectively. Orders \(s\) and \(s'\),
 selected from information criteria, for the purposes of this procedure
 the Bayesian information criterion (\(BIC_2\)), originally developed by
@@ -2205,8 +2206,8 @@ y(t) = \mu(t) + \sum_{j=1}^{J}\alpha_j(t)\xi_j + \sum_{k=1}^{K}\beta_k(t)\zeta_k
 \] where,
 
 \[\mu(t)=\frac{a}{(1+b*exp\{-r*t\})}\]
-\[ \alpha_j(t) = (L_0(t), L_1(t), ... , L_s(t))*(u_{j0}, u_{j1},...,u_{js})^T \]
-\[ \beta_j(t) = (L_0(t), L_1(t), ... , L_{s'}(t))*(v_{j0}, v_{j1},...,v_{js'})^T \]
+\[ \alpha_j(t) = (L_0(t), L_1(t),\dots, L_s(t))*(u_{j0}, u_{j1},\dots,u_{js})^T \]
+\[ \beta_j(t) = (L_0(t), L_1(t),\dots, L_{s'}(t))*(v_{j0}, v_{j1},\dots,v_{js'})^T \]
 
 An outline of the selection procedure used following the model described
 is as follows. At first the mean growth curve is estimated for the
